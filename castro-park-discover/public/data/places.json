@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-01-12T21:25:38.293Z",
+  "updatedAt": "2026-02-11T14:34:50.824Z",
   "location": {
     "query": "Goiânia, GO"
   },
@@ -12,7 +12,7 @@
       "name": "The Best Coffee - Goiânia | Cafeteria | Empório | Mix de produtos",
       "category": "cafes",
       "rating": 5,
-      "reviewCount": 14,
+      "reviewCount": 15,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -21,17 +21,20 @@
       "latitude": -16.7364192,
       "longitude": -49.2740517,
       "distanceKm": 6.64,
-      "phone": "+55 62 99503-0505",
+      "phone": "(62) 99503-0505",
       "website": "https://www.google.com/maps/search/?api=1&query=The%20Best%20Coffee%20-%20Goi%C3%A2nia%20%7C%20Cafeteria%20%7C%20Emp%C3%B3rio%20%7C%20Mix%20de%20produtos&query_place_id=ChIJIxV3TrvxXpMRpHWw_nD8v-I",
       "tags": [
         "Cafeteria",
-        "Cafeteria"
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=The%20Best%20Coffee%20-%20Goi%C3%A2nia%20%7C%20Cafeteria%20%7C%20Emp%C3%B3rio%20%7C%20Mix%20de%20produtos&query_place_id=ChIJIxV3TrvxXpMRpHWw_nD8v-I",
+      "sourceUrl": "https://maps.google.com/?cid=16339055535362962852",
       "gallery": [],
       "hours": [],
       "openStatusText": null,
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:38.185Z"
     },
     {
       "id": "ChIJjaq5IgD3XpMRCkTnrGf5ohc",
@@ -51,14 +54,22 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20dos%20Eucaliptos&query_place_id=ChIJjaq5IgD3XpMRCkTnrGf5ohc",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20dos%20Eucaliptos&query_place_id=ChIJjaq5IgD3XpMRCkTnrGf5ohc",
+      "sourceUrl": "https://maps.google.com/?cid=1703197832777253898",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:38.399Z"
     },
     {
       "id": "ChIJTS2xgMPxXpMRNGRyAuxqCl4",
@@ -78,14 +89,22 @@
       "phone": null,
       "website": "https://www.goiania.go.gov.br/sobre-goiania/parques-e-bosques/",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vila%20Ambiental%20-%20N%C3%BAcleo%20de%20Educa%C3%A7%C3%A3o%20Ambiental%20AMMA%2FSME&query_place_id=ChIJTS2xgMPxXpMRNGRyAuxqCl4",
+      "sourceUrl": "https://maps.google.com/?cid=6776346151218209844",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 08:00 – 17:00",
+        "terça-feira: 08:00 – 17:00",
+        "quarta-feira: 08:00 – 17:00",
+        "quinta-feira: 08:00 – 17:00",
+        "sexta-feira: 08:00 – 17:00",
+        "sábado: Fechado",
+        "domingo: Fechado"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:38.605Z"
     },
     {
       "id": "ChIJTTPcpfntXpMRh4j_ATqQ4Ug",
@@ -98,7 +117,7 @@
       "priceText": null,
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyfECZY7RJLaWiDB5ZYQlzTaGvj8LnGH1ZEwEUoQSd_iY9eCfDIaBXVni2SO8uohdlQDlfek-56BQs5oiQYJ3-ElncOSJLfkN8I_b7rYr5IyTtXnWpAR2Ybb9k4csRjsvjLpx0=w426-h240-k-no",
-      "address": "Rua SR-2 com Rua BH-6, fundo do Córrego Rua 89 - Residencial Belo Horizonte, Goiânia - GO, Brasil",
+      "address": "Rua SR-2 com Rua BH-6, fundo do Córrego Rua 89 - Residencial Belo Horizonte, Goiânia - GO, 74785, Brasil",
       "latitude": -16.6369307,
       "longitude": -49.1870534,
       "distanceKm": 8.58,
@@ -106,13 +125,14 @@
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20Municipal%20de%20Goi%C3%A2nia%20-%20Setor%20Belo%20Horizonte%2C%20Goi%C3%A2nia%20-%20GO.&query_place_id=ChIJTTPcpfntXpMRh4j_ATqQ4Ug",
       "tags": [
         "Parque municipal",
-        "Parque municipal"
+        "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Municipal%20de%20Goi%C3%A2nia%20-%20Setor%20Belo%20Horizonte%2C%20Goi%C3%A2nia%20-%20GO.&query_place_id=ChIJTTPcpfntXpMRh4j_ATqQ4Ug",
+      "sourceUrl": "https://maps.google.com/?cid=5251637219306735751",
       "gallery": [],
       "hours": [],
       "openStatusText": null,
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:38.813Z"
     },
     {
       "id": "ChIJryO8XsH1XpMRw1_bFGWFv-0",
@@ -120,7 +140,7 @@
       "name": "Setor Parque das Flores",
       "category": "nature",
       "rating": 5,
-      "reviewCount": 2,
+      "reviewCount": 3,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -132,14 +152,14 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Setor%20Parque%20das%20Flores&query_place_id=ChIJryO8XsH1XpMRw1_bFGWFv-0",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Setor%20Parque%20das%20Flores&query_place_id=ChIJryO8XsH1XpMRw1_bFGWFv-0",
+      "sourceUrl": "https://maps.google.com/?cid=17131558176728768451",
       "gallery": [],
       "hours": [],
       "openStatusText": null,
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:39.016Z"
     },
     {
       "id": "ChIJ9ab2BeuNXpMR2kAdXFdfojo",
@@ -159,14 +179,14 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20Municipal%20Nossa%20Morada&query_place_id=ChIJ9ab2BeuNXpMR2kAdXFdfojo",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Municipal%20Nossa%20Morada&query_place_id=ChIJ9ab2BeuNXpMR2kAdXFdfojo",
+      "sourceUrl": "https://maps.google.com/?cid=4225044229239161050",
       "gallery": [],
       "hours": [],
       "openStatusText": null,
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:39.229Z"
     },
     {
       "id": "ChIJBzz7y1PwXpMRO1y2eabhfDg",
@@ -174,26 +194,35 @@
       "name": "Coco Bambu - Flamboyant",
       "category": "restaurants",
       "rating": 4.9,
-      "reviewCount": 45490,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 46657,
+      "priceLevel": 3,
+      "priceText": "$$$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyOWW2-cDXVqQa9SDmmE5WwBluQcxBImcs8ZpTiMsU04jpzbDpf6INI_neWfSAGOZKrDI3YqQ4Bqper-uBBBkxMEDjFnK92rJECuwwhsAQfO7qBo5rmD_2PzNNXC8ufHo7c-t2S=w408-h306-k-no",
       "address": "Avenida Deputado Jamel Cecílio, 3300 Flamboyant Shopping Center - Jardim Goiás, Goiânia - GO, 74085-580, Brasil",
       "latitude": -16.7113131,
       "longitude": -49.2364144,
       "distanceKm": 3.96,
-      "phone": "+55 62 3434-0049",
+      "phone": "(62) 3434-0049",
       "website": "http://www.cocobambu.com/",
       "tags": [
         "Restaurante de frutos do mar",
-        "Restaurante de frutos do mar"
+        "Restaurante"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Coco%20Bambu%20-%20Flamboyant&query_place_id=ChIJBzz7y1PwXpMRO1y2eabhfDg",
+      "sourceUrl": "https://maps.google.com/?cid=4070376268358900795",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 11:30 – 15:00, 17:00 – 23:00",
+        "terça-feira: 11:30 – 15:00, 17:00 – 23:00",
+        "quarta-feira: 11:30 – 15:00, 17:00 – 23:00",
+        "quinta-feira: 11:30 – 15:00, 17:00 – 23:00",
+        "sexta-feira: 11:30 – 00:00",
+        "sábado: 11:30 – 00:00",
+        "domingo: 11:30 – 23:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:39.456Z"
     },
     {
       "id": "ChIJ16JJOO3xXpMRiWCqR89Xyac",
@@ -201,27 +230,35 @@
       "name": "Camarada Camarão: Camarões, Peixes, Happy Hour, Restaurante, Goiânia GO",
       "category": "restaurants",
       "rating": 4.9,
-      "reviewCount": 2585,
+      "reviewCount": 2605,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
       "image": "https://lh3.googleusercontent.com/p/AF1QipOge28AQITcQoyIQgYx2q7siI8kYe2dTejefbiu=w408-h272-k-no",
       "address": "Av. T-10, 1300 - St. Bueno, Goiânia - GO, 74223-060, Brasil",
       "latitude": -16.7080892,
-      "longitude": -49.2723018,
+      "longitude": -49.27230180000001,
       "distanceKm": 3.69,
-      "phone": "+55 81 3366-3535",
+      "phone": "(81) 3366-3535",
       "website": "https://www.camaradacamarao.com.br/",
       "tags": [
         "Restaurante",
-        "Restaurante",
         "Restaurante de frutos do mar"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Camarada%20Camar%C3%A3o%3A%20Camar%C3%B5es%2C%20Peixes%2C%20Happy%20Hour%2C%20Restaurante%2C%20Goi%C3%A2nia%20GO&query_place_id=ChIJ16JJOO3xXpMRiWCqR89Xyac",
+      "sourceUrl": "https://maps.google.com/?cid=12090291222425002121",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 11:30 – 23:00",
+        "terça-feira: 11:30 – 23:00",
+        "quarta-feira: 11:30 – 23:00",
+        "quinta-feira: 11:30 – 23:00",
+        "sexta-feira: 11:30 – 00:00",
+        "sábado: 11:30 – 00:00",
+        "domingo: 11:30 – 22:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:39.663Z"
     },
     {
       "id": "ChIJgV7iTlf3XpMRXKu-FwEmF6I",
@@ -229,7 +266,7 @@
       "name": "Grécia Lounge Bar | Drinks, Petiscos & Sessões",
       "category": "nightlife",
       "rating": 4.9,
-      "reviewCount": 1737,
+      "reviewCount": 1783,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -238,18 +275,26 @@
       "latitude": -16.6886465,
       "longitude": -49.2981596,
       "distanceKm": 4.8,
-      "phone": "+55 62 99220-0181",
+      "phone": "(62) 99220-0181",
       "website": "https://www.grecialoungebar.com.br/",
       "tags": [
         "Bar",
-        "Bar",
         "Fornecedor de tabaco"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Gr%C3%A9cia%20Lounge%20Bar%20%7C%20Drinks%2C%20Petiscos%20%26%20Sess%C3%B5es&query_place_id=ChIJgV7iTlf3XpMRXKu-FwEmF6I",
+      "sourceUrl": "https://maps.google.com/?cid=11679845944743865180",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 15:00 – 02:00",
+        "terça-feira: 15:00 – 02:00",
+        "quarta-feira: 15:00 – 02:00",
+        "quinta-feira: 15:00 – 02:00",
+        "sexta-feira: 15:00 – 02:00",
+        "sábado: 15:00 – 02:00",
+        "domingo: 15:00 – 02:00"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:39.850Z"
     },
     {
       "id": "ChIJ24psRCTxXpMRrcCHVT7TtK4",
@@ -257,7 +302,7 @@
       "name": "MUY Café",
       "category": "cafes",
       "rating": 4.9,
-      "reviewCount": 205,
+      "reviewCount": 207,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -266,17 +311,27 @@
       "latitude": -16.7206922,
       "longitude": -49.2711577,
       "distanceKm": 4.89,
-      "phone": "+55 62 3095-1030",
+      "phone": "(62) 3095-1030",
       "website": "https://muycafe.com.br/",
       "tags": [
         "Café",
-        "Café"
+        "Restaurante",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=MUY%20Caf%C3%A9&query_place_id=ChIJ24psRCTxXpMRrcCHVT7TtK4",
+      "sourceUrl": "https://maps.google.com/?cid=12588919123083772077",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 09:00 – 18:30",
+        "terça-feira: 09:00 – 18:30",
+        "quarta-feira: 09:00 – 18:30",
+        "quinta-feira: 09:00 – 18:30",
+        "sexta-feira: 09:00 – 18:30",
+        "sábado: 09:00 – 13:00",
+        "domingo: Fechado"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:40.060Z"
     },
     {
       "id": "ChIJdwVn-RXxXpMRyz3V01gQKfU",
@@ -284,7 +339,7 @@
       "name": "Gatos de Rua Café",
       "category": "cafes",
       "rating": 4.9,
-      "reviewCount": 141,
+      "reviewCount": 142,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -293,23 +348,32 @@
       "latitude": -16.6806065,
       "longitude": -49.2410953,
       "distanceKm": 1.38,
-      "phone": "+55 62 99329-7920",
+      "phone": "(62) 99329-7920",
       "website": "https://www.google.com/maps/search/?api=1&query=Gatos%20de%20Rua%20Caf%C3%A9&query_place_id=ChIJdwVn-RXxXpMRyz3V01gQKfU",
       "tags": [
-        "Cafeteria",
         "Cafeteria",
         "Bistrô",
         "Café",
         "Café temático",
         "Confeitaria",
         "Café que oferece a interação com cães",
-        "Casa de chá"
+        "Casa de chá",
+        "Restaurante"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Gatos%20de%20Rua%20Caf%C3%A9&query_place_id=ChIJdwVn-RXxXpMRyz3V01gQKfU",
+      "sourceUrl": "https://maps.google.com/?cid=17665668987034615243",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 08:30 – 19:00",
+        "terça-feira: 08:30 – 19:00",
+        "quarta-feira: 08:30 – 19:00",
+        "quinta-feira: 08:30 – 19:00",
+        "sexta-feira: 08:30 – 19:00",
+        "sábado: 09:00 – 12:00",
+        "domingo: 09:00 – 12:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:40.273Z"
     },
     {
       "id": "ChIJWcoTDovxXpMREQn-24WuiRc",
@@ -317,7 +381,7 @@
       "name": "Aravo Café",
       "category": "cafes",
       "rating": 4.9,
-      "reviewCount": 139,
+      "reviewCount": 142,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -330,15 +394,26 @@
       "website": "https://www.instagram.com/aravo.cafe/",
       "tags": [
         "Cafeteria",
-        "Cafeteria",
         "Restaurante de brunch",
-        "Confeitaria"
+        "Confeitaria",
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Aravo%20Caf%C3%A9&query_place_id=ChIJWcoTDovxXpMREQn-24WuiRc",
+      "sourceUrl": "https://maps.google.com/?cid=1696078624626444561",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 09:00 – 19:00",
+        "terça-feira: 09:00 – 19:00",
+        "quarta-feira: 09:00 – 19:00",
+        "quinta-feira: 09:00 – 19:00",
+        "sexta-feira: 09:00 – 19:00",
+        "sábado: 09:00 – 14:00",
+        "domingo: 09:00 – 14:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:40.477Z"
     },
     {
       "id": "ChIJq8KpLAAR9YgR6Rjmlral7XA",
@@ -420,14 +495,22 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parquinho&query_place_id=ChIJIzNSvM_3XpMRL99rCHCZUe4",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parquinho&query_place_id=ChIJIzNSvM_3XpMRL99rCHCZUe4",
+      "sourceUrl": "https://maps.google.com/?cid=17172675560597085999",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:40.658Z"
     },
     {
       "id": "ChIJv7v9wgLxXpMRNcQLhpC04us",
@@ -525,7 +608,7 @@
       "name": "Garoa Cafés Especiais",
       "category": "cafes",
       "rating": 4.8,
-      "reviewCount": 595,
+      "reviewCount": 607,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -534,17 +617,28 @@
       "latitude": -16.7067053,
       "longitude": -49.2365729,
       "distanceKm": 3.51,
-      "phone": "+55 62 2020-4560",
+      "phone": "(62) 2020-4560",
       "website": "https://www.instagram.com/cafegaroa/",
       "tags": [
         "Cafeteria",
-        "Cafeteria"
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Garoa%20Caf%C3%A9s%20Especiais&query_place_id=ChIJbUfiowjxXpMRyr_SZry7vG4",
+      "sourceUrl": "https://maps.google.com/?cid=7979459057647009738",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 07:30 – 18:00",
+        "terça-feira: 07:30 – 18:00",
+        "quarta-feira: 07:30 – 18:00",
+        "quinta-feira: 07:30 – 18:00",
+        "sexta-feira: 07:30 – 18:00",
+        "sábado: 08:30 – 18:00",
+        "domingo: 08:30 – 18:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:40.862Z"
     },
     {
       "id": "ChIJ3_kEiLVZwokRFHm5LRT1fTY",
@@ -552,26 +646,34 @@
       "name": "Bar Goyana",
       "category": "nightlife",
       "rating": 4.8,
-      "reviewCount": 232,
+      "reviewCount": 236,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
       "image": "https://lh3.googleusercontent.com/p/AF1QipMRVZQXExZKBDMpKrFnOcwqjzofqmqajE2xsC4s=w408-h289-k-no",
-      "address": "177 E 100th St, New York, NY 10029",
-      "latitude": 40.7883604,
+      "address": "177 E 100th St, New York, NY 10029, EUA",
+      "latitude": 40.78836039999999,
       "longitude": -73.9486555,
       "distanceKm": 6879.88,
       "phone": "(917) 213-4480",
       "website": "https://bargoyana.com/",
       "tags": [
-        "Bar",
         "Bar"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Bar%20Goyana&query_place_id=ChIJ3_kEiLVZwokRFHm5LRT1fTY",
+      "sourceUrl": "https://maps.google.com/?cid=3926563917152221460",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Fechado",
+        "terça-feira: 15:00 – 21:30",
+        "quarta-feira: 15:00 – 21:30",
+        "quinta-feira: 15:00 – 21:30",
+        "sexta-feira: 15:00 – 22:00",
+        "sábado: 13:00 – 22:00",
+        "domingo: 13:00 – 21:30"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:41.067Z"
     },
     {
       "id": "ChIJXeLyKQX3XpMRCwp8CCKtIwc",
@@ -579,7 +681,7 @@
       "name": "not black cafeteria",
       "category": "cafes",
       "rating": 4.8,
-      "reviewCount": 192,
+      "reviewCount": 195,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -588,17 +690,28 @@
       "latitude": -16.6898737,
       "longitude": -49.3000493,
       "distanceKm": 5.03,
-      "phone": "+55 62 99440-5684",
+      "phone": "(62) 99440-5684",
       "website": "https://www.instagram.com/notblack_coffee?igsh=cnB2ZTg2ZGVtdDgx",
       "tags": [
         "Cafeteria",
-        "Cafeteria"
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=not%20black%20cafeteria&query_place_id=ChIJXeLyKQX3XpMRCwp8CCKtIwc",
+      "sourceUrl": "https://maps.google.com/?cid=514445144133208587",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 08:00 – 19:30",
+        "terça-feira: 08:00 – 19:30",
+        "quarta-feira: 08:00 – 19:30",
+        "quinta-feira: 08:00 – 19:30",
+        "sexta-feira: 08:00 – 19:30",
+        "sábado: 09:00 – 18:00",
+        "domingo: 09:00 – 18:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:41.264Z"
     },
     {
       "id": "ChIJkwAxsg_xXpMRGzyjRA80IEM",
@@ -606,7 +719,7 @@
       "name": "Club Bar",
       "category": "nightlife",
       "rating": 4.8,
-      "reviewCount": 93,
+      "reviewCount": 96,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -615,17 +728,25 @@
       "latitude": -16.6895947,
       "longitude": -49.263191,
       "distanceKm": 1.46,
-      "phone": "+55 62 99692-7851",
+      "phone": "(62) 99692-7851",
       "website": "http://www.instagram.com/oclubar",
       "tags": [
-        "Bar",
         "Bar"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Club%20Bar&query_place_id=ChIJkwAxsg_xXpMRGzyjRA80IEM",
+      "sourceUrl": "https://maps.google.com/?cid=4836923239976614939",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Fechado",
+        "terça-feira: 17:30 – 00:00",
+        "quarta-feira: 17:30 – 00:30",
+        "quinta-feira: 17:30 – 01:00",
+        "sexta-feira: 17:30 – 03:00",
+        "sábado: 16:30 – 03:00",
+        "domingo: Fechado"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:41.468Z"
     },
     {
       "id": "ChIJw17nJ4PxXpMRHnOIY1kU_D8",
@@ -633,26 +754,37 @@
       "name": "Go Coffee Lozandes",
       "category": "cafes",
       "rating": 4.8,
-      "reviewCount": 54,
+      "reviewCount": 57,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxnbhOHeqALXB2a5jJ_ksWQQJkKcNBvfPsdMBmvrXY9JC6hWIdIVETOMLN8Ef52YGsupd0Qa1QWtZS7J-GaEaCKTbrEgkiJJhkJbQcmEFmcdZPU5X4_KXp775cgKs4QU1nUanSGig=w408-h544-k-no",
-      "address": "no LOZANDES SHOPPING - Avenida Olinda ESPAÇO comercial, LUC nº 039, Goiânia - GO, 74884-120, Brasil",
+      "address": "Avenida Olinda ESPAÇO comercial - no LOZANDES SHOPPING - LUC nº 039 - Alphaville Araguaia, Goiânia - GO, 74884-120, Brasil",
       "latitude": -16.6981516,
-      "longitude": -49.2239238,
+      "longitude": -49.22392379999999,
       "distanceKm": 3.79,
-      "phone": "+55 62 99469-6686",
+      "phone": "(62) 99469-6686",
       "website": "https://www.google.com/maps/search/?api=1&query=Go%20Coffee%20Lozandes&query_place_id=ChIJw17nJ4PxXpMRHnOIY1kU_D8",
       "tags": [
         "Cafeteria",
-        "Cafeteria"
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Go%20Coffee%20Lozandes&query_place_id=ChIJw17nJ4PxXpMRHnOIY1kU_D8",
+      "sourceUrl": "https://maps.google.com/?cid=4610582492675076894",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 07:30 – 20:00",
+        "terça-feira: 07:30 – 20:00",
+        "quarta-feira: 07:30 – 20:00",
+        "quinta-feira: 07:30 – 20:00",
+        "sexta-feira: 07:30 – 20:00",
+        "sábado: 07:30 – 19:00",
+        "domingo: Fechado"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:41.687Z"
     },
     {
       "id": "ChIJadD5cbr1XpMRZk6W43IOsco",
@@ -672,14 +804,22 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20recanto%20do%20bosque&query_place_id=ChIJadD5cbr1XpMRZk6W43IOsco",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20recanto%20do%20bosque&query_place_id=ChIJadD5cbr1XpMRZk6W43IOsco",
+      "sourceUrl": "https://maps.google.com/?cid=14605470953146568294",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:41.879Z"
     },
     {
       "id": "ChIJV__jlVNZXpMRPpwwyky5QoU",
@@ -696,19 +836,30 @@
       "latitude": -16.6793517,
       "longitude": -49.2512748,
       "distanceKm": 0.3,
-      "phone": "+55 62 99125-7447",
+      "phone": "(62) 99125-7447",
       "website": "http://www.kingcafes.com.br/",
       "tags": [
         "Cafeteria",
-        "Cafeteria",
         "Torrefação de café",
-        "Escola técnica"
+        "Escola técnica",
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=King%20Caf%C3%A9s%20Especiais&query_place_id=ChIJV__jlVNZXpMRPpwwyky5QoU",
+      "sourceUrl": "https://maps.google.com/?cid=9602441094968155198",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 07:30 – 18:00",
+        "terça-feira: 07:30 – 18:00",
+        "quarta-feira: 07:30 – 18:00",
+        "quinta-feira: 07:30 – 18:00",
+        "sexta-feira: 07:30 – 18:00",
+        "sábado: 07:30 – 18:00",
+        "domingo: 07:30 – 14:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:42.065Z"
     },
     {
       "id": "ChIJ898ci0TzXpMRs1Ozo0bKLUM",
@@ -721,21 +872,21 @@
       "priceText": null,
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSz73kI6Fp41aS0Gz3b7wJTwavYF5KLP1zXybFCgNs1JJpI6k_0QxqbAZ1roTOgWit-FJjY6aAIAHZfsmsshWOVmvNc8gYqaW8VFPlZOCYigUnJEKp86UlnaipGdvZyehIspSHQyKBQqEiv_=w408-h306-k-no",
-      "address": "St. Goiânia 2, Goiânia - GO, Brasil",
+      "address": "St. Goiânia 2, Goiânia - GO, 74663, Brasil",
       "latitude": -16.6357147,
       "longitude": -49.2497455,
       "distanceKm": 4.93,
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Bosque%20Goi%C3%A2nia%202%20-%20I&query_place_id=ChIJ898ci0TzXpMRs1Ozo0bKLUM",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Bosque%20Goi%C3%A2nia%202%20-%20I&query_place_id=ChIJ898ci0TzXpMRs1Ozo0bKLUM",
+      "sourceUrl": "https://maps.google.com/?cid=4840747579236111283",
       "gallery": [],
       "hours": [],
       "openStatusText": null,
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:42.254Z"
     },
     {
       "id": "ChIJg57ZEGXzXpMRutGR1cz0vyk",
@@ -770,7 +921,7 @@
       "name": "Parque Flamboyant",
       "category": "nature",
       "rating": 4.7,
-      "reviewCount": 22836,
+      "reviewCount": 22923,
       "priceLevel": 0,
       "priceText": null,
       "description": "Parque famoso com gramados abertos, dois lagos e ponte de madeira, além de coreto e playground.",
@@ -783,14 +934,24 @@
       "website": "http://www.goiania.go.gov.br/",
       "tags": [
         "Parque municipal",
-        "Parque municipal",
-        "Atração turística"
+        "Atração turística",
+        "Parque",
+        "Passeio"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Flamboyant&query_place_id=ChIJKcRhUanxXpMRulwJC1BfdF0",
+      "sourceUrl": "https://maps.google.com/?cid=6734112140212919482",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:42.457Z"
     },
     {
       "id": "ChIJsWMnTyTxXpMRi9KhxLxkUr0",
@@ -798,7 +959,7 @@
       "name": "Parque Vaca Brava",
       "category": "nature",
       "rating": 4.7,
-      "reviewCount": 22299,
+      "reviewCount": 22370,
       "priceLevel": 0,
       "priceText": null,
       "description": "Parque urbano próximo a um lago arborizado com vistas para o horizonte e uma pista de corrida circular.",
@@ -811,14 +972,23 @@
       "website": "https://www.goiania.go.gov.br/",
       "tags": [
         "Parque",
-        "Parque",
-        "Atração turística"
+        "Atração turística",
+        "Passeio"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Vaca%20Brava&query_place_id=ChIJsWMnTyTxXpMRi9KhxLxkUr0",
+      "sourceUrl": "https://maps.google.com/?cid=13642076983174222475",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:42.651Z"
     },
     {
       "id": "ChIJCV7w-QLxXpMROXrgIffEaps",
@@ -854,9 +1024,9 @@
       "name": "Vikings Pub",
       "category": "nightlife",
       "rating": 4.7,
-      "reviewCount": 7604,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 7621,
+      "priceLevel": 2,
+      "priceText": "$$",
       "description": "Boteco com temática escandinava tem cervejas especiais entre hambúrgueres da casa com guarnições e variedades.",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSx9bwCPxEYTPicrGdbSLxDmG1cqc3fOpSH7-XM0GArM5up5ZxreYtpnKste0OULw5kaAonqd_uR9M9puyvvV6HWR4ex18GzbcpOlqesHZekWY-FsgcWD48tG8dz1x234rWIG3GoiA=w408-h306-k-no",
       "address": "ao lado do Vikings Garden - Av. T-7, N°. 921 - St. Bueno, Goiânia - GO, 74210-265, Brasil",
@@ -867,16 +1037,26 @@
       "website": "https://www.instagram.com/vikings_pub/",
       "tags": [
         "Gastropub",
-        "Gastropub",
         "Bar de cervejas",
         "Local de apresentações de rock",
-        "Serviço de entrega"
+        "Serviço de entrega",
+        "Restaurante",
+        "Bar"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vikings%20Pub&query_place_id=ChIJUXkmHEzxXpMRCx4KIF5DQCw",
+      "sourceUrl": "https://maps.google.com/?cid=3188622607721831947",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Fechado",
+        "terça-feira: 18:00 – 00:30",
+        "quarta-feira: 18:00 – 00:30",
+        "quinta-feira: 18:00 – 02:00",
+        "sexta-feira: 18:00 – 02:00",
+        "sábado: 18:00 – 02:00",
+        "domingo: 18:00 – 00:30"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:42.838Z"
     },
     {
       "id": "ChIJT0frkPP2XpMRl4pYras_Jy0",
@@ -884,22 +1064,23 @@
       "name": "Parque Bernardo Élis de Goiânia",
       "category": "nature",
       "rating": 4.7,
-      "reviewCount": 6228,
+      "reviewCount": 6242,
       "priceLevel": 0,
       "priceText": null,
       "description": "Parque, Atração turística em Goiânia",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzz19vn32nbYp_GqaPo89jL78qefTg4dxdZehVyM2C87QHT03XsjNiWsEWey-xGPr-aNbpApWAX93TWhXxoLmTvoMxy1ayC-qAAnpRHJKk6W4D535C8JZIErgX9CNuB5R4Ak_fZJA=w408-h240-k-no",
-      "address": "R. CP 4, 2-238 - Res. Celina Park, Goiânia - GO, Brasil",
+      "address": "R. CP 4, 2-238 - Res. Celina Park, Goiânia - GO, 74373, Brasil",
       "latitude": -16.7110976,
-      "longitude": -49.3190076,
+      "longitude": -49.31900760000001,
       "distanceKm": 7.74,
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20Bernardo%20%C3%89lis%20de%20Goi%C3%A2nia&query_place_id=ChIJT0frkPP2XpMRl4pYras_Jy0",
       "tags": [
         "Parque",
-        "Atração turística"
+        "Atração turística",
+        "Passeio"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Bernardo%20%C3%89lis%20de%20Goi%C3%A2nia&query_place_id=ChIJT0frkPP2XpMRl4pYras_Jy0",
+      "sourceUrl": "https://maps.google.com/?cid=3253639262378691223",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzz19vn32nbYp_GqaPo89jL78qefTg4dxdZehVyM2C87QHT03XsjNiWsEWey-xGPr-aNbpApWAX93TWhXxoLmTvoMxy1ayC-qAAnpRHJKk6W4D535C8JZIErgX9CNuB5R4Ak_fZJA=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwRd6w95L25g5X2AL6Hk-BrbcE0GP7Qf63dkFI_-_zOstj7MNV5QbdaSVShhF1L0kldN1wUDn4MUo2oY_vS1IRy1idmSc6hAG0gX-bIKBlmrjLE_eHQyDj_UKfMuxGn6N4I8Dve=w1920-h1080-k-no",
@@ -908,37 +1089,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw0VrTAQk9RZP2Qn0D0voMYfenYVtD85MhVCnvNKsz0efmhStCva2Xjmk8QOWWj1QIrwDQ_coPAszN352l7gdbbAjaTtkME9XEb_3N_trYlfRzy6Rb6GKfN-3uH3bGQ1fDHZ9U=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sábado",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "domingo",
-          "hours": "Atendimento 24 horas"
-        }
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:43.023Z"
     },
     {
       "id": "ChIJc7QiyOnvXpMRjaY6m3UmBfo",
@@ -1008,26 +1169,35 @@
       "name": "Izu Japanese - Jardim Goiás",
       "category": "restaurants",
       "rating": 4.7,
-      "reviewCount": 2711,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 2822,
+      "priceLevel": 3,
+      "priceText": "$$$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/p/AF1QipNBeHIsY8VJqRqqlmBrWIEpbfwJyi-QiHxzojsu=w408-h326-k-no",
       "address": "Av. Dep. Jamel Cecílio, 2370 - Jardim Goiás, Goiânia - GO, 74085-580, Brasil",
       "latitude": -16.7031451,
       "longitude": -49.2432436,
       "distanceKm": 2.83,
-      "phone": "+55 62 3507-4338",
+      "phone": "(62) 3507-4338",
       "website": "https://www.google.com/maps/search/?api=1&query=Izu%20Japanese%20-%20Jardim%20Goi%C3%A1s&query_place_id=ChIJOV4GedDxXpMRXJ1rJ4P_qHU",
       "tags": [
         "Restaurante japonês",
-        "Restaurante japonês"
+        "Restaurante"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Izu%20Japanese%20-%20Jardim%20Goi%C3%A1s&query_place_id=ChIJOV4GedDxXpMRXJ1rJ4P_qHU",
+      "sourceUrl": "https://maps.google.com/?cid=8478307237292121436",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 12:00 – 15:00, 18:00 – 23:00",
+        "terça-feira: 12:00 – 15:00, 18:00 – 23:00",
+        "quarta-feira: 12:00 – 15:00, 18:00 – 23:00",
+        "quinta-feira: 12:00 – 15:00, 18:00 – 23:00",
+        "sexta-feira: 12:00 – 23:00",
+        "sábado: 12:00 – 23:00",
+        "domingo: 12:00 – 23:00"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:43.208Z"
     },
     {
       "id": "ChIJvy3I-sT2XpMRQSi_mEaMK0k",
@@ -1123,7 +1293,7 @@
       "name": "Parque Lago das Rosas",
       "category": "nature",
       "rating": 4.7,
-      "reviewCount": 1392,
+      "reviewCount": 1414,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -1135,14 +1305,22 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20Lago%20das%20Rosas&query_place_id=ChIJ0S_KuGvxXpMRabEk8Ddw3l4",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Lago%20das%20Rosas&query_place_id=ChIJ0S_KuGvxXpMRabEk8Ddw3l4",
+      "sourceUrl": "https://maps.google.com/?cid=6836024669949440361",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:43.395Z"
     },
     {
       "id": "ChIJe1NzKQ_wXpMRruerf7mHk7s",
@@ -1212,26 +1390,34 @@
       "name": "Bar Peixoto",
       "category": "nightlife",
       "rating": 4.7,
-      "reviewCount": 1185,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 1192,
+      "priceLevel": 1,
+      "priceText": "$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzeRWhwbjuc-fx-K6Izk13T4Kv3X7KCP9n7Ypu8wz2FIdoHldODAqGtorpbWHV-oiyjOTLZDtXZGx0NYvQP0u2i8Y2LqFHsUeNE1Z2GxVpF4ak85sCC85oBxW75_i85HmBwC77Z=w426-h240-k-no",
       "address": "R. P-24, 386 - St. dos Funcionários, Goiânia - GO, 74543-390, Brasil",
       "latitude": -16.6691183,
       "longitude": -49.2793218,
       "distanceKm": 2.95,
-      "phone": "+55 62 3291-1405",
+      "phone": "(62) 3291-1405",
       "website": "https://www.google.com/maps/search/?api=1&query=Bar%20Peixoto&query_place_id=ChIJZ1Q-TPfzXpMR-xHgbDHA_3o",
       "tags": [
-        "Bar",
         "Bar"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Bar%20Peixoto&query_place_id=ChIJZ1Q-TPfzXpMR-xHgbDHA_3o",
+      "sourceUrl": "https://maps.google.com/?cid=8863013910200979963",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 07:00 – 19:30",
+        "terça-feira: 07:00 – 19:30",
+        "quarta-feira: 07:00 – 19:30",
+        "quinta-feira: 07:00 – 19:30",
+        "sexta-feira: 07:00 – 19:30",
+        "sábado: 07:00 – 14:00",
+        "domingo: Fechado"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:43.587Z"
     },
     {
       "id": "ChIJLfQ9WePzXpMRQbICGdEx91A",
@@ -1298,7 +1484,7 @@
       "name": "Subverso Coffee Culture",
       "category": "cafes",
       "rating": 4.7,
-      "reviewCount": 326,
+      "reviewCount": 329,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -1311,15 +1497,25 @@
       "website": "https://www.facebook.com/Subverso-Coffe-Culture-101457092196158/",
       "tags": [
         "Cafeteria",
-        "Cafeteria",
         "Bar",
-        "Café"
+        "Café",
+        "Restaurante",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Subverso%20Coffee%20Culture&query_place_id=ChIJgUa1OvzxXpMR8qbISRE4ObA",
+      "sourceUrl": "https://maps.google.com/?cid=12698242271251310322",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 09:00 – 20:00",
+        "terça-feira: 09:00 – 20:00",
+        "quarta-feira: 09:00 – 20:00",
+        "quinta-feira: 09:00 – 20:00",
+        "sexta-feira: 09:00 – 20:00",
+        "sábado: 09:00 – 14:00",
+        "domingo: 09:00 – 14:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:43.767Z"
     },
     {
       "id": "ChIJ70ORTDv1XpMRPWfIyWMGj5o",
@@ -1327,7 +1523,7 @@
       "name": "Parque das Flores",
       "category": "nature",
       "rating": 4.7,
-      "reviewCount": 269,
+      "reviewCount": 272,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -1340,14 +1536,23 @@
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20das%20Flores&query_place_id=ChIJ70ORTDv1XpMRPWfIyWMGj5o",
       "tags": [
         "Jardim",
-        "Jardim",
-        "Parque municipal"
+        "Parque municipal",
+        "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20das%20Flores&query_place_id=ChIJ70ORTDv1XpMRPWfIyWMGj5o",
+      "sourceUrl": "https://maps.google.com/?cid=11137127429167408957",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 09:00 – 17:00",
+        "terça-feira: 09:00 – 17:00",
+        "quarta-feira: 09:00 – 17:00",
+        "quinta-feira: 09:00 – 17:00",
+        "sexta-feira: 09:00 – 17:00",
+        "sábado: 09:00 – 17:00",
+        "domingo: 09:00 – 17:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:43.962Z"
     },
     {
       "id": "ChIJ2TQc0a_zwokRx4bQpvaBz_c",
@@ -1356,11 +1561,11 @@
       "category": "restaurants",
       "rating": 4.7,
       "reviewCount": 98,
-      "priceLevel": 0,
-      "priceText": null,
+      "priceLevel": 2,
+      "priceText": "$$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/p/AF1QipNRE_F09o7mfGbmtNn5NTd3o5zreD6sz_kMaEpz=w408-h306-k-no",
-      "address": "197 W Lincoln Ave, Mt Vernon, NY 10550",
+      "address": "197 W Lincoln Ave, Mt Vernon, NY 10550, EUA",
       "latitude": 40.9139611,
       "longitude": -73.8437075,
       "distanceKm": 6888.34,
@@ -1368,13 +1573,22 @@
       "website": "https://order.toasttab.com/online/brbrazilian",
       "tags": [
         "Restaurante brasileiro",
-        "Restaurante brasileiro"
+        "Restaurante"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=BR%20Brazilian%20Restaurant%20%26%20Bar&query_place_id=ChIJ2TQc0a_zwokRx4bQpvaBz_c",
+      "sourceUrl": "https://maps.google.com/?cid=17856633943907927751",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 11:30 – 23:00",
+        "terça-feira: 11:30 – 23:00",
+        "quarta-feira: 11:30 – 23:00",
+        "quinta-feira: 11:30 – 23:00",
+        "sexta-feira: 11:30 – 00:00",
+        "sábado: 11:30 – 00:00",
+        "domingo: 11:30 – 23:00"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:44.152Z"
     },
     {
       "id": "ChIJx2LOj532XpMRErHmTjPOk3s",
@@ -1409,27 +1623,36 @@
       "name": "Shopping Cerrado",
       "category": "shopping",
       "rating": 4.6,
-      "reviewCount": 31159,
+      "reviewCount": 31257,
       "priceLevel": 0,
       "priceText": null,
-      "description": "",
+      "description": "Modern enclosed mall with shops, a food court, movies, escape rooms & an indoor play park.",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzgJ9nJrFazYFFOvAmegnJThBJ4bBw9OEtabgu93rVGPs9ZJXW90h29_fgDAIJG9TnomBP_fMeM6u9Twb6TnSkoqh0fZCNsJy8sQ3xXNvyb3Hn0fCSObpNGX_Z1t_wOt5k0FFs=w408-h270-k-no",
       "address": "Av. Anhanguera, 10790 - Aeroviario, Goiânia - GO, 74435-090, Brasil",
       "latitude": -16.6663008,
       "longitude": -49.3084551,
       "distanceKm": 5.99,
-      "phone": "+55 62 3621-2610",
+      "phone": "(62) 3621-2610",
       "website": "http://www.shoppingcerrado.com.br/",
       "tags": [
         "Shopping center",
-        "Shopping center",
-        "Cinema"
+        "Cinema",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Shopping%20Cerrado&query_place_id=ChIJJycR2ED0XpMRp2fazwuxnCk",
+      "sourceUrl": "https://maps.google.com/?cid=2998466116211861415",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 10:00 – 22:00",
+        "terça-feira: 10:00 – 22:00",
+        "quarta-feira: 10:00 – 22:00",
+        "quinta-feira: 10:00 – 22:00",
+        "sexta-feira: 10:00 – 22:00",
+        "sábado: 10:00 – 22:00",
+        "domingo: 14:00 – 20:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:44.361Z"
     },
     {
       "id": "ChIJN4k2qUPxXpMRbmFZjA8FPu8",
@@ -1528,7 +1751,7 @@
       "name": "Parque Areião Washington Novaes",
       "category": "nature",
       "rating": 4.6,
-      "reviewCount": 12749,
+      "reviewCount": 12784,
       "priceLevel": 0,
       "priceText": null,
       "description": "Parque arborizado com trilhas para caminhada, pistas de corrida, um lago, macacos e vendedores de água de coco.",
@@ -1542,9 +1765,11 @@
       "tags": [
         "Parque municipal",
         "Trilha de Caminhada",
-        "Atração turística"
+        "Atração turística",
+        "Parque",
+        "Passeio"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Arei%C3%A3o%20Washington%20Novaes&query_place_id=ChIJgfv1XBvxXpMR8OWZg4CyJ8o",
+      "sourceUrl": "https://maps.google.com/?cid=14566807784786617840",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw2xMNww4v8xBHCwx9UGDd92G8iWkhlA5hyVzJewNTacCK-YdKQvTYH2JgTrPVUdlnGiBoQzBgGxH21LfBe8Z3rLo_S_Lj659TdC88aQlz23BLDmZGFO7mbrYhZwNzDorh2E8U2=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSymKAMR-CHIPuG1LTQYZraZigcVNTu3EY_0VcMbQtscx-Dz5Irkr0GDVKhHcje8RDFYkAulCX6DontDr5sP5lSCY-0Hxlvp7-1dm0YEq-CPHE4U5UnMIInwfI5HHZxUtPhd-8iN=w1920-h1080-k-no",
@@ -1553,37 +1778,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwgW-gK1Tcj8VzxJIJJvhJe0v79y-djhKDdM7xTVZiWjnYu5pOp8FV5FeaTEOMoJy-Vrq-5mSSiu2qrKAi5fslpX4XthiCgLPyOiR4qTMQBHilD7eeX-myxLej2tc_waWXSGm5c=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "07:00 to 20:00"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "07:00 to 20:00"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "07:00 to 20:00"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "07:00 to 20:00"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "07:00 to 20:00"
-        },
-        {
-          "day": "sábado",
-          "hours": "07:00 to 20:00"
-        },
-        {
-          "day": "domingo",
-          "hours": "07:00 to 20:00"
-        }
+        "segunda-feira: 07:00 – 20:00",
+        "terça-feira: 07:00 – 20:00",
+        "quarta-feira: 07:00 – 20:00",
+        "quinta-feira: 07:00 – 20:00",
+        "sexta-feira: 07:00 – 20:00",
+        "sábado: 07:00 – 20:00",
+        "domingo: 07:00 – 20:00"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:44.563Z"
     },
     {
       "id": "ChIJmSHX0lnxXpMRWA4RduwEkU4",
@@ -1888,9 +2093,9 @@
       "name": "Ópera Café Bistrô",
       "category": "cafes",
       "rating": 4.6,
-      "reviewCount": 1633,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 1645,
+      "priceLevel": 2,
+      "priceText": "$$",
       "description": "Cafés gourmets com tortas e waffles, além de sanduíches e pratos lights, em espaço acolhedor com jardinzinho.",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyxxT44g_R2cjjdfAVQvq1o1nkqYqZ-_Ra5ETsaWaDumWDJkUhNhRS4c_3brxrfgJVVcBabQ9Q29bned-VhPba4HAEPKtMn2aK05JQaI3o3IJzyaekzzsaMOwgt42_nuxbDOiRJ=w426-h240-k-no",
       "address": "R. T-52, 511 - St. Bueno, Goiânia - GO, 74215-220, Brasil",
@@ -1901,15 +2106,26 @@
       "website": "https://www.google.com/maps/search/?api=1&query=%C3%93pera%20Caf%C3%A9%20Bistr%C3%B4&query_place_id=ChIJd4JLjqnxXpMRsRs0IIrLg8A",
       "tags": [
         "Cafeteria",
-        "Cafeteria",
         "Bistrô",
-        "Restaurante de café da manhã"
+        "Restaurante de café da manhã",
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=%C3%93pera%20Caf%C3%A9%20Bistr%C3%B4&query_place_id=ChIJd4JLjqnxXpMRsRs0IIrLg8A",
+      "sourceUrl": "https://maps.google.com/?cid=13872155071337470897",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 07:00 – 19:00",
+        "terça-feira: 07:00 – 19:00",
+        "quarta-feira: 07:00 – 19:00",
+        "quinta-feira: 07:00 – 19:00",
+        "sexta-feira: 07:00 – 19:00",
+        "sábado: 08:00 – 18:00",
+        "domingo: Fechado"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:44.751Z"
     },
     {
       "id": "ChIJWSAgvhHxXpMRO5vi2JtqBbo",
@@ -2154,7 +2370,7 @@
       "name": "Balkan Rooftop",
       "category": "restaurants",
       "rating": 4.6,
-      "reviewCount": 501,
+      "reviewCount": 505,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -2163,17 +2379,25 @@
       "latitude": -16.7067217,
       "longitude": -49.2368296,
       "distanceKm": 3.5,
-      "phone": "+55 62 3956-0202",
+      "phone": "(62) 3956-0202",
       "website": "https://www.instagram.com/rooftopbalkan/",
       "tags": [
-        "Restaurante",
         "Restaurante"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Balkan%20Rooftop&query_place_id=ChIJ_yTApS_xXpMR1TwmwDS6w6o",
+      "sourceUrl": "https://maps.google.com/?cid=12304883342631124181",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 11:30 – 23:00",
+        "terça-feira: 11:30 – 23:00",
+        "quarta-feira: 11:30 – 23:00",
+        "quinta-feira: 11:30 – 23:00",
+        "sexta-feira: 11:30 – 23:00",
+        "sábado: 11:30 – 23:00",
+        "domingo: 11:30 – 23:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:44.956Z"
     },
     {
       "id": "ChIJ15qmfILxXpMRRdr2chDT-MI",
@@ -2249,7 +2473,7 @@
       "priceText": null,
       "description": "Parque em Goiânia",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSywSXrSN311Y169uXl9TmceNOTtbxNO7eBqnJ9TgXp9SdGiXlcabTw09lt4sAC-TvneWsq7Kkb_9KuMws_AMXQclZeKkaMdTSwX9_4eiUqZHR8jL-q7q2NcrbcxY5yzA4DCyPJZHQ=w408-h544-k-no",
-      "address": "Jardim Nova Esperanca, Goiânia - GO, Brasil",
+      "address": "Jardim Nova Esperanca, Goiânia - GO, 74463, Brasil",
       "latitude": -16.6427416,
       "longitude": -49.3379296,
       "distanceKm": 9.85,
@@ -2258,7 +2482,7 @@
       "tags": [
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Nova%20Esperan%C3%A7a&query_place_id=ChIJt0ey6_P1XpMRxCa2yFN3ASU",
+      "sourceUrl": "https://maps.google.com/?cid=2666543656113415876",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSywSXrSN311Y169uXl9TmceNOTtbxNO7eBqnJ9TgXp9SdGiXlcabTw09lt4sAC-TvneWsq7Kkb_9KuMws_AMXQclZeKkaMdTSwX9_4eiUqZHR8jL-q7q2NcrbcxY5yzA4DCyPJZHQ=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyBUQkGxfKvLoHfcGhSeq6js0B3b3WtglhCah1Nw74NSdoK2vYU3975k16Hox8fRx_w4TsRu-wD3LQe6v1l_1uYUqkTzfZsMdAwEIwaJQkcGxS7hwyuiGY10Y7AwMO42_rbe1BF=w1920-h1080-k-no",
@@ -2268,7 +2492,8 @@
       ],
       "hours": [],
       "openStatusText": "Ver horários",
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:45.133Z"
     },
     {
       "id": "ChIJOYzrWwzxXpMRw10yE6H7_Jc",
@@ -2276,7 +2501,7 @@
       "name": "Bosque dos Pássaros",
       "category": "nature",
       "rating": 4.6,
-      "reviewCount": 276,
+      "reviewCount": 277,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -2288,14 +2513,14 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Bosque%20dos%20P%C3%A1ssaros&query_place_id=ChIJOYzrWwzxXpMRw10yE6H7_Jc",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Bosque%20dos%20P%C3%A1ssaros&query_place_id=ChIJOYzrWwzxXpMRw10yE6H7_Jc",
+      "sourceUrl": "https://maps.google.com/?cid=10951905063088577987",
       "gallery": [],
       "hours": [],
       "openStatusText": null,
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:45.352Z"
     },
     {
       "id": "ChIJBVBcrU7wXpMRdkumgtIDamc",
@@ -2497,14 +2722,15 @@
       "image": "https://lh3.googleusercontent.com/p/AF1QipMG4weLrcpNQ5XhJLsf6kXuMkkAAXxILLONVFO7=w408-h306-k-no",
       "address": "Av. Goiás, 1799 - St. Central, Goiânia - GO, 74063-010, Brasil",
       "latitude": -16.6634432,
-      "longitude": -49.2617441,
+      "longitude": -49.26174409999999,
       "distanceKm": 2.01,
       "phone": null,
       "website": "https://www.instagram.com/museuconfaloni/",
       "tags": [
-        "Museu"
+        "Museu",
+        "Cultura"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Museu%20Frei%20Confaloni&query_place_id=ChIJBXyIxAfzXpMRyvFuXGiJFyw",
+      "sourceUrl": "https://maps.google.com/?cid=3177159143453553098",
       "gallery": [
         "https://lh3.googleusercontent.com/p/AF1QipMG4weLrcpNQ5XhJLsf6kXuMkkAAXxILLONVFO7=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwOa51MR-rPKGMz6GH7id-u26_4djKKVYCYmE_30c8aKhH8JFx-FFD_V6lAzvwrpLyLp8LrAsNC-60onYkBk9sojeIxzYGsdLJBdtP0jvzE3SHoh_2wLUyLRN90SieVFUQ2V_uG=w1920-h1080-k-no",
@@ -2513,37 +2739,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzu82jcB-6FvP9DQyMPEoT0SEYIZXpS-OhHhUNMq242HEXHCCe1N1oNvAM0Y3rSax-BA9T1iHM2axVwPSvocsrwHVD9IxVV9ZkJsMSha4LpO86bO_M5BU7xk5Y60aT-5l2rPSqp=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "Fechado"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "08:00 to 17:00"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "08:00 to 17:00"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "08:00 to 17:00"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "08:00 to 17:00"
-        },
-        {
-          "day": "sábado",
-          "hours": "08:00 to 17:00"
-        },
-        {
-          "day": "domingo",
-          "hours": "08:00 to 17:00"
-        }
+        "segunda-feira: Fechado",
+        "terça-feira: 08:00 – 17:00",
+        "quarta-feira: 08:00 – 17:00",
+        "quinta-feira: 08:00 – 17:00",
+        "sexta-feira: 08:00 – 17:00",
+        "sábado: 08:00 – 17:00",
+        "domingo: 08:00 – 17:00"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:45.541Z"
     },
     {
       "id": "ChIJs20TRCXxXpMRgx2tuyLDIBs",
@@ -2578,7 +2784,7 @@
       "name": "Parque Cascavel",
       "category": "nature",
       "rating": 4.5,
-      "reviewCount": 6929,
+      "reviewCount": 6948,
       "priceLevel": 0,
       "priceText": null,
       "description": "Parque público arborizado com parquinho e laguinho com ponte, além de trilhas para caminhada e bicicleta.",
@@ -2591,9 +2797,10 @@
       "website": "https://www.goiania.go.gov.br/",
       "tags": [
         "Parque",
-        "Atração turística"
+        "Atração turística",
+        "Passeio"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Cascavel&query_place_id=ChIJM30YtzD3XpMRbmKh80VxGgk",
+      "sourceUrl": "https://maps.google.com/?cid=655961240989950574",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyt2OpuqNSLkUktxXr4d55W6ARlzD6Y705V8cGF8viX41KEMf1Hb6zS4lG1unk16qsD9U6ycZgGgoekdcVKzXeYprTVp-FzG695OGb4wbbOybCKkw6TzWPJX76ogNHhAlIcBt-j=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzWHvZG949pxPR5LfBO2b2g4pFyWWIiQs6EvaPb3684oMVBkMdeYJWYsTOQObpqYAfBKJaNmc4R2oWObKo615jG_6lmsfltg6YFDy7ZbRySbcryPmVQ0QV7YEbQRhixWOGWKSQQMQ=w1920-h1080-k-no",
@@ -2602,37 +2809,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyVEjtLueqtyYzzmCzSmCMfglVrq_7qQNmJKKEkwE5d5LjmUV_pUGTnTCR8oMJwFogZiDJHmKdU_UAql8NXe9RzKe_TNPEqW1EtMHf8UWj6DNi9S8Qf41_ZHWpmX3p_mbn-91NquQ=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sábado",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "domingo",
-          "hours": "Atendimento 24 horas"
-        }
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:45.726Z"
     },
     {
       "id": "ChIJTzDGc-zwXpMRjY87KTpajDg",
@@ -2640,7 +2827,7 @@
       "name": "Jardim Botânico de Goiânia",
       "category": "nature",
       "rating": 4.5,
-      "reviewCount": 6677,
+      "reviewCount": 6692,
       "priceLevel": 0,
       "priceText": null,
       "description": "Linda área verde com pequenos lagos, jardins, trilha e museu.",
@@ -2653,9 +2840,10 @@
       "website": "http://www.goiania.go.gov.br/",
       "tags": [
         "Jardim botânico",
-        "Parque municipal"
+        "Parque municipal",
+        "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Jardim%20Bot%C3%A2nico%20de%20Goi%C3%A2nia&query_place_id=ChIJTzDGc-zwXpMRjY87KTpajDg",
+      "sourceUrl": "https://maps.google.com/?cid=4074730968709828493",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzxLs064xPo1q4rNAbgFNHGq-1aGPaMw237P7fSRJp8CSuP8gG9g-XsKC_bm4BdKjX-fAb7mHVHqLS_jE0GirJ4X4-5mCul0jJ-yS6Pe6jJWOuMxOGLkgc3KoZR2iBfZU_mfYaN=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSz-dE-9H96KEjG3TtaetbZvtwrEDX4810nTvJuO3YXDKSQP88mnvnC3MuKakO6HRa214CcXA-5ttoIRib7YD_Cu88oiG8MJB3m98XkjfkaYx1Fzx5jF3AFjg-JaB0tFakgLjpKv=w1920-h1080-k-no",
@@ -2664,37 +2852,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxYzJwUygmb8tknDfJ3fR2gYgkxk1pto--Lblmxc8kKZceEVj6ZQCMRQurMwBsMHYg3eIjwQr55j4juvpPFQU9WAxBJy5Oj9z8yWLtOCDoXYcivTW1_bsptMxErYHzV0xlcWb3I9Q=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "06:00 to 00:00"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "06:00 to 00:00"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "06:00 to 00:00"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "06:00 to 00:00"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "06:00 to 00:00"
-        },
-        {
-          "day": "sábado",
-          "hours": "06:00 to 00:00"
-        },
-        {
-          "day": "domingo",
-          "hours": "06:00 to 00:00"
-        }
+        "segunda-feira: 06:00 – 00:00",
+        "terça-feira: 06:00 – 00:00",
+        "quarta-feira: 06:00 – 00:00",
+        "quinta-feira: 06:00 – 00:00",
+        "sexta-feira: 06:00 – 00:00",
+        "sábado: 06:00 – 00:00",
+        "domingo: 06:00 – 00:00"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:45.924Z"
     },
     {
       "id": "ChIJ1U2A3ALxXpMRBJp7EL9LIa0",
@@ -2914,8 +3082,8 @@
       "category": "cafes",
       "rating": 4.5,
       "reviewCount": 2044,
-      "priceLevel": 0,
-      "priceText": null,
+      "priceLevel": 2,
+      "priceText": "$$",
       "description": "Espaço moderno e arejado com terraço arborizado, lanches leves e sobremesas, além de cerveja gelada e em temperatura ambiente.",
       "image": "https://lh3.googleusercontent.com/p/AF1QipOFcTAdP3xNr5PYchJMSSm9uuoM1K0wnwCLiROE=w408-h272-k-no",
       "address": "Av. República do Líbano, 2512 - St. Oeste, Goiânia - GO, 74115-030, Brasil",
@@ -2926,9 +3094,11 @@
       "website": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20S%2FA%20Oeste&query_place_id=ChIJncYCmXykXpMRDkGNgFjymgY",
       "tags": [
         "Cafeteria",
-        "Café"
+        "Café",
+        "Restaurante",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20S%2FA%20Oeste&query_place_id=ChIJncYCmXykXpMRDkGNgFjymgY",
+      "sourceUrl": "https://maps.google.com/?cid=475959172568793358",
       "gallery": [
         "https://lh3.googleusercontent.com/p/AF1QipOFcTAdP3xNr5PYchJMSSm9uuoM1K0wnwCLiROE=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyZLxPKZtuZ-bl8y1ZKvoS0RadCVKm04SDt05qFfRkEiNiDaB4RksZ65z-Vo0DYvStoltFH1vSv6IK4D4j5hdwGGg4iIRR2Wm8-rhNEJBeAgu6pUIoJlmt8Xd8QOaKjFEWkrL7q5Q=w1920-h1080-k-no",
@@ -2937,37 +3107,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxDVjAFycFQlEbZkCZJCWCSVSU9Q0P5riNEQjQJwK8uTZPAcKC0oUj9zpxZlUCRpq0hjb4ZSmiKWOl23f-Therc7Bg0X4nVzNVzyu3UclRKKtHCYNY-WYZdtKHqPyUk3AF8MXZn6g=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "sábado",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "domingo",
-          "hours": "08:30 to 19:30"
-        }
+        "segunda-feira: 08:30 – 19:30",
+        "terça-feira: 08:30 – 19:30",
+        "quarta-feira: 08:30 – 19:30",
+        "quinta-feira: 08:30 – 19:30",
+        "sexta-feira: 08:30 – 19:30",
+        "sábado: 08:30 – 19:30",
+        "domingo: 08:30 – 19:30"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": "https://cafeteriasa.com/collections/setor-oeste"
+      "openStatusText": "Aberto agora",
+      "menuUrl": "https://cafeteriasa.com/collections/setor-oeste",
+      "_enrichedAt": "2026-02-11T14:34:46.111Z"
     },
     {
       "id": "ChIJdS_zPVzxXpMRotqJMzaM1v0",
@@ -3092,7 +3242,7 @@
       "name": "Parque Beija Flor",
       "category": "nature",
       "rating": 4.5,
-      "reviewCount": 1651,
+      "reviewCount": 1655,
       "priceLevel": 0,
       "priceText": null,
       "description": "Parque, Atração turística em Goiânia",
@@ -3105,9 +3255,10 @@
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20Beija%20Flor&query_place_id=ChIJw2MApDnyXpMRZaRlqh6q-fc",
       "tags": [
         "Parque",
-        "Atração turística"
+        "Atração turística",
+        "Passeio"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Beija%20Flor&query_place_id=ChIJw2MApDnyXpMRZaRlqh6q-fc",
+      "sourceUrl": "https://maps.google.com/?cid=17868500045253682277",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSySxzNfWjbHHZES0-fZGQC-CjhAGenZVwyFuzBllT7wqhPDbyrIpP92QwRtgp-K5extiUwZOPADe-Zvt2jDaKrp3irh7-sn2IgfylUBXe9DB7ieboBrc0nRHABuMiN8S_DJ6ZnS=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyTq1kn8ztMrb_UG0dXXiYqR8Jf46ZNadczPSjzi7asrHtIybi-TsoxT9S__ezZqMuqWt-sSp1g03XldpJXS8dPIMBlSmZGfPnxeUCvqXAVYa2ejBklLKLHWWVXIpAFEAfbqWe-=w1920-h1080-k-no",
@@ -3116,37 +3267,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSybwg7LU2QQPscmqVzVnfGEJ1DJreos8QW_fe8YBSBnVot_pR663ozIHT8Cc2YmpEXWOgWFddFWQDCt7_7otO8jF-Fk5alOXRh-TAi9abOMtCBjjdiJIev4raH7KmFroIVIvBrH=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sábado",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "domingo",
-          "hours": "Atendimento 24 horas"
-        }
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:46.298Z"
     },
     {
       "id": "ChIJzf85Wf71XpMR08cjm4db4b0",
@@ -3182,27 +3313,35 @@
       "sourceId": "ChIJT7TAomvxXpMR1XYDTbrn3To",
       "name": "Ciao Ciao Cucina",
       "category": "restaurants",
-      "rating": 4.5,
-      "reviewCount": 892,
-      "priceLevel": 0,
-      "priceText": null,
+      "rating": 4.4,
+      "reviewCount": 908,
+      "priceLevel": 3,
+      "priceText": "$$$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzIlF3_I5U7uffe1laBJMbx3pBh0AqpvM5X2TsMiwITT2Y0jLGmRm36rX6SR16qSukidkaZe5vVKDtdMF-VNBnwQQY9T8Gjdss4FJDOyZK7OtBJx0NkUWrWmsh8Ay4gI9JlS1Ud=w426-h240-k-no",
       "address": "Órion Complex - Av. Portugal, 1148 - 40º Andar - St. Marista, Goiânia - GO, 74150-030, Brasil",
       "latitude": -16.6965547,
-      "longitude": -49.2700935,
+      "longitude": -49.27009349999999,
       "distanceKm": 2.52,
-      "phone": "+55 62 3412-3700",
+      "phone": "(62) 3412-3700",
       "website": "https://www.ciaociaocucina.com.br/",
       "tags": [
-        "Restaurante",
         "Restaurante"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Ciao%20Ciao%20Cucina&query_place_id=ChIJT7TAomvxXpMR1XYDTbrn3To",
+      "sourceUrl": "https://maps.google.com/?cid=4241801211394881237",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 19:00 – 23:00",
+        "terça-feira: 12:00 – 15:00, 19:00 – 23:00",
+        "quarta-feira: 12:00 – 15:00, 19:00 – 23:00",
+        "quinta-feira: 12:00 – 15:00, 19:00 – 23:00",
+        "sexta-feira: 12:00 – 15:00, 19:00 – 00:00",
+        "sábado: 12:00 – 15:30, 19:00 – 00:00",
+        "domingo: 12:00 – 16:00"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:46.485Z"
     },
     {
       "id": "ChIJEZsM28P1XpMR85xVsyF4I84",
@@ -3210,7 +3349,7 @@
       "name": "Parque Municipal Campininha das Flores",
       "category": "nature",
       "rating": 4.5,
-      "reviewCount": 531,
+      "reviewCount": 534,
       "priceLevel": 0,
       "priceText": null,
       "description": "Parque em Goiânia",
@@ -3224,7 +3363,7 @@
       "tags": [
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Municipal%20Campininha%20das%20Flores&query_place_id=ChIJEZsM28P1XpMR85xVsyF4I84",
+      "sourceUrl": "https://maps.google.com/?cid=14853848082136014067",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxJnHM_wZbww7bpZ-YdSd3E1TD9iNC87qwwI3WKWCs6ZP9fyoz19DUvsok6RC7iBLj2XqAdYwYWZyXz70k35qWxC6f5dqkK6uCV2-Q6v9bkZrOZI22lTpdRsBX8sqSzqLSG4KGe=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSz76BRIqSkRGSsHCcl3tpVOlelEm10obY7gdyvWF8mYDmw8Ojbb7aA_pVgsYSOxH-ULtAThzqywHAxANdBpuriAOslKrTudzyVruC7g8NsMU2-N1PdUxqjy3c9oqOlX1v1vYYDe=w1920-h1080-k-no",
@@ -3233,37 +3372,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxR04D_6NX4qDzKYDEnSHJW7xs904lDWfoeniSFBnLESBVIJmDbYMfaniFzqvR2wXs3ZAFGLlyoeLCLmLUn_HisFKNkB-bDp4XtyDcwJq3gUMQI8oTvOwEGkg5Gyh_zy3Y1JQsd=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sábado",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "domingo",
-          "hours": "Atendimento 24 horas"
-        }
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:46.667Z"
     },
     {
       "id": "ChIJZbwsjizzXpMR3hgvnKpCYMk",
@@ -3349,9 +3468,11 @@
       "tags": [
         "Museu histórico",
         "Museu",
-        "Atração turística"
+        "Atração turística",
+        "Cultura",
+        "Passeio"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Museu%20Goiano%20Professor%20Zoroastro%20Artiaga&query_place_id=ChIJeXIpWmTxXpMR9GABcVBd2r4",
+      "sourceUrl": "https://maps.google.com/?cid=13752407012203913460",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSx2sX3VTJAghozyWwMYMHIvgvY2fjO5s_TPVDTO-xx1JJJiEVlei02tkkNoc5nduei1ctGVEQep9FOd9dXybmCm98GH2TPJYAGv-VNecviNM8Tivpt1da6R4k-g-ux0B831JiI=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxoIFIy6Wo9rZKakR8yEZ7Uom0P7ckZ_A7Ga4zkf4dCc1EmITH-pt9H5LGvSlc_T1-CK1cxt4-ACWTRpgMp_JLv4TGJcd_TdcbfCXNATesj3IF4v87XVa15uzbq3KjqfDubVeWisQ=w1920-h1080-k-no",
@@ -3361,7 +3482,8 @@
       ],
       "hours": [],
       "openStatusText": "Ver horários",
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:46.852Z"
     },
     {
       "id": "ChIJkbhQTYPxXpMRyEIdKOuWFbs",
@@ -3435,16 +3557,17 @@
       "priceText": null,
       "description": "Parque municipal em Goiânia",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzLdeA4ewFLDFHgtBT-aIXb-DA4DtOFCJPC-JRVhycJvVDO_fWBLKpFBXN1EMhFR3J6C1imvmv9VKZMxcSlqkyGXjaf6Oabk5Zw2_uGz_b4dYwXujSEJpGmBkKn1wEP2xGeUQ5kkw=w408-h306-k-no",
-      "address": "Rua CR 3 (Res. FL32 (Parque das Flores), 74595-305, R. Itália - Parque das Nacoes, Goiânia - GO, 74593-260, Brasil",
+      "address": "Rua CR 3 (Res. FL32 (Parque das Flores), 74595-305 - R. Itália - Parque das Nacoes, Goiânia - GO, 74593-260, Brasil",
       "latitude": -16.6220623,
       "longitude": -49.2967836,
       "distanceKm": 7.88,
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20Municipal%20Parque%20das%20Flores&query_place_id=ChIJuZctiLz0XpMRyPtxy9Uotzk",
       "tags": [
-        "Parque municipal"
+        "Parque municipal",
+        "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Municipal%20Parque%20das%20Flores&query_place_id=ChIJuZctiLz0XpMRyPtxy9Uotzk",
+      "sourceUrl": "https://maps.google.com/?cid=4158837679606332360",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzLdeA4ewFLDFHgtBT-aIXb-DA4DtOFCJPC-JRVhycJvVDO_fWBLKpFBXN1EMhFR3J6C1imvmv9VKZMxcSlqkyGXjaf6Oabk5Zw2_uGz_b4dYwXujSEJpGmBkKn1wEP2xGeUQ5kkw=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyRLnrpBYwqGmIXLPz7KZ2Dn8EO10-CmYAf8DP1eyrIfr2UK4AnejDHxzKe-JJyeAdM8uyCTtrjtHQVh9AXgHWOXPlmnQS6EQZx382WPQiL9TiKkRCgM-e_nTVyB_H6_B5ZoHIoBA=w1920-h1080-k-no",
@@ -3453,37 +3576,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSymX9LEjz18MxZP6S9hNAg8qEGvjIISuiLa7C2LaJEYLvWzxaxETSwvqAJeWuGBws745cvmFaZ4SsWKG6ueHs3Emcidum6-SI4an0FC5g6rCQiZ2xGwQULm5_ZCmzYuT3gX4zEpAA=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sábado",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "domingo",
-          "hours": "Atendimento 24 horas"
-        }
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:47.026Z"
     },
     {
       "id": "ChIJ-dMBUyrzXpMRCo9wSi171GA",
@@ -3491,7 +3594,7 @@
       "name": "Florescer Café",
       "category": "cafes",
       "rating": 4.5,
-      "reviewCount": 108,
+      "reviewCount": 110,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -3500,18 +3603,28 @@
       "latitude": -16.6636542,
       "longitude": -49.2424558,
       "distanceKm": 2.19,
-      "phone": "+55 62 99335-4873",
+      "phone": "(62) 99335-4873",
       "website": "https://www.instagram.com/florescer.cafe/",
       "tags": [
         "Cafeteria",
-        "Cafeteria",
-        "Café"
+        "Café",
+        "Restaurante",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Florescer%20Caf%C3%A9&query_place_id=ChIJ-dMBUyrzXpMRCo9wSi171GA",
+      "sourceUrl": "https://maps.google.com/?cid=6977337157156376330",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 08:00 – 18:00",
+        "terça-feira: 08:00 – 18:00",
+        "quarta-feira: 08:00 – 18:00",
+        "quinta-feira: 08:00 – 18:00",
+        "sexta-feira: 08:00 – 18:00",
+        "sábado: 08:00 – 12:00",
+        "domingo: Fechado"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:47.213Z"
     },
     {
       "id": "ChIJgSFqlW7wXpMRlZHbynQ0IkI",
@@ -3581,7 +3694,7 @@
       "name": "Café com Fé Setor Aeroporto em Goiânia",
       "category": "cafes",
       "rating": 4.5,
-      "reviewCount": 99,
+      "reviewCount": 101,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -3590,17 +3703,28 @@
       "latitude": -16.6730981,
       "longitude": -49.2707201,
       "distanceKm": 1.93,
-      "phone": "+55 62 99884-8963",
+      "phone": "(62) 99884-8963",
       "website": "https://entra.la/YsHP8wohYR",
       "tags": [
         "Cafeteria",
-        "Cafeteria"
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20com%20F%C3%A9%20Setor%20Aeroporto%20em%20Goi%C3%A2nia&query_place_id=ChIJX7kOK3zzXpMRqoxEi2ispgI",
+      "sourceUrl": "https://maps.google.com/?cid=191029599222926506",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 07:00 – 19:00",
+        "terça-feira: 07:00 – 19:00",
+        "quarta-feira: 07:00 – 19:00",
+        "quinta-feira: 07:00 – 19:00",
+        "sexta-feira: 10:00 – 19:00",
+        "sábado: Fechado",
+        "domingo: Fechado"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:47.403Z"
     },
     {
       "id": "ChIJCx0PzsXzXpMRiNzi1Fnet_k",
@@ -3811,28 +3935,36 @@
       "name": "Shiva alt-bar",
       "category": "nightlife",
       "rating": 4.4,
-      "reviewCount": 2917,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 2928,
+      "priceLevel": 2,
+      "priceText": "$$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxMZvhnDtFgVaU8QC3XmDQ6WTMrnqoq8ckb-0Cv92hwVNEdbspLkWOTIFrQbyffo2gm26Gupu8gmzs0r8AYIYhtsuju61Ql5sKSLfThJmi-0lMo1olC8ZvCpDidNaJWrIPJ831W=w408-h306-k-no",
       "address": "Alameda das Rosas, 1371 - St. Oeste, Goiânia - GO, 74125-010, Brasil",
       "latitude": -16.6851784,
       "longitude": -49.2733962,
       "distanceKm": 2.15,
-      "phone": "+55 62 3996-3941",
+      "phone": "(62) 98235-6580",
       "website": "http://www.instagram.com/shiva.altbar/",
       "tags": [
-        "Bar",
         "Bar",
         "Centro cultural",
         "Bar com música ao vivo"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Shiva%20alt-bar&query_place_id=ChIJ-Z-kfFrxXpMRGgTyoZn1whc",
+      "sourceUrl": "https://maps.google.com/?cid=1712200848550003738",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Fechado",
+        "terça-feira: Fechado",
+        "quarta-feira: 17:30 – 01:00",
+        "quinta-feira: 17:30 – 01:00",
+        "sexta-feira: 17:30 – 02:00",
+        "sábado: 16:00 – 02:00",
+        "domingo: 16:00 – 00:00"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:47.584Z"
     },
     {
       "id": "ChIJqSx3FFPwXpMR4rWh68gyVWA",
@@ -3868,19 +4000,18 @@
       "name": "Pobre Juan Goiânia",
       "category": "restaurants",
       "rating": 4.4,
-      "reviewCount": 1417,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 1430,
+      "priceLevel": 4,
+      "priceText": "$$$$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxKbro2QGAySM5CysBZ4ET6r86nmhWxHiCjCKdktd81bgUBRuvWDSoKyv0ePX4ZySsbQWMrWbn24zOD2oHB421bVA02DqjD6THG-v8mFl0Np5HAB3P49xtKc2R5HUvHn4V44wQM=w408-h306-k-no",
       "address": "Av. Dep. Jamel Cecílio, 3300 - Jardim Goiás, Goiânia - GO, 74810-907, Brasil",
       "latitude": -16.7115803,
       "longitude": -49.2362648,
       "distanceKm": 4,
-      "phone": "+55 62 98137-8955",
+      "phone": "(62) 98137-8955",
       "website": "http://pobrejuan.com.br/",
       "tags": [
-        "Restaurante argentino",
         "Restaurante argentino",
         "Churrascaria",
         "Bar",
@@ -3888,11 +4019,20 @@
         "Restaurante",
         "Restaurante de carne"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Pobre%20Juan%20Goi%C3%A2nia&query_place_id=ChIJrfzFy1PwXpMRIzaXFcZtg6s",
+      "sourceUrl": "https://maps.google.com/?cid=12358842499967956515",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 12:00 – 23:00",
+        "terça-feira: 12:00 – 23:00",
+        "quarta-feira: 12:00 – 23:00",
+        "quinta-feira: 12:00 – 23:00",
+        "sexta-feira: 12:00 – 00:00",
+        "sábado: 12:00 – 00:00",
+        "domingo: 12:00 – 22:00"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:47.773Z"
     },
     {
       "id": "ChIJL-S8gyHyXpMRNf80I1oRfXQ",
@@ -3928,9 +4068,9 @@
       "name": "Café S/A Bueno",
       "category": "cafes",
       "rating": 4.4,
-      "reviewCount": 814,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 816,
+      "priceLevel": 2,
+      "priceText": "$$",
       "description": "Cafeteria em Goiânia",
       "image": "https://lh3.googleusercontent.com/p/AF1QipMdI0JxIC2vG31L9nvM82JFHuELyvHF6miOVtr0=w408-h272-k-no",
       "address": "R. T-61, 270 - St. Bueno, Goiânia - GO, 74223-170, Brasil",
@@ -3940,9 +4080,12 @@
       "phone": null,
       "website": "http://www.instagram.com.br/cafe.sa",
       "tags": [
-        "Cafeteria"
+        "Cafeteria",
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20S%2FA%20Bueno&query_place_id=ChIJKwLXlsXxXpMRLVPbKoYcfpc",
+      "sourceUrl": "https://maps.google.com/?cid=10916193909362873133",
       "gallery": [
         "https://lh3.googleusercontent.com/p/AF1QipMdI0JxIC2vG31L9nvM82JFHuELyvHF6miOVtr0=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzfH2Z1S08yk-hd786M57tOQR3hM3aM-KDa6-9kt7Y9Fm9axxoR8P8SD9wMrX4eW2gk8BcFItPl7S8l-vba0tfqe42di-lB93Xvp8ZGo2BB_N_uevyR5nh1dRLODK2kXCYQfRU=w1920-h1080-k-no",
@@ -3951,37 +4094,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxvnZ0kYcNm4ajoj5MOnIN8oAYpCV1PYifsCTo689pQjvnMIoXTbA-aWwge1qlUO5c8UFvicBwGSpw-Je0cqEJxbFjJONF63F3HcxJSYIKlfnf9JSuuSCiWVEW8NW0JRUOX97_Oag7Nbww=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "sábado",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "domingo",
-          "hours": "08:30 to 19:30"
-        }
+        "segunda-feira: 08:30 – 19:30",
+        "terça-feira: 08:30 – 19:30",
+        "quarta-feira: 08:30 – 19:30",
+        "quinta-feira: 08:30 – 19:30",
+        "sexta-feira: 08:30 – 19:30",
+        "sábado: 08:30 – 19:30",
+        "domingo: 08:30 – 19:30"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": "https://cafeteriasa.com/collections/setor-bueno"
+      "openStatusText": "Aberto agora",
+      "menuUrl": "https://cafeteriasa.com/collections/setor-bueno",
+      "_enrichedAt": "2026-02-11T14:34:47.963Z"
     },
     {
       "id": "ChIJ1xdfG2fxXpMRIhZnZ7X3yfs",
@@ -4051,12 +4174,12 @@
       "name": "New York Pao De Queijo",
       "category": "restaurants",
       "rating": 4.4,
-      "reviewCount": 680,
-      "priceLevel": 0,
-      "priceText": null,
-      "description": "",
+      "reviewCount": 681,
+      "priceLevel": 1,
+      "priceText": "$",
+      "description": "Buzzy destination serving traditional Brazilian entrees plus burgers with inventive toppings.",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzT2d2c4TZunuQdaQyhhKgdoLvTXJZccj2ACaT712OAdN_p-_QUDVWU7uFgfdiM0GS69YfmllmS-ROxava18jCIsAQ-sX2DbKP4Th14JhzyxKx5nrg8my1lJlzBsmZq5cS8ZKKM=w408-h306-k-no",
-      "address": "31-90 30th St, Astoria, NY 11106",
+      "address": "31-90 30th St, Astoria, NY 11106, EUA",
       "latitude": 40.7626879,
       "longitude": -73.9261034,
       "distanceKm": 6876.48,
@@ -4064,21 +4187,28 @@
       "website": "https://newyorkpaodequeijo.com/?utm_source=google",
       "tags": [
         "Restaurante brasileiro",
-        "Restaurante brasileiro",
         "Loja de açaí",
         "Restaurante de café da manhã",
         "Restaurante de brunch",
         "Serviço de catering",
         "Confeitaria",
         "Hamburgueria",
-        "Sanduicheria",
-        "Restaurante de carne"
+        "Sanduicheria"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=New%20York%20Pao%20De%20Queijo&query_place_id=ChIJfyllhDdfwokRR9VTZ34SmkA",
+      "sourceUrl": "https://maps.google.com/?cid=4655053498949555527",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 11:00 – 21:30",
+        "terça-feira: 11:00 – 21:30",
+        "quarta-feira: 11:00 – 21:30",
+        "quinta-feira: 11:00 – 21:30",
+        "sexta-feira: 11:00 – 22:30",
+        "sábado: 11:00 – 22:30",
+        "domingo: 11:00 – 21:30"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:48.146Z"
     },
     {
       "id": "ChIJB1JatEPxXpMR9PcjvTnohGU",
@@ -4202,8 +4332,8 @@
       "sourceId": "ChIJDRroAj3xXpMRt8L-tZByNIw",
       "name": "Café Ipê",
       "category": "cafes",
-      "rating": 4.4,
-      "reviewCount": 248,
+      "rating": 4.3,
+      "reviewCount": 256,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -4212,17 +4342,28 @@
       "latitude": -16.7032639,
       "longitude": -49.27875,
       "distanceKm": 3.7,
-      "phone": "+55 62 98202-1004",
+      "phone": "(62) 98202-1004",
       "website": "https://instagram.com/cafeteriaipe?igshid=MzMyNGUyNmU2YQ==",
       "tags": [
         "Cafeteria",
-        "Cafeteria"
+        "Restaurante",
+        "Café",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Ip%C3%AA&query_place_id=ChIJDRroAj3xXpMRt8L-tZByNIw",
+      "sourceUrl": "https://maps.google.com/?cid=10102825829953094327",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Fechado",
+        "terça-feira: 09:00 – 19:00",
+        "quarta-feira: 09:00 – 19:00",
+        "quinta-feira: 09:00 – 19:00",
+        "sexta-feira: 09:00 – 19:00",
+        "sábado: 08:30 – 19:00",
+        "domingo: 08:30 – 18:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:48.332Z"
     },
     {
       "id": "ChIJsWPiOwfzXpMRVWR7YIZ4F5w",
@@ -4235,7 +4376,7 @@
       "priceText": null,
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyHfOoPyY62sGHudi7ZCiabXACksDFAn8Aww5KY5gzHoVNhK_V47_PeMZssVZJ1nwwkyj2LY2rTb82JbwEcKfA1MTGT9ekYtP3dJuwawxd-dPDUoWyheofP6CxXYsFd3UvXaYA2=w533-h240-k-no",
-      "address": "351, Alameda Vitória Régia, 1 - St. Goiânia 2, Goiânia - GO, Brasil",
+      "address": "351 - Alameda Vitória Régia, 1 - St. Goiânia 2, Goiânia - GO, 74663-080, Brasil",
       "latitude": -16.6326412,
       "longitude": -49.2495659,
       "distanceKm": 5.28,
@@ -4243,13 +4384,22 @@
       "website": "https://www.google.com/maps/search/?api=1&query=Bosque%20Goi%C3%A2nia%202%20-%20II&query_place_id=ChIJsWPiOwfzXpMRVWR7YIZ4F5w",
       "tags": [
         "Parque ecológico",
-        "Parque ecológico"
+        "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Bosque%20Goi%C3%A2nia%202%20-%20II&query_place_id=ChIJsWPiOwfzXpMRVWR7YIZ4F5w",
+      "sourceUrl": "https://maps.google.com/?cid=11247591112920753237",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:48.617Z"
     },
     {
       "id": "ChIJB0jA3lnxXpMR8X4qy5Kuo7I",
@@ -4619,9 +4769,9 @@
       "name": "S4 Bar",
       "category": "nightlife",
       "rating": 4.3,
-      "reviewCount": 1281,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 1284,
+      "priceLevel": 1,
+      "priceText": "$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwm2Gbd-sfCv4k4Ekt-cDbTaAv_0m2wejjHG8kf0P1jsHXiyotBmHIlED7A3-5sNmsgdnUo95CpDSE6U0qJSPscbL8o0MGwZq1tg8ynl_E2IKxZ13ZHLc4x6h5aAdfnw6CWc0VA=w408-h306-k-no",
       "address": "R. T-64, 295 - St. Bela Vista, Goiânia - GO, 74823-350, Brasil",
@@ -4631,14 +4781,22 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=S4%20Bar&query_place_id=ChIJSw62U-DwXpMR4Y0rWx--fMY",
       "tags": [
-        "Bar",
         "Bar"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=S4%20Bar&query_place_id=ChIJSw62U-DwXpMR4Y0rWx--fMY",
+      "sourceUrl": "https://maps.google.com/?cid=14302515558504697313",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 11:00 – 00:00",
+        "terça-feira: 11:00 – 00:00",
+        "quarta-feira: 11:00 – 00:00",
+        "quinta-feira: 14:30 – 00:00",
+        "sexta-feira: 11:00 – 00:00",
+        "sábado: 17:00 – 00:00",
+        "domingo: 17:00 – 00:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:48.800Z"
     },
     {
       "id": "ChIJU2Azu8T0XpMRnYU-egTJer4",
@@ -4646,12 +4804,12 @@
       "name": "Parque Municipal Fonte Nova",
       "category": "nature",
       "rating": 4.3,
-      "reviewCount": 759,
+      "reviewCount": 761,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwLGizkr4eHUh-MSPd4vx0QFqYzQDsVD39t-F9Y2NLkk7Iy5I_WXJjv_ISN-I8CJWo_m8mwKvcMP4u5A7WwAbeszdacFei6x-kV66Eicoj0tyRWZeZ8RmDcvkFa3L0I2kZ-KI9b=w408-h306-k-no",
-      "address": "247, R. FN-4, 187 - Jardim Fonte Nova, Goiânia - GO, 74594-037, Brasil",
+      "address": "247 - R. FN-4, 187 - Jardim Fonte Nova, Goiânia - GO, 74594-037, Brasil",
       "latitude": -16.624959,
       "longitude": -49.3136214,
       "distanceKm": 8.81,
@@ -4659,13 +4817,22 @@
       "website": "http://www.goiania.go.gov.br/",
       "tags": [
         "Parque ecológico",
-        "Parque ecológico"
+        "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Municipal%20Fonte%20Nova&query_place_id=ChIJU2Azu8T0XpMRnYU-egTJer4",
+      "sourceUrl": "https://maps.google.com/?cid=13725503835432977821",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 07:00 – 16:00",
+        "terça-feira: 07:00 – 16:00",
+        "quarta-feira: 07:00 – 16:00",
+        "quinta-feira: 07:00 – 16:00",
+        "sexta-feira: 07:00 – 16:00",
+        "sábado: 07:00 – 18:00",
+        "domingo: 07:00 – 18:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:48.984Z"
     },
     {
       "id": "ChIJB-XclBjxXpMRnJy5xChZYBU",
@@ -4673,7 +4840,7 @@
       "name": "Cafe S/A Marista",
       "category": "cafes",
       "rating": 4.3,
-      "reviewCount": 334,
+      "reviewCount": 336,
       "priceLevel": 0,
       "priceText": null,
       "description": "Cafeteria, Café em Goiânia",
@@ -4686,9 +4853,11 @@
       "website": "https://www.instagram.com/cafe.sa/",
       "tags": [
         "Cafeteria",
-        "Café"
+        "Café",
+        "Restaurante",
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Cafe%20S%2FA%20Marista&query_place_id=ChIJB-XclBjxXpMRnJy5xChZYBU",
+      "sourceUrl": "https://maps.google.com/?cid=1540329104194772124",
       "gallery": [
         "https://lh3.googleusercontent.com/p/AF1QipMamsm5O-8sX4ySiMqyqoq0xt3ptASj3LO4fc2c=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/p/AF1QipMrlz2Gf6flZHzNB7J05dbrYntWPas849tKDwrI=w1920-h1080-k-no",
@@ -4697,37 +4866,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzkO4fQl2WuMCUPO3Ts0KesF2RkAiMmPkBrE_yZfTjng_6Lo9VBPqB0MYrJndBIlelt10WVy67cCZ1pTKiUXpd6uXC8Rlf7XbffcytX4AHCIbdLZx-eS0HMAz58Ot3G8TlqI1BFJ_YtV8fM=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "sábado",
-          "hours": "08:30 to 19:30"
-        },
-        {
-          "day": "domingo",
-          "hours": "08:30 to 19:30"
-        }
+        "segunda-feira: 08:30 – 19:30",
+        "terça-feira: 08:30 – 19:30",
+        "quarta-feira: 08:30 – 19:30",
+        "quinta-feira: 08:30 – 19:30",
+        "sexta-feira: 08:30 – 19:30",
+        "sábado: 08:30 – 19:30",
+        "domingo: 08:30 – 19:30"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": "https://cafeteriasa.com/collections/cafe-s-a-setor-marista"
+      "openStatusText": "Aberto agora",
+      "menuUrl": "https://cafeteriasa.com/collections/cafe-s-a-setor-marista",
+      "_enrichedAt": "2026-02-11T14:34:49.182Z"
     },
     {
       "id": "ChIJd3sBvTjxXpMRm_nMoL4Wqro",
@@ -4735,26 +4884,34 @@
       "name": "Parque Vila Romana",
       "category": "nature",
       "rating": 4.3,
-      "reviewCount": 54,
+      "reviewCount": 55,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyIkBqxUp-w_URTkzVRrBPWyGTu100hxWgx6LiHbW8QrUuM-Crp6hsPDtsXvrfLFW7KRTVV0Vxy1HFAINSvc9loS8EomfjZKX228Sff2FBF50U5_ITlp_EBhK7s8dxeG2vTMP0-_g=w408-h305-k-no",
-      "address": "R. César - Vila Romana, Goiânia - GO, 74713-020, Brasil",
+      "address": "R. César - Vila Romana, Goiânia - GO, 74713-110, Brasil",
       "latitude": -16.6758992,
       "longitude": -49.2283565,
       "distanceKm": 2.77,
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20Vila%20Romana&query_place_id=ChIJd3sBvTjxXpMRm_nMoL4Wqro",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Vila%20Romana&query_place_id=ChIJd3sBvTjxXpMRm_nMoL4Wqro",
+      "sourceUrl": "https://maps.google.com/?cid=13450588245092792731",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:49.395Z"
     },
     {
       "id": "ChIJU32-PMLzXpMRIa_X7N6n6dI",
@@ -4816,7 +4973,7 @@
       "name": "Buena Vista Shopping",
       "category": "shopping",
       "rating": 4.2,
-      "reviewCount": 9595,
+      "reviewCount": 9608,
       "priceLevel": 0,
       "priceText": null,
       "description": "Shopping arejado com 70 lojas distribuídas por vários andares, além de uma praça de alimentação com vasos de plantas.",
@@ -4825,17 +4982,26 @@
       "latitude": -16.7105762,
       "longitude": -49.2677901,
       "distanceKm": 3.71,
-      "phone": null,
+      "phone": "(62) 3515-0503",
       "website": "http://www.buenavistashopping.com.br/",
       "tags": [
         "Shopping center",
-        "Shopping center"
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Buena%20Vista%20Shopping&query_place_id=ChIJrar0XSHxXpMRR5MeZZTUpyQ",
+      "sourceUrl": "https://maps.google.com/?cid=2641313440292836167",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 09:00 – 21:00",
+        "terça-feira: 09:00 – 21:00",
+        "quarta-feira: 09:00 – 21:00",
+        "quinta-feira: 09:00 – 21:00",
+        "sexta-feira: 09:00 – 21:00",
+        "sábado: 09:00 – 21:00",
+        "domingo: 11:00 – 22:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:49.578Z"
     },
     {
       "id": "ChIJF7VZTnfxXpMRFW2UbeENuLg",
@@ -4933,18 +5099,17 @@
       "category": "restaurants",
       "rating": 4.2,
       "reviewCount": 812,
-      "priceLevel": 0,
-      "priceText": null,
+      "priceLevel": 1,
+      "priceText": "$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxsrWz15aSvMe4uhmGBxK7GCGl0GXgG-SVVNWf_w1r2ICTAN1RzE3VNGBtppR7iJfSdJXYGf-n7rKts9pnd37X1mMcyvkqdNCxGFJA55OcyHGk4CvSB4fUgaAsT2wF9y0b7aE5ibg=w417-h240-k-no",
       "address": "1566 Dundas St W, Toronto, ON M6K 1T5, Canadá",
       "latitude": 43.6498915,
       "longitude": -79.4341361,
       "distanceKm": 7378.45,
-      "phone": "+1 416-531-2888",
+      "phone": "(416) 531-2888",
       "website": "http://brocktonvillagebakery.com/",
       "tags": [
-        "Padaria",
         "Padaria",
         "Loja de contas e aplicações",
         "Loja de bolos",
@@ -4954,11 +5119,20 @@
         "Confeitaria",
         "Sanduicheria"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Padaria%20e%20Pastelaria%20Brasil&query_place_id=ChIJ1e28nFE0K4gRSVh9irzkI4c",
+      "sourceUrl": "https://maps.google.com/?cid=9737878317733599305",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 05:00 – 21:00",
+        "terça-feira: 05:00 – 21:00",
+        "quarta-feira: 05:00 – 21:00",
+        "quinta-feira: 05:00 – 21:00",
+        "sexta-feira: 05:00 – 21:00",
+        "sábado: 06:00 – 21:00",
+        "domingo: 07:00 – 19:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:49.763Z"
     },
     {
       "id": "ChIJh5OPFYLxXpMR3aVk6kyf0RU",
@@ -4966,7 +5140,7 @@
       "name": "Museu Aberto De Esculturas",
       "category": "culture",
       "rating": 4.2,
-      "reviewCount": 17,
+      "reviewCount": 18,
       "priceLevel": 0,
       "priceText": null,
       "description": "Museu ao ar livre em Goiânia",
@@ -4978,9 +5152,10 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Museu%20Aberto%20De%20Esculturas&query_place_id=ChIJh5OPFYLxXpMR3aVk6kyf0RU",
       "tags": [
-        "Museu ao ar livre"
+        "Museu ao ar livre",
+        "Cultura"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Museu%20Aberto%20De%20Esculturas&query_place_id=ChIJh5OPFYLxXpMR3aVk6kyf0RU",
+      "sourceUrl": "https://maps.google.com/?cid=1572212897627809245",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwRBJ3miNlDOnbb4zKoIldJpojwVmatsPql0doaSxd-E2rAGiXQIQOEkiN5BVpqU9hDy7zoR5t-mvV74naes3en82fcSFDaMCXgte1YeLAId6JpLAH-lccLr2t2VDr4BKCEdDE=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSycSzuw-bL0fiU9oD9lQ_cl1Xb0ZmJLK0JIT4P3bd1FEyIowb-r9zpZimsy5y9Zg9yuweX9v8MV8guS0HKfR5wWzxq3fUpblt7eQAhHHXBiFQMM3s-gYcLNXknqdJiXWXwzlSpd=w1920-h1080-k-no",
@@ -4989,37 +5164,17 @@
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxTJT0DC6nOMcpPBL6bNiBLJ-wAJoSNHy6dv511ydN91IJuoQKHMKwnbydCsMYLWSVNMv9GZJW8-ade6-dDFSKAhMwWie1Ei4T5GDaW72CWqSCIsCC6fPzupI4A17GdiKQ012V9_Q=w1920-h1080-k-no"
       ],
       "hours": [
-        {
-          "day": "segunda-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "terça-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quarta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "quinta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sexta-feira",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "sábado",
-          "hours": "Atendimento 24 horas"
-        },
-        {
-          "day": "domingo",
-          "hours": "Atendimento 24 horas"
-        }
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
       ],
-      "openStatusText": "Ver horários",
-      "menuUrl": null
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:49.959Z"
     },
     {
       "id": "ChIJF8LZ6ZdfXpMRkHfuGrugw8k",
@@ -5027,7 +5182,7 @@
       "name": "América Shopping Center",
       "category": "shopping",
       "rating": 4,
-      "reviewCount": 2887,
+      "reviewCount": 2894,
       "priceLevel": 0,
       "priceText": null,
       "description": "",
@@ -5036,17 +5191,26 @@
       "latitude": -16.6548328,
       "longitude": -49.38414,
       "distanceKm": 14.14,
-      "phone": "+55 62 3271-4345",
+      "phone": "(62) 3271-4345",
       "website": "https://www.google.com/maps/search/?api=1&query=Am%C3%A9rica%20Shopping%20Center&query_place_id=ChIJF8LZ6ZdfXpMRkHfuGrugw8k",
       "tags": [
         "Shopping center",
-        "Shopping center"
+        "Compras"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Am%C3%A9rica%20Shopping%20Center&query_place_id=ChIJF8LZ6ZdfXpMRkHfuGrugw8k",
+      "sourceUrl": "https://maps.google.com/?cid=14538640747553257360",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 07:00 – 22:00",
+        "terça-feira: 07:00 – 22:00",
+        "quarta-feira: 07:00 – 22:00",
+        "quinta-feira: 07:00 – 22:00",
+        "sexta-feira: 07:00 – 22:00",
+        "sábado: 07:00 – 22:00",
+        "domingo: 07:00 – 22:00"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:50.151Z"
     },
     {
       "id": "ChIJeUbvWNH3XpMRV4z6cKkHMOk",
@@ -5066,14 +5230,22 @@
       "phone": null,
       "website": "https://www.google.com/maps/search/?api=1&query=Parque%20Taquaral&query_place_id=ChIJeUbvWNH3XpMRV4z6cKkHMOk",
       "tags": [
-        "Parque",
         "Parque"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Parque%20Taquaral&query_place_id=ChIJeUbvWNH3XpMRV4z6cKkHMOk",
+      "sourceUrl": "https://maps.google.com/?cid=16802938634045656151",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: Atendimento 24 horas",
+        "terça-feira: Atendimento 24 horas",
+        "quarta-feira: Atendimento 24 horas",
+        "quinta-feira: Atendimento 24 horas",
+        "sexta-feira: Atendimento 24 horas",
+        "sábado: Atendimento 24 horas",
+        "domingo: Atendimento 24 horas"
+      ],
+      "openStatusText": "Aberto agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:50.335Z"
     },
     {
       "id": "ChIJHzJk8XjxXpMRqE1B0ssypOE",
@@ -5093,9 +5265,10 @@
       "phone": null,
       "website": "https://www.pucgoias.edu.br/",
       "tags": [
-        "Museu"
+        "Museu",
+        "Cultura"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Museu%20Puc&query_place_id=ChIJHzJk8XjxXpMRqE1B0ssypOE",
+      "sourceUrl": "https://maps.google.com/?cid=16259176405701578152",
       "gallery": [
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyMep9k4gcIjLKF2SnXrJVfMQic5G9RCrr06AtfCIRZxM_-MDGAmhUCHrsCRd6tqJpSCvCHrdwwukLZZV6md8lDfelskWuK8QInviG9EYikCUjpWXtnZRSQXAADnz0_r-EmJcKT=w1920-h1080-k-no",
         "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyyOiL65vyd4dG6TSzX85tETBeufqGnmXxFDcKf9IEKlr3mNv6LdWSPEFfqpC4so8_GZ4RjfwpGGWi2KRqQRf2hPakPCfFnmPKkXJdIu1DnJTGdWO9hpSWLKnFDcFoHiKeWd5C2=w1920-h1080-k-no",
@@ -5105,7 +5278,8 @@
       ],
       "hours": [],
       "openStatusText": "Ver horários",
-      "menuUrl": null
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:50.518Z"
     },
     {
       "id": "ChIJKcNGXwK0xokRz28DBnf4pis",
@@ -5113,12 +5287,12 @@
       "name": "Bellissima Pizza",
       "category": "restaurants",
       "rating": 3.8,
-      "reviewCount": 352,
-      "priceLevel": 0,
-      "priceText": null,
+      "reviewCount": 353,
+      "priceLevel": 1,
+      "priceText": "$",
       "description": "",
       "image": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxO5Z-hW1IDs0mShK0ihbGKeD-jNAra-l4P1uhdBkwxhn3hyCf-g_2k9tckF1-1tCmodHsZJG86VrhGowEq0ozSrDkvRAy00XOlghT7QbtFSneMmFYXKaueTQaJT65V_NYhUzAn=w408-h304-k-no",
-      "address": "7816 Castor Ave, Philadelphia, PA 19152",
+      "address": "7816 Castor Ave, Philadelphia, PA 19152, EUA",
       "latitude": 40.0586108,
       "longitude": -75.0593586,
       "distanceKm": 6851.62,
@@ -5126,18 +5300,27 @@
       "website": "https://www.bellissimapizzaphilly.com/",
       "tags": [
         "Pizzaria",
-        "Pizzaria",
         "Restaurante italiano",
         "Delivery",
         "Restaurante de comida para viagem",
         "Delivery de Pizza",
-        "Pizza para levar"
+        "Pizza para levar",
+        "Restaurante"
       ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Bellissima%20Pizza&query_place_id=ChIJKcNGXwK0xokRz28DBnf4pis",
+      "sourceUrl": "https://maps.google.com/?cid=3145474579850555343",
       "gallery": [],
-      "hours": [],
-      "openStatusText": null,
-      "menuUrl": null
+      "hours": [
+        "segunda-feira: 11:00 – 23:00",
+        "terça-feira: 11:00 – 23:00",
+        "quarta-feira: 11:00 – 23:00",
+        "quinta-feira: 11:00 – 23:00",
+        "sexta-feira: 11:00 – 00:00",
+        "sábado: 11:00 – 00:00",
+        "domingo: 12:00 – 23:00"
+      ],
+      "openStatusText": "Fechado agora",
+      "menuUrl": null,
+      "_enrichedAt": "2026-02-11T14:34:50.703Z"
     }
   ]
 }
