@@ -104,6 +104,10 @@ async function main() {
     const placeId = place.sourceId || place.id;
     if (!placeId || typeof placeId !== "string") continue;
 
+    // Evita reprocessar o mesmo item repetidas vezes em execuções "missing".
+    // Se quisermos forçar atualização, usar --all.
+    if (onlyMissing && place._enrichedAt) continue;
+
     const missingRichness =
       !place.phone || !place.website || !place.hours || !place.description;
 
