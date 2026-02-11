@@ -14,6 +14,7 @@ function parseArgs() {
     limit: Infinity,
     sleepMs: 120,
     onlyMissing: true,
+    forceIfEnrichedMissing: false,
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -21,6 +22,7 @@ function parseArgs() {
     if (a === "--limit") out.limit = Number(args[++i] || "0") || Infinity;
     if (a === "--sleep") out.sleepMs = Number(args[++i] || "0") || 120;
     if (a === "--all") out.onlyMissing = false;
+    if (a === "--force-missing") out.forceIfEnrichedMissing = true;
   }
 
   return out;
@@ -86,7 +88,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { limit, sleepMs, onlyMissing } = parseArgs();
+  const { limit, sleepMs, onlyMissing, forceIfEnrichedMissing } = parseArgs();
 
   const raw = await fs.readFile(PLACES_JSON_PATH, "utf8");
   const doc = JSON.parse(raw);
@@ -96,7 +98,7 @@ async function main() {
   let updated = 0;
 
   console.log(`📦 Places no JSON: ${places.length}`);
-  console.log(`⚙️  onlyMissing=${onlyMissing} limit=${limit} sleepMs=${sleepMs}`);
+  console.log(`⚙️  onlyMissing=${onlyMissing} limit=${limit} sleepMs=${sleepMs} forceMissing=${forceIfEnrichedMissing}`);
 
   for (const place of places) {
     if (processed >= limit) break;
@@ -104,13 +106,11 @@ async function main() {
     const placeId = place.sourceId || place.id;
     if (!placeId || typeof placeId !== "string") continue;
 
-    // Evita reprocessar o mesmo item repetidas vezes em execuções "missing".
-    // Se quisermos forçar atualização, usar --all.
-    if (onlyMissing && place._enrichedAt) continue;
-
     const missingRichness =
       !place.phone || !place.website || !place.hours || !place.description;
 
+    // Skip fully-enriched items on missing mode, unless forcing a second pass.
+    if (onlyMissing && place._enrichedAt && !forceIfEnrichedMissing) continue;
     if (onlyMissing && !missingRichness) continue;
 
     processed++;
