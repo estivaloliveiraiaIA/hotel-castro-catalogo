@@ -10,7 +10,8 @@ import { getDirectionsUrl, getGoogleMapsUrl } from "@/lib/maps";
 const Place = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { data: places = [], isLoading } = usePlaces();
+  const { data, isLoading } = usePlaces();
+  const places = data?.places ?? [];
 
   const place = useMemo(() => places.find((p) => encodeURIComponent(p.id) === id), [id, places]);
 

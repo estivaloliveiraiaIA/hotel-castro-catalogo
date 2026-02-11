@@ -19,7 +19,9 @@ const byBest = (a: Place, b: Place) => {
 };
 
 const Index = () => {
-  const { data: places = [], isLoading, isError, error } = usePlaces();
+  const { data, isLoading, isError, error } = usePlaces();
+  const places = data?.places ?? [];
+  const updatedAt = data?.updatedAt;
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
@@ -129,7 +131,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header query={query} onQueryChange={setQuery} />
-      <Hero totalPlaces={places.length} totalCategories={totalCategories} />
+      <Hero totalPlaces={places.length} totalCategories={totalCategories} updatedAt={updatedAt} />
       <CategoryTabs
         selectedCategory={selectedCategory}
         onCategoryChange={(value) => {

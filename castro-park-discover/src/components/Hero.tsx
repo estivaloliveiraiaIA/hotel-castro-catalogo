@@ -1,9 +1,12 @@
 interface HeroProps {
   totalPlaces: number;
   totalCategories: number;
+  updatedAt?: string;
 }
 
-export const Hero = ({ totalPlaces, totalCategories }: HeroProps) => {
+export const Hero = ({ totalPlaces, totalCategories, updatedAt }: HeroProps) => {
+  const updatedText = updatedAt ? new Date(updatedAt).toLocaleString("pt-BR") : null;
+
   return (
     <section className="relative bg-gradient-to-br from-primary via-primary to-hotel-navy py-14 text-primary-foreground md:py-16">
       <div className="container px-4">
@@ -25,6 +28,12 @@ export const Hero = ({ totalPlaces, totalCategories }: HeroProps) => {
               Curadoria do hotel
             </div>
           </div>
+
+          {updatedText && (
+            <p className="mt-4 text-xs opacity-80">
+              Atualizado em {updatedText}
+            </p>
+          )}
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-background to-transparent" />
