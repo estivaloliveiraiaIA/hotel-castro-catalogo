@@ -1,18 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, MapPin, DollarSign } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, MapPin, DollarSign, Navigation, Map } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getDirectionsUrl, getGoogleMapsUrl } from "@/lib/maps";
 import { Place } from "@/types/place";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface PlaceCardProps {
   place: Place;
 }
 
 export const PlaceCard = ({ place }: PlaceCardProps) => {
+  const navigate = useNavigate();
+
   const imageSrc =
     place.image ||
     "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop";
+
+  const mapsUrl = getGoogleMapsUrl(place);
+  const directionsUrl = getDirectionsUrl(place);
 
   const renderPriceLevel = (level: number) => {
     return Array.from({ length: 4 }, (_, i) => (
@@ -27,8 +34,18 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
   };
 
   return (
-    <Link to={`/place/${encodeURIComponent(place.id)}`} className="block">
-    <Card className="group overflow-hidden transition-all hover:shadow-lg">
+    <Card
+      role="button"
+      tabIndex={0}
+      onClick={() => navigate(`/place/${encodeURIComponent(place.id)}`)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          navigate(`/place/${encodeURIComponent(place.id)}`);
+        }
+      }}
+      className="group overflow-hidden transition-all hover:shadow-lg"
+    >
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={imageSrc}
@@ -47,9 +64,9 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
       </div>
       
       <CardContent className="p-4">
-        <div className="mb-2 flex items-start justify-between">
+        <div className="mb-2 flex items-start justify-between gap-3">
           <h3 className="text-lg font-semibold leading-tight">{place.name}</h3>
-          <div className="flex">{renderPriceLevel(place.priceLevel ?? 0)}</div>
+          <div className="flex shrink-0">{renderPriceLevel(place.priceLevel ?? 0)}</div>
         </div>
         
         <div className="mb-2 flex items-center gap-1 text-sm text-muted-foreground">
@@ -74,8 +91,33 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
             </Badge>
           ))}
         </div>
+
+        {/* Quick actions (do not navigate) */}
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Button variant="secondary" size="sm" asChild>
+            <a
+              href={directionsUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Navigation className="mr-2 h-4 w-4" />
+              Como chegar
+            </a>
+          </Button>
+          <Button variant="outline" size="sm" asChild>
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Map className="mr-2 h-4 w-4" />
+              Ver no Maps
+            </a>
+          </Button>
+        </div>
       </CardContent>
     </Card>
-    </Link>
   );
 };

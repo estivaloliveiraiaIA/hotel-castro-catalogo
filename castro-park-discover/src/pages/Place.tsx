@@ -1,10 +1,11 @@
 import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { MapPin, ArrowLeft, ExternalLink, Globe, Phone, Clock, Tag, Star } from "lucide-react";
+import { MapPin, ArrowLeft, ExternalLink, Globe, Phone, Clock, Tag, Star, Navigation, Map } from "lucide-react";
 import { usePlaces } from "@/hooks/usePlaces";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { getDirectionsUrl, getGoogleMapsUrl } from "@/lib/maps";
 
 const Place = () => {
   const { id } = useParams<{ id: string }>();
@@ -190,13 +191,28 @@ const Place = () => {
                   )}
                 </div>
                 <div className="flex flex-col gap-2">
-                  {place.sourceUrl && (
-                    <Button asChild variant="secondary">
+                  <Button asChild>
+                    <a href={getDirectionsUrl(place)} target="_blank" rel="noreferrer">
+                      <Navigation className="mr-2 h-4 w-4" />
+                      Como chegar (Google Maps)
+                    </a>
+                  </Button>
+
+                  <Button asChild variant="secondary">
+                    <a href={getGoogleMapsUrl(place)} target="_blank" rel="noreferrer">
+                      <Map className="mr-2 h-4 w-4" />
+                      Ver no Google Maps
+                    </a>
+                  </Button>
+
+                  {place.sourceUrl && !place.sourceUrl.includes("google.com/maps") && (
+                    <Button asChild variant="outline">
                       <a href={place.sourceUrl} target="_blank" rel="noreferrer">
-                        Ver no TripAdvisor <ExternalLink className="ml-2 h-4 w-4" />
+                        Ver fonte <ExternalLink className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
                   )}
+
                   <Button variant="outline" onClick={() => navigate("/")}>
                     Voltar ao início
                   </Button>
