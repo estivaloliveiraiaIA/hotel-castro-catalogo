@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { CategoryTabs } from "@/components/CategoryTabs";
 import { PlaceSection } from "@/components/PlaceSection";
 import { PlaceCard } from "@/components/PlaceCard";
 import { usePlaces } from "@/hooks/usePlaces";
@@ -15,6 +16,7 @@ const byBest = (a: Place, b: Place) => {
 const Index = () => {
   const { data: places = [], isLoading, isError, error } = usePlaces();
   const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const normalizedQuery = query.trim().toLowerCase();
 
@@ -22,6 +24,11 @@ const Index = () => {
     () => new Set(places.map((p) => p.category).filter(Boolean)).size,
     [places]
   );
+
+  const categoryResults = useMemo(() => {
+    if (selectedCategory === "all") return [];
+    return places.filter((p) => p.category === selectedCategory).sort(byBest);
+  }, [places, selectedCategory]);
 
   const searchResults = useMemo(() => {
     if (!normalizedQuery) return [];
@@ -78,6 +85,14 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header query={query} onQueryChange={setQuery} />
       <Hero totalPlaces={places.length} totalCategories={totalCategories} />
+      <CategoryTabs
+        selectedCategory={selectedCategory}
+        onCategoryChange={(value) => {
+          setSelectedCategory(value);
+          // Se o usuário trocar de categoria, limpamos a busca para evitar confusão.
+          setQuery("");
+        }}
+      />
 
       {isLoading && (
         <main className="container px-4 py-10">
@@ -120,6 +135,53 @@ const Index = () => {
                 ) : (
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {searchResults.slice(0, 48).map((place) => (
+                      <PlaceCard key={place.id} place={place} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </section>
+          ) : selectedCategory !== "all" ? (
+            <section className="py-8">
+              <div className="container px-4">
+                <div className="mb-4 flex items-end justify-between gap-4">
+                  <div>
+                    <h2 className="text-xl font-bold capitalize md:text-2xl">
+                      {selectedCategory === "nightlife"
+                        ? "Bares"
+                        : selectedCategory === "cafes"
+                          ? "Cafés"
+                          : selectedCategory === "restaurants"
+                            ? "Restaurantes"
+                            : selectedCategory === "nature"
+                              ? "Parques & Natureza"
+                              : selectedCategory === "attractions"
+                                ? "Atrações"
+                                : selectedCategory === "culture"
+                                  ? "Cultura"
+                                  : selectedCategory === "shopping"
+                                    ? "Compras"
+                                    : "Lugares"}
+                    </h2>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {categoryResults.length} lugares encontrados
+                    </p>
+                  </div>
+                  <button
+                    className="text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    onClick={() => setSelectedCategory("all")}
+                  >
+                    Ver tudo
+                  </button>
+                </div>
+
+                {categoryResults.length === 0 ? (
+                  <div className="rounded-md border border-border p-6 text-center text-muted-foreground">
+                    Nenhum resultado para esta categoria no momento.
+                  </div>
+                ) : (
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {categoryResults.slice(0, 60).map((place) => (
                       <PlaceCard key={place.id} place={place} />
                     ))}
                   </div>
