@@ -10,7 +10,7 @@ interface PlacesResponse {
   places: Place[];
 }
 
-const PLACES_URL = "/data/places.json";
+const PLACES_URL = `${import.meta.env.BASE_URL}data/places.json`;
 
 const fetchPlaces = async (): Promise<Place[]> => {
   const response = await fetch(PLACES_URL);
