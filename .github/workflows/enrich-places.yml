@@ -53,7 +53,7 @@ jobs:
           set -euo pipefail
 
           # Defaults for push-triggered runs
-          LIMIT="200"
+          LIMIT="100"
           MODE="missing"
 
           # If this run was triggered by the enrich-all trigger file, force MODE=all.
@@ -89,4 +89,5 @@ jobs:
           git config user.email "kira-openclaw@users.noreply.github.com"
           git add castro-park-discover/public/data/places.json castro-park-discover/public/data/enrich-report.json
           git commit -m "data: enrich places via Google Places API"
+          git pull --rebase
           git push
