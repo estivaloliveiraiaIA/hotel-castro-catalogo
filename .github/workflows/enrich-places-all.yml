@@ -18,6 +18,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: places-data
+  cancel-in-progress: false
+
 jobs:
   rebuild:
     runs-on: ubuntu-latest
@@ -61,4 +65,7 @@ jobs:
           git config user.email "kira-openclaw@users.noreply.github.com"
           git add castro-park-discover/public/data/places.json castro-park-discover/public/data/enrich-report.json
           git commit -m "data: rebuild places (details + photos)"
+
+          # Avoid non-fast-forward if another workflow pushed in the meantime.
+          git pull --rebase
           git push

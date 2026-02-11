@@ -19,10 +19,13 @@ on:
     branches: [main]
     paths:
       - ".github/enrich.trigger"
-      - ".github/enrich-all.trigger"
 
 permissions:
   contents: write
+
+concurrency:
+  group: places-data
+  cancel-in-progress: false
 
 jobs:
   enrich:
