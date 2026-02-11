@@ -5,6 +5,7 @@ import { usePlaces } from "@/hooks/usePlaces";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { PlaceGallery } from "@/components/PlaceGallery";
 import { getDirectionsUrl, getGoogleMapsUrl } from "@/lib/maps";
 
 const Place = () => {
@@ -44,9 +45,7 @@ const Place = () => {
     );
   }
 
-  const imageSrc =
-    place.image ||
-    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80&auto=format&fit=crop";
+  // Gallery is now handled by PlaceGallery (mosaic + full-screen carousel).
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -74,26 +73,7 @@ const Place = () => {
       <main className="container px-4 py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-6">
-            <div className="overflow-hidden rounded-xl border bg-card">
-              <img src={imageSrc} alt={place.name} className="h-[340px] w-full object-cover" />
-            </div>
-
-            {place.gallery && place.gallery.length > 0 && (
-              <div className="grid gap-3 sm:grid-cols-2">
-                {place.gallery.slice(0, 6).map((url, idx) => (
-                  <img
-                    key={idx}
-                    src={url}
-                    alt={`${place.name} foto ${idx + 1}`}
-                    className="h-40 w-full rounded-lg object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
-                  />
-                ))}
-              </div>
-            )}
+            <PlaceGallery name={place.name} image={place.image} gallery={place.gallery} />
 
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
