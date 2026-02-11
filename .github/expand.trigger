@@ -1,3 +1,3 @@
 Expand places
-- at: 2026-02-11T18:00:00Z
-- target: 300
+- at: 2026-02-11T19:55:00Z
+- target: 500

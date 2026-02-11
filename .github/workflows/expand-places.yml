@@ -9,9 +9,9 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: "Target total places (default: 300)"
+        description: "Target total places (default: 500)"
         required: false
-        default: "300"
+        default: "500"
 
 permissions:
   contents: write
@@ -46,7 +46,7 @@ jobs:
           HOTEL_LNG: "-49.2540"
         run: |
           set -euo pipefail
-          TARGET="300"
+          TARGET="500"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             TARGET="${{ inputs.target }}"
           fi
