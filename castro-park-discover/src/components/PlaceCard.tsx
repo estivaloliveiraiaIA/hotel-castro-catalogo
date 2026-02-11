@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,9 +15,10 @@ interface PlaceCardProps {
 export const PlaceCard = ({ place }: PlaceCardProps) => {
   const navigate = useNavigate();
 
-  const imageSrc =
-    place.image ||
+  const fallbackImage =
     "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop";
+
+  const [imgSrc, setImgSrc] = React.useState(place.image || fallbackImage);
 
   const mapsUrl = getGoogleMapsUrl(place);
   const directionsUrl = getDirectionsUrl(place);
@@ -48,9 +50,14 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
-          src={imageSrc}
+          src={imgSrc}
           alt={place.name}
           className="h-full w-full object-cover transition-transform group-hover:scale-105"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          onError={() => {
+            if (imgSrc !== fallbackImage) setImgSrc(fallbackImage);
+          }}
         />
         <div className="absolute right-2 top-2 flex items-center gap-1 rounded-full bg-background/95 px-2 py-1 backdrop-blur">
           <Star className="h-4 w-4 fill-rating-star text-rating-star" />
