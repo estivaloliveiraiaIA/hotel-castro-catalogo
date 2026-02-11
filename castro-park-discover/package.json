@@ -16,7 +16,8 @@
     "ingest:massive": "node scripts/ingest-massive.js",
     "ingest:google": "node scripts/ingest-googlemaps-v2.js",
     "ingest:simple": "node scripts/ingest-simple.js",
-    "ingest:complete": "node scripts/ingest-complete.js"
+    "ingest:complete": "node scripts/ingest-complete.js",
+    "enrich:google": "node scripts/enrich-google-places.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -30,4 +30,6 @@ export interface Place {
   highlights?: string[];
   notes?: string;
   originQueries?: string[];
+  distanceKm?: number;
+  _enrichedAt?: string;
 }
