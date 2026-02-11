@@ -131,7 +131,11 @@ async function main() {
     if (!placeId || typeof placeId !== "string") continue;
 
     const missingRichness =
-      !place.phone || !place.website || !place.hours || !place.description;
+      !place.phone ||
+      !place.website ||
+      !place.description ||
+      !place.hours ||
+      (Array.isArray(place.hours) && place.hours.length === 0);
 
     // Skip fully-enriched items on missing mode, unless forcing a second pass.
     if (onlyMissing && place._enrichedAt && !forceIfEnrichedMissing) continue;
