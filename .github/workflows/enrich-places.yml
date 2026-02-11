@@ -19,6 +19,7 @@ on:
     branches: [main]
     paths:
       - ".github/enrich.trigger"
+      - ".github/enrich-all.trigger"
 
 permissions:
   contents: write
@@ -51,6 +52,11 @@ jobs:
           # Defaults for push-triggered runs
           LIMIT="200"
           MODE="missing"
+
+          # If this run was triggered by the enrich-all trigger file, force MODE=all.
+          if [ "${{ github.event_name }}" = "push" ] && git diff --name-only ${{ github.sha }}^ ${{ github.sha }} | grep -q "^\.github/enrich-all\.trigger$"; then
+            MODE="all"
+          fi
 
           # If manually dispatched, use provided inputs
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then

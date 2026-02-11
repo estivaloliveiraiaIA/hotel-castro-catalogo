@@ -34,20 +34,57 @@ function moneyText(priceLevel) {
 }
 
 function normalizeTags(types = []) {
-  // Pequena camada de tags úteis para roteiros (PT-BR)
+  // Tags simples (PT-BR) derivadas de types do Google.
+  // A curadoria fina (romântico/família/etc.) vem depois.
   const tags = new Set();
   const joined = types.join("|");
 
   if (joined.match(/restaurant|meal_takeaway|meal_delivery|food/)) tags.add("Restaurante");
   if (joined.match(/cafe/)) tags.add("Café");
   if (joined.match(/bar|night_club/)) tags.add("Bar");
-  if (joined.match(/park/)) tags.add("Parque");
-  if (joined.match(/museum|art_gallery/)) tags.add("Cultura");
-  if (joined.match(/shopping_mall|store/)) tags.add("Compras");
-  if (joined.match(/tourist_attraction/)) tags.add("Passeio");
 
-  // Sempre manter no máximo 8 para não poluir
+  if (joined.match(/tourist_attraction/)) tags.add("Passeio");
+  if (joined.match(/park/)) tags.add("Parque");
+  if (joined.match(/museum/)) tags.add("Museu");
+  if (joined.match(/art_gallery/)) tags.add("Galeria");
+  if (joined.match(/theater/)) tags.add("Teatro");
+  if (joined.match(/stadium/)) tags.add("Estádio");
+
+  if (joined.match(/shopping_mall/)) tags.add("Shopping");
+  if (joined.match(/store/)) tags.add("Compras");
+
   return Array.from(tags).slice(0, 8);
+}
+
+function mapCategoryFromTypes(types = []) {
+  const joined = types.join("|");
+
+  // Ordem importa
+  if (joined.match(/night_club|bar/)) return "nightlife";
+  if (joined.match(/cafe/)) return "cafes";
+  if (joined.match(/restaurant|meal_takeaway|meal_delivery|food/)) return "restaurants";
+
+  if (joined.match(/shopping_mall/)) return "shopping";
+
+  if (joined.match(/park/)) return "nature";
+  if (joined.match(/museum|art_gallery|theater/)) return "culture";
+
+  if (joined.match(/tourist_attraction/)) return "attractions";
+
+  return undefined;
+}
+
+async function resolvePhotoUrl(photoReference, maxWidth = 1200) {
+  if (!photoReference) return null;
+
+  const url = new URL("https://maps.googleapis.com/maps/api/place/photo");
+  url.searchParams.set("maxwidth", String(maxWidth));
+  url.searchParams.set("photo_reference", photoReference);
+  url.searchParams.set("key", KEY);
+
+  const resp = await fetch(url.toString(), { redirect: "manual" });
+  const loc = resp.headers.get("location");
+  return loc || null;
 }
 
 async function getPlaceDetails(placeId) {
@@ -65,6 +102,7 @@ async function getPlaceDetails(placeId) {
     "price_level",
     "types",
     "editorial_summary",
+    "photos",
   ].join(",");
 
   const url = new URL("https://maps.googleapis.com/maps/api/place/details/json");
@@ -188,9 +226,35 @@ async function main() {
         place.openStatusText = r.opening_hours.open_now ? "Aberto agora" : "Fechado agora";
       }
 
+      // Categoria e tags (corrige inconsistências)
+      const mappedCategory = mapCategoryFromTypes(r.types || []);
+      if (mappedCategory) {
+        place.category = mappedCategory;
+      }
+
       const newTags = normalizeTags(r.types || []);
       if (newTags.length) {
-        place.tags = Array.from(new Set([...(place.tags || []), ...newTags])).slice(0, 8);
+        place.tags = newTags;
+      }
+
+      // Fotos (resolve para URL pública do googleusercontent, sem expor key no front)
+      if (Array.isArray(r.photos) && r.photos.length) {
+        const refs = r.photos
+          .map((p) => p?.photo_reference)
+          .filter(Boolean)
+          .slice(0, 6);
+
+        const urls = [];
+        for (const ref of refs) {
+          const u = await resolvePhotoUrl(ref);
+          if (u) urls.push(u);
+          await sleep(150);
+        }
+
+        if (urls.length) {
+          place.image = urls[0];
+          place.gallery = urls;
+        }
       }
 
       const editorial = r.editorial_summary?.overview;
