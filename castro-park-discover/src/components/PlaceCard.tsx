@@ -1,0 +1,81 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Star, MapPin, DollarSign } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Place } from "@/types/place";
+import { Link } from "react-router-dom";
+
+interface PlaceCardProps {
+  place: Place;
+}
+
+export const PlaceCard = ({ place }: PlaceCardProps) => {
+  const imageSrc =
+    place.image ||
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop";
+
+  const renderPriceLevel = (level: number) => {
+    return Array.from({ length: 4 }, (_, i) => (
+      <DollarSign
+        key={i}
+        className={cn(
+          "h-3 w-3",
+          i < level ? "text-hotel-gold" : "text-muted-foreground/30"
+        )}
+      />
+    ));
+  };
+
+  return (
+    <Link to={`/place/${encodeURIComponent(place.id)}`} className="block">
+    <Card className="group overflow-hidden transition-all hover:shadow-lg">
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <img
+          src={imageSrc}
+          alt={place.name}
+          className="h-full w-full object-cover transition-transform group-hover:scale-105"
+        />
+        <div className="absolute right-2 top-2 flex items-center gap-1 rounded-full bg-background/95 px-2 py-1 backdrop-blur">
+          <Star className="h-4 w-4 fill-rating-star text-rating-star" />
+          <span className="text-sm font-semibold">
+            {Number.isFinite(place.rating) ? place.rating.toFixed(1) : "N/A"}
+          </span>
+          <span className="text-xs text-muted-foreground">
+            ({place.reviewCount ?? 0})
+          </span>
+        </div>
+      </div>
+      
+      <CardContent className="p-4">
+        <div className="mb-2 flex items-start justify-between">
+          <h3 className="text-lg font-semibold leading-tight">{place.name}</h3>
+          <div className="flex">{renderPriceLevel(place.priceLevel ?? 0)}</div>
+        </div>
+        
+        <div className="mb-2 flex items-center gap-1 text-sm text-muted-foreground">
+          <MapPin className="h-3 w-3" />
+          <span className="line-clamp-1">{place.address}</span>
+        </div>
+
+        {place.distanceKm && (
+          <div className="mb-2 text-xs text-hotel-gold font-medium">
+            📍 {place.distanceKm} km do hotel
+          </div>
+        )}
+
+        <p className="mb-3 line-clamp-2 text-sm text-muted-foreground">
+          {place.description || "Explore este lugar em Goiânia"}
+        </p>
+        
+        <div className="flex flex-wrap gap-1">
+          {(place.tags || []).slice(0, 3).map((tag) => (
+            <Badge key={tag} variant="secondary" className="text-xs">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+    </Link>
+  );
+};
