@@ -8,7 +8,7 @@ export const Hero = ({ totalPlaces, totalCategories }: HeroProps) => {
     <section className="relative bg-gradient-to-br from-primary via-primary to-hotel-navy py-14 text-primary-foreground md:py-16">
       <div className="container px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+          <h2 className="mb-4 text-3xl font-semibold sm:text-4xl md:text-5xl font-serif tracking-wide">
             Descubra o melhor de Goiânia
           </h2>
           <p className="mb-8 text-base opacity-90 sm:text-lg">

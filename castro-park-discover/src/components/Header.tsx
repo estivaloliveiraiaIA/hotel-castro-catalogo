@@ -11,7 +11,7 @@ export const Header = ({ query, onQueryChange }: HeaderProps) => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between gap-4 px-4">
         <div className="flex items-center gap-3 md:gap-6">
-          <h1 className="text-xl font-bold text-primary sm:text-2xl">
+          <h1 className="text-xl font-semibold tracking-wide text-primary sm:text-2xl font-serif">
             Castro&apos;s Park Hotel
           </h1>
           <span className="hidden text-sm text-muted-foreground md:block">

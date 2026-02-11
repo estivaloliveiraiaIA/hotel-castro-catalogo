@@ -8,43 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    /* Identidade visual inspirada em castrospark.com.br (tons quentes + dourado) */
+    --background: 34 45% 97%;
+    --foreground: 28 22% 16%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card: 34 45% 99%;
+    --card-foreground: 28 22% 16%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover: 34 45% 99%;
+    --popover-foreground: 28 22% 16%;
 
-    /* Navy blue - identidade do hotel */
-    --primary: 215 45% 25%;
+    /* Marrom elegante (primário) */
+    --primary: 26 28% 26%;
     --primary-foreground: 0 0% 100%;
 
-    /* Dourado elegante para acentos */
-    --secondary: 43 74% 66%;
-    --secondary-foreground: 215 45% 25%;
+    /* Dourado (secundário) */
+    --secondary: 41 40% 58%;
+    --secondary-foreground: 28 22% 16%;
 
-    --muted: 210 30% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 34 26% 93%;
+    --muted-foreground: 28 16% 40%;
 
     /* Âmbar para destaques */
-    --accent: 38 92% 50%;
+    --accent: 33 55% 46%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 88%;
-    --input: 215 20% 88%;
-    --ring: 215 45% 25%;
+    --border: 30 16% 86%;
+    --input: 30 16% 86%;
+    --ring: 26 28% 26%;
 
-    --radius: 0.5rem;
-    
+    --radius: 0.75rem;
+
     /* Cores customizadas */
-    --hotel-navy: 215 45% 25%;
-    --hotel-gold: 43 74% 66%;
-    --hotel-amber: 38 92% 50%;
+    --hotel-navy: 26 28% 26%;
+    --hotel-gold: 41 40% 58%;
+    --hotel-amber: 33 55% 46%;
     --rating-star: 43 96% 56%;
 
     --sidebar-background: 0 0% 98%;
