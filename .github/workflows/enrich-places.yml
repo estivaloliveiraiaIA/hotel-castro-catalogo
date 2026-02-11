@@ -60,10 +60,13 @@ jobs:
 
           echo "Running enrichment: limit=$LIMIT mode=$MODE"
 
+          # Aumenta o sleep para reduzir OVER_QUERY_LIMIT
+          SLEEP_MS="350"
+
           if [ "$MODE" = "all" ]; then
-            npm run enrich:google -- --limit "$LIMIT" --all
+            npm run enrich:google -- --limit "$LIMIT" --sleep "$SLEEP_MS" --all
           else
-            npm run enrich:google -- --limit "$LIMIT"
+            npm run enrich:google -- --limit "$LIMIT" --sleep "$SLEEP_MS"
           fi
 
       - name: Commit changes

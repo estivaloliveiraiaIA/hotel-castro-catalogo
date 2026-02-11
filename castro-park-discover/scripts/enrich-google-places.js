@@ -78,6 +78,29 @@ async function getPlaceDetails(placeId) {
   return json;
 }
 
+async function getPlaceDetailsWithRetry(placeId, opts = {}) {
+  const maxAttempts = Number(opts.maxAttempts ?? 5);
+  let attempt = 0;
+  let backoffMs = Number(opts.initialBackoffMs ?? 1200);
+
+  while (true) {
+    attempt++;
+    const json = await getPlaceDetails(placeId);
+
+    const status = json?.status;
+
+    // OVER_QUERY_LIMIT é comum quando dispara muitas requisições; fazemos backoff e tentamos novamente.
+    if (status === "OVER_QUERY_LIMIT" || status === "UNKNOWN_ERROR") {
+      if (attempt >= maxAttempts) return json;
+      await sleep(backoffMs);
+      backoffMs = Math.min(backoffMs * 2, 15000);
+      continue;
+    }
+
+    return json;
+  }
+}
+
 async function main() {
   if (!KEY) {
     console.error(
@@ -116,7 +139,7 @@ async function main() {
     processed++;
 
     try {
-      const details = await getPlaceDetails(placeId);
+      const details = await getPlaceDetailsWithRetry(placeId);
 
       if (details.status !== "OK" || !details.result) {
         console.warn(`⚠️  ${place.name || placeId}: ${details.status}`);
