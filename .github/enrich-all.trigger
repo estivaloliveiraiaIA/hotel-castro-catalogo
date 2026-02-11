@@ -3,3 +3,4 @@ Rebuild/enrich ALL places (force)
 - limit: 200
 - mode: all
 - run: 2
+retrigger
