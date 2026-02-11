@@ -78,6 +78,6 @@ jobs:
           fi
           git config user.name "Kira (OpenClaw)"
           git config user.email "kira-openclaw@users.noreply.github.com"
-          git add castro-park-discover/public/data/places.json
+          git add castro-park-discover/public/data/places.json castro-park-discover/public/data/enrich-report.json
           git commit -m "data: enrich places via Google Places API"
           git push

@@ -119,6 +119,7 @@ async function main() {
 
   let processed = 0;
   let updated = 0;
+  const failures = [];
 
   console.log(`📦 Places no JSON: ${places.length}`);
   console.log(`⚙️  onlyMissing=${onlyMissing} limit=${limit} sleepMs=${sleepMs} forceMissing=${forceIfEnrichedMissing}`);
@@ -142,7 +143,15 @@ async function main() {
       const details = await getPlaceDetailsWithRetry(placeId);
 
       if (details.status !== "OK" || !details.result) {
-        console.warn(`⚠️  ${place.name || placeId}: ${details.status}`);
+        const status = details?.status || "UNKNOWN";
+        const msg = details?.error_message;
+        failures.push({
+          placeId,
+          name: place.name,
+          status,
+          error_message: msg,
+        });
+        console.warn(`⚠️  ${place.name || placeId}: ${status}${msg ? ` — ${msg}` : ""}`);
         await sleep(sleepMs);
         continue;
       }
@@ -201,7 +210,22 @@ async function main() {
 
   await fs.writeFile(PLACES_JSON_PATH, JSON.stringify(doc, null, 2), "utf8");
 
-  console.log(`\n✅ Concluído. Processados=${processed} Atualizados=${updated}`);
+  // Relatório de falhas (para debug sem precisar acessar logs do Actions)
+  const reportPath = path.join(ROOT, "public", "data", "enrich-report.json");
+  const summary = {
+    updatedAt: new Date().toISOString(),
+    processed,
+    updated,
+    failures: failures.length,
+    statuses: failures.reduce((acc, f) => {
+      acc[f.status] = (acc[f.status] || 0) + 1;
+      return acc;
+    }, {}),
+  };
+
+  await fs.writeFile(reportPath, JSON.stringify({ summary, failures: failures.slice(0, 200) }, null, 2), "utf8");
+
+  console.log(`\n✅ Concluído. Processados=${processed} Atualizados=${updated} Falhas=${failures.length}`);
 }
 
 main().catch((err) => {
