@@ -1,0 +1,55 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: castro-park-discover/package-lock.json
+
+      - name: Install
+        working-directory: castro-park-discover
+        run: npm ci
+
+      - name: Build
+        working-directory: castro-park-discover
+        env:
+          GITHUB_ACTIONS: "true"
+        run: npm run build
+
+      # SPA fallback for GitHub Pages deep-links
+      - name: Add 404.html fallback
+        run: cp castro-park-discover/dist/index.html castro-park-discover/dist/404.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: castro-park-discover/dist
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

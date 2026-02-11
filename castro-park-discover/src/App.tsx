@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Place from "./pages/Place";
 
+const BASENAME = import.meta.env.BASE_URL;
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -14,7 +16,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={BASENAME}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/place/:id" element={<Place />} />
