@@ -1,6 +1,7 @@
 name: Enrich places.json (Google Places)
 
 on:
+  # Manual run
   workflow_dispatch:
     inputs:
       limit:
@@ -11,6 +12,13 @@ on:
         description: "missing = only missing fields | all = enrich all"
         required: false
         default: "missing"
+
+  # 'Run by push' without requiring GitHub UI access.
+  # Change .github/enrich.trigger to start an enrichment batch.
+  push:
+    branches: [main]
+    paths:
+      - ".github/enrich.trigger"
 
 permissions:
   contents: write
@@ -39,8 +47,19 @@ jobs:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
         run: |
           set -euo pipefail
-          LIMIT="${{ inputs.limit }}"
-          MODE="${{ inputs.mode }}"
+
+          # Defaults for push-triggered runs
+          LIMIT="200"
+          MODE="missing"
+
+          # If manually dispatched, use provided inputs
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            LIMIT="${{ inputs.limit }}"
+            MODE="${{ inputs.mode }}"
+          fi
+
+          echo "Running enrichment: limit=$LIMIT mode=$MODE"
+
           if [ "$MODE" = "all" ]; then
             npm run enrich:google -- --limit "$LIMIT" --all
           else
