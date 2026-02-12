@@ -1,0 +1,112 @@
+name: Enrich places.json (Apify Google Maps Extractor)
+
+on:
+  workflow_dispatch:
+    inputs:
+      maxPerSearch:
+        description: "Max places per category (default: 120)"
+        required: false
+        default: "120"
+      minStars:
+        description: "Minimum rating (blank = no filter)"
+        required: false
+        default: ""
+      locationQuery:
+        description: "Location query"
+        required: false
+        default: "Goiânia, GO, Brasil"
+      categories:
+        description: "Comma-separated categories"
+        required: false
+        default: "restaurant,bar,cafe,park,museum,shopping mall"
+
+  push:
+    branches: [main]
+    paths:
+      - ".github/apify.trigger"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: places-data
+  cancel-in-progress: false
+
+jobs:
+  apify_enrich:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: castro-park-discover/package-lock.json
+
+      - name: Install
+        working-directory: castro-park-discover
+        run: npm ci
+
+      - name: Enrich via Apify
+        working-directory: castro-park-discover
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          HOTEL_LAT: "-16.6799"
+          HOTEL_LNG: "-49.2540"
+          APIFY_LOCATION_QUERY: ${{ inputs.locationQuery }}
+          APIFY_LANGUAGE: "pt-BR"
+          APIFY_MAX_PER_SEARCH: ${{ inputs.maxPerSearch }}
+          APIFY_MIN_STARS: ${{ inputs.minStars }}
+          APIFY_CATEGORIES: ${{ inputs.categories }}
+        run: |
+          set -euo pipefail
+
+          # Defaults for push-triggered runs
+          if [ "${{ github.event_name }}" = "push" ]; then
+            export APIFY_MAX_PER_SEARCH="80"
+            export APIFY_MIN_STARS=""
+            export APIFY_LOCATION_QUERY="Goiânia, GO, Brasil"
+            export APIFY_CATEGORIES="restaurant,bar,cafe,park,museum,shopping mall"
+          fi
+
+          npm run enrich:apify
+
+      - name: Commit changes
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "Kira (OpenClaw)"
+          git config user.email "kira-openclaw@users.noreply.github.com"
+          git add castro-park-discover/public/data/places.json castro-park-discover/public/data/apify-report.json
+          git commit -m "data: enrich places via Apify (Google Maps Extractor)"
+          git pull --rebase
+          git push
+
+      - name: Build
+        working-directory: castro-park-discover
+        env:
+          GITHUB_ACTIONS: "true"
+        run: npm run build
+
+      - name: Add 404.html fallback
+        run: cp castro-park-discover/dist/index.html castro-park-discover/dist/404.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: castro-park-discover/dist
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
