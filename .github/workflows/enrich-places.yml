@@ -22,6 +22,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: places-data
@@ -91,3 +93,26 @@ jobs:
           git commit -m "data: enrich places via Google Places API"
           git pull --rebase
           git push
+
+      # Publish Pages from THIS workflow because GitHub won't trigger Deploy workflow
+      # from commits made by GITHUB_TOKEN (prevents recursive workflows).
+      - name: Build
+        working-directory: castro-park-discover
+        env:
+          GITHUB_ACTIONS: "true"
+        run: npm run build
+
+      - name: Add 404.html fallback
+        run: cp castro-park-discover/dist/index.html castro-park-discover/dist/404.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: castro-park-discover/dist
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
