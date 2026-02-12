@@ -60,7 +60,7 @@ function computeDistanceKm(lat1, lon1, lat2, lon2) {
   return +(R * c).toFixed(2);
 }
 
-const DAY_PT: Record<string, string> = {
+const DAY_PT = {
   Monday: "Segunda",
   Tuesday: "Terça",
   Wednesday: "Quarta",
@@ -70,10 +70,10 @@ const DAY_PT: Record<string, string> = {
   Sunday: "Domingo",
 };
 
-function normalizeHours(openingHours: any): string[] {
+function normalizeHours(openingHours) {
   if (!Array.isArray(openingHours)) return [];
   // Apify returns [{day:"Thursday", hours:"Open 24 hours"}, ...]
-  const out: string[] = [];
+  const out = [];
   for (const row of openingHours) {
     const day = String(row?.day || "");
     const hours = String(row?.hours || "");
@@ -84,7 +84,7 @@ function normalizeHours(openingHours: any): string[] {
   return out;
 }
 
-function mapCategory(categoryName?: string, categories?: string[]) {
+function mapCategory(categoryName, categories) {
   const joined = [categoryName || "", ...(categories || [])].join("|").toLowerCase();
 
   if (joined.match(/bar|pub|night/)) return "nightlife";
@@ -97,8 +97,8 @@ function mapCategory(categoryName?: string, categories?: string[]) {
   return "attractions";
 }
 
-function normalizeTags(categoryName?: string, categories?: string[]) {
-  const tags = new Set<string>();
+function normalizeTags(categoryName, categories) {
+  const tags = new Set();
   const src = [categoryName || "", ...(categories || [])].join("|").toLowerCase();
 
   if (src.match(/restaurant|restaurante|food/)) tags.add("Restaurante");
@@ -111,7 +111,7 @@ function normalizeTags(categoryName?: string, categories?: string[]) {
   return Array.from(tags).slice(0, 8);
 }
 
-async function runApifyExtractor(input: any) {
+async function runApifyExtractor(input) {
   if (!TOKEN) {
     console.error("❌ APIFY_TOKEN não definido.");
     process.exit(1);
@@ -147,7 +147,7 @@ async function main() {
   const doc = JSON.parse(raw);
   const places = Array.isArray(doc.places) ? doc.places : [];
 
-  const byId = new Map<string, any>();
+  const byId = new Map();
   for (const p of places) {
     const pid = p.sourceId || p.id;
     if (pid) byId.set(String(pid), p);
