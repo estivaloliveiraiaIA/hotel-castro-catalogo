@@ -16,6 +16,7 @@ export interface Place {
   website?: string;
   hours?: string[];
   tags: string[];
+  subcategories?: string[];
   sourceUrl?: string;
   sourceId?: string;
   openStatusCategory?: string | null;

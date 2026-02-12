@@ -96,6 +96,13 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
               Recomendado pelo hotel
             </Badge>
           )}
+
+          {place.subcategories?.[0] && !["Restaurante", "Bar & Noite", "Atração", "Cultura", "Compras", "Ao ar livre", "Café"].includes(place.subcategories[0]) && (
+            <Badge variant="outline" className="text-xs">
+              {place.subcategories[0]}
+            </Badge>
+          )}
+
           {(place.tags || []).slice(0, 3).map((tag) => (
             <Badge key={tag} variant="secondary" className="text-xs">
               {tag}

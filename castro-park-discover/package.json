@@ -19,7 +19,8 @@
     "ingest:complete": "node scripts/ingest-complete.js",
     "enrich:google": "node scripts/enrich-google-places.js",
     "expand:google": "node scripts/expand-google-places.js",
-    "enrich:apify": "node scripts/enrich-apify-maps-extractor.js"
+    "enrich:apify": "node scripts/enrich-apify-maps-extractor.js",
+    "data:subcategories": "node scripts/derive-subcategories.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

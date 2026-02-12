@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-12T13:30:58.433Z",
+  "updatedAt": "2026-02-12T15:55:29.034Z",
   "location": {
     "query": "Goiânia, GO"
   },
@@ -38,7 +38,10 @@
       "hours": [],
       "openStatusText": null,
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:37.503Z"
+      "_enrichedAt": "2026-02-11T17:38:37.503Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJjaq5IgD3XpMRCkTnrGf5ohc",
@@ -76,7 +79,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:38.435Z"
+      "_enrichedAt": "2026-02-11T17:38:38.435Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJTS2xgMPxXpMRNGRyAuxqCl4",
@@ -118,7 +124,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:40.132Z"
+      "_enrichedAt": "2026-02-11T17:38:40.132Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJTTPcpfntXpMRh4j_ATqQ4Ug",
@@ -148,7 +157,10 @@
       "hours": [],
       "openStatusText": null,
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:41.035Z"
+      "_enrichedAt": "2026-02-11T17:38:41.035Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJryO8XsH1XpMRw1_bFGWFv-0",
@@ -177,7 +189,10 @@
       "hours": [],
       "openStatusText": null,
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:41.755Z"
+      "_enrichedAt": "2026-02-11T17:38:41.755Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJ9ab2BeuNXpMR2kAdXFdfojo",
@@ -204,7 +219,10 @@
       "hours": [],
       "openStatusText": null,
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:42.270Z"
+      "_enrichedAt": "2026-02-11T17:38:42.270Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJBzz7y1PwXpMRO1y2eabhfDg",
@@ -246,7 +264,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:43.913Z"
+      "_enrichedAt": "2026-02-11T17:38:43.913Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ16JJOO3xXpMRiWCqR89Xyac",
@@ -288,7 +309,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:45.553Z"
+      "_enrichedAt": "2026-02-11T17:38:45.553Z",
+      "subcategories": [
+        "Frutos do mar"
+      ]
     },
     {
       "id": "ChIJgV7iTlf3XpMRXKu-FwEmF6I",
@@ -330,7 +354,11 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:47.148Z"
+      "_enrichedAt": "2026-02-11T17:38:47.148Z",
+      "subcategories": [
+        "Bar",
+        "Coquetelaria"
+      ]
     },
     {
       "id": "ChIJ24psRCTxXpMRrcCHVT7TtK4",
@@ -373,7 +401,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:48.784Z"
+      "_enrichedAt": "2026-02-11T17:38:48.784Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJdwVn-RXxXpMRyz3V01gQKfU",
@@ -417,7 +448,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:50.388Z"
+      "_enrichedAt": "2026-02-11T17:38:50.388Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJWcoTDovxXpMREQn-24WuiRc",
@@ -461,7 +495,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:51.999Z"
+      "_enrichedAt": "2026-02-11T17:38:51.999Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJq8KpLAAR9YgR6Rjmlral7XA",
@@ -503,7 +540,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:53.612Z"
+      "_enrichedAt": "2026-02-11T17:38:53.612Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJIzNSvM_3XpMRL99rCHCZUe4",
@@ -545,7 +585,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:55.217Z"
+      "_enrichedAt": "2026-02-11T17:38:55.217Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJv7v9wgLxXpMRNcQLhpC04us",
@@ -588,7 +631,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:56.853Z"
+      "_enrichedAt": "2026-02-11T17:38:56.853Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJXxstzQp5Z5MRO1fjK8Za3Dk",
@@ -631,7 +677,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:58.444Z"
+      "_enrichedAt": "2026-02-11T17:38:58.444Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJbUfiowjxXpMRyr_SZry7vG4",
@@ -675,7 +724,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:00.107Z"
+      "_enrichedAt": "2026-02-11T17:39:00.107Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ3_kEiLVZwokRFHm5LRT1fTY",
@@ -717,7 +769,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:01.734Z"
+      "_enrichedAt": "2026-02-11T17:39:01.734Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJXeLyKQX3XpMRCwp8CCKtIwc",
@@ -761,7 +816,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:03.352Z"
+      "_enrichedAt": "2026-02-11T17:39:03.352Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJkwAxsg_xXpMRGzyjRA80IEM",
@@ -803,7 +861,11 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:04.971Z"
+      "_enrichedAt": "2026-02-11T17:39:04.971Z",
+      "subcategories": [
+        "Bar",
+        "Balada/Clube"
+      ]
     },
     {
       "id": "ChIJw17nJ4PxXpMRHnOIY1kU_D8",
@@ -847,7 +909,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:06.589Z"
+      "_enrichedAt": "2026-02-11T17:39:06.589Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJadD5cbr1XpMRZk6W43IOsco",
@@ -888,7 +953,11 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:07.995Z"
+      "_enrichedAt": "2026-02-11T17:39:07.995Z",
+      "subcategories": [
+        "Parque",
+        "Bosque"
+      ]
     },
     {
       "id": "ChIJV__jlVNZXpMRPpwwyky5QoU",
@@ -931,7 +1000,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:09.448Z"
+      "_enrichedAt": "2026-02-11T17:39:09.448Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ898ci0TzXpMRs1Ozo0bKLUM",
@@ -963,7 +1035,11 @@
       "hours": [],
       "openStatusText": null,
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:10.670Z"
+      "_enrichedAt": "2026-02-11T17:39:10.670Z",
+      "subcategories": [
+        "Parque",
+        "Bosque"
+      ]
     },
     {
       "id": "ChIJg57ZEGXzXpMRutGR1cz0vyk",
@@ -1005,7 +1081,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:12.307Z"
+      "_enrichedAt": "2026-02-11T17:39:12.307Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJKcRhUanxXpMRulwJC1BfdF0",
@@ -1048,7 +1127,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:13.916Z"
+      "_enrichedAt": "2026-02-11T17:39:13.916Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJsWMnTyTxXpMRi9KhxLxkUr0",
@@ -1091,7 +1173,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:15.535Z"
+      "_enrichedAt": "2026-02-11T17:39:15.535Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJCV7w-QLxXpMROXrgIffEaps",
@@ -1134,7 +1219,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:17.125Z"
+      "_enrichedAt": "2026-02-11T17:39:17.125Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJUXkmHEzxXpMRCx4KIF5DQCw",
@@ -1177,7 +1265,11 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:18.726Z"
+      "_enrichedAt": "2026-02-11T17:39:18.726Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJT0frkPP2XpMRl4pYras_Jy0",
@@ -1220,7 +1312,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:20.355Z"
+      "_enrichedAt": "2026-02-11T17:39:20.355Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJc7QiyOnvXpMRjaY6m3UmBfo",
@@ -1263,7 +1358,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:21.957Z"
+      "_enrichedAt": "2026-02-11T17:39:21.957Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJOV4GedDxXpMRXJ1rJ4P_qHU",
@@ -1305,7 +1403,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:23.561Z"
+      "_enrichedAt": "2026-02-11T17:39:23.561Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJvy3I-sT2XpMRQSi_mEaMK0k",
@@ -1348,7 +1449,11 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:25.160Z"
+      "_enrichedAt": "2026-02-11T17:39:25.160Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJf9m6ktjzXpMRYCNGkfoxJD4",
@@ -1392,7 +1497,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:26.754Z"
+      "_enrichedAt": "2026-02-11T17:39:26.754Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJh8WpXxbxXpMRyrLnyjQOzp0",
@@ -1434,7 +1542,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:28.348Z"
+      "_enrichedAt": "2026-02-11T17:39:28.348Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ0S_KuGvxXpMRabEk8Ddw3l4",
@@ -1476,7 +1587,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:29.959Z"
+      "_enrichedAt": "2026-02-11T17:39:29.959Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJe1NzKQ_wXpMRruerf7mHk7s",
@@ -1519,7 +1633,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:31.592Z"
+      "_enrichedAt": "2026-02-11T17:39:31.592Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJZ1Q-TPfzXpMR-xHgbDHA_3o",
@@ -1561,7 +1678,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:33.184Z"
+      "_enrichedAt": "2026-02-11T17:39:33.184Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJLfQ9WePzXpMRQbICGdEx91A",
@@ -1605,7 +1725,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:34.833Z"
+      "_enrichedAt": "2026-02-11T17:39:34.833Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJz0SvmGbxXpMRqjz33D7bdZs",
@@ -1639,7 +1762,10 @@
       "hours": [],
       "openStatusText": "Ver horários",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:36.423Z"
+      "_enrichedAt": "2026-02-11T17:39:36.423Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJgUa1OvzxXpMR8qbISRE4ObA",
@@ -1684,7 +1810,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:38.043Z"
+      "_enrichedAt": "2026-02-11T17:39:38.043Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ70ORTDv1XpMRPWfIyWMGj5o",
@@ -1726,7 +1855,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:39.650Z"
+      "_enrichedAt": "2026-02-11T17:39:39.650Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJ2TQc0a_zwokRx4bQpvaBz_c",
@@ -1768,7 +1900,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:41.245Z"
+      "_enrichedAt": "2026-02-11T17:39:41.245Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJx2LOj532XpMRErHmTjPOk3s",
@@ -1810,7 +1945,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:42.846Z"
+      "_enrichedAt": "2026-02-11T17:39:42.846Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJJycR2ED0XpMRp2fazwuxnCk",
@@ -1853,7 +1991,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:44.441Z"
+      "_enrichedAt": "2026-02-11T17:39:44.441Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJN4k2qUPxXpMRbmFZjA8FPu8",
@@ -1896,7 +2037,11 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:46.060Z"
+      "_enrichedAt": "2026-02-11T17:39:46.060Z",
+      "subcategories": [
+        "Parque",
+        "Praça"
+      ]
     },
     {
       "id": "ChIJB-5l9mbxXpMR2hmltecqYr8",
@@ -1939,7 +2084,11 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:47.677Z"
+      "_enrichedAt": "2026-02-11T17:39:47.677Z",
+      "subcategories": [
+        "Parque",
+        "Bosque"
+      ]
     },
     {
       "id": "ChIJgfv1XBvxXpMR8OWZg4CyJ8o",
@@ -1982,7 +2131,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:49.288Z"
+      "_enrichedAt": "2026-02-11T17:39:49.288Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJmSHX0lnxXpMRWA4RduwEkU4",
@@ -2025,7 +2177,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:50.878Z"
+      "_enrichedAt": "2026-02-11T17:39:50.878Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJaZZK9kPxXpMR4OL4tKXLkA8",
@@ -2068,7 +2223,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:52.467Z"
+      "_enrichedAt": "2026-02-11T17:39:52.467Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJi4oNal_xXpMRfnhV-QVbTdA",
@@ -2111,7 +2269,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:54.067Z"
+      "_enrichedAt": "2026-02-11T17:39:54.067Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJW1WJrA_zXpMRB86vfNHVB4M",
@@ -2154,7 +2315,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:55.659Z"
+      "_enrichedAt": "2026-02-11T17:39:55.659Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJv9ZNQLX2XpMRjmuvij98AVg",
@@ -2196,7 +2360,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:57.303Z"
+      "_enrichedAt": "2026-02-11T17:39:57.303Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ_____wv3XpMRHW8-YvEEHIk",
@@ -2239,7 +2406,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:58.908Z"
+      "_enrichedAt": "2026-02-11T17:39:58.908Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJhX0vrdvxXpMR8tpw3CU_OiY",
@@ -2281,7 +2451,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:00.526Z"
+      "_enrichedAt": "2026-02-11T17:40:00.526Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJex8EeBHxXpMRdkl1rlFvmb4",
@@ -2325,7 +2498,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:02.175Z"
+      "_enrichedAt": "2026-02-11T17:40:02.175Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJtW-uiPf1XpMRjkYsEmwif28",
@@ -2367,7 +2543,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:03.827Z"
+      "_enrichedAt": "2026-02-11T17:40:03.827Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJd4JLjqnxXpMRsRs0IIrLg8A",
@@ -2411,7 +2590,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:05.477Z"
+      "_enrichedAt": "2026-02-11T17:40:05.477Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJWSAgvhHxXpMRO5vi2JtqBbo",
@@ -2453,7 +2635,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:07.096Z"
+      "_enrichedAt": "2026-02-11T17:40:07.096Z",
+      "subcategories": [
+        "Italiana"
+      ]
     },
     {
       "id": "ChIJdZE0Sz7xXpMRgVcw1tQjwoc",
@@ -2497,7 +2682,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:08.701Z"
+      "_enrichedAt": "2026-02-11T17:40:08.701Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJc57qk7n3XpMRSPboM4dz13A",
@@ -2539,7 +2727,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": "https://www.vucafood.com.br/esquina62/1540/cardapio-digital",
-      "_enrichedAt": "2026-02-11T17:40:10.344Z"
+      "_enrichedAt": "2026-02-11T17:40:10.344Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ0bCYvAX0XpMRDoOFPHT76ow",
@@ -2582,7 +2773,11 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:11.942Z"
+      "_enrichedAt": "2026-02-11T17:40:11.942Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJHZDhBtnwXpMRx_ag-GQVM9k",
@@ -2626,7 +2821,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:13.559Z"
+      "_enrichedAt": "2026-02-11T17:40:13.559Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ5V4a70DxXpMRM7x4lF1razk",
@@ -2669,7 +2867,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:15.135Z"
+      "_enrichedAt": "2026-02-11T17:40:15.135Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ_yTApS_xXpMR1TwmwDS6w6o",
@@ -2711,7 +2912,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:16.738Z"
+      "_enrichedAt": "2026-02-11T17:40:16.738Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ15qmfILxXpMRRdr2chDT-MI",
@@ -2754,7 +2958,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:18.343Z"
+      "_enrichedAt": "2026-02-11T17:40:18.343Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJt0ey6_P1XpMRxCa2yFN3ASU",
@@ -2788,7 +2995,10 @@
       "hours": [],
       "openStatusText": "Ver horários",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:19.926Z"
+      "_enrichedAt": "2026-02-11T17:40:19.926Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJOYzrWwzxXpMRw10yE6H7_Jc",
@@ -2822,7 +3032,11 @@
       "hours": [],
       "openStatusText": null,
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:21.550Z"
+      "_enrichedAt": "2026-02-11T17:40:21.550Z",
+      "subcategories": [
+        "Parque",
+        "Bosque"
+      ]
     },
     {
       "id": "ChIJBVBcrU7wXpMRdkumgtIDamc",
@@ -2865,7 +3079,11 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:23.149Z"
+      "_enrichedAt": "2026-02-11T17:40:23.149Z",
+      "subcategories": [
+        "Museu",
+        "Arte/Galeria"
+      ]
     },
     {
       "id": "ChIJQxZn8GTxXpMRSt9pLK4jBq4",
@@ -2908,7 +3126,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:24.774Z"
+      "_enrichedAt": "2026-02-11T17:40:24.774Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJXVXVqWXxXpMRHRcDsLFA3Pw",
@@ -2950,7 +3171,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:26.371Z"
+      "_enrichedAt": "2026-02-11T17:40:26.371Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJBXyIxAfzXpMRyvFuXGiJFyw",
@@ -2992,7 +3216,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:27.995Z"
+      "_enrichedAt": "2026-02-11T17:40:27.995Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJs20TRCXxXpMRgx2tuyLDIBs",
@@ -3034,7 +3261,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:29.678Z"
+      "_enrichedAt": "2026-02-11T17:40:29.678Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJM30YtzD3XpMRbmKh80VxGgk",
@@ -3077,7 +3307,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:31.275Z"
+      "_enrichedAt": "2026-02-11T17:40:31.275Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJTzDGc-zwXpMRjY87KTpajDg",
@@ -3119,7 +3352,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:32.859Z"
+      "_enrichedAt": "2026-02-11T17:40:32.859Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJ1U2A3ALxXpMRBJp7EL9LIa0",
@@ -3163,7 +3399,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:34.459Z"
+      "_enrichedAt": "2026-02-11T17:40:34.459Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ0TT3ceDwXpMRKCGU55EzK_0",
@@ -3206,7 +3445,11 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:36.095Z"
+      "_enrichedAt": "2026-02-11T17:40:36.095Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJu0rnPCPxXpMRYZdx1RSY5SM",
@@ -3249,7 +3492,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:37.695Z"
+      "_enrichedAt": "2026-02-11T17:40:37.695Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJQzBopufwXpMR8PTr3xdJFw8",
@@ -3291,7 +3537,11 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:39.290Z"
+      "_enrichedAt": "2026-02-11T17:40:39.290Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ3d7kcsXzXpMRpmcdJCIH0UE",
@@ -3333,7 +3583,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:40.910Z"
+      "_enrichedAt": "2026-02-11T17:40:40.910Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJjRxgShLxXpMRMEIYjiDE5nA",
@@ -3375,7 +3628,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:42.750Z"
+      "_enrichedAt": "2026-02-11T17:40:42.750Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJncYCmXykXpMRDkGNgFjymgY",
@@ -3419,7 +3675,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": "https://cafeteriasa.com/collections/setor-oeste",
-      "_enrichedAt": "2026-02-11T17:40:44.351Z"
+      "_enrichedAt": "2026-02-11T17:40:44.351Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJdS_zPVzxXpMRotqJMzaM1v0",
@@ -3461,7 +3720,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:45.953Z"
+      "_enrichedAt": "2026-02-11T17:40:45.953Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ9QTfxmHxXpMR2d986GxdEHk",
@@ -3503,7 +3765,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:47.589Z"
+      "_enrichedAt": "2026-02-11T17:40:47.589Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJcaEx0hXxXpMR-Q53nSle2wg",
@@ -3545,7 +3810,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:49.180Z"
+      "_enrichedAt": "2026-02-11T17:40:49.180Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJw2MApDnyXpMRZaRlqh6q-fc",
@@ -3588,7 +3856,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:50.768Z"
+      "_enrichedAt": "2026-02-11T17:40:50.768Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJzf85Wf71XpMR08cjm4db4b0",
@@ -3630,7 +3901,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:52.382Z"
+      "_enrichedAt": "2026-02-11T17:40:52.382Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJT7TAomvxXpMR1XYDTbrn3To",
@@ -3672,7 +3946,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:53.984Z"
+      "_enrichedAt": "2026-02-11T17:40:53.984Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJEZsM28P1XpMR85xVsyF4I84",
@@ -3714,7 +3991,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:55.627Z"
+      "_enrichedAt": "2026-02-11T17:40:55.627Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJZbwsjizzXpMR3hgvnKpCYMk",
@@ -3757,7 +4037,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:57.212Z"
+      "_enrichedAt": "2026-02-11T17:40:57.212Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJeXIpWmTxXpMR9GABcVBd2r4",
@@ -3792,7 +4075,11 @@
       "hours": [],
       "openStatusText": "Ver horários",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:40:58.813Z"
+      "_enrichedAt": "2026-02-11T17:40:58.813Z",
+      "subcategories": [
+        "Museu",
+        "Arte/Galeria"
+      ]
     },
     {
       "id": "ChIJkbhQTYPxXpMRyEIdKOuWFbs",
@@ -3834,7 +4121,11 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:00.490Z"
+      "_enrichedAt": "2026-02-11T17:41:00.490Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJuZctiLz0XpMRyPtxy9Uotzk",
@@ -3876,7 +4167,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:02.179Z"
+      "_enrichedAt": "2026-02-11T17:41:02.179Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJ-dMBUyrzXpMRCo9wSi171GA",
@@ -3920,7 +4214,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:03.812Z"
+      "_enrichedAt": "2026-02-11T17:41:03.812Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJgSFqlW7wXpMRlZHbynQ0IkI",
@@ -3962,7 +4259,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:05.423Z"
+      "_enrichedAt": "2026-02-11T17:41:05.423Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJX7kOK3zzXpMRqoxEi2ispgI",
@@ -4006,7 +4306,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:07.111Z"
+      "_enrichedAt": "2026-02-11T17:41:07.111Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJCx0PzsXzXpMRiNzi1Fnet_k",
@@ -4048,7 +4351,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:08.701Z"
+      "_enrichedAt": "2026-02-11T17:41:08.701Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJSUY36Qj0XpMRI1tbF-C1V90",
@@ -4090,7 +4396,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:10.320Z"
+      "_enrichedAt": "2026-02-11T17:41:10.320Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJ3TMblRbxXpMRZfP2smakvyo",
@@ -4133,7 +4442,11 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:11.905Z"
+      "_enrichedAt": "2026-02-11T17:41:11.905Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJX7PKVVLwXpMRU6YaVKhzgm4",
@@ -4177,7 +4490,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:13.501Z"
+      "_enrichedAt": "2026-02-11T17:41:13.501Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJwwx3pUXxXpMRLtcMPxoa_O4",
@@ -4220,7 +4536,11 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:15.119Z"
+      "_enrichedAt": "2026-02-11T17:41:15.119Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJZWDZbmnxXpMR8y0dVNL5DRI",
@@ -4263,7 +4583,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:16.722Z"
+      "_enrichedAt": "2026-02-11T17:41:16.722Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ-Z-kfFrxXpMRGgTyoZn1whc",
@@ -4305,7 +4628,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:18.377Z"
+      "_enrichedAt": "2026-02-11T17:41:18.377Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJqSx3FFPwXpMR4rWh68gyVWA",
@@ -4348,7 +4674,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:20.004Z"
+      "_enrichedAt": "2026-02-11T17:41:20.004Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJrfzFy1PwXpMRIzaXFcZtg6s",
@@ -4391,7 +4720,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:21.591Z"
+      "_enrichedAt": "2026-02-11T17:41:21.591Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJL-S8gyHyXpMRNf80I1oRfXQ",
@@ -4433,7 +4765,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:23.238Z"
+      "_enrichedAt": "2026-02-11T17:41:23.238Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJKwLXlsXxXpMRLVPbKoYcfpc",
@@ -4477,7 +4812,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": "https://cafeteriasa.com/collections/setor-bueno",
-      "_enrichedAt": "2026-02-11T17:41:24.852Z"
+      "_enrichedAt": "2026-02-11T17:41:24.852Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ1xdfG2fxXpMRIhZnZ7X3yfs",
@@ -4520,7 +4858,11 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:26.455Z"
+      "_enrichedAt": "2026-02-11T17:41:26.455Z",
+      "subcategories": [
+        "Museu",
+        "Arte/Galeria"
+      ]
     },
     {
       "id": "ChIJfyllhDdfwokRR9VTZ34SmkA",
@@ -4562,7 +4904,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:28.102Z"
+      "_enrichedAt": "2026-02-11T17:41:28.102Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJB1JatEPxXpMR9PcjvTnohGU",
@@ -4606,7 +4951,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:29.687Z"
+      "_enrichedAt": "2026-02-11T17:41:29.687Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ0_8AOxXxXpMRdvgpV2P40jQ",
@@ -4650,7 +4998,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:31.298Z"
+      "_enrichedAt": "2026-02-11T17:41:31.298Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJXe_gdYvxXpMRjQCviyJt2MI",
@@ -4694,7 +5045,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:32.907Z"
+      "_enrichedAt": "2026-02-11T17:41:32.907Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJDRroAj3xXpMRt8L-tZByNIw",
@@ -4738,7 +5092,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:34.520Z"
+      "_enrichedAt": "2026-02-11T17:41:34.520Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJsWPiOwfzXpMRVWR7YIZ4F5w",
@@ -4780,7 +5137,11 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:36.104Z"
+      "_enrichedAt": "2026-02-11T17:41:36.104Z",
+      "subcategories": [
+        "Parque",
+        "Bosque"
+      ]
     },
     {
       "id": "ChIJB0jA3lnxXpMR8X4qy5Kuo7I",
@@ -4823,7 +5184,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:37.687Z"
+      "_enrichedAt": "2026-02-11T17:41:37.687Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJ72KusUjzXpMRy5cGr--oJxU",
@@ -4865,7 +5229,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:39.338Z"
+      "_enrichedAt": "2026-02-11T17:41:39.338Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJAQCAsMbzXpMRsKf5vNHpIIg",
@@ -4907,7 +5274,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:40.947Z"
+      "_enrichedAt": "2026-02-11T17:41:40.947Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJv_Ob4an1XpMRPawQls7KhOA",
@@ -4949,7 +5319,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:42.557Z"
+      "_enrichedAt": "2026-02-11T17:41:42.557Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJS48e6iX0XpMRPJj3DkFcMIo",
@@ -4992,7 +5365,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:44.247Z"
+      "_enrichedAt": "2026-02-11T17:41:44.247Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJJ6eYMmf2XpMR41rsOdCqjEQ",
@@ -5034,7 +5410,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:45.867Z"
+      "_enrichedAt": "2026-02-11T17:41:45.867Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJqSx3FFPwXpMRwDoQi6IKxuw",
@@ -5076,7 +5455,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:47.516Z"
+      "_enrichedAt": "2026-02-11T17:41:47.516Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJVdhJjwZu5IkRXoMDfrpuXLc",
@@ -5119,7 +5501,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:49.128Z"
+      "_enrichedAt": "2026-02-11T17:41:49.128Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJSw62U-DwXpMR4Y0rWx--fMY",
@@ -5161,7 +5546,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:50.780Z"
+      "_enrichedAt": "2026-02-11T17:41:50.780Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJU2Azu8T0XpMRnYU-egTJer4",
@@ -5203,7 +5591,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:52.386Z"
+      "_enrichedAt": "2026-02-11T17:41:52.386Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJB-XclBjxXpMRnJy5xChZYBU",
@@ -5247,7 +5638,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": "https://cafeteriasa.com/collections/cafe-s-a-setor-marista",
-      "_enrichedAt": "2026-02-11T17:41:54.030Z"
+      "_enrichedAt": "2026-02-11T17:41:54.030Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJd3sBvTjxXpMRm_nMoL4Wqro",
@@ -5289,7 +5683,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:55.646Z"
+      "_enrichedAt": "2026-02-11T17:41:55.646Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJU32-PMLzXpMRIa_X7N6n6dI",
@@ -5331,7 +5728,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:57.288Z"
+      "_enrichedAt": "2026-02-11T17:41:57.288Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJe_8T-_b3XpMRytgfuEZwpWs",
@@ -5373,7 +5773,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:58.895Z"
+      "_enrichedAt": "2026-02-11T17:41:58.895Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJrar0XSHxXpMRR5MeZZTUpyQ",
@@ -5415,7 +5818,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:00.494Z"
+      "_enrichedAt": "2026-02-11T17:42:00.494Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJF7VZTnfxXpMRFW2UbeENuLg",
@@ -5460,7 +5866,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:02.110Z"
+      "_enrichedAt": "2026-02-11T17:42:02.110Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJLQCw4_5YwokRd5hb1b2IUYU",
@@ -5502,7 +5911,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:03.769Z"
+      "_enrichedAt": "2026-02-11T17:42:03.769Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJzTjwGjnxXpMRlB8bVPE4WMU",
@@ -5545,7 +5957,10 @@
       ],
       "openStatusText": "Fechado agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:05.454Z"
+      "_enrichedAt": "2026-02-11T17:42:05.454Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ1e28nFE0K4gRSVh9irzkI4c",
@@ -5588,7 +6003,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:07.155Z"
+      "_enrichedAt": "2026-02-11T17:42:07.155Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJh5OPFYLxXpMR3aVk6kyf0RU",
@@ -5630,7 +6048,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:08.755Z"
+      "_enrichedAt": "2026-02-11T17:42:08.755Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJF8LZ6ZdfXpMRkHfuGrugw8k",
@@ -5672,7 +6093,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:10.353Z"
+      "_enrichedAt": "2026-02-11T17:42:10.353Z",
+      "subcategories": [
+        "Shopping"
+      ]
     },
     {
       "id": "ChIJeUbvWNH3XpMRV4z6cKkHMOk",
@@ -5714,7 +6138,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:11.932Z"
+      "_enrichedAt": "2026-02-11T17:42:11.932Z",
+      "subcategories": [
+        "Parque"
+      ]
     },
     {
       "id": "ChIJHzJk8XjxXpMRqE1B0ssypOE",
@@ -5748,7 +6175,10 @@
       "hours": [],
       "openStatusText": "Ver horários",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:13.524Z"
+      "_enrichedAt": "2026-02-11T17:42:13.524Z",
+      "subcategories": [
+        "Museu"
+      ]
     },
     {
       "id": "ChIJKcNGXwK0xokRz28DBnf4pis",
@@ -5790,7 +6220,10 @@
       ],
       "openStatusText": "Aberto agora",
       "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:15.129Z"
+      "_enrichedAt": "2026-02-11T17:42:15.129Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJbduTtz3xXpMRVKAdgGIpmSs",
@@ -5833,7 +6266,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:37.850Z",
-      "_enrichedAt": "2026-02-11T20:01:29.299Z"
+      "_enrichedAt": "2026-02-11T20:01:29.299Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJw62O-sLxXpMRxvyQihTLo9Y",
@@ -5876,7 +6312,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:38.133Z",
-      "_enrichedAt": "2026-02-11T20:01:30.956Z"
+      "_enrichedAt": "2026-02-11T20:01:30.956Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJw2o9FrDxXpMR-Yjohfbxh8k",
@@ -5919,7 +6358,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:38.399Z",
-      "_enrichedAt": "2026-02-11T20:01:32.673Z"
+      "_enrichedAt": "2026-02-11T20:01:32.673Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJB8IRkv_xXpMRGWwZv7xJBuc",
@@ -5963,7 +6405,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:38.666Z",
-      "_enrichedAt": "2026-02-11T20:01:34.343Z"
+      "_enrichedAt": "2026-02-11T20:01:34.343Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJNywKll3xXpMR8NECMctuTaA",
@@ -6006,7 +6451,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:38.961Z",
-      "_enrichedAt": "2026-02-11T20:01:35.897Z"
+      "_enrichedAt": "2026-02-11T20:01:35.897Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJjafAUmnxXpMRnCdaULqOSLo",
@@ -6049,7 +6497,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:39.243Z",
-      "_enrichedAt": "2026-02-11T20:01:37.481Z"
+      "_enrichedAt": "2026-02-11T20:01:37.481Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJASO6-6LxXpMRA95UYVKp6fA",
@@ -6092,7 +6543,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:39.510Z",
-      "_enrichedAt": "2026-02-11T20:01:39.044Z"
+      "_enrichedAt": "2026-02-11T20:01:39.044Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJabvw7qnxXpMRF0i5HugCmak",
@@ -6137,7 +6591,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:39.774Z",
-      "_enrichedAt": "2026-02-11T20:01:40.561Z"
+      "_enrichedAt": "2026-02-11T20:01:40.561Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJoxaBdF72XpMRoZWM8Tj1EFc",
@@ -6181,7 +6638,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:40.038Z",
-      "_enrichedAt": "2026-02-11T20:01:42.054Z"
+      "_enrichedAt": "2026-02-11T20:01:42.054Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJByI47IHzXpMRyVVfqjZhGqg",
@@ -6224,7 +6684,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:43.169Z",
-      "_enrichedAt": "2026-02-11T20:01:43.752Z"
+      "_enrichedAt": "2026-02-11T20:01:43.752Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJiUTHK5TzXpMR8wiw4aCUkTk",
@@ -6267,7 +6730,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:43.433Z",
-      "_enrichedAt": "2026-02-11T20:01:45.249Z"
+      "_enrichedAt": "2026-02-11T20:01:45.249Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ45lEiDnxXpMRZyIkMi0ragQ",
@@ -6311,7 +6777,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:43.702Z",
-      "_enrichedAt": "2026-02-11T20:01:46.819Z"
+      "_enrichedAt": "2026-02-11T20:01:46.819Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJF9m_nyjyXpMRITO7T0ilX5Q",
@@ -6354,7 +6823,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:43.966Z",
-      "_enrichedAt": "2026-02-11T20:01:48.414Z"
+      "_enrichedAt": "2026-02-11T20:01:48.414Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJoRJCKk7xXpMRv24eBDKaDSw",
@@ -6397,7 +6869,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:44.230Z",
-      "_enrichedAt": "2026-02-11T20:01:50.102Z"
+      "_enrichedAt": "2026-02-11T20:01:50.102Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJbaO2h0HyXpMRJLRTxZ0h84M",
@@ -6441,7 +6916,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:44.496Z",
-      "_enrichedAt": "2026-02-11T20:01:51.617Z"
+      "_enrichedAt": "2026-02-11T20:01:51.617Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJqxhm8dLzXpMRa2x-9XH6aKU",
@@ -6485,7 +6963,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:44.760Z",
-      "_enrichedAt": "2026-02-11T20:01:53.157Z"
+      "_enrichedAt": "2026-02-11T20:01:53.157Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJAwstRqHxXpMR1j0uHMHsoF0",
@@ -6529,7 +7010,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:45.024Z",
-      "_enrichedAt": "2026-02-11T20:01:54.737Z"
+      "_enrichedAt": "2026-02-11T20:01:54.737Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJm5RRtczxXpMRLXDaoLUDw6M",
@@ -6573,7 +7057,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:45.287Z",
-      "_enrichedAt": "2026-02-11T20:01:56.271Z"
+      "_enrichedAt": "2026-02-11T20:01:56.271Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJIU8cnwz7XpMRrlYg0GjYyPo",
@@ -6616,7 +7103,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:45.551Z",
-      "_enrichedAt": "2026-02-11T20:01:57.800Z"
+      "_enrichedAt": "2026-02-11T20:01:57.800Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ5Y09M0TxXpMRT-Gk_xvfz4E",
@@ -6659,7 +7149,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:45.814Z",
-      "_enrichedAt": "2026-02-11T20:01:59.349Z"
+      "_enrichedAt": "2026-02-11T20:01:59.349Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJrcJEexfxXpMRCBlB1JZQjQU",
@@ -6703,7 +7196,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:46.076Z",
-      "_enrichedAt": "2026-02-11T20:02:00.941Z"
+      "_enrichedAt": "2026-02-11T20:02:00.941Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJOWPzTF7xXpMRIRrDKTUNS8o",
@@ -6746,7 +7242,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:49.367Z",
-      "_enrichedAt": "2026-02-11T20:02:02.490Z"
+      "_enrichedAt": "2026-02-11T20:02:02.490Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJHwTs1dfxXpMRsDl7QS_LVF0",
@@ -6789,7 +7288,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:49.630Z",
-      "_enrichedAt": "2026-02-11T20:02:04.035Z"
+      "_enrichedAt": "2026-02-11T20:02:04.035Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJFRKqHbrzXpMR1nKJA5scDco",
@@ -6832,7 +7334,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:49.894Z",
-      "_enrichedAt": "2026-02-11T20:02:05.599Z"
+      "_enrichedAt": "2026-02-11T20:02:05.599Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJWX_WsejxXpMR6NRdP56NMIY",
@@ -6875,7 +7380,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:50.157Z",
-      "_enrichedAt": "2026-02-11T20:02:07.162Z"
+      "_enrichedAt": "2026-02-11T20:02:07.162Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJbU1AaxTxXpMR8WLqOKrr2Hg",
@@ -6919,7 +7427,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:50.415Z",
-      "_enrichedAt": "2026-02-11T20:02:08.745Z"
+      "_enrichedAt": "2026-02-11T20:02:08.745Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ2ZKiluXzXpMR6xShmFHUMXs",
@@ -6963,7 +7474,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:50.679Z",
-      "_enrichedAt": "2026-02-11T20:02:10.237Z"
+      "_enrichedAt": "2026-02-11T20:02:10.237Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJL0EX_ND3XpMRiySKIqhN8QU",
@@ -7006,7 +7520,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:50.946Z",
-      "_enrichedAt": "2026-02-11T20:02:11.809Z"
+      "_enrichedAt": "2026-02-11T20:02:11.809Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJWRDLlqXxXpMR7xAPDKQKEFE",
@@ -7050,7 +7567,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:51.223Z",
-      "_enrichedAt": "2026-02-11T20:02:13.313Z"
+      "_enrichedAt": "2026-02-11T20:02:13.313Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJCUAKoSjyXpMRwZjQqSL7-HU",
@@ -7093,7 +7613,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:51.485Z",
-      "_enrichedAt": "2026-02-11T20:02:14.857Z"
+      "_enrichedAt": "2026-02-11T20:02:14.857Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJhXsxmNTzXpMR-jXOQ1bmA44",
@@ -7136,7 +7659,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:51.749Z",
-      "_enrichedAt": "2026-02-11T20:02:16.406Z"
+      "_enrichedAt": "2026-02-11T20:02:16.406Z",
+      "subcategories": [
+        "Italiana"
+      ]
     },
     {
       "id": "ChIJzzaVbErxXpMRuEItg8EB9D8",
@@ -7179,7 +7705,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:52.013Z",
-      "_enrichedAt": "2026-02-11T20:02:17.952Z"
+      "_enrichedAt": "2026-02-11T20:02:17.952Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJCQAAkD_xXpMRV0_gpqDQ6LY",
@@ -7223,7 +7752,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:52.272Z",
-      "_enrichedAt": "2026-02-11T20:02:19.503Z"
+      "_enrichedAt": "2026-02-11T20:02:19.503Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJw_LDIonxXpMRvWxorYoPyKk",
@@ -7267,7 +7799,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:52.536Z",
-      "_enrichedAt": "2026-02-11T20:02:21.069Z"
+      "_enrichedAt": "2026-02-11T20:02:21.069Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJv-LriKnxXpMRPzZ8hcSz2Dg",
@@ -7310,7 +7845,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:52.803Z",
-      "_enrichedAt": "2026-02-11T20:02:22.626Z"
+      "_enrichedAt": "2026-02-11T20:02:22.626Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJwVWGTrH2XpMRMYVAyGNiR0k",
@@ -7354,7 +7892,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:53.064Z",
-      "_enrichedAt": "2026-02-11T20:02:24.157Z"
+      "_enrichedAt": "2026-02-11T20:02:24.157Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ9deLfjfxXpMRSuEmJTy8knM",
@@ -7397,7 +7938,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:53.321Z",
-      "_enrichedAt": "2026-02-11T20:02:25.702Z"
+      "_enrichedAt": "2026-02-11T20:02:25.702Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJVVWVXG3xXpMRn44xUqD7mic",
@@ -7440,7 +7984,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:54.114Z",
-      "_enrichedAt": "2026-02-11T20:02:27.251Z"
+      "_enrichedAt": "2026-02-11T20:02:27.251Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJA-nxVUTxXpMRYTxRDeo29ZU",
@@ -7483,7 +8030,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:54.373Z",
-      "_enrichedAt": "2026-02-11T20:02:28.819Z"
+      "_enrichedAt": "2026-02-11T20:02:28.819Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJEw8aoW3xXpMRDAbjcW729r8",
@@ -7526,7 +8076,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:54.637Z",
-      "_enrichedAt": "2026-02-11T20:02:30.398Z"
+      "_enrichedAt": "2026-02-11T20:02:30.398Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJK-WVtCvxXpMR_tG6WP6EQIs",
@@ -7569,7 +8122,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:54.896Z",
-      "_enrichedAt": "2026-02-11T20:02:31.899Z"
+      "_enrichedAt": "2026-02-11T20:02:31.899Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJUYaRblfxXpMREaSqQpgrpgY",
@@ -7612,7 +8168,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:55.158Z",
-      "_enrichedAt": "2026-02-11T20:02:33.468Z"
+      "_enrichedAt": "2026-02-11T20:02:33.468Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJc_S_hm7xXpMR01KNmnJL34k",
@@ -7655,7 +8214,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:55.422Z",
-      "_enrichedAt": "2026-02-11T20:02:34.984Z"
+      "_enrichedAt": "2026-02-11T20:02:34.984Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJN9xCS1nyXpMRg5Gux2BmnDQ",
@@ -7698,7 +8260,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:55.684Z",
-      "_enrichedAt": "2026-02-11T20:02:36.563Z"
+      "_enrichedAt": "2026-02-11T20:02:36.563Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJJXebEWr0XpMRbJ3SN4Yi_XQ",
@@ -7741,7 +8306,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:55.947Z",
-      "_enrichedAt": "2026-02-11T20:02:38.142Z"
+      "_enrichedAt": "2026-02-11T20:02:38.142Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJq6qqqov2XpMRiJ8Wj0qJK1U",
@@ -7784,7 +8352,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:56.212Z",
-      "_enrichedAt": "2026-02-11T20:02:39.700Z"
+      "_enrichedAt": "2026-02-11T20:02:39.700Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJ37ERHwD1XpMR4HpCI2s2MCI",
@@ -7827,7 +8398,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:56.472Z",
-      "_enrichedAt": "2026-02-11T20:02:41.200Z"
+      "_enrichedAt": "2026-02-11T20:02:41.200Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJryn8y-v1XpMRaNLhUNymJNo",
@@ -7870,7 +8444,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:56.734Z",
-      "_enrichedAt": "2026-02-11T20:02:42.679Z"
+      "_enrichedAt": "2026-02-11T20:02:42.679Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJFRIElkLxXpMR6SALU97NwZo",
@@ -7913,7 +8490,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:56.994Z",
-      "_enrichedAt": "2026-02-11T20:02:44.166Z"
+      "_enrichedAt": "2026-02-11T20:02:44.166Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJC-pOEoDxXpMRHvv64GGDdqI",
@@ -7956,7 +8536,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:57.252Z",
-      "_enrichedAt": "2026-02-11T20:02:45.716Z"
+      "_enrichedAt": "2026-02-11T20:02:45.716Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJrVVZoK_xXpMRbrO4AME9cqM",
@@ -7999,7 +8582,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:57.511Z",
-      "_enrichedAt": "2026-02-11T20:02:47.230Z"
+      "_enrichedAt": "2026-02-11T20:02:47.230Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJMy--1CX0XpMR7nTk3WW0mMQ",
@@ -8042,7 +8628,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:57.770Z",
-      "_enrichedAt": "2026-02-11T20:02:48.727Z"
+      "_enrichedAt": "2026-02-11T20:02:48.727Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ-1XUfIjxXpMR2JkCg0WGBjY",
@@ -8085,7 +8674,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:58.029Z",
-      "_enrichedAt": "2026-02-11T20:02:50.305Z"
+      "_enrichedAt": "2026-02-11T20:02:50.305Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJfVyQIs_1XpMRVVwg1Clhudw",
@@ -8129,7 +8721,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:16:58.288Z",
-      "_enrichedAt": "2026-02-11T20:02:51.793Z"
+      "_enrichedAt": "2026-02-11T20:02:51.793Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJrZRu80TxXpMRfGJgb_dF5kw",
@@ -8172,7 +8767,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:02.353Z",
-      "_enrichedAt": "2026-02-11T20:02:53.363Z"
+      "_enrichedAt": "2026-02-11T20:02:53.363Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJi4oNal_xXpMRdCUXqLgAKGI",
@@ -8215,7 +8813,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:02.616Z",
-      "_enrichedAt": "2026-02-11T20:02:54.854Z"
+      "_enrichedAt": "2026-02-11T20:02:54.854Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJw5zyJBfxXpMRcvVoMNo3ios",
@@ -8258,7 +8859,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:02.875Z",
-      "_enrichedAt": "2026-02-11T20:02:56.343Z"
+      "_enrichedAt": "2026-02-11T20:02:56.343Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJQU1UD8LwXpMRpwz-vmms4Zo",
@@ -8301,7 +8905,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:03.137Z",
-      "_enrichedAt": "2026-02-11T20:02:57.881Z"
+      "_enrichedAt": "2026-02-11T20:02:57.881Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJv2foAQDxXpMRFV_J_rOGePo",
@@ -8344,7 +8951,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:03.399Z",
-      "_enrichedAt": "2026-02-11T20:02:59.421Z"
+      "_enrichedAt": "2026-02-11T20:02:59.421Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ577QieHwXpMREPidW5nRBP4",
@@ -8387,7 +8997,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:03.659Z",
-      "_enrichedAt": "2026-02-11T20:03:00.913Z"
+      "_enrichedAt": "2026-02-11T20:03:00.913Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJZ4JzQyPxXpMRL8tWCsVASZM",
@@ -8430,7 +9043,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:03.919Z",
-      "_enrichedAt": "2026-02-11T20:03:02.479Z"
+      "_enrichedAt": "2026-02-11T20:03:02.479Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJrbb1p2T0XpMRkChiCT1SPu4",
@@ -8473,7 +9089,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:04.182Z",
-      "_enrichedAt": "2026-02-11T20:03:04.023Z"
+      "_enrichedAt": "2026-02-11T20:03:04.023Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJj8AzcLXxXpMRO2rKvlKcXUA",
@@ -8516,7 +9135,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:04.440Z",
-      "_enrichedAt": "2026-02-11T20:03:05.558Z"
+      "_enrichedAt": "2026-02-11T20:03:05.558Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJRfOjdUnxXpMRtEYuxwpSg1s",
@@ -8559,7 +9181,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:04.702Z",
-      "_enrichedAt": "2026-02-11T20:03:07.049Z"
+      "_enrichedAt": "2026-02-11T20:03:07.049Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJ7TxF72LxXpMRE07U5l2db00",
@@ -8602,7 +9227,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:04.965Z",
-      "_enrichedAt": "2026-02-11T20:03:08.623Z"
+      "_enrichedAt": "2026-02-11T20:03:08.623Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJAX9wWkHxXpMRJH_0pl4C-HU",
@@ -8647,7 +9275,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:05.224Z",
-      "_enrichedAt": "2026-02-11T20:03:10.155Z"
+      "_enrichedAt": "2026-02-11T20:03:10.155Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJUVVVnR3xXpMR-FHsP_vbX88",
@@ -8690,7 +9321,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:05.487Z",
-      "_enrichedAt": "2026-02-11T20:03:11.694Z"
+      "_enrichedAt": "2026-02-11T20:03:11.694Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJQx2FKP7xXpMRgYuOpstCVzI",
@@ -8733,7 +9367,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:05.749Z",
-      "_enrichedAt": "2026-02-11T20:03:13.188Z"
+      "_enrichedAt": "2026-02-11T20:03:13.188Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJu_-Q_VbxXpMRtSYLDYKWe5I",
@@ -8776,7 +9413,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:06.013Z",
-      "_enrichedAt": "2026-02-11T20:03:14.693Z"
+      "_enrichedAt": "2026-02-11T20:03:14.693Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJeQaO4WPxXpMRdftBukMuY8E",
@@ -8819,7 +9459,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:06.272Z",
-      "_enrichedAt": "2026-02-11T20:03:16.248Z"
+      "_enrichedAt": "2026-02-11T20:03:16.248Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJAwAAMMP2XpMRzXNIvQfMGPU",
@@ -8862,7 +9505,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:06.531Z",
-      "_enrichedAt": "2026-02-11T20:03:17.796Z"
+      "_enrichedAt": "2026-02-11T20:03:17.796Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJMcG5HDXpXpMR3MxeT9dCvyY",
@@ -8905,7 +9551,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:06.792Z",
-      "_enrichedAt": "2026-02-11T20:03:19.338Z"
+      "_enrichedAt": "2026-02-11T20:03:19.338Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJi4oNal_xXpMRh-Z8nmCFd24",
@@ -8948,7 +9597,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:07.057Z",
-      "_enrichedAt": "2026-02-11T20:03:20.871Z"
+      "_enrichedAt": "2026-02-11T20:03:20.871Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJKwKy1KTxXpMRmHng7MMxBSA",
@@ -8991,7 +9643,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:07.317Z",
-      "_enrichedAt": "2026-02-11T20:03:22.444Z"
+      "_enrichedAt": "2026-02-11T20:03:22.444Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJnUQeRPjxXpMRJQrB9oYwsAI",
@@ -9034,7 +9689,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:10.492Z",
-      "_enrichedAt": "2026-02-11T20:03:24.014Z"
+      "_enrichedAt": "2026-02-11T20:03:24.014Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJ0QsDEzX3XpMRMf2RyTZQJu4",
@@ -9077,7 +9735,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:10.751Z",
-      "_enrichedAt": "2026-02-11T20:03:25.559Z"
+      "_enrichedAt": "2026-02-11T20:03:25.559Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJPUCGZanxXpMRxEEDXjuRQxA",
@@ -9120,7 +9781,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:11.011Z",
-      "_enrichedAt": "2026-02-11T20:03:27.238Z"
+      "_enrichedAt": "2026-02-11T20:03:27.238Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJi0zxRCL3XpMRovu8wpfkSI8",
@@ -9163,7 +9827,11 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:11.270Z",
-      "_enrichedAt": "2026-02-11T20:03:28.812Z"
+      "_enrichedAt": "2026-02-11T20:03:28.812Z",
+      "subcategories": [
+        "Pizza",
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJ6QL8Ay3yXpMR0nqrEDCuvH0",
@@ -9206,7 +9874,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:11.530Z",
-      "_enrichedAt": "2026-02-11T20:03:30.313Z"
+      "_enrichedAt": "2026-02-11T20:03:30.313Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJ0b1tG9XxXpMR_Ghcf-qIvvQ",
@@ -9249,7 +9920,11 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:11.788Z",
-      "_enrichedAt": "2026-02-11T20:03:31.874Z"
+      "_enrichedAt": "2026-02-11T20:03:31.874Z",
+      "subcategories": [
+        "Pizza",
+        "Italiana"
+      ]
     },
     {
       "id": "ChIJcbQawfrxXpMRbKJd1xv_r4E",
@@ -9294,7 +9969,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:12.050Z",
-      "_enrichedAt": "2026-02-11T20:03:33.439Z"
+      "_enrichedAt": "2026-02-11T20:03:33.439Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ-xi3VWr0XpMRDLqP8NIoP6U",
@@ -9338,7 +10016,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:12.316Z",
-      "_enrichedAt": "2026-02-11T20:03:34.972Z"
+      "_enrichedAt": "2026-02-11T20:03:34.972Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJsUO24mDxXpMRa5d1OYCwZ-8",
@@ -9381,7 +10062,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:12.577Z",
-      "_enrichedAt": "2026-02-11T20:03:36.523Z"
+      "_enrichedAt": "2026-02-11T20:03:36.523Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJqzDH5zXyXpMReBGR1MoETIk",
@@ -9424,7 +10108,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:12.841Z",
-      "_enrichedAt": "2026-02-11T20:03:38.031Z"
+      "_enrichedAt": "2026-02-11T20:03:38.031Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJp3LQvu_xXpMRC9dy4sH8a_8",
@@ -9467,7 +10154,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:13.100Z",
-      "_enrichedAt": "2026-02-11T20:03:39.565Z"
+      "_enrichedAt": "2026-02-11T20:03:39.565Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJI5xsGYD3XpMRsuWsFGJ1D1A",
@@ -9510,7 +10200,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:13.365Z",
-      "_enrichedAt": "2026-02-11T20:03:41.075Z"
+      "_enrichedAt": "2026-02-11T20:03:41.075Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJH6aOIgLxXpMRC2eX7vpU0I0",
@@ -9553,7 +10246,11 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:13.630Z",
-      "_enrichedAt": "2026-02-11T20:03:42.563Z"
+      "_enrichedAt": "2026-02-11T20:03:42.563Z",
+      "subcategories": [
+        "Pizza",
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJHzAnA47xXpMRoxoFAIJ4Pxs",
@@ -9596,7 +10293,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:13.891Z",
-      "_enrichedAt": "2026-02-11T20:03:44.056Z"
+      "_enrichedAt": "2026-02-11T20:03:44.056Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJvXYn537xXpMR63VRzUWZ9z8",
@@ -9639,7 +10339,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:14.150Z",
-      "_enrichedAt": "2026-02-11T20:03:45.607Z"
+      "_enrichedAt": "2026-02-11T20:03:45.607Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJU96a74LxXpMRGtg4kJGFpZE",
@@ -9682,7 +10385,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:14.414Z",
-      "_enrichedAt": "2026-02-11T20:03:47.157Z"
+      "_enrichedAt": "2026-02-11T20:03:47.157Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJkSEwqSXxXpMRcuJBz7Dbtgs",
@@ -9725,7 +10431,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:14.677Z",
-      "_enrichedAt": "2026-02-11T20:03:48.671Z"
+      "_enrichedAt": "2026-02-11T20:03:48.671Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJi1jQzBHxXpMRrclaf9v3INs",
@@ -9768,7 +10477,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:14.936Z",
-      "_enrichedAt": "2026-02-11T20:03:50.217Z"
+      "_enrichedAt": "2026-02-11T20:03:50.217Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJM2dSOVT1XpMRn9yFq97Tl_U",
@@ -9812,7 +10524,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:15.197Z",
-      "_enrichedAt": "2026-02-11T20:03:51.700Z"
+      "_enrichedAt": "2026-02-11T20:03:51.700Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJX2-x3pn2XpMRF8tthltZ9QI",
@@ -9855,7 +10570,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:15.460Z",
-      "_enrichedAt": "2026-02-11T20:03:53.209Z"
+      "_enrichedAt": "2026-02-11T20:03:53.209Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJGY19h0L3XpMRMPH_TlkA1ms",
@@ -9898,7 +10616,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:18.613Z",
-      "_enrichedAt": "2026-02-11T20:03:54.760Z"
+      "_enrichedAt": "2026-02-11T20:03:54.760Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJya2zexn3XpMR_E70JUNBwsA",
@@ -9941,7 +10662,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:18.872Z",
-      "_enrichedAt": "2026-02-11T20:03:56.247Z"
+      "_enrichedAt": "2026-02-11T20:03:56.247Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJ-4XM-LtfXpMRGPovs-aRIDk",
@@ -9984,7 +10708,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:19.131Z",
-      "_enrichedAt": "2026-02-11T20:03:57.769Z"
+      "_enrichedAt": "2026-02-11T20:03:57.769Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJjWFWDQDxXpMRY3za9IxY5zI",
@@ -10027,7 +10754,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:19.395Z",
-      "_enrichedAt": "2026-02-11T20:03:59.290Z"
+      "_enrichedAt": "2026-02-11T20:03:59.290Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJ--9lbwDxXpMRDSCa3XoGpjY",
@@ -10070,7 +10800,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:19.654Z",
-      "_enrichedAt": "2026-02-11T20:04:00.799Z"
+      "_enrichedAt": "2026-02-11T20:04:00.799Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJqzygOBz1XpMR2wWqdN132ww",
@@ -10113,7 +10846,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:19.912Z",
-      "_enrichedAt": "2026-02-11T20:04:02.308Z"
+      "_enrichedAt": "2026-02-11T20:04:02.308Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJk10pt5XxXpMRAifrjc1pIwc",
@@ -10156,7 +10892,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:20.170Z",
-      "_enrichedAt": "2026-02-11T20:05:33.220Z"
+      "_enrichedAt": "2026-02-11T20:05:33.220Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJmSa5GY3zXpMRTzt4_u0m4EA",
@@ -10200,7 +10939,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:20.436Z",
-      "_enrichedAt": "2026-02-11T20:05:34.900Z"
+      "_enrichedAt": "2026-02-11T20:05:34.900Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJH8UkkgPxXpMRimh4QMIDXvY",
@@ -10243,7 +10985,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:20.695Z",
-      "_enrichedAt": "2026-02-11T20:05:36.498Z"
+      "_enrichedAt": "2026-02-11T20:05:36.498Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJd8qFO8DzXpMR-U-cuwqiBrQ",
@@ -10286,7 +11031,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:20.960Z",
-      "_enrichedAt": "2026-02-11T20:05:38.088Z"
+      "_enrichedAt": "2026-02-11T20:05:38.088Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJzyjlcsD1XpMRyIbPoRUWpEE",
@@ -10329,7 +11077,11 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:21.223Z",
-      "_enrichedAt": "2026-02-11T20:05:39.683Z"
+      "_enrichedAt": "2026-02-11T20:05:39.683Z",
+      "subcategories": [
+        "Pizza",
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJeY_F6pL3XpMRl6Y0s8aAOAg",
@@ -10372,7 +11124,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:21.482Z",
-      "_enrichedAt": "2026-02-11T20:05:41.283Z"
+      "_enrichedAt": "2026-02-11T20:05:41.283Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJJUTWzBHxXpMRI4JtqJmTWfg",
@@ -10415,7 +11170,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:21.740Z",
-      "_enrichedAt": "2026-02-11T20:05:42.859Z"
+      "_enrichedAt": "2026-02-11T20:05:42.859Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJSWcTdbT2XpMRWPXdUCaI7y0",
@@ -10458,7 +11216,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:21.998Z",
-      "_enrichedAt": "2026-02-11T20:05:44.472Z"
+      "_enrichedAt": "2026-02-11T20:05:44.472Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJy3DmSA_1XpMRs4TYJVH0Kuw",
@@ -10501,7 +11262,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:22.263Z",
-      "_enrichedAt": "2026-02-11T20:05:46.053Z"
+      "_enrichedAt": "2026-02-11T20:05:46.053Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJac9jQO3zXpMRYbZjbsRRx9I",
@@ -10544,7 +11308,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:22.526Z",
-      "_enrichedAt": "2026-02-11T20:05:47.626Z"
+      "_enrichedAt": "2026-02-11T20:05:47.626Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJFRXd5Nb3XpMRVvSZsfBeiWQ",
@@ -10587,7 +11354,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:22.784Z",
-      "_enrichedAt": "2026-02-11T20:05:49.215Z"
+      "_enrichedAt": "2026-02-11T20:05:49.215Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJFdGXtfDxXpMR6ycTdwBU458",
@@ -10630,7 +11400,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:23.042Z",
-      "_enrichedAt": "2026-02-11T20:05:50.788Z"
+      "_enrichedAt": "2026-02-11T20:05:50.788Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJbXWGm5rzXpMRPidyZ-nCXwY",
@@ -10673,7 +11446,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:23.304Z",
-      "_enrichedAt": "2026-02-11T20:05:52.349Z"
+      "_enrichedAt": "2026-02-11T20:05:52.349Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJmeLapAXxXpMR-JQDThw_SbQ",
@@ -10716,7 +11492,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:23.569Z",
-      "_enrichedAt": "2026-02-11T20:05:53.927Z"
+      "_enrichedAt": "2026-02-11T20:05:53.927Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJhzpsEwDxXpMRb4tS6-fIheo",
@@ -10759,7 +11538,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:24.423Z",
-      "_enrichedAt": "2026-02-11T20:05:55.506Z"
+      "_enrichedAt": "2026-02-11T20:05:55.506Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJx_fJUwDxXpMRSvzeVlAkKTE",
@@ -10802,7 +11584,11 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:24.682Z",
-      "_enrichedAt": "2026-02-11T20:05:57.091Z"
+      "_enrichedAt": "2026-02-11T20:05:57.091Z",
+      "subcategories": [
+        "Japonesa",
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJe5o3TGDxXpMR6SQzQytsFj4",
@@ -10845,7 +11631,11 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:24.940Z",
-      "_enrichedAt": "2026-02-11T20:05:58.634Z"
+      "_enrichedAt": "2026-02-11T20:05:58.634Z",
+      "subcategories": [
+        "Japonesa",
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJByi9VwDxXpMRCdVT-H4vad8",
@@ -10888,7 +11678,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:25.200Z",
-      "_enrichedAt": "2026-02-11T20:06:00.214Z"
+      "_enrichedAt": "2026-02-11T20:06:00.214Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ2e59xz3xXpMRYbR0DETcJJk",
@@ -10931,7 +11724,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:25.463Z",
-      "_enrichedAt": "2026-02-11T20:06:01.803Z"
+      "_enrichedAt": "2026-02-11T20:06:01.803Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJcwiMBSfxXpMRktuDQKwj0Rk",
@@ -10974,7 +11770,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:25.723Z",
-      "_enrichedAt": "2026-02-11T20:06:03.371Z"
+      "_enrichedAt": "2026-02-11T20:06:03.371Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJs6ZVLTPxXpMR9QQrb0D_vzQ",
@@ -11017,7 +11816,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:25.984Z",
-      "_enrichedAt": "2026-02-11T20:06:04.948Z"
+      "_enrichedAt": "2026-02-11T20:06:04.948Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJh8duAmvxXpMR1N74hk4f_Aw",
@@ -11060,7 +11862,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:26.246Z",
-      "_enrichedAt": "2026-02-11T20:06:06.505Z"
+      "_enrichedAt": "2026-02-11T20:06:06.505Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ___bKEHxXpMR3g0uulyN5NA",
@@ -11103,7 +11908,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:26.502Z",
-      "_enrichedAt": "2026-02-11T20:06:08.073Z"
+      "_enrichedAt": "2026-02-11T20:06:08.073Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJy63QNbXxXpMRflHnCheM1i8",
@@ -11146,7 +11954,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:26.767Z",
-      "_enrichedAt": "2026-02-11T20:06:09.660Z"
+      "_enrichedAt": "2026-02-11T20:06:09.660Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJKUL_NgbzXpMRKD6xWRwbf1U",
@@ -11189,7 +12000,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:27.026Z",
-      "_enrichedAt": "2026-02-11T20:06:11.223Z"
+      "_enrichedAt": "2026-02-11T20:06:11.223Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJcakhMGHxXpMRQORkgMtbNO0",
@@ -11232,7 +12046,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:27.288Z",
-      "_enrichedAt": "2026-02-11T20:06:12.809Z"
+      "_enrichedAt": "2026-02-11T20:06:12.809Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ5bGdo-fwXpMRzHU3KyZtByE",
@@ -11275,7 +12092,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:27.546Z",
-      "_enrichedAt": "2026-02-11T20:06:14.389Z"
+      "_enrichedAt": "2026-02-11T20:06:14.389Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJMVXBx-nxXpMRGz2cXniX8LI",
@@ -11318,7 +12138,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:27.804Z",
-      "_enrichedAt": "2026-02-11T20:06:15.952Z"
+      "_enrichedAt": "2026-02-11T20:06:15.952Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJK1Zys9DxXpMRPhAk2rUwxkU",
@@ -11361,7 +12184,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:28.063Z",
-      "_enrichedAt": "2026-02-11T20:06:17.525Z"
+      "_enrichedAt": "2026-02-11T20:06:17.525Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJUVJSOA_xXpMRihu8DdsRlNA",
@@ -11404,7 +12230,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:28.322Z",
-      "_enrichedAt": "2026-02-11T20:06:19.097Z"
+      "_enrichedAt": "2026-02-11T20:06:19.097Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ09CvGW7xXpMRolTNQhJKDWM",
@@ -11448,7 +12277,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:28.579Z",
-      "_enrichedAt": "2026-02-11T20:06:20.670Z"
+      "_enrichedAt": "2026-02-11T20:06:20.670Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJhT_LKuT2XpMRZOaTTUGbm30",
@@ -11491,7 +12323,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:31.732Z",
-      "_enrichedAt": "2026-02-11T20:06:22.223Z"
+      "_enrichedAt": "2026-02-11T20:06:22.223Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJh7qXBUPxXpMRTE3YQ4kYAmY",
@@ -11534,7 +12369,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:31.991Z",
-      "_enrichedAt": "2026-02-11T20:06:23.785Z"
+      "_enrichedAt": "2026-02-11T20:06:23.785Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ9wPlQAD3XpMRvCk8COgq6e8",
@@ -11577,7 +12415,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:32.249Z",
-      "_enrichedAt": "2026-02-11T20:06:25.336Z"
+      "_enrichedAt": "2026-02-11T20:06:25.336Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJSfnlmUPxXpMR1Ehsi5foyeU",
@@ -11620,7 +12461,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:32.513Z",
-      "_enrichedAt": "2026-02-11T20:06:26.906Z"
+      "_enrichedAt": "2026-02-11T20:06:26.906Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJpzkAGW7xXpMRiUdkaHcfc_A",
@@ -11663,7 +12507,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:32.788Z",
-      "_enrichedAt": "2026-02-11T20:06:28.461Z"
+      "_enrichedAt": "2026-02-11T20:06:28.461Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJIQ1fLuv3XpMRabHz2pWsiNk",
@@ -11706,7 +12553,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:33.045Z",
-      "_enrichedAt": "2026-02-11T20:06:30.031Z"
+      "_enrichedAt": "2026-02-11T20:06:30.031Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ287oMprxXpMRGUN7iYOWga4",
@@ -11749,7 +12599,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:33.304Z",
-      "_enrichedAt": "2026-02-11T20:06:31.598Z"
+      "_enrichedAt": "2026-02-11T20:06:31.598Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJe-ddBVPxXpMRUYw1q81OnOM",
@@ -11792,7 +12645,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:33.563Z",
-      "_enrichedAt": "2026-02-11T20:06:33.159Z"
+      "_enrichedAt": "2026-02-11T20:06:33.159Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ88xi9ov3XpMRA6owgfO1D5Q",
@@ -11834,7 +12690,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:33.823Z",
-      "_enrichedAt": "2026-02-11T20:06:34.532Z"
+      "_enrichedAt": "2026-02-11T20:06:34.532Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJcQ_4fALxXpMRbUUjoVezlFI",
@@ -11877,7 +12736,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:34.086Z",
-      "_enrichedAt": "2026-02-11T20:06:36.092Z"
+      "_enrichedAt": "2026-02-11T20:06:36.092Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJUwGS1wTzXpMRVI5DdEXzt0Q",
@@ -11920,7 +12782,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:34.344Z",
-      "_enrichedAt": "2026-02-11T20:06:37.655Z"
+      "_enrichedAt": "2026-02-11T20:06:37.655Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJGZ3gy4_xXpMR_wbPNYyOECw",
@@ -11963,7 +12828,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:34.604Z",
-      "_enrichedAt": "2026-02-11T20:06:39.202Z"
+      "_enrichedAt": "2026-02-11T20:06:39.202Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJD7bj6eX2XpMRNyEpxK3BlrU",
@@ -12006,7 +12874,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:34.861Z",
-      "_enrichedAt": "2026-02-11T20:06:40.783Z"
+      "_enrichedAt": "2026-02-11T20:06:40.783Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJAzNTDEjxXpMRmG3iM4-kLnc",
@@ -12049,7 +12920,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:35.120Z",
-      "_enrichedAt": "2026-02-11T20:06:42.336Z"
+      "_enrichedAt": "2026-02-11T20:06:42.336Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ8dvEEiX1XpMR5Aq5byWtZwk",
@@ -12092,7 +12966,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:35.382Z",
-      "_enrichedAt": "2026-02-11T20:06:43.904Z"
+      "_enrichedAt": "2026-02-11T20:06:43.904Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJBy0YiqfxXpMREeuN34dq568",
@@ -12135,7 +13012,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:35.641Z",
-      "_enrichedAt": "2026-02-11T20:06:45.470Z"
+      "_enrichedAt": "2026-02-11T20:06:45.470Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJz6356srzXpMR9HGuDkJb8L4",
@@ -12178,7 +13058,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:35.899Z",
-      "_enrichedAt": "2026-02-11T20:06:47.041Z"
+      "_enrichedAt": "2026-02-11T20:06:47.041Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJRYC4bRPzXpMRJnVgaXHb2p4",
@@ -12221,7 +13104,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:36.166Z",
-      "_enrichedAt": "2026-02-11T20:06:48.603Z"
+      "_enrichedAt": "2026-02-11T20:06:48.603Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJvTN6Lb7xXpMRLdk9vrIOrbY",
@@ -12264,7 +13150,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:36.425Z",
-      "_enrichedAt": "2026-02-11T20:06:50.175Z"
+      "_enrichedAt": "2026-02-11T20:06:50.175Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJe4Wef63xXpMRI7OLJbQpyqM",
@@ -12307,7 +13196,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:36.685Z",
-      "_enrichedAt": "2026-02-11T20:06:51.729Z"
+      "_enrichedAt": "2026-02-11T20:06:51.729Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJl-EDxQ7xXpMR-x1DMFDc30M",
@@ -12350,7 +13242,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:39.985Z",
-      "_enrichedAt": "2026-02-11T20:06:53.302Z"
+      "_enrichedAt": "2026-02-11T20:06:53.302Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJySAij4T1XpMRtQiHZdJz1x4",
@@ -12393,7 +13288,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:40.244Z",
-      "_enrichedAt": "2026-02-11T20:06:54.862Z"
+      "_enrichedAt": "2026-02-11T20:06:54.862Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJq4cBhKPxXpMRwfILRDF8AXM",
@@ -12436,7 +13334,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:40.503Z",
-      "_enrichedAt": "2026-02-11T20:06:56.402Z"
+      "_enrichedAt": "2026-02-11T20:06:56.402Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJlQIiJDDxXpMRbO-_sbEKtqA",
@@ -12479,7 +13380,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:40.761Z",
-      "_enrichedAt": "2026-02-11T20:06:57.954Z"
+      "_enrichedAt": "2026-02-11T20:06:57.954Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ52Ybd-n1XpMRHehktx1paMc",
@@ -12522,7 +13426,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:41.022Z",
-      "_enrichedAt": "2026-02-11T20:06:59.518Z"
+      "_enrichedAt": "2026-02-11T20:06:59.518Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJa9LL76bxXpMRmpUcsisANhc",
@@ -12565,7 +13472,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:41.281Z",
-      "_enrichedAt": "2026-02-11T20:07:01.086Z"
+      "_enrichedAt": "2026-02-11T20:07:01.086Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJBRVtwenxXpMRfLV4Q42li8k",
@@ -12608,7 +13518,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:41.539Z",
-      "_enrichedAt": "2026-02-11T20:07:02.652Z"
+      "_enrichedAt": "2026-02-11T20:07:02.652Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJK5Y0NQ7zXpMRtbP-_JfXvos",
@@ -12651,7 +13564,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:41.798Z",
-      "_enrichedAt": "2026-02-11T20:07:04.216Z"
+      "_enrichedAt": "2026-02-11T20:07:04.216Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ3devpErzXpMR9YY78ZMKUIU",
@@ -12694,7 +13610,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:42.057Z",
-      "_enrichedAt": "2026-02-11T20:07:05.778Z"
+      "_enrichedAt": "2026-02-11T20:07:05.778Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ6-2tK7fwXpMRHXjM2zNd_6Y",
@@ -12737,7 +13656,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:42.316Z",
-      "_enrichedAt": "2026-02-11T20:07:07.336Z"
+      "_enrichedAt": "2026-02-11T20:07:07.336Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJCVqZvizxXpMRc-eoIYaKt9s",
@@ -12780,7 +13702,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T18:17:42.575Z",
-      "_enrichedAt": "2026-02-11T20:07:08.898Z"
+      "_enrichedAt": "2026-02-11T20:07:08.898Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJnX61-oDxXpMRFkKiHQQehQ8",
@@ -12824,7 +13749,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:14.867Z",
-      "_enrichedAt": "2026-02-11T20:07:10.471Z"
+      "_enrichedAt": "2026-02-11T20:07:10.471Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJWcqg-DrxXpMR5GvG_Ff7ZmY",
@@ -12867,7 +13795,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:15.639Z",
-      "_enrichedAt": "2026-02-11T20:07:12.037Z"
+      "_enrichedAt": "2026-02-11T20:07:12.037Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJHSYD0O32XpMR9qBFnZib3z0",
@@ -12910,7 +13841,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:18.828Z",
-      "_enrichedAt": "2026-02-11T20:07:13.583Z"
+      "_enrichedAt": "2026-02-11T20:07:13.583Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJF6dx5K3xXpMR5I2ga2ucbgE",
@@ -12953,7 +13887,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:19.101Z",
-      "_enrichedAt": "2026-02-11T20:07:15.147Z"
+      "_enrichedAt": "2026-02-11T20:07:15.147Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJAe6KGf_2XpMRLIh6GCRklTc",
@@ -12996,7 +13933,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:19.419Z",
-      "_enrichedAt": "2026-02-11T20:07:16.666Z"
+      "_enrichedAt": "2026-02-11T20:07:16.666Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJ60TV9k33XpMRtOYmCAxUkdU",
@@ -13039,7 +13979,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:19.686Z",
-      "_enrichedAt": "2026-02-11T20:07:18.235Z"
+      "_enrichedAt": "2026-02-11T20:07:18.235Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJPT1146P2XpMRL1B0B_ECWmw",
@@ -13082,7 +14025,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:19.936Z",
-      "_enrichedAt": "2026-02-11T20:07:19.814Z"
+      "_enrichedAt": "2026-02-11T20:07:19.814Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJ9VWqqQj1XpMRZ3OVFBtsiPo",
@@ -13125,7 +14071,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:20.185Z",
-      "_enrichedAt": "2026-02-11T20:07:21.334Z"
+      "_enrichedAt": "2026-02-11T20:07:21.334Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJZRup1NXxXpMR_QocDHaWnGM",
@@ -13168,7 +14117,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:20.434Z",
-      "_enrichedAt": "2026-02-11T20:07:22.895Z"
+      "_enrichedAt": "2026-02-11T20:07:22.895Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJubR-K5DxXpMR4MgmFYa5A90",
@@ -13212,7 +14164,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:20.684Z",
-      "_enrichedAt": "2026-02-11T20:07:24.453Z"
+      "_enrichedAt": "2026-02-11T20:07:24.453Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJTyU9yzrxXpMR1tFqE3u8gxc",
@@ -13257,7 +14212,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:20.924Z",
-      "_enrichedAt": "2026-02-11T20:07:26.009Z"
+      "_enrichedAt": "2026-02-11T20:07:26.009Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ6zy-HAb3XpMRI0gY4UF2apM",
@@ -13295,7 +14253,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:21.176Z",
-      "_enrichedAt": "2026-02-11T20:07:26.638Z"
+      "_enrichedAt": "2026-02-11T20:07:26.638Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJO-fh4T3xXpMRLpWQ0JEjJYg",
@@ -13338,7 +14299,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:21.421Z",
-      "_enrichedAt": "2026-02-11T20:07:28.208Z"
+      "_enrichedAt": "2026-02-11T20:07:28.208Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ2SovlbvxXpMRCrG0iEwn2qc",
@@ -13381,7 +14345,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:21.669Z",
-      "_enrichedAt": "2026-02-11T20:07:29.769Z"
+      "_enrichedAt": "2026-02-11T20:07:29.769Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJlbs1jeHzXpMR6fbIvXc6c9o",
@@ -13424,7 +14391,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:21.943Z",
-      "_enrichedAt": "2026-02-11T20:07:31.330Z"
+      "_enrichedAt": "2026-02-11T20:07:31.330Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJO1_Keu_3XpMRbcPKdchObxA",
@@ -13467,7 +14437,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:22.195Z",
-      "_enrichedAt": "2026-02-11T20:07:32.872Z"
+      "_enrichedAt": "2026-02-11T20:07:32.872Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJO9OCcRXxXpMRVf7tWM-a4Cs",
@@ -13510,7 +14483,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:22.435Z",
-      "_enrichedAt": "2026-02-11T20:07:34.438Z"
+      "_enrichedAt": "2026-02-11T20:07:34.438Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJj3IQPRb0XpMRB-ckI4K8ClQ",
@@ -13554,7 +14530,11 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:22.678Z",
-      "_enrichedAt": "2026-02-11T20:07:35.995Z"
+      "_enrichedAt": "2026-02-11T20:07:35.995Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJi4oNal_xXpMR0DXfmy9xFEo",
@@ -13597,7 +14577,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:26.001Z",
-      "_enrichedAt": "2026-02-11T20:07:37.556Z"
+      "_enrichedAt": "2026-02-11T20:07:37.556Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJsYn4NtTzXpMRRTm6Y8aCfMc",
@@ -13640,7 +14623,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:26.241Z",
-      "_enrichedAt": "2026-02-11T20:07:39.114Z"
+      "_enrichedAt": "2026-02-11T20:07:39.114Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJAxB0SBv1XpMRvJhXxwDyNcI",
@@ -13683,7 +14669,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:26.484Z",
-      "_enrichedAt": "2026-02-11T20:07:40.660Z"
+      "_enrichedAt": "2026-02-11T20:07:40.660Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJ409XBgDxXpMRCU14bSG7Djo",
@@ -13727,7 +14716,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:26.731Z",
-      "_enrichedAt": "2026-02-11T20:07:42.221Z"
+      "_enrichedAt": "2026-02-11T20:07:42.221Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJi4oNal_xXpMRSABfDS6QQas",
@@ -13772,7 +14764,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:26.976Z",
-      "_enrichedAt": "2026-02-11T20:07:43.764Z"
+      "_enrichedAt": "2026-02-11T20:07:43.764Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJqzloN0fxXpMRQtTHW2aL2So",
@@ -13816,7 +14811,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:27.217Z",
-      "_enrichedAt": "2026-02-11T20:07:45.307Z"
+      "_enrichedAt": "2026-02-11T20:07:45.307Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJKYmHtmPxXpMRnuBoWZ5wcjk",
@@ -13859,7 +14857,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:27.461Z",
-      "_enrichedAt": "2026-02-11T20:07:47.301Z"
+      "_enrichedAt": "2026-02-11T20:07:47.301Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJ9YVt_UrxXpMRBf-OA99jS2w",
@@ -13903,7 +14904,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:27.764Z",
-      "_enrichedAt": "2026-02-11T20:07:48.832Z"
+      "_enrichedAt": "2026-02-11T20:07:48.832Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJi4oNal_xXpMR-50ukdwAXTQ",
@@ -13946,7 +14950,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:28.009Z",
-      "_enrichedAt": "2026-02-11T20:07:50.401Z"
+      "_enrichedAt": "2026-02-11T20:07:50.401Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJaUDidEDxXpMRDmz9WSiTjQg",
@@ -13989,7 +14996,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:28.249Z",
-      "_enrichedAt": "2026-02-11T20:07:51.966Z"
+      "_enrichedAt": "2026-02-11T20:07:51.966Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJHXbL5tvzXpMRIRB8aMGzlg4",
@@ -14025,7 +15035,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:28.469Z",
-      "_enrichedAt": "2026-02-11T20:07:52.423Z"
+      "_enrichedAt": "2026-02-11T20:07:52.423Z",
+      "subcategories": [
+        "Churrasco"
+      ]
     },
     {
       "id": "ChIJ9yRJgTTxXpMR-y0g9EAoeyE",
@@ -14068,7 +15081,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:31.954Z",
-      "_enrichedAt": "2026-02-11T20:07:53.994Z"
+      "_enrichedAt": "2026-02-11T20:07:53.994Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJCZiXkP_zXpMRsAFqHjDEaIY",
@@ -14111,7 +15127,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:32.195Z",
-      "_enrichedAt": "2026-02-11T20:07:55.557Z"
+      "_enrichedAt": "2026-02-11T20:07:55.557Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJP2yUwRbxXpMRrtLEGOFJ4M8",
@@ -14154,7 +15173,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:35.532Z",
-      "_enrichedAt": "2026-02-11T20:07:57.101Z"
+      "_enrichedAt": "2026-02-11T20:07:57.101Z",
+      "subcategories": [
+        "Pizza"
+      ]
     },
     {
       "id": "ChIJdxOtIkPxXpMRx2S4evO5JNA",
@@ -14189,7 +15211,10 @@
       "openStatusText": null,
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:42.015Z",
-      "_enrichedAt": "2026-02-11T20:07:58.660Z"
+      "_enrichedAt": "2026-02-11T20:07:58.660Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJTZcjivzxXpMR_Kaf66Acse4",
@@ -14232,7 +15257,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:42.265Z",
-      "_enrichedAt": "2026-02-11T20:08:00.241Z"
+      "_enrichedAt": "2026-02-11T20:08:00.241Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ8xG6PPfxXpMR5S_dgqrk0L4",
@@ -14275,7 +15303,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:42.506Z",
-      "_enrichedAt": "2026-02-11T20:08:01.800Z"
+      "_enrichedAt": "2026-02-11T20:08:01.800Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJuRge2bLxXpMRDLlmZW5BIwQ",
@@ -14318,7 +15349,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:42.761Z",
-      "_enrichedAt": "2026-02-11T20:08:03.345Z"
+      "_enrichedAt": "2026-02-11T20:08:03.345Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJX03QiBjxXpMRi_MdHtUUs0E",
@@ -14353,7 +15387,10 @@
       "openStatusText": null,
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:43.005Z",
-      "_enrichedAt": "2026-02-11T20:08:04.886Z"
+      "_enrichedAt": "2026-02-11T20:08:04.886Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJs20TRCXxXpMRaMH2jPCZJl4",
@@ -14388,7 +15425,10 @@
       "openStatusText": null,
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:43.251Z",
-      "_enrichedAt": "2026-02-11T20:08:06.440Z"
+      "_enrichedAt": "2026-02-11T20:08:06.440Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ1wyrjPH3XpMRKGESG0q2wjw",
@@ -14422,7 +15462,10 @@
       "openStatusText": null,
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:43.498Z",
-      "_enrichedAt": "2026-02-12T13:28:26.527Z"
+      "_enrichedAt": "2026-02-12T13:28:26.527Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJBbCmTxfzXpMRkKqptAcnB3I",
@@ -14465,7 +15508,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:43.744Z",
-      "_enrichedAt": "2026-02-12T13:28:28.132Z"
+      "_enrichedAt": "2026-02-12T13:28:28.132Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJBwfEbSLxXpMRua_nyAEJc44",
@@ -14500,7 +15546,10 @@
       "openStatusText": null,
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:43.995Z",
-      "_enrichedAt": "2026-02-12T13:28:29.750Z"
+      "_enrichedAt": "2026-02-12T13:28:29.750Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJgTWP77jwXpMRRK1rwtjtfMw",
@@ -14543,7 +15592,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:44.242Z",
-      "_enrichedAt": "2026-02-12T13:28:31.306Z"
+      "_enrichedAt": "2026-02-12T13:28:31.306Z",
+      "subcategories": [
+        "Japonesa"
+      ]
     },
     {
       "id": "ChIJ4c-4irXxXpMRYWlD4hsw6RA",
@@ -14586,7 +15638,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:44.897Z",
-      "_enrichedAt": "2026-02-12T13:28:32.905Z"
+      "_enrichedAt": "2026-02-12T13:28:32.905Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJNxxdJN3zXpMRv6uO7VsJs9g",
@@ -14629,7 +15684,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:45.141Z",
-      "_enrichedAt": "2026-02-12T13:28:34.496Z"
+      "_enrichedAt": "2026-02-12T13:28:34.496Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ4cesSN_zXpMRwfz9K-gFN5c",
@@ -14669,7 +15727,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:45.389Z",
-      "_enrichedAt": "2026-02-12T13:28:35.500Z"
+      "_enrichedAt": "2026-02-12T13:28:35.500Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJXcqpR0jxXpMRf3Be8C7xD70",
@@ -14714,7 +15775,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:46.114Z",
-      "_enrichedAt": "2026-02-12T13:28:37.092Z"
+      "_enrichedAt": "2026-02-12T13:28:37.092Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJZQHibaTxXpMRPgAezceiK2s",
@@ -14759,7 +15823,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:46.359Z",
-      "_enrichedAt": "2026-02-12T13:28:38.685Z"
+      "_enrichedAt": "2026-02-12T13:28:38.685Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJWc0rI1HxXpMRnAFSr_edMHY",
@@ -14805,7 +15872,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:46.626Z",
-      "_enrichedAt": "2026-02-12T13:28:40.253Z"
+      "_enrichedAt": "2026-02-12T13:28:40.253Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJHSJlDlDxXpMRZIOilq7uhkE",
@@ -14850,7 +15920,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:46.918Z",
-      "_enrichedAt": "2026-02-12T13:28:41.831Z"
+      "_enrichedAt": "2026-02-12T13:28:41.831Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJBWAvpCbxXpMRajkzhk8S44c",
@@ -14895,7 +15968,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:50.002Z",
-      "_enrichedAt": "2026-02-12T13:28:43.412Z"
+      "_enrichedAt": "2026-02-12T13:28:43.412Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJSREOkczxXpMR5XjYUWCtX80",
@@ -14940,7 +16016,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:50.242Z",
-      "_enrichedAt": "2026-02-12T13:28:45.007Z"
+      "_enrichedAt": "2026-02-12T13:28:45.007Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJD0u1S5zxXpMRUj5caNnEF34",
@@ -14985,7 +16064,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:50.483Z",
-      "_enrichedAt": "2026-02-12T13:28:46.575Z"
+      "_enrichedAt": "2026-02-12T13:28:46.575Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJPXEJkHXxXpMRybc5NCFmk7Q",
@@ -15030,7 +16112,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:50.729Z",
-      "_enrichedAt": "2026-02-12T13:28:48.161Z"
+      "_enrichedAt": "2026-02-12T13:28:48.161Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJj9b7YirxXpMRzOlrLYIJHW8",
@@ -15075,7 +16160,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:50.973Z",
-      "_enrichedAt": "2026-02-12T13:28:49.746Z"
+      "_enrichedAt": "2026-02-12T13:28:49.746Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJqSSaAm_xXpMRdC-mcQkRdjw",
@@ -15120,7 +16208,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:51.221Z",
-      "_enrichedAt": "2026-02-12T13:28:51.323Z"
+      "_enrichedAt": "2026-02-12T13:28:51.323Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ3wXukJ3xXpMR2WBbZcWYO0s",
@@ -15165,7 +16256,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:51.466Z",
-      "_enrichedAt": "2026-02-12T13:28:52.900Z"
+      "_enrichedAt": "2026-02-12T13:28:52.900Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ_yr-wlLxXpMR4iOfYouBR3s",
@@ -15210,7 +16304,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:51.709Z",
-      "_enrichedAt": "2026-02-12T13:28:54.476Z"
+      "_enrichedAt": "2026-02-12T13:28:54.476Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ71V1sLvxXpMRO3PeRT9PUoE",
@@ -15255,7 +16352,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:51.958Z",
-      "_enrichedAt": "2026-02-12T13:28:56.056Z"
+      "_enrichedAt": "2026-02-12T13:28:56.056Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJCRL50Mb1XpMRYktJAIqIVcM",
@@ -15300,7 +16400,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:52.198Z",
-      "_enrichedAt": "2026-02-12T13:28:57.632Z"
+      "_enrichedAt": "2026-02-12T13:28:57.632Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJe8CUnyDxXpMRBw1YgTbHIEw",
@@ -15345,7 +16448,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:52.437Z",
-      "_enrichedAt": "2026-02-12T13:28:59.213Z"
+      "_enrichedAt": "2026-02-12T13:28:59.213Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJXT_i1dTzXpMRp7tGqm6H1RM",
@@ -15390,7 +16496,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:52.681Z",
-      "_enrichedAt": "2026-02-12T13:29:00.794Z"
+      "_enrichedAt": "2026-02-12T13:29:00.794Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ4fjRljnxXpMRAhXAmwSj2ew",
@@ -15435,7 +16544,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:52.924Z",
-      "_enrichedAt": "2026-02-12T13:29:02.368Z"
+      "_enrichedAt": "2026-02-12T13:29:02.368Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJhV388H3zXpMRCJEv1WRTsLY",
@@ -15480,7 +16592,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:53.164Z",
-      "_enrichedAt": "2026-02-12T13:29:03.952Z"
+      "_enrichedAt": "2026-02-12T13:29:03.952Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJFz0e9GjxXpMRAdjeKt3ggQ4",
@@ -15525,7 +16640,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:53.403Z",
-      "_enrichedAt": "2026-02-12T13:29:05.529Z"
+      "_enrichedAt": "2026-02-12T13:29:05.529Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJHYSJF0fxXpMRjuwWN0TKUPw",
@@ -15570,7 +16688,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:56.572Z",
-      "_enrichedAt": "2026-02-12T13:29:07.105Z"
+      "_enrichedAt": "2026-02-12T13:29:07.105Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ5fe5MbjxXpMRzn0hNAO4-j8",
@@ -15615,7 +16736,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:56.811Z",
-      "_enrichedAt": "2026-02-12T13:29:08.689Z"
+      "_enrichedAt": "2026-02-12T13:29:08.689Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ5yl1tSjxXpMRuu7iCjsfJSw",
@@ -15660,7 +16784,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:57.058Z",
-      "_enrichedAt": "2026-02-12T13:29:10.248Z"
+      "_enrichedAt": "2026-02-12T13:29:10.248Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJ38N8bd73XpMRo_Rnnx19WJs",
@@ -15705,7 +16832,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:57.303Z",
-      "_enrichedAt": "2026-02-12T13:29:11.830Z"
+      "_enrichedAt": "2026-02-12T13:29:11.830Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJOVTh2YbxXpMRTtnrQLdPruY",
@@ -15748,7 +16878,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:57.544Z",
-      "_enrichedAt": "2026-02-12T13:29:13.403Z"
+      "_enrichedAt": "2026-02-12T13:29:13.403Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJNc2MW4nxXpMREUjmZLs5Bew",
@@ -15792,7 +16925,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:57.786Z",
-      "_enrichedAt": "2026-02-12T13:29:14.983Z"
+      "_enrichedAt": "2026-02-12T13:29:14.983Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJJdnvUujxXpMR3K2o0vPP4Bs",
@@ -15836,7 +16972,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:58.028Z",
-      "_enrichedAt": "2026-02-12T13:29:16.572Z"
+      "_enrichedAt": "2026-02-12T13:29:16.572Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJFwkZ0zvxXpMR1y164wWihiQ",
@@ -15881,7 +17020,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:58.267Z",
-      "_enrichedAt": "2026-02-12T13:29:18.154Z"
+      "_enrichedAt": "2026-02-12T13:29:18.154Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJM9nOoUjxXpMRHhbdMdGV_Zw",
@@ -15926,7 +17068,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:58.507Z",
-      "_enrichedAt": "2026-02-12T13:29:19.719Z"
+      "_enrichedAt": "2026-02-12T13:29:19.719Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJOT7OKOHxXpMRz9Ys4EDdAKs",
@@ -15971,7 +17116,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:58.756Z",
-      "_enrichedAt": "2026-02-12T13:29:21.285Z"
+      "_enrichedAt": "2026-02-12T13:29:21.285Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJCcjL8ArxXpMRyTr3o_LwFKA",
@@ -16012,7 +17160,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:59.008Z",
-      "_enrichedAt": "2026-02-12T13:29:22.855Z"
+      "_enrichedAt": "2026-02-12T13:29:22.855Z",
+      "subcategories": [
+        "Café"
+      ]
     },
     {
       "id": "ChIJ7_EwsYjxXpMRG7-0abc32ss",
@@ -16057,7 +17208,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:59.253Z",
-      "_enrichedAt": "2026-02-12T13:29:24.438Z"
+      "_enrichedAt": "2026-02-12T13:29:24.438Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJNdISUGPzXpMRMxYIrhXnnqc",
@@ -16102,7 +17256,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:59.501Z",
-      "_enrichedAt": "2026-02-12T13:29:26.021Z"
+      "_enrichedAt": "2026-02-12T13:29:26.021Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJbcT3yELxXpMRbF_j8pzeCTs",
@@ -16147,7 +17304,11 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:59.755Z",
-      "_enrichedAt": "2026-02-12T13:29:27.599Z"
+      "_enrichedAt": "2026-02-12T13:29:27.599Z",
+      "subcategories": [
+        "Cafeteria",
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJdwjfM6fxXpMRrPU5PBROoXU",
@@ -16192,7 +17353,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:50:59.994Z",
-      "_enrichedAt": "2026-02-12T13:29:29.153Z"
+      "_enrichedAt": "2026-02-12T13:29:29.153Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJlc5XlxHxXpMRuQJsw5Ydh1I",
@@ -16237,7 +17401,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:00.234Z",
-      "_enrichedAt": "2026-02-12T13:29:30.728Z"
+      "_enrichedAt": "2026-02-12T13:29:30.728Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJX4obQADxXpMRp7k0_tJ4Zhw",
@@ -16282,7 +17449,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:00.477Z",
-      "_enrichedAt": "2026-02-12T13:29:32.302Z"
+      "_enrichedAt": "2026-02-12T13:29:32.302Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJs2io6yzxXpMRaVlYd3Y-Cy4",
@@ -16326,7 +17496,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:00.720Z",
-      "_enrichedAt": "2026-02-12T13:29:33.880Z"
+      "_enrichedAt": "2026-02-12T13:29:33.880Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJu9LzBwDxXpMRBe0NYyhbIRo",
@@ -16371,7 +17544,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:00.964Z",
-      "_enrichedAt": "2026-02-12T13:29:35.458Z"
+      "_enrichedAt": "2026-02-12T13:29:35.458Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJrZZCX_LzXpMRfiP-nL9pKpM",
@@ -16416,7 +17592,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:01.204Z",
-      "_enrichedAt": "2026-02-12T13:29:37.017Z"
+      "_enrichedAt": "2026-02-12T13:29:37.017Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJXcm32V3xXpMRunK_TuP48Qc",
@@ -16461,7 +17640,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:01.963Z",
-      "_enrichedAt": "2026-02-12T13:29:38.598Z"
+      "_enrichedAt": "2026-02-12T13:29:38.598Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJaxfKuDPxXpMR4iCXjE3-9So",
@@ -16502,7 +17684,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:02.204Z",
-      "_enrichedAt": "2026-02-12T13:29:40.172Z"
+      "_enrichedAt": "2026-02-12T13:29:40.172Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJB2Op-KPzXpMR4_s2uRqTVKE",
@@ -16544,7 +17729,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:05.051Z",
-      "_enrichedAt": "2026-02-12T13:29:41.175Z"
+      "_enrichedAt": "2026-02-12T13:29:41.175Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJxaFWmCfxXpMRwvoHHXqRc_8",
@@ -16588,7 +17776,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:05.756Z",
-      "_enrichedAt": "2026-02-12T13:29:42.757Z"
+      "_enrichedAt": "2026-02-12T13:29:42.757Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJkebd4w3xXpMRh_b0N83fYwk",
@@ -16632,7 +17823,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:06.026Z",
-      "_enrichedAt": "2026-02-12T13:29:44.347Z"
+      "_enrichedAt": "2026-02-12T13:29:44.347Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJY4Rb2wzxXpMRxCM7BCjtUwA",
@@ -16676,7 +17870,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:06.265Z",
-      "_enrichedAt": "2026-02-12T13:29:45.920Z"
+      "_enrichedAt": "2026-02-12T13:29:45.920Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJo6ejmL7xXpMRhDhXH5-y59w",
@@ -16721,7 +17918,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:06.505Z",
-      "_enrichedAt": "2026-02-12T13:29:47.511Z"
+      "_enrichedAt": "2026-02-12T13:29:47.511Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJcelqhDvxXpMR81bNOHTmo-k",
@@ -16765,7 +17965,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:06.764Z",
-      "_enrichedAt": "2026-02-12T13:29:49.091Z"
+      "_enrichedAt": "2026-02-12T13:29:49.091Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ3TSfmTbxXpMR3SvNoSf6Efk",
@@ -16809,7 +18012,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:07.049Z",
-      "_enrichedAt": "2026-02-12T13:29:50.672Z"
+      "_enrichedAt": "2026-02-12T13:29:50.672Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJJ_BrDz_zXpMRN3n0F1wBGAU",
@@ -16854,7 +18060,11 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:07.316Z",
-      "_enrichedAt": "2026-02-12T13:29:52.249Z"
+      "_enrichedAt": "2026-02-12T13:29:52.249Z",
+      "subcategories": [
+        "Cafeteria",
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJEfy1lULxXpMRYOYIRd3ip58",
@@ -16899,7 +18109,11 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:07.556Z",
-      "_enrichedAt": "2026-02-12T13:29:53.805Z"
+      "_enrichedAt": "2026-02-12T13:29:53.805Z",
+      "subcategories": [
+        "Cafeteria",
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJE2R8fknxXpMRvx4Un92otko",
@@ -16943,7 +18157,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:07.801Z",
-      "_enrichedAt": "2026-02-12T13:29:55.368Z"
+      "_enrichedAt": "2026-02-12T13:29:55.368Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ0-C7WtH3XpMRFzHQh2mBwyQ",
@@ -16986,7 +18203,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:08.087Z",
-      "_enrichedAt": "2026-02-12T13:29:56.927Z"
+      "_enrichedAt": "2026-02-12T13:29:56.927Z",
+      "subcategories": [
+        "Hambúrguer"
+      ]
     },
     {
       "id": "ChIJW4cjOkv2XpMRgT3qGOSwT-E",
@@ -17031,7 +18251,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:08.327Z",
-      "_enrichedAt": "2026-02-12T13:29:58.533Z"
+      "_enrichedAt": "2026-02-12T13:29:58.533Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJZ_uHhSjxXpMRtQsZTBlbIhw",
@@ -17075,7 +18298,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:08.565Z",
-      "_enrichedAt": "2026-02-12T13:30:00.108Z"
+      "_enrichedAt": "2026-02-12T13:30:00.108Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJeZ0h9gPxXpMRBI5x7_dPKUA",
@@ -17116,7 +18342,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:08.809Z",
-      "_enrichedAt": "2026-02-12T13:30:01.120Z"
+      "_enrichedAt": "2026-02-12T13:30:01.120Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJPYdM8OHwXpMRuXHz53Xwahg",
@@ -17161,7 +18390,11 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:09.057Z",
-      "_enrichedAt": "2026-02-12T13:30:02.706Z"
+      "_enrichedAt": "2026-02-12T13:30:02.706Z",
+      "subcategories": [
+        "Cafeteria",
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJVXg3ZpvwXpMRap9QfHy0OBU",
@@ -17206,7 +18439,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:09.321Z",
-      "_enrichedAt": "2026-02-12T13:30:04.286Z"
+      "_enrichedAt": "2026-02-12T13:30:04.286Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJVay5vpT3XpMRtQ3pzIpChMc",
@@ -17243,7 +18479,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:09.541Z",
-      "_enrichedAt": "2026-02-12T13:30:04.722Z"
+      "_enrichedAt": "2026-02-12T13:30:04.722Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJUUdCqtnwXpMR0d5QplfsC0M",
@@ -17287,7 +18526,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:09.784Z",
-      "_enrichedAt": "2026-02-12T13:30:06.315Z"
+      "_enrichedAt": "2026-02-12T13:30:06.315Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJQ10cvebwXpMRc89Xw3mELII",
@@ -17331,7 +18573,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:10.025Z",
-      "_enrichedAt": "2026-02-12T13:30:07.898Z"
+      "_enrichedAt": "2026-02-12T13:30:07.898Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJI33ZNg7xXpMRFT9U8h7VFLs",
@@ -17375,7 +18620,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:10.264Z",
-      "_enrichedAt": "2026-02-12T13:30:09.478Z"
+      "_enrichedAt": "2026-02-12T13:30:09.478Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJZ020D2jxXpMR2w5W_dcWawA",
@@ -17419,7 +18667,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:13.240Z",
-      "_enrichedAt": "2026-02-12T13:30:11.066Z"
+      "_enrichedAt": "2026-02-12T13:30:11.066Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJmez8yAn0XpMRpP_ksHGB4qc",
@@ -17463,7 +18714,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:13.488Z",
-      "_enrichedAt": "2026-02-12T13:30:12.648Z"
+      "_enrichedAt": "2026-02-12T13:30:12.648Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJf6o7ImXwXpMRrSWyiaKTffg",
@@ -17507,7 +18761,11 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:13.756Z",
-      "_enrichedAt": "2026-02-12T13:30:14.240Z"
+      "_enrichedAt": "2026-02-12T13:30:14.240Z",
+      "subcategories": [
+        "Padaria",
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJ-yhETG7xXpMRdOCpL0eNFGM",
@@ -17551,7 +18809,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:14.030Z",
-      "_enrichedAt": "2026-02-12T13:30:15.821Z"
+      "_enrichedAt": "2026-02-12T13:30:15.821Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJqRrXE43wXpMRkDhn-HiDdIw",
@@ -17595,7 +18856,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:14.272Z",
-      "_enrichedAt": "2026-02-12T13:30:17.402Z"
+      "_enrichedAt": "2026-02-12T13:30:17.402Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJN576jcrzXpMRjKznnikdrqo",
@@ -17639,7 +18903,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:14.515Z",
-      "_enrichedAt": "2026-02-12T13:30:18.983Z"
+      "_enrichedAt": "2026-02-12T13:30:18.983Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJSdhNfLv2XpMRJhwSm6GGnUo",
@@ -17683,7 +18950,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:14.762Z",
-      "_enrichedAt": "2026-02-12T13:30:20.563Z"
+      "_enrichedAt": "2026-02-12T13:30:20.563Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJydTHmSLzXpMRchxVt8HuSQc",
@@ -17727,7 +18997,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:15.003Z",
-      "_enrichedAt": "2026-02-12T13:30:22.140Z"
+      "_enrichedAt": "2026-02-12T13:30:22.140Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJIZNusnO_l5QR9do7DDXlDw8",
@@ -17766,7 +19039,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:15.243Z",
-      "_enrichedAt": "2026-02-12T13:30:22.774Z"
+      "_enrichedAt": "2026-02-12T13:30:22.774Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJTdcxGb7xXpMR30Xe1oljH2A",
@@ -17809,7 +19085,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:15.484Z",
-      "_enrichedAt": "2026-02-12T13:30:24.348Z"
+      "_enrichedAt": "2026-02-12T13:30:24.348Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJF0Ny6yvwXpMRlrbwH3bQb94",
@@ -17853,7 +19132,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:15.723Z",
-      "_enrichedAt": "2026-02-12T13:30:25.923Z"
+      "_enrichedAt": "2026-02-12T13:30:25.923Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ6fnLoIzxXpMRuRL6lLWOuP0",
@@ -17897,7 +19179,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:15.964Z",
-      "_enrichedAt": "2026-02-12T13:30:27.484Z"
+      "_enrichedAt": "2026-02-12T13:30:27.484Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJQWf4-67zXpMRUfoNEVURsIo",
@@ -17941,7 +19226,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:16.207Z",
-      "_enrichedAt": "2026-02-12T13:30:29.040Z"
+      "_enrichedAt": "2026-02-12T13:30:29.040Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJoesPS_H3XpMRCN4CtlS4PQw",
@@ -17985,7 +19273,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:16.500Z",
-      "_enrichedAt": "2026-02-12T13:30:30.616Z"
+      "_enrichedAt": "2026-02-12T13:30:30.616Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJl58xIQ5yA0ERd-V_2esPF8c",
@@ -18029,7 +19320,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:16.747Z",
-      "_enrichedAt": "2026-02-12T13:30:32.193Z"
+      "_enrichedAt": "2026-02-12T13:30:32.193Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJL81hArTxXpMRx_fHLAqV3ME",
@@ -18073,7 +19367,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:16.987Z",
-      "_enrichedAt": "2026-02-12T13:30:33.776Z"
+      "_enrichedAt": "2026-02-12T13:30:33.776Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ6fxBa1XxXpMR8zEj1NO3RaQ",
@@ -18117,7 +19414,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:17.229Z",
-      "_enrichedAt": "2026-02-12T13:30:35.331Z"
+      "_enrichedAt": "2026-02-12T13:30:35.331Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJNYAcyiOLXpMR46lyCJd9Dps",
@@ -18161,7 +19461,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:17.469Z",
-      "_enrichedAt": "2026-02-12T13:30:36.929Z"
+      "_enrichedAt": "2026-02-12T13:30:36.929Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJiS7JxhH7XpMRrMGPTKpczUg",
@@ -18205,7 +19508,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:17.717Z",
-      "_enrichedAt": "2026-02-12T13:30:38.502Z"
+      "_enrichedAt": "2026-02-12T13:30:38.502Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJI3x0dQz0XpMRZCArXuBVH1U",
@@ -18249,7 +19555,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:20.783Z",
-      "_enrichedAt": "2026-02-12T13:30:40.084Z"
+      "_enrichedAt": "2026-02-12T13:30:40.084Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ2dR-aJPzXpMR0KWe7jbcWqY",
@@ -18293,7 +19602,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:21.028Z",
-      "_enrichedAt": "2026-02-12T13:30:41.662Z"
+      "_enrichedAt": "2026-02-12T13:30:41.662Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJGT-mpnfzXpMRHOFx_QRMSz4",
@@ -18337,7 +19649,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:21.269Z",
-      "_enrichedAt": "2026-02-12T13:30:43.243Z"
+      "_enrichedAt": "2026-02-12T13:30:43.243Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJuQReGFbxXpMRQ0Ea5y-kTrQ",
@@ -18381,7 +19696,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:21.512Z",
-      "_enrichedAt": "2026-02-12T13:30:44.826Z"
+      "_enrichedAt": "2026-02-12T13:30:44.826Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJX4qrXV_3XpMRmakEqt5c92Q",
@@ -18420,7 +19738,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:21.757Z",
-      "_enrichedAt": "2026-02-12T13:30:45.461Z"
+      "_enrichedAt": "2026-02-12T13:30:45.461Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJ7S1mF371XpMRHzWW-9wUrOA",
@@ -18464,7 +19785,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:21.999Z",
-      "_enrichedAt": "2026-02-12T13:30:47.045Z"
+      "_enrichedAt": "2026-02-12T13:30:47.045Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJx_QfMXbxXpMRENK0_HCI4S0",
@@ -18508,7 +19832,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:22.237Z",
-      "_enrichedAt": "2026-02-12T13:30:48.620Z"
+      "_enrichedAt": "2026-02-12T13:30:48.620Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJUU8yZUvyXpMRGhbPsY_fJxY",
@@ -18552,7 +19879,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:22.482Z",
-      "_enrichedAt": "2026-02-12T13:30:50.192Z"
+      "_enrichedAt": "2026-02-12T13:30:50.192Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJHaSmfxf3XpMRtRRfDqeT4yM",
@@ -18596,7 +19926,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:22.729Z",
-      "_enrichedAt": "2026-02-12T13:30:51.768Z"
+      "_enrichedAt": "2026-02-12T13:30:51.768Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJ82s2hxLpXpMRs4MBmD4saxI",
@@ -18640,7 +19973,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:22.974Z",
-      "_enrichedAt": "2026-02-12T13:30:53.357Z"
+      "_enrichedAt": "2026-02-12T13:30:53.357Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJHXDpPAD7XpMRNnc-kfrxcXE",
@@ -18684,7 +20020,10 @@
       "openStatusText": "Fechado agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:23.213Z",
-      "_enrichedAt": "2026-02-12T13:30:54.953Z"
+      "_enrichedAt": "2026-02-12T13:30:54.953Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJz3KrRYPzXpMRKDy0M2KTFKk",
@@ -18728,7 +20067,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:23.460Z",
-      "_enrichedAt": "2026-02-12T13:30:56.528Z"
+      "_enrichedAt": "2026-02-12T13:30:56.528Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJGRSFbVL5XpMR8-UwS8vaU0c",
@@ -18772,7 +20114,10 @@
       "openStatusText": "Aberto agora",
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:23.727Z",
-      "_enrichedAt": "2026-02-12T13:30:58.083Z"
+      "_enrichedAt": "2026-02-12T13:30:58.083Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJW7ZIZsclz5QRRobvjlsUap4",
@@ -18801,7 +20146,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:23.974Z"
+      "_discoveredAt": "2026-02-11T19:51:23.974Z",
+      "subcategories": [
+        "Padaria"
+      ]
     },
     {
       "id": "ChIJKW265N7wXpMRTovgcbG3XOs",
@@ -18831,7 +20179,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:24.216Z"
+      "_discoveredAt": "2026-02-11T19:51:24.216Z",
+      "subcategories": [
+        "Cafeteria"
+      ]
     },
     {
       "id": "ChIJJS_s1pT6XpMRkSNM9VYHztE",
@@ -18860,7 +20211,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:24.476Z"
+      "_discoveredAt": "2026-02-11T19:51:24.476Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJ1cmvrPLzXpMRW-08Q6veLqA",
@@ -18889,7 +20243,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:24.716Z"
+      "_discoveredAt": "2026-02-11T19:51:24.716Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     },
     {
       "id": "ChIJjSXOGp_zXpMRb9SC_te2uOM",
@@ -18918,7 +20275,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:24.958Z"
+      "_discoveredAt": "2026-02-11T19:51:24.958Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJlWN4YWM9xmMR5H-0EHtIwuU",
@@ -18947,7 +20307,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:25.201Z"
+      "_discoveredAt": "2026-02-11T19:51:25.201Z",
+      "subcategories": [
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJRxPSARf3XpMRHwOJR9UOq-Q",
@@ -18977,7 +20340,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:25.479Z"
+      "_discoveredAt": "2026-02-11T19:51:25.479Z",
+      "subcategories": [
+        "Cafeteria",
+        "Confeitaria"
+      ]
     },
     {
       "id": "ChIJraqq4mHxXpMRo9eiEzoVpuY",
@@ -19007,7 +20374,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:27.498Z"
+      "_discoveredAt": "2026-02-11T19:51:27.498Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJqwQkYnTxXpMR_Yp6k3GQWHY",
@@ -19036,7 +20406,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:27.739Z"
+      "_discoveredAt": "2026-02-11T19:51:27.739Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJF1v2EM7zXpMR2sSv2aWRl4s",
@@ -19066,7 +20439,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:27.993Z"
+      "_discoveredAt": "2026-02-11T19:51:27.993Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJsy8qMev3XpMRKq4DrOOx1qA",
@@ -19096,7 +20472,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:28.235Z"
+      "_discoveredAt": "2026-02-11T19:51:28.235Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJhU6Rd9fxXpMRc38-smjcO7Q",
@@ -19125,7 +20504,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:28.473Z"
+      "_discoveredAt": "2026-02-11T19:51:28.473Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJO88HZX3xXpMR8SWIZfx2dlI",
@@ -19154,7 +20536,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:28.711Z"
+      "_discoveredAt": "2026-02-11T19:51:28.711Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJUYQK_LbxXpMRN4TX1C46AGw",
@@ -19183,7 +20568,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:31.778Z"
+      "_discoveredAt": "2026-02-11T19:51:31.778Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ-emxjcjxXpMRJ7x1R_CXhsI",
@@ -19212,7 +20600,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:32.018Z"
+      "_discoveredAt": "2026-02-11T19:51:32.018Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJV8HzDyzyXpMRj0jtkIra7CE",
@@ -19242,7 +20633,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:32.259Z"
+      "_discoveredAt": "2026-02-11T19:51:32.259Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJmX_pWcDzXpMRmOS5NfFv78I",
@@ -19272,7 +20666,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:32.503Z"
+      "_discoveredAt": "2026-02-11T19:51:32.503Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJAQaE98vxXpMR-9Dius8f8cE",
@@ -19301,7 +20699,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:32.744Z"
+      "_discoveredAt": "2026-02-11T19:51:32.744Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ51K0yzrzXpMRaqpOUrUj7hI",
@@ -19331,7 +20732,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:32.990Z"
+      "_discoveredAt": "2026-02-11T19:51:32.990Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJX8wc2GHxXpMRV73pu4uJDq8",
@@ -19361,7 +20766,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:33.231Z"
+      "_discoveredAt": "2026-02-11T19:51:33.231Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJg_dO1LHxXpMRgFVSXhhetB8",
@@ -19391,7 +20799,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:33.473Z"
+      "_discoveredAt": "2026-02-11T19:51:33.473Z",
+      "subcategories": [
+        "Bar",
+        "Coquetelaria"
+      ]
     },
     {
       "id": "ChIJbysFbDjxXpMRL6kVoE-DvyM",
@@ -19421,7 +20833,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:33.714Z"
+      "_discoveredAt": "2026-02-11T19:51:33.714Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJja3Hcs7zXpMRGV3y7zapc5g",
@@ -19451,7 +20866,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:33.990Z"
+      "_discoveredAt": "2026-02-11T19:51:33.990Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJhy5gwxXxXpMROVJzh5_ShnA",
@@ -19480,7 +20898,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:34.234Z"
+      "_discoveredAt": "2026-02-11T19:51:34.234Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJbS9DVe3zXpMRCuWYbtZimIA",
@@ -19510,7 +20932,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:37.452Z"
+      "_discoveredAt": "2026-02-11T19:51:37.452Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJRQJBQuPxXpMRS_vvk_5Vo7M",
@@ -19539,7 +20964,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:37.697Z"
+      "_discoveredAt": "2026-02-11T19:51:37.697Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJzfXPBWD2XpMRH9UkEs1KJrA",
@@ -19569,7 +20997,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:37.936Z"
+      "_discoveredAt": "2026-02-11T19:51:37.936Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJU1VVvV7xXpMR1s1t0a-Nj98",
@@ -19599,7 +21030,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:38.175Z"
+      "_discoveredAt": "2026-02-11T19:51:38.175Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJpzggWObxXpMRUPgdiNYCR8E",
@@ -19629,7 +21064,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:38.417Z"
+      "_discoveredAt": "2026-02-11T19:51:38.417Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJfWQ78cD2XpMRlTg3XwLzaJY",
@@ -19658,7 +21096,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:38.663Z"
+      "_discoveredAt": "2026-02-11T19:51:38.663Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ4-UGzLPxXpMR4o0cj80Rw8Y",
@@ -19687,7 +21128,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:38.913Z"
+      "_discoveredAt": "2026-02-11T19:51:38.913Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJFwCxVRvxXpMRWU9LY8OnOac",
@@ -19717,7 +21161,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:39.155Z"
+      "_discoveredAt": "2026-02-11T19:51:39.155Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJyc9JqqX2XpMRbA_-sCfj58A",
@@ -19747,7 +21194,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:39.395Z"
+      "_discoveredAt": "2026-02-11T19:51:39.395Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJFboDVlbwXpMRjksTUmPvX6k",
@@ -19776,7 +21226,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:39.642Z"
+      "_discoveredAt": "2026-02-11T19:51:39.642Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJPUqcmXfxXpMRSDwPmeEgDdQ",
@@ -19805,7 +21259,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:39.880Z"
+      "_discoveredAt": "2026-02-11T19:51:39.880Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJnXJRkXvxXpMR-ZIwC4paXTc",
@@ -19835,7 +21292,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:40.120Z"
+      "_discoveredAt": "2026-02-11T19:51:40.120Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ9_guwovxXpMRiOrFo2XZtvA",
@@ -19864,7 +21324,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:40.362Z"
+      "_discoveredAt": "2026-02-11T19:51:40.362Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJCccvUzrxXpMR7P3Kf7iu3mw",
@@ -19893,7 +21356,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:40.602Z"
+      "_discoveredAt": "2026-02-11T19:51:40.602Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ38eDbPbzXpMRKv2mpOKxBgw",
@@ -19923,7 +21390,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:40.842Z"
+      "_discoveredAt": "2026-02-11T19:51:40.842Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJN-BsGQfxXpMR3MBVMKD5IPI",
@@ -19953,7 +21423,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:41.082Z"
+      "_discoveredAt": "2026-02-11T19:51:41.082Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ8xkgp1rxXpMRh0y-WMvVxgo",
@@ -19982,7 +21455,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:41.327Z"
+      "_discoveredAt": "2026-02-11T19:51:41.327Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJIfzzlJj2XpMRySq6Wm31uT0",
@@ -20012,7 +21488,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:41.582Z"
+      "_discoveredAt": "2026-02-11T19:51:41.582Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJLUYLe2TxXpMRfqjqBlLNjro",
@@ -20041,7 +21520,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:42.327Z"
+      "_discoveredAt": "2026-02-11T19:51:42.327Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJU6289QDzXpMR7lL91bsbxik",
@@ -20071,7 +21554,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:42.572Z"
+      "_discoveredAt": "2026-02-11T19:51:42.572Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ64pbIHjxXpMRF-zoJLw1YzY",
@@ -20100,7 +21587,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:42.829Z"
+      "_discoveredAt": "2026-02-11T19:51:42.829Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJH1CDOADxXpMRxkW23f4LqJM",
@@ -20129,7 +21620,12 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:43.073Z"
+      "_discoveredAt": "2026-02-11T19:51:43.073Z",
+      "subcategories": [
+        "Pub",
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJj2wFVvXxXpMRSQV9H8BEL4M",
@@ -20158,7 +21654,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:43.314Z"
+      "_discoveredAt": "2026-02-11T19:51:43.314Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJXX7OJ_rzXpMRCLrNjvDLFIY",
@@ -20188,7 +21688,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:43.554Z"
+      "_discoveredAt": "2026-02-11T19:51:43.554Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJEW38mxvzXpMRZQvu788gS_w",
@@ -20217,7 +21721,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:46.552Z"
+      "_discoveredAt": "2026-02-11T19:51:46.552Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJA-RjU3TxXpMRkL0lD5W-DJA",
@@ -20247,7 +21754,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:46.790Z"
+      "_discoveredAt": "2026-02-11T19:51:46.790Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJXXDlFw_xXpMR2SkljyflI2U",
@@ -20276,7 +21787,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:47.032Z"
+      "_discoveredAt": "2026-02-11T19:51:47.032Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJI6vrfkjxXpMR0KaiWbZsL_c",
@@ -20305,7 +21819,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:47.278Z"
+      "_discoveredAt": "2026-02-11T19:51:47.278Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJWVdbp9DxXpMR350LvPH3qbI",
@@ -20335,7 +21852,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:47.519Z"
+      "_discoveredAt": "2026-02-11T19:51:47.519Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJI9eFYVDxXpMRhL5dRA2azJU",
@@ -20365,7 +21885,12 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:47.763Z"
+      "_discoveredAt": "2026-02-11T19:51:47.763Z",
+      "subcategories": [
+        "Pub",
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJn-H_3R_5XpMRx2OY6w24P0I",
@@ -20392,7 +21917,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:48.011Z"
+      "_discoveredAt": "2026-02-11T19:51:48.011Z",
+      "subcategories": [
+        "Pub"
+      ]
     },
     {
       "id": "ChIJD6h0ZCb3XpMRcCILak5KsbQ",
@@ -20422,7 +21950,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:48.253Z"
+      "_discoveredAt": "2026-02-11T19:51:48.253Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJu-WycKTxXpMRMXXRymSFIRI",
@@ -20451,7 +21983,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:51.448Z"
+      "_discoveredAt": "2026-02-11T19:51:51.448Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJIVF7n6TxXpMR2FgwawPUvcs",
@@ -20480,7 +22015,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:51.687Z"
+      "_discoveredAt": "2026-02-11T19:51:51.687Z",
+      "subcategories": [
+        "Cervejaria",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJg9vjXwvxXpMR_yKuss6ap7w",
@@ -20509,7 +22048,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:51.927Z"
+      "_discoveredAt": "2026-02-11T19:51:51.927Z",
+      "subcategories": [
+        "Bar"
+      ]
     },
     {
       "id": "ChIJ_bnBV073XpMRii6iiRSpmHk",
@@ -20538,7 +22080,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:52.172Z"
+      "_discoveredAt": "2026-02-11T19:51:52.172Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJgRQdDtbxXpMR_IO19zlNJ0A",
@@ -20567,7 +22113,11 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:52.411Z"
+      "_discoveredAt": "2026-02-11T19:51:52.411Z",
+      "subcategories": [
+        "Pub",
+        "Bar"
+      ]
     },
     {
       "id": "ChIJuRK1akzxXpMRPlfEkd1BHp4",
@@ -20596,7 +22146,10 @@
       ],
       "openStatusText": null,
       "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:52.650Z"
+      "_discoveredAt": "2026-02-11T19:51:52.650Z",
+      "subcategories": [
+        "Restaurante"
+      ]
     }
   ]
 }

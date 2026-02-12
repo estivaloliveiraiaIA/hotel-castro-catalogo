@@ -105,6 +105,11 @@ const Place = () => {
               <p className="text-base leading-relaxed text-foreground/90">{place.description}</p>
 
               <div className="flex flex-wrap gap-2">
+                {(place.subcategories || []).map((sub) => (
+                  <Badge key={sub} variant="outline" className="font-medium">
+                    {sub}
+                  </Badge>
+                ))}
                 {(place.tags || []).map((tag) => (
                   <Badge key={tag} variant="outline" className="flex items-center gap-1">
                     <Tag className="h-3 w-3" />

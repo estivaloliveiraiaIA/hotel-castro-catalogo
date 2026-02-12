@@ -25,6 +25,7 @@ const Index = () => {
   const updatedAt = data?.updatedAt;
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
 
   const [filters, setFilters] = useState<ListFilterState>({
     sortBy: "best",
@@ -68,8 +69,33 @@ const Index = () => {
     return places.filter((p) => p.category === selectedCategory);
   }, [places, selectedCategory]);
 
+  const subcategoryOptions = useMemo(() => {
+    const list = normalizedQuery
+      ? baseSearchResults
+      : selectedCategory !== "all"
+        ? baseCategoryResults
+        : [];
+
+    const counts = new Map<string, number>();
+    for (const p of list) {
+      for (const sub of p.subcategories || []) {
+        if (!sub) continue;
+        counts.set(sub, (counts.get(sub) || 0) + 1);
+      }
+    }
+
+    return [...counts.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({ name, count }))
+      .slice(0, 12);
+  }, [normalizedQuery, selectedCategory, baseSearchResults, baseCategoryResults]);
+
   const applyFilters = (list: Place[]) => {
     let out = list;
+
+    if (selectedSubcategory) {
+      out = out.filter((p) => (p.subcategories || []).includes(selectedSubcategory));
+    }
 
     if (filters.openNow) {
       out = out.filter((p) => (p.openStatusText || "").toLowerCase().includes("aberto"));
@@ -101,8 +127,8 @@ const Index = () => {
     return sorted;
   };
 
-  const searchResults = useMemo(() => applyFilters(baseSearchResults), [baseSearchResults, filters]);
-  const categoryResults = useMemo(() => applyFilters(baseCategoryResults), [baseCategoryResults, filters]);
+  const searchResults = useMemo(() => applyFilters(baseSearchResults), [baseSearchResults, filters, selectedSubcategory]);
+  const categoryResults = useMemo(() => applyFilters(baseCategoryResults), [baseCategoryResults, filters, selectedSubcategory]);
 
   const curatedTop = useMemo(
     () =>
@@ -148,12 +174,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header query={query} onQueryChange={setQuery} />
+      <Header
+        query={query}
+        onQueryChange={(v) => {
+          setQuery(v);
+          setSelectedSubcategory(null);
+        }}
+      />
       <Hero totalPlaces={places.length} totalCategories={totalCategories} updatedAt={updatedAt} />
       <CategoryTabs
         selectedCategory={selectedCategory}
         onCategoryChange={(value) => {
           setSelectedCategory(value);
+          setSelectedSubcategory(null);
           // Se o usuário trocar de categoria, limpamos a busca para evitar confusão.
           setQuery("");
         }}
@@ -171,6 +204,7 @@ const Index = () => {
                 className="shrink-0"
                 onClick={() => {
                   setQuery("");
+                  setSelectedSubcategory(null);
                   setSelectedCategory(item.category);
                 }}
               >
@@ -180,6 +214,36 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Subcategorias só fazem sentido quando o usuário está vendo uma lista */}
+      {!isLoading && !isError && (normalizedQuery || selectedCategory !== "all") && subcategoryOptions.length > 0 && (
+        <section className="border-b bg-background">
+          <div className="container px-4 py-3">
+            <p className="mb-2 text-sm font-medium text-muted-foreground">Tipos</p>
+            <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
+              <Button
+                size="sm"
+                variant={selectedSubcategory === null ? "default" : "secondary"}
+                className="shrink-0"
+                onClick={() => setSelectedSubcategory(null)}
+              >
+                Todos
+              </Button>
+              {subcategoryOptions.map((opt) => (
+                <Button
+                  key={opt.name}
+                  size="sm"
+                  variant={selectedSubcategory === opt.name ? "default" : "secondary"}
+                  className="shrink-0"
+                  onClick={() => setSelectedSubcategory(opt.name)}
+                >
+                  {opt.name}
+                </Button>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Filtros só fazem sentido quando o usuário está vendo uma lista */}
       {!isLoading && !isError && (normalizedQuery || selectedCategory !== "all") && (
@@ -216,6 +280,7 @@ const Index = () => {
                     className="text-sm font-medium text-primary underline-offset-4 hover:underline"
                     onClick={() => {
                       setQuery("");
+                      setSelectedSubcategory(null);
                       setFilters({
                         sortBy: "best",
                         openNow: false,
@@ -272,6 +337,7 @@ const Index = () => {
                     className="text-sm font-medium text-primary underline-offset-4 hover:underline"
                     onClick={() => {
                       setSelectedCategory("all");
+                      setSelectedSubcategory(null);
                       setFilters({
                         sortBy: "best",
                         openNow: false,
