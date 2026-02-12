@@ -15,6 +15,10 @@ function parseArgs() {
     sleepMs: 120,
     onlyMissing: true,
     forceIfEnrichedMissing: false,
+
+    // Cost controls
+    photos: 0,
+    includeEditorial: false,
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -23,6 +27,16 @@ function parseArgs() {
     if (a === "--sleep") out.sleepMs = Number(args[++i] || "0") || 120;
     if (a === "--all") out.onlyMissing = false;
     if (a === "--force-missing") out.forceIfEnrichedMissing = true;
+
+    if (a === "--photos") out.photos = Math.max(0, Number(args[++i] || "0") || 0);
+    if (a === "--editorial") out.includeEditorial = true;
+    if (a === "--no-editorial") out.includeEditorial = false;
+  }
+
+  // Defaults: full rebuild gets photos + editorial, missing-mode is cheap.
+  if (!out.onlyMissing) {
+    if (out.photos === 0) out.photos = 6;
+    if (!out.includeEditorial) out.includeEditorial = true;
   }
 
   return out;
@@ -87,12 +101,18 @@ async function resolvePhotoUrl(photoReference, maxWidth = 1200) {
   return loc || null;
 }
 
-async function getPlaceDetails(placeId) {
-  const fields = [
+async function getPlaceDetails(placeId, opts = {}) {
+  const includeEditorial = Boolean(opts.includeEditorial);
+  const photos = Math.max(0, Number(opts.photos || 0));
+
+  const fieldsArr = [
+    // Core
     "place_id",
     "name",
     "formatted_address",
     "geometry",
+
+    // Useful fields
     "formatted_phone_number",
     "website",
     "url",
@@ -101,13 +121,14 @@ async function getPlaceDetails(placeId) {
     "user_ratings_total",
     "price_level",
     "types",
-    "editorial_summary",
-    "photos",
-  ].join(",");
+  ];
+
+  if (includeEditorial) fieldsArr.push("editorial_summary");
+  if (photos > 0) fieldsArr.push("photos");
 
   const url = new URL("https://maps.googleapis.com/maps/api/place/details/json");
   url.searchParams.set("place_id", placeId);
-  url.searchParams.set("fields", fields);
+  url.searchParams.set("fields", fieldsArr.join(","));
   url.searchParams.set("language", "pt-BR");
   url.searchParams.set("key", KEY);
 
@@ -123,7 +144,7 @@ async function getPlaceDetailsWithRetry(placeId, opts = {}) {
 
   while (true) {
     attempt++;
-    const json = await getPlaceDetails(placeId);
+    const json = await getPlaceDetails(placeId, opts);
 
     const status = json?.status;
 
@@ -149,7 +170,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { limit, sleepMs, onlyMissing, forceIfEnrichedMissing } = parseArgs();
+  const { limit, sleepMs, onlyMissing, forceIfEnrichedMissing, photos, includeEditorial } = parseArgs();
 
   const raw = await fs.readFile(PLACES_JSON_PATH, "utf8");
   const doc = JSON.parse(raw);
@@ -160,7 +181,9 @@ async function main() {
   const failures = [];
 
   console.log(`📦 Places no JSON: ${places.length}`);
-  console.log(`⚙️  onlyMissing=${onlyMissing} limit=${limit} sleepMs=${sleepMs} forceMissing=${forceIfEnrichedMissing}`);
+  console.log(
+    `⚙️  onlyMissing=${onlyMissing} limit=${limit} sleepMs=${sleepMs} forceMissing=${forceIfEnrichedMissing} photos=${photos} editorial=${includeEditorial}`
+  );
 
   for (const place of places) {
     if (processed >= limit) break;
@@ -182,7 +205,7 @@ async function main() {
     processed++;
 
     try {
-      const details = await getPlaceDetailsWithRetry(placeId);
+      const details = await getPlaceDetailsWithRetry(placeId, { photos, includeEditorial });
 
       if (details.status !== "OK" || !details.result) {
         const status = details?.status || "UNKNOWN";
@@ -237,12 +260,13 @@ async function main() {
         place.tags = newTags;
       }
 
-      // Fotos (resolve para URL pública do googleusercontent, sem expor key no front)
-      if (Array.isArray(r.photos) && r.photos.length) {
+      // Fotos (caro). Por padrão, o modo missing NÃO baixa fotos.
+      // Só baixa quando `--photos N` (ou modo --all, que define photos=6 por padrão).
+      if (photos > 0 && Array.isArray(r.photos) && r.photos.length) {
         const refs = r.photos
           .map((p) => p?.photo_reference)
           .filter(Boolean)
-          .slice(0, 6);
+          .slice(0, photos);
 
         const urls = [];
         for (const ref of refs) {
@@ -252,14 +276,18 @@ async function main() {
         }
 
         if (urls.length) {
-          place.image = urls[0];
-          place.gallery = urls;
+          // Só substitui se não existir (pra evitar ficar trocando e gastando sem necessidade).
+          if (!place.image) place.image = urls[0];
+          if (!Array.isArray(place.gallery) || place.gallery.length === 0) place.gallery = urls;
         }
       }
 
-      const editorial = r.editorial_summary?.overview;
-      if (editorial && (!place.description || place.description.trim().length < 20)) {
-        place.description = editorial;
+      // Descrição editorial (pode ser caro e nem sempre vem). Default: só quando --editorial (ou --all).
+      if (includeEditorial) {
+        const editorial = r.editorial_summary?.overview;
+        if (editorial && (!place.description || place.description.trim().length < 20)) {
+          place.description = editorial;
+        }
       }
 
       place._enrichedAt = new Date().toISOString();
