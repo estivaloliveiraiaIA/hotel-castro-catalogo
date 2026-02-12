@@ -2,9 +2,9 @@ import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Star, MapPin, DollarSign, Navigation, Map } from "lucide-react";
+import { Star, MapPin, DollarSign, Navigation } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { getDirectionsUrl, getGoogleMapsUrl } from "@/lib/maps";
+import { getDirectionsUrl } from "@/lib/maps";
 import { Place } from "@/types/place";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +20,6 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
 
   const [imgSrc, setImgSrc] = React.useState(place.image || fallbackImage);
 
-  const mapsUrl = getGoogleMapsUrl(place);
   const directionsUrl = getDirectionsUrl(place);
 
   const renderPriceLevel = (level: number) => {
@@ -112,17 +111,7 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
               Como chegar
             </a>
           </Button>
-          <Button variant="outline" size="sm" asChild>
-            <a
-              href={mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Map className="mr-2 h-4 w-4" />
-              Ver no Maps
-            </a>
-          </Button>
+          {/* Removido: botão "Ver no Maps" ("Como chegar" já atende) */}
         </div>
       </CardContent>
     </Card>

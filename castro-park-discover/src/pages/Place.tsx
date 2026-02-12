@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { MapPin, ArrowLeft, ExternalLink, Globe, Phone, Clock, Tag, Star, Navigation, Map } from "lucide-react";
+import { MapPin, ArrowLeft, ExternalLink, Globe, Phone, Clock, Tag, Star, Navigation } from "lucide-react";
 import { usePlaces } from "@/hooks/usePlaces";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PlaceGallery } from "@/components/PlaceGallery";
-import { getDirectionsUrl, getGoogleMapsUrl } from "@/lib/maps";
+import { getDirectionsUrl } from "@/lib/maps";
 
 const Place = () => {
   const { id } = useParams<{ id: string }>();
@@ -179,12 +179,7 @@ const Place = () => {
                     </a>
                   </Button>
 
-                  <Button asChild variant="secondary">
-                    <a href={getGoogleMapsUrl(place)} target="_blank" rel="noreferrer">
-                      <Map className="mr-2 h-4 w-4" />
-                      Ver no Google Maps
-                    </a>
-                  </Button>
+                  {/* Removido: botão "Ver no Google Maps" ("Como chegar" já atende) */}
 
                   {place.sourceUrl && !place.sourceUrl.includes("google.com/maps") && (
                     <Button asChild variant="outline">
