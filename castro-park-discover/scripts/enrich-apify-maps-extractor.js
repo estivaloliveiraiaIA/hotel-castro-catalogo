@@ -7,9 +7,10 @@ const ROOT = path.resolve(".");
 const PLACES_JSON_PATH = path.join(ROOT, "public", "data", "places.json");
 
 const ACTOR_ID = "compass~google-maps-extractor";
+const APIFY_API_BASE = "https://api.apify.com/v2";
 
 const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6799);
-const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2540);
+const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.254);
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -23,7 +24,13 @@ function parseArgs() {
       .map((s) => s.trim())
       .filter(Boolean),
 
+    // Data source (to avoid paying again, you can import an existing dataset/run)
+    datasetId: process.env.APIFY_DATASET_ID || "",
+    runId: process.env.APIFY_RUN_ID || "",
+
+    // Behavior
     addNew: false,
+    snapshotRaw: String(process.env.APIFY_SNAPSHOT_RAW || "").toLowerCase() === "true",
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -38,7 +45,12 @@ function parseArgs() {
         .map((s) => s.trim())
         .filter(Boolean);
     }
+
+    if (a === "--dataset") out.datasetId = String(args[++i] || "");
+    if (a === "--run") out.runId = String(args[++i] || "");
+
     if (a === "--add-new") out.addNew = true;
+    if (a === "--snapshot") out.snapshotRaw = true;
   }
 
   return out;
@@ -111,37 +123,92 @@ function normalizeTags(categoryName, categories) {
   return Array.from(tags).slice(0, 8);
 }
 
-async function runApifyExtractor(input) {
+async function apiFetchJson(url, opts) {
   if (!TOKEN) {
     console.error("❌ APIFY_TOKEN não definido.");
     process.exit(1);
   }
 
-  const url = new URL(`https://api.apify.com/v2/acts/${ACTOR_ID}/run-sync-get-dataset-items`);
+  const resp = await fetch(url, opts);
+  if (!resp.ok) {
+    const txt = await resp.text().catch(() => "");
+    throw new Error(`Apify request failed: ${resp.status} ${resp.statusText} ${txt}`);
+  }
+  return resp.json();
+}
+
+async function runApifyExtractor(input) {
+  const url = new URL(`${APIFY_API_BASE}/acts/${ACTOR_ID}/run-sync-get-dataset-items`);
   url.searchParams.set("token", TOKEN);
   url.searchParams.set("clean", "true");
 
-  const resp = await fetch(url.toString(), {
+  const json = await apiFetchJson(url.toString(), {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(input),
   });
 
-  if (!resp.ok) {
-    const txt = await resp.text().catch(() => "");
-    throw new Error(`Apify run failed: ${resp.status} ${resp.statusText} ${txt}`);
-  }
-
-  const json = await resp.json();
   if (!Array.isArray(json)) {
     throw new Error(`Unexpected Apify response (expected array). Got: ${typeof json}`);
   }
 
-  return json;
+  return { items: json, source: { kind: "live-run", actor: ACTOR_ID } };
+}
+
+async function resolveDatasetIdFromRun(runId) {
+  const url = new URL(`${APIFY_API_BASE}/actor-runs/${encodeURIComponent(runId)}`);
+  url.searchParams.set("token", TOKEN);
+
+  const json = await apiFetchJson(url.toString());
+  const datasetId = json?.data?.defaultDatasetId;
+  if (!datasetId) throw new Error(`Could not resolve dataset from runId=${runId}`);
+  return String(datasetId);
+}
+
+async function fetchDatasetItems(datasetId) {
+  const limit = 1000;
+  let offset = 0;
+  const all = [];
+
+  while (true) {
+    const url = new URL(`${APIFY_API_BASE}/datasets/${encodeURIComponent(datasetId)}/items`);
+    url.searchParams.set("token", TOKEN);
+    url.searchParams.set("clean", "true");
+    url.searchParams.set("format", "json");
+    url.searchParams.set("limit", String(limit));
+    url.searchParams.set("offset", String(offset));
+
+    const page = await apiFetchJson(url.toString());
+    if (!Array.isArray(page)) throw new Error(`Unexpected dataset items response for datasetId=${datasetId}`);
+
+    if (page.length === 0) break;
+    all.push(...page);
+
+    if (page.length < limit) break;
+    offset += page.length;
+  }
+
+  return all;
+}
+
+async function maybeWriteSnapshot({ items, datasetId, runId }) {
+  if (!items?.length) return null;
+
+  const safe = (s) => String(s || "").replace(/[^a-zA-Z0-9._-]+/g, "-").slice(0, 80);
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+
+  const dir = path.join(ROOT, "data", "apify", "raw");
+  await fs.mkdir(dir, { recursive: true });
+
+  const tag = datasetId ? `dataset-${safe(datasetId)}` : runId ? `run-${safe(runId)}` : "live";
+  const file = path.join(dir, `apify-items_${tag}_${stamp}.json`);
+  await fs.writeFile(file, JSON.stringify(items, null, 2), "utf8");
+
+  return path.relative(ROOT, file);
 }
 
 async function main() {
-  const { locationQuery, language, maxPerSearch, minStars, categories, addNew } = parseArgs();
+  const { locationQuery, language, maxPerSearch, minStars, categories, addNew, datasetId, runId, snapshotRaw } = parseArgs();
 
   const raw = await fs.readFile(PLACES_JSON_PATH, "utf8");
   const doc = JSON.parse(raw);
@@ -154,8 +221,6 @@ async function main() {
   }
 
   console.log(`📦 places.json: ${places.length} lugares`);
-  console.log(`🔎 Apify Extractor: location="${locationQuery}" language=${language} maxPerSearch=${maxPerSearch} minStars="${minStars}"`);
-  console.log(`🏷️  categories: ${categories.join(", ")}`);
 
   const input = {
     categoryFilterWords: categories,
@@ -168,7 +233,30 @@ async function main() {
     placeMinimumStars: minStars,
   };
 
-  const items = await runApifyExtractor(input);
+  let items = [];
+  let source = null;
+  let usedDatasetId = datasetId;
+
+  if (usedDatasetId) {
+    console.log(`⬇️  Importando itens de dataset já existente (datasetId=${usedDatasetId})`);
+    items = await fetchDatasetItems(usedDatasetId);
+    source = { kind: "dataset", datasetId: usedDatasetId };
+  } else if (runId) {
+    console.log(`⬇️  Importando itens de run já existente (runId=${runId})`);
+    usedDatasetId = await resolveDatasetIdFromRun(runId);
+    items = await fetchDatasetItems(usedDatasetId);
+    source = { kind: "run", runId, datasetId: usedDatasetId };
+  } else {
+    console.log(
+      `🔎 Apify Extractor (novo run): location="${locationQuery}" language=${language} maxPerSearch=${maxPerSearch} minStars="${minStars}"`
+    );
+    console.log(`🏷️  categories: ${categories.join(", ")}`);
+    const res = await runApifyExtractor(input);
+    items = res.items;
+    source = res.source;
+  }
+
+  const snapshotPath = snapshotRaw ? await maybeWriteSnapshot({ items, datasetId: usedDatasetId, runId }) : null;
 
   let updated = 0;
   let added = 0;
@@ -290,6 +378,8 @@ async function main() {
   const report = {
     updatedAt: new Date().toISOString(),
     apifyActor: ACTOR_ID,
+    source,
+    snapshotPath,
     input,
     items: items.length,
     matched,

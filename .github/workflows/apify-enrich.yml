@@ -19,6 +19,18 @@ on:
         description: "Comma-separated categories"
         required: false
         default: "restaurant,bar,cafe,park,museum,shopping mall"
+      datasetId:
+        description: "(Opcional) Importar de um dataset já existente (evita novo run/custo)."
+        required: false
+        default: ""
+      runId:
+        description: "(Opcional) Importar de um run já existente (evita novo run/custo)."
+        required: false
+        default: ""
+      snapshotRaw:
+        description: "Salvar snapshot RAW no repo (true/false). Recomendado ao importar extração já paga."
+        required: false
+        default: "false"
 
   push:
     branches: [main]
@@ -63,6 +75,9 @@ jobs:
           APIFY_MAX_PER_SEARCH: ${{ inputs.maxPerSearch }}
           APIFY_MIN_STARS: ${{ inputs.minStars }}
           APIFY_CATEGORIES: ${{ inputs.categories }}
+          APIFY_DATASET_ID: ${{ inputs.datasetId }}
+          APIFY_RUN_ID: ${{ inputs.runId }}
+          APIFY_SNAPSHOT_RAW: ${{ inputs.snapshotRaw }}
         run: |
           set -euo pipefail
 
@@ -72,6 +87,9 @@ jobs:
             export APIFY_MIN_STARS=""
             export APIFY_LOCATION_QUERY="Goiânia, GO, Brasil"
             export APIFY_CATEGORIES="restaurant,bar,cafe,park,museum,shopping mall"
+            export APIFY_DATASET_ID=""
+            export APIFY_RUN_ID=""
+            export APIFY_SNAPSHOT_RAW="false"
           fi
 
           npm run enrich:apify
@@ -86,6 +104,7 @@ jobs:
           git config user.name "Kira (OpenClaw)"
           git config user.email "kira-openclaw@users.noreply.github.com"
           git add castro-park-discover/public/data/places.json castro-park-discover/public/data/apify-report.json
+          git add -A castro-park-discover/data/apify/raw || true
           git commit -m "data: enrich places via Apify (Google Maps Extractor)"
           git pull --rebase
           git push
