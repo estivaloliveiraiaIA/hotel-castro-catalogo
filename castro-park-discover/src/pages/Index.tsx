@@ -95,6 +95,15 @@ const Index = () => {
   const searchResults = useMemo(() => applyFilters(baseSearchResults), [baseSearchResults, filters]);
   const categoryResults = useMemo(() => applyFilters(baseCategoryResults), [baseCategoryResults, filters]);
 
+  const curatedTop = useMemo(
+    () =>
+      places
+        .filter((p) => p.hotelRecommended)
+        .sort((a, b) => (b.hotelScore ?? 0) - (a.hotelScore ?? 0))
+        .slice(0, 12),
+    [places]
+  );
+
   const nearHotel = useMemo(
     () =>
       places
@@ -260,6 +269,11 @@ const Index = () => {
             </section>
           ) : (
             <>
+              <PlaceSection
+                title="Recomendados pelo hotel"
+                subtitle="Curadoria especial para uma experiência inesquecível em Goiânia"
+                places={curatedTop}
+              />
               <PlaceSection
                 title="Perto do hotel"
                 subtitle="Sugestões a poucos minutos do Castro's Park Hotel"

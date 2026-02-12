@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Place } from "@/types/place";
+import { applyCuration, type CurationDoc } from "@/lib/curation";
 
 export interface PlacesResponse {
   updatedAt?: string;
@@ -9,15 +10,29 @@ export interface PlacesResponse {
 
 // Cache-bust on each deploy to avoid users seeing stale data.
 const PLACES_URL = `${import.meta.env.BASE_URL}data/places.json?v=${__BUILD_ID__}`;
+const CURATION_URL = `${import.meta.env.BASE_URL}data/curation.json?v=${__BUILD_ID__}`;
+
+const fetchOptionalCuration = async (): Promise<CurationDoc | null> => {
+  const response = await fetch(CURATION_URL, { cache: "no-store" });
+  if (!response.ok) return null;
+  return (await response.json()) as CurationDoc;
+};
 
 const fetchPlacesDoc = async (): Promise<PlacesResponse> => {
-  const response = await fetch(PLACES_URL, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`Falha ao carregar lugares (${response.status})`);
+  const [placesRes, curation] = await Promise.all([
+    fetch(PLACES_URL, { cache: "no-store" }),
+    fetchOptionalCuration(),
+  ]);
+
+  if (!placesRes.ok) {
+    throw new Error(`Falha ao carregar lugares (${placesRes.status})`);
   }
 
-  const json = (await response.json()) as PlacesResponse;
-  return json;
+  const json = (await placesRes.json()) as PlacesResponse;
+  return {
+    ...json,
+    places: applyCuration(json.places || [], curation),
+  };
 };
 
 export const usePlaces = () =>

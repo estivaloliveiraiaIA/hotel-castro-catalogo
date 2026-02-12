@@ -31,5 +31,7 @@ export interface Place {
   notes?: string;
   originQueries?: string[];
   distanceKm?: number;
+  hotelRecommended?: boolean;
+  hotelScore?: number;
   _enrichedAt?: string;
 }

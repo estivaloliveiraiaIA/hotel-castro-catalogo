@@ -78,7 +78,12 @@ const Place = () => {
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="space-y-1">
-                  <Badge variant="secondary" className="capitalize">{place.category}</Badge>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary" className="capitalize">{place.category}</Badge>
+                    {place.hotelRecommended && (
+                      <Badge className="bg-hotel-gold text-hotel-charcoal hover:bg-hotel-gold/90">Recomendado pelo hotel</Badge>
+                    )}
+                  </div>
                   <h1 className="text-3xl font-bold leading-tight">{place.name}</h1>
                   <p className="flex items-center gap-2 text-sm text-muted-foreground">
                     <MapPin className="h-4 w-4" />

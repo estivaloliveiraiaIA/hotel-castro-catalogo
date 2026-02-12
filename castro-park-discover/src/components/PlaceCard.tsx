@@ -91,6 +91,11 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
         </p>
         
         <div className="flex flex-wrap gap-1">
+          {place.hotelRecommended && (
+            <Badge className="text-xs bg-hotel-gold text-hotel-charcoal hover:bg-hotel-gold/90">
+              Recomendado pelo hotel
+            </Badge>
+          )}
           {(place.tags || []).slice(0, 3).map((tag) => (
             <Badge key={tag} variant="secondary" className="text-xs">
               {tag}
