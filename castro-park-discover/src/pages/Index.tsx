@@ -5,6 +5,7 @@ import { CategoryTabs } from "@/components/CategoryTabs";
 import { ListFilters, type ListFilterState } from "@/components/ListFilters";
 import { PlaceSection } from "@/components/PlaceSection";
 import { PlaceCard } from "@/components/PlaceCard";
+import { Button } from "@/components/ui/button";
 import { usePlaces } from "@/hooks/usePlaces";
 import { Place } from "@/types/place";
 
@@ -34,6 +35,14 @@ const Index = () => {
   });
 
   const normalizedQuery = query.trim().toLowerCase();
+
+  const quickActions = [
+    { label: "🍽️ Comer bem", category: "restaurants" },
+    { label: "☕ Café", category: "cafes" },
+    { label: "🍸 Noite", category: "nightlife" },
+    { label: "🌳 Passeio", category: "nature" },
+    { label: "📍 Perto do hotel", category: "all" },
+  ] as const;
 
   const totalCategories = useMemo(
     () => new Set(places.map((p) => p.category).filter(Boolean)).size,
@@ -149,6 +158,28 @@ const Index = () => {
           setQuery("");
         }}
       />
+
+      <section className="border-b bg-muted/20">
+        <div className="container px-4 py-4">
+          <p className="mb-3 text-sm font-medium text-muted-foreground">Escolha rápida do hóspede</p>
+          <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
+            {quickActions.map((item) => (
+              <Button
+                key={item.label}
+                variant={selectedCategory === item.category ? "default" : "secondary"}
+                size="sm"
+                className="shrink-0"
+                onClick={() => {
+                  setQuery("");
+                  setSelectedCategory(item.category);
+                }}
+              >
+                {item.label}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Filtros só fazem sentido quando o usuário está vendo uma lista */}
       {!isLoading && !isError && (normalizedQuery || selectedCategory !== "all") && (
