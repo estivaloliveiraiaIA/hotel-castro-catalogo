@@ -124,3 +124,24 @@ All colors MUST be HSL.
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
+/* Tipografia: garante Cormorant Garamond para font-serif */
+@layer base {
+  .font-serif,
+  [class~="font-serif"] {
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+}
+
+/* Ornamento decorativo hotel */
+@layer components {
+  .hotel-ornament {
+    @apply flex items-center justify-center gap-3 my-4;
+  }
+
+  .hotel-ornament::before,
+  .hotel-ornament::after {
+    content: "";
+    @apply h-px flex-1 max-w-[80px] bg-hotel-gold/40;
+  }
+}

@@ -45,9 +45,9 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
           navigate(`/place/${encodeURIComponent(place.id)}`);
         }
       }}
-      className="group overflow-hidden transition-all hover:shadow-lg"
+      className="group overflow-hidden transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-hotel-gold/40"
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
         <img
           src={imgSrc}
           alt={place.name}
@@ -92,8 +92,8 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
         
         <div className="flex flex-wrap gap-1">
           {place.hotelRecommended && (
-            <Badge className="text-xs bg-hotel-gold text-hotel-charcoal hover:bg-hotel-gold/90">
-              Recomendado pelo hotel
+            <Badge className="text-xs border border-hotel-gold/50 bg-hotel-gold/10 text-primary hover:bg-hotel-gold/20 font-medium">
+              ✦ Recomendado pelo hotel
             </Badge>
           )}
 
@@ -112,7 +112,12 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
 
         {/* Quick actions (do not navigate) */}
         <div className="mt-4 flex flex-wrap gap-2">
-          <Button variant="secondary" size="sm" asChild>
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+            className="border-hotel-gold/50 text-primary hover:bg-hotel-gold/10 hover:border-hotel-gold hover:text-primary"
+          >
             <a
               href={directionsUrl}
               target="_blank"
