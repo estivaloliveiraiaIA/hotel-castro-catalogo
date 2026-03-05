@@ -1,0 +1,232 @@
+[
+  {
+    "id": "jantar-romantico",
+    "title": "Jantar Romantico",
+    "subtitle": "Para uma noite inesquecivel a dois",
+    "icon": "🕯️",
+    "coverImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80&auto=format&fit=crop",
+    "duration": "4-5 horas",
+    "bestTime": "Noite (19h–24h)",
+    "profile": "Casais",
+    "places": [
+      {
+        "placeId": "ChIJhX0vrdvxXpMR8tpw3CU_OiY",
+        "order": 1,
+        "note": "Comece com drinks e vista panoramica no rooftop",
+        "suggestedTime": "19h–20h"
+      },
+      {
+        "placeId": "ChIJzzaVbErxXpMRuEItg8EB9D8",
+        "order": 2,
+        "note": "Jantar elegante com culinaria contemporanea portuguesa",
+        "suggestedTime": "20h30–22h30"
+      },
+      {
+        "placeId": "ChIJbcT3yELxXpMRbF_j8pzeCTs",
+        "order": 3,
+        "note": "Finalize com sobremesas artesanais e um cafe especial",
+        "suggestedTime": "22h30–23h30"
+      },
+      {
+        "placeId": "ChIJbU1AaxTxXpMR8WLqOKrr2Hg",
+        "order": 4,
+        "note": "Encerre a noite com cocktails e musica ao vivo",
+        "suggestedTime": "23h30–0h"
+      }
+    ],
+    "tips": [
+      "Reserve mesa com antecedencia, especialmente fins de semana",
+      "O rooftop fecha com chuva — confirme o tempo antes",
+      "Peça ao concierge do hotel para verificar disponibilidade"
+    ]
+  },
+  {
+    "id": "dia-de-negocios",
+    "title": "Dia de Negocios",
+    "subtitle": "Produtividade e boas reunioes em Goiania",
+    "icon": "💼",
+    "coverImage": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&auto=format&fit=crop",
+    "duration": "8-10 horas",
+    "bestTime": "Manha e tarde (8h–18h)",
+    "profile": "Executivos",
+    "places": [
+      {
+        "placeId": "ChIJbUfiowjxXpMRyr_SZry7vG4",
+        "order": 1,
+        "note": "Cafe especial para comecar o dia com energia",
+        "suggestedTime": "8h–9h"
+      },
+      {
+        "placeId": "ChIJCcjL8ArxXpMRyTr3o_LwFKA",
+        "order": 2,
+        "note": "Coworking moderno com salas de reuniao e wifi rapido",
+        "suggestedTime": "9h–12h"
+      },
+      {
+        "placeId": "ChIJqxhm8dLzXpMRa2x-9XH6aKU",
+        "order": 3,
+        "note": "Almoco executivo de alto nivel — classico da culinaria brasileira",
+        "suggestedTime": "12h–13h30"
+      },
+      {
+        "placeId": "ChIJXeLyKQX3XpMRCwp8CCKtIwc",
+        "order": 4,
+        "note": "Cafe da tarde em ambiente sofisticado para reuniao informal",
+        "suggestedTime": "15h–16h"
+      },
+      {
+        "placeId": "ChIJBzz7y1PwXpMRO1y2eabhfDg",
+        "order": 5,
+        "note": "Jantar de negocios em um dos restaurantes mais renomados da cidade",
+        "suggestedTime": "19h–21h"
+      }
+    ],
+    "tips": [
+      "O Curta Mais oferece impressao e salas privatuas — perfeito para apresentacoes",
+      "Uber e facil em toda a regiao central de Goiania",
+      "O Junior Restaurante e um classico para almoco executivo"
+    ]
+  },
+  {
+    "id": "familia-com-criancas",
+    "title": "Familia com Criancas",
+    "subtitle": "Um dia de aventura e diversao para toda a familia",
+    "icon": "👨‍👩‍👧‍👦",
+    "coverImage": "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=1200&q=80&auto=format&fit=crop",
+    "duration": "6-8 horas",
+    "bestTime": "Manha e tarde (9h–17h)",
+    "profile": "Familias",
+    "places": [
+      {
+        "placeId": "ChIJsWMnTyTxXpMRi9KhxLxkUr0",
+        "order": 1,
+        "note": "Parque com lago, patos e muito verde — otimo para a manha",
+        "suggestedTime": "9h–11h"
+      },
+      {
+        "placeId": "ChIJOWPzTF7xXpMRIRrDKTUNS8o",
+        "order": 2,
+        "note": "Churrasco farto para repor energias — criancas adoram",
+        "suggestedTime": "12h–13h30"
+      },
+      {
+        "placeId": "ChIJKcRhUanxXpMRulwJC1BfdF0",
+        "order": 3,
+        "note": "O maior parque urbano de Goiania — lago, ciclovias e playground",
+        "suggestedTime": "14h–16h"
+      },
+      {
+        "placeId": "ChIJx2LOj532XpMRErHmTjPOk3s",
+        "order": 4,
+        "note": "Passeio final no shopping com sorvete e diversao para os pequenos",
+        "suggestedTime": "16h30–18h"
+      }
+    ],
+    "tips": [
+      "Leve protetor solar e agua — os parques sao abertos",
+      "O Parque Flamboyant tem estacionamento gratuito",
+      "Evite horario de almoco nos parques em dias muito quentes"
+    ]
+  },
+  {
+    "id": "tarde-cultural",
+    "title": "Tarde Cultural",
+    "subtitle": "Arte, historia e os melhores cafes de Goiania",
+    "icon": "🎭",
+    "coverImage": "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=1200&q=80&auto=format&fit=crop",
+    "duration": "4-5 horas",
+    "bestTime": "Tarde (14h–19h)",
+    "profile": "Turista cultural",
+    "places": [
+      {
+        "placeId": "ChIJz0SvmGbxXpMRqjz33D7bdZs",
+        "order": 1,
+        "note": "Historia de Goias em um palacio historico imperdivel",
+        "suggestedTime": "14h–15h30"
+      },
+      {
+        "placeId": "ChIJ9QTfxmHxXpMR2d986GxdEHk",
+        "order": 2,
+        "note": "Corredor cultural com arte de rua, galerias e musica — o coração artistico da cidade",
+        "suggestedTime": "15h30–17h"
+      },
+      {
+        "placeId": "ChIJncYCmXykXpMRDkGNgFjymgY",
+        "order": 3,
+        "note": "Cafe especial em ambiente descolado para descansar entre museus",
+        "suggestedTime": "17h–17h45"
+      },
+      {
+        "placeId": "ChIJ1xdfG2fxXpMRIhZnZ7X3yfs",
+        "order": 4,
+        "note": "Encerre com uma visita ao museu de arte contemporanea",
+        "suggestedTime": "18h–19h"
+      }
+    ],
+    "tips": [
+      "O Beco da Codorna e mais animado no fim de tarde",
+      "Museu Pedro Ludovico funciona de terca a domingo",
+      "Combine com um jantar proximo ao Setor Oeste apos o passeio"
+    ]
+  },
+  {
+    "id": "goiania-essencial",
+    "title": "Goiania Essencial",
+    "subtitle": "O melhor da cidade para quem esta pela primeira vez",
+    "icon": "🌆",
+    "coverImage": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&q=80&auto=format&fit=crop",
+    "duration": "Dia completo (9h–22h)",
+    "bestTime": "Sabado ou Domingo",
+    "profile": "Primeira vez na cidade",
+    "places": [
+      {
+        "placeId": "ChIJbcT3yELxXpMRbF_j8pzeCTs",
+        "order": 1,
+        "note": "Cafe da manha com cafes especiais e confeitaria premium",
+        "suggestedTime": "9h–10h"
+      },
+      {
+        "placeId": "ChIJB-5l9mbxXpMR2hmltecqYr8",
+        "order": 2,
+        "note": "Bosque centenario no coracão da cidade — uma surpresa verde",
+        "suggestedTime": "10h–11h30"
+      },
+      {
+        "placeId": "ChIJ9QTfxmHxXpMR2d986GxdEHk",
+        "order": 3,
+        "note": "Almoco e arte — o corredor cultural mais famoso de Goiania",
+        "suggestedTime": "12h–13h30"
+      },
+      {
+        "placeId": "ChIJz0SvmGbxXpMRqjz33D7bdZs",
+        "order": 4,
+        "note": "Conheca a historia do estado no palacio do governador",
+        "suggestedTime": "14h–15h30"
+      },
+      {
+        "placeId": "ChIJKcRhUanxXpMRulwJC1BfdF0",
+        "order": 5,
+        "note": "Passeio no maior parque da cidade — lago, ciclovias e natureza",
+        "suggestedTime": "16h–17h30"
+      },
+      {
+        "placeId": "ChIJrcJEexfxXpMRCBlB1JZQjQU",
+        "order": 6,
+        "note": "Aperitivo no bar mais tradicional do Marista",
+        "suggestedTime": "18h–19h"
+      },
+      {
+        "placeId": "ChIJBzz7y1PwXpMRO1y2eabhfDg",
+        "order": 7,
+        "note": "Jantar no classico Coco Bambu — experiencia gastronomica completa",
+        "suggestedTime": "20h–22h"
+      }
+    ],
+    "tips": [
+      "Goiania e uma cidade de carro — use Uber ou taxi entre os pontos",
+      "O clima pode ser quente — leve agua e use roupas leves",
+      "O Beco da Codorna tem feira cultural aos sabados",
+      "Reserve mesa no Coco Bambu com antecedencia"
+    ]
+  }
+]

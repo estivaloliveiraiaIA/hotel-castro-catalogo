@@ -5,9 +5,12 @@ import { CategoryTabs } from "@/components/CategoryTabs";
 import { ListFilters, type ListFilterState } from "@/components/ListFilters";
 import { PlaceSection } from "@/components/PlaceSection";
 import { PlaceCard } from "@/components/PlaceCard";
+import { ItineraryCard } from "@/components/ItineraryCard";
 import { Button } from "@/components/ui/button";
 import { usePlaces } from "@/hooks/usePlaces";
+import { useItineraries } from "@/hooks/useItineraries";
 import { Place } from "@/types/place";
+import { useNavigate } from "react-router-dom";
 
 const byBest = (a: Place, b: Place) => {
   const ratingDiff = (b.rating ?? 0) - (a.rating ?? 0);
@@ -20,7 +23,9 @@ const byBest = (a: Place, b: Place) => {
 };
 
 const Index = () => {
+  const navigate = useNavigate();
   const { data, isLoading, isError, error } = usePlaces();
+  const { data: itineraries } = useItineraries();
   const places = data?.places ?? [];
   const updatedAt = data?.updatedAt;
   const [query, setQuery] = useState("");
@@ -366,6 +371,38 @@ const Index = () => {
             </section>
           ) : (
             <>
+              {/* Roteiros Tematicos */}
+              {itineraries && itineraries.length > 0 && (
+                <section className="py-8 border-b">
+                  <div className="container px-4">
+                    <div className="mb-6 flex items-end justify-between gap-4">
+                      <div>
+                        <p className="text-xs uppercase tracking-widest text-hotel-gold font-medium mb-1">
+                          Experiencias Curadas
+                        </p>
+                        <h2 className="font-serif text-2xl font-semibold md:text-3xl">
+                          Roteiros Tematicos
+                        </h2>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          Experiencias prontas selecionadas pelo hotel
+                        </p>
+                      </div>
+                      <button
+                        className="shrink-0 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                        onClick={() => navigate("/itineraries")}
+                      >
+                        Ver todos
+                      </button>
+                    </div>
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {itineraries.slice(0, 3).map((itinerary) => (
+                        <ItineraryCard key={itinerary.id} itinerary={itinerary} />
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              )}
+
               <PlaceSection
                 title="Recomendados pelo hotel"
                 subtitle="Curadoria especial para uma experiência inesquecível em Goiânia"
