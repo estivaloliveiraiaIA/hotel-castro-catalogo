@@ -14,25 +14,29 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
+    const ALLOWED = ["name", "description", "logo_url", "website", "category", "discount_info", "is_active"];
+    const payload = Object.fromEntries(Object.entries(req.body || {}).filter(([k]) => ALLOWED.includes(k)));
     const { data, error } = await supabase
       .from("partners")
-      .insert(req.body)
+      .insert(payload)
       .select()
       .single();
-    if (error) return res.status(500).json({ error: error.message });
+    if (error) return res.status(500).json({ error: "Erro ao criar parceiro" });
     return res.status(201).json(data);
   }
 
   if (req.method === "PUT") {
-    const { id, ...updates } = req.body;
+    const { id } = req.body || {};
     if (!id) return res.status(400).json({ error: "id obrigatório" });
+    const ALLOWED = ["name", "description", "logo_url", "website", "category", "discount_info", "is_active"];
+    const updates = Object.fromEntries(Object.entries(req.body).filter(([k]) => ALLOWED.includes(k)));
     const { data, error } = await supabase
       .from("partners")
       .update(updates)
       .eq("id", id)
       .select()
       .single();
-    if (error) return res.status(500).json({ error: error.message });
+    if (error) return res.status(500).json({ error: "Erro ao atualizar parceiro" });
     return res.status(200).json(data);
   }
 
@@ -40,7 +44,7 @@ export default async function handler(req, res) {
     const { id } = req.query;
     if (!id) return res.status(400).json({ error: "id obrigatório" });
     const { error } = await supabase.from("partners").delete().eq("id", id);
-    if (error) return res.status(500).json({ error: error.message });
+    if (error) return res.status(500).json({ error: "Erro ao remover parceiro" });
     return res.status(200).json({ ok: true });
   }
 

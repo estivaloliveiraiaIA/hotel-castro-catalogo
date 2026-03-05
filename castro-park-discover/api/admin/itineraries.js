@@ -9,18 +9,20 @@ export default async function handler(req, res) {
       .from("itineraries")
       .select("*, itinerary_places(id, place_id, order_index, note, suggested_time, places(id, name))")
       .order("created_at");
-    if (error) return res.status(500).json({ error: error.message });
+    if (error) return res.status(500).json({ error: "Erro ao buscar roteiros" });
     return res.status(200).json(data);
   }
 
   if (req.method === "POST") {
-    const { places: stops, ...itinerary } = req.body;
+    const ALLOWED = ["title", "subtitle", "icon", "cover_image", "duration", "best_time", "profile", "tips", "is_active"];
+    const { places: stops, ...body } = req.body || {};
+    const itinerary = Object.fromEntries(Object.entries(body).filter(([k]) => ALLOWED.includes(k)));
     const { data: row, error } = await supabase
       .from("itineraries")
       .insert(itinerary)
       .select()
       .single();
-    if (error) return res.status(500).json({ error: error.message });
+    if (error) return res.status(500).json({ error: "Erro ao criar roteiro" });
 
     if (stops && stops.length > 0) {
       const stopsToInsert = stops.map((s, i) => ({
@@ -31,7 +33,7 @@ export default async function handler(req, res) {
         suggested_time: s.suggested_time,
       }));
       const { error: stopsError } = await supabase.from("itinerary_places").insert(stopsToInsert);
-      if (stopsError) return res.status(500).json({ error: stopsError.message });
+      if (stopsError) return res.status(500).json({ error: "Erro ao inserir paradas do roteiro" });
     }
 
     return res.status(201).json(row);
@@ -47,10 +49,17 @@ export default async function handler(req, res) {
       .eq("id", id)
       .select()
       .single();
-    if (error) return res.status(500).json({ error: error.message });
+    if (error) return res.status(500).json({ error: "Erro ao atualizar roteiro" });
 
     if (stops !== undefined) {
+      // Busca paradas existentes para rollback em caso de falha
+      const { data: existingStops } = await supabase
+        .from("itinerary_places")
+        .select("*")
+        .eq("itinerary_id", id);
+
       await supabase.from("itinerary_places").delete().eq("itinerary_id", id);
+
       if (stops.length > 0) {
         const stopsToInsert = stops.map((s, i) => ({
           itinerary_id: id,
@@ -60,7 +69,13 @@ export default async function handler(req, res) {
           suggested_time: s.suggested_time,
         }));
         const { error: stopsError } = await supabase.from("itinerary_places").insert(stopsToInsert);
-        if (stopsError) return res.status(500).json({ error: stopsError.message });
+        if (stopsError) {
+          // Rollback: restaura paradas originais
+          if (existingStops && existingStops.length > 0) {
+            await supabase.from("itinerary_places").insert(existingStops);
+          }
+          return res.status(500).json({ error: "Erro ao atualizar paradas do roteiro" });
+        }
       }
     }
 
@@ -72,7 +87,7 @@ export default async function handler(req, res) {
     if (!id) return res.status(400).json({ error: "id obrigatório" });
     await supabase.from("itinerary_places").delete().eq("itinerary_id", id);
     const { error } = await supabase.from("itineraries").delete().eq("id", id);
-    if (error) return res.status(500).json({ error: error.message });
+    if (error) return res.status(500).json({ error: "Erro ao remover roteiro" });
     return res.status(200).json({ ok: true });
   }
 
