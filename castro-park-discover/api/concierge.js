@@ -1,0 +1,146 @@
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.VITE_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
+
+const FALLBACK = {
+  message: "Não consegui entender sua busca. Tente: 'restaurante italiano perto do hotel', 'o que fazer com crianças', 'barzinho para noite'.",
+  places: [],
+};
+
+function scorePlace(place, keywords) {
+  let score = 0;
+  const text = [
+    place.name,
+    place.category,
+    place.description,
+    ...(place.subcategories || []),
+    ...(place.tags || []),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+  for (const kw of keywords) {
+    if (text.includes(kw)) score += 1;
+    const nameNorm = (place.name || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    if (nameNorm.includes(kw)) score += 2;
+  }
+
+  if (place.hotel_recommended) score += 2;
+  if (place.hotel_score) score += place.hotel_score / 10;
+  if (place.rating) score += place.rating / 10;
+
+  return score;
+}
+
+function extractKeywords(query) {
+  const stopWords = new Set(["que", "com", "para", "uma", "um", "por", "como", "tem", "quero", "preciso", "onde", "qual", "quais", "tem", "ter"]);
+  return query
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s]/g, "")
+    .split(/\s+/)
+    .filter((kw) => kw.length > 2 && !stopWords.has(kw));
+}
+
+async function callGemini(prompt, apiKey) {
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          temperature: 0.3,
+          maxOutputTokens: 700,
+          responseMimeType: "application/json",
+        },
+      }),
+    }
+  );
+  if (!res.ok) throw new Error(`Gemini error: ${res.status}`);
+  const data = await res.json();
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!text) throw new Error("Empty response from Gemini");
+  return JSON.parse(text);
+}
+
+export default async function handler(req, res) {
+  if (req.method !== "POST") return res.status(405).end();
+
+  const { query } = req.body || {};
+  if (!query || typeof query !== "string" || query.trim().length < 3) {
+    return res.status(400).json({ error: "query muito curta" });
+  }
+
+  const apiKey = process.env.LLM_API_KEY;
+  if (!apiKey) {
+    return res.status(200).json(FALLBACK);
+  }
+
+  try {
+    const { data: places, error } = await supabase
+      .from("places")
+      .select("id, name, category, subcategories, description, tags, hotel_recommended, hotel_score, rating, address")
+      .eq("is_active", true);
+
+    if (error) throw error;
+
+    const keywords = extractKeywords(query.trim());
+    const allPlaces = places || [];
+
+    const scored = allPlaces
+      .map((p) => ({ ...p, _score: scorePlace(p, keywords) }))
+      .sort((a, b) => b._score - a._score)
+      .slice(0, 10);
+
+    const top = scored.filter((p) => p._score > 0);
+    const context = (top.length > 0 ? top : scored.slice(0, 5))
+      .map(
+        (p) =>
+          `ID: ${p.id}\nNome: ${p.name}\nCategoria: ${p.category}\nDescrição: ${(p.description || "").slice(0, 120)}\nAvaliação: ${p.rating || "N/A"}`
+      )
+      .join("\n---\n");
+
+    const prompt = `Você é o concierge digital do Castro's Park Hotel em Goiânia, Brasil. Seu tom é elegante, acolhedor e prestativo.
+
+O hóspede pediu: "${query.trim()}"
+
+Lugares disponíveis no guia do hotel:
+${context}
+
+Selecione até 3 lugares que melhor atendem ao pedido. Responda SOMENTE com JSON válido, sem texto extra:
+{
+  "places": [
+    {
+      "id": "ID_exato_do_lugar",
+      "name": "Nome do lugar",
+      "reason": "Uma frase elegante explicando por que este lugar é ideal para o pedido",
+      "highlight": "Uma dica especial ou detalhe que o hóspede vai adorar"
+    }
+  ],
+  "message": "Mensagem de boas-vindas curta e elegante (1-2 frases)"
+}`;
+
+    const result = await callGemini(prompt, apiKey);
+
+    if (!result.places || !Array.isArray(result.places)) {
+      return res.status(200).json(FALLBACK);
+    }
+
+    return res.status(200).json({
+      message: result.message || "",
+      places: result.places.slice(0, 3),
+    });
+  } catch (err) {
+    console.error("[concierge] error:", err.message);
+    return res.status(200).json(FALLBACK);
+  }
+}

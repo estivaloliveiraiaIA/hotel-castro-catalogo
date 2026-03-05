@@ -6,6 +6,7 @@ import { ListFilters, type ListFilterState } from "@/components/ListFilters";
 import { PlaceSection } from "@/components/PlaceSection";
 import { PlaceCard } from "@/components/PlaceCard";
 import { ItineraryCard } from "@/components/ItineraryCard";
+import { ConciergeChat } from "@/components/ConciergeChat";
 import { Button } from "@/components/ui/button";
 import { usePlaces } from "@/hooks/usePlaces";
 import { useItineraries } from "@/hooks/useItineraries";
@@ -187,6 +188,7 @@ const Index = () => {
         }}
       />
       <Hero totalPlaces={places.length} totalCategories={totalCategories} updatedAt={updatedAt} />
+      <ConciergeChat places={places} />
       <CategoryTabs
         selectedCategory={selectedCategory}
         onCategoryChange={(value) => {
