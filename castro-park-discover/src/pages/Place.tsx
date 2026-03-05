@@ -18,8 +18,15 @@ const Place = () => {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-muted">
-        <p className="text-muted-foreground">Carregando lugar...</p>
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <div className="text-center space-y-3">
+          <div className="flex items-center justify-center gap-3 text-hotel-gold/60">
+            <div className="h-px w-8 bg-hotel-gold/40" />
+            <span className="text-sm">✦</span>
+            <div className="h-px w-8 bg-hotel-gold/40" />
+          </div>
+          <p className="text-sm text-muted-foreground font-serif italic">Carregando...</p>
+        </div>
       </div>
     );
   }
@@ -49,22 +56,23 @@ const Place = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>
               <ArrowLeft className="mr-2 h-4 w-4" />
               Voltar
             </Button>
-            <div>
-              <p className="text-xs uppercase tracking-wide text-muted-foreground">Castro&apos;s Park Hotel</p>
-              <p className="text-base font-semibold">Guia de Goiânia • Detalhes</p>
+            <div className="hidden sm:block h-4 w-px bg-border" />
+            <div className="hidden sm:block">
+              <p className="text-xs uppercase tracking-[0.2em] text-hotel-gold/70 font-medium">Castro&apos;s Park Hotel</p>
+              <p className="text-sm font-serif font-semibold line-clamp-1">{place.name}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <div className="flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               <Star className="mr-1 h-4 w-4 fill-rating-star text-rating-star" />
-              {place.rating.toFixed(1)} ({place.reviewCount})
+              {place.rating.toFixed(1)}
             </div>
           </div>
         </div>
@@ -84,7 +92,7 @@ const Place = () => {
                       <Badge className="bg-hotel-gold text-hotel-charcoal hover:bg-hotel-gold/90">Recomendado pelo hotel</Badge>
                     )}
                   </div>
-                  <h1 className="text-3xl font-bold leading-tight">{place.name}</h1>
+                  <h1 className="font-serif text-3xl font-semibold leading-tight">{place.name}</h1>
                   <p className="flex items-center gap-2 text-sm text-muted-foreground">
                     <MapPin className="h-4 w-4" />
                     {place.address}

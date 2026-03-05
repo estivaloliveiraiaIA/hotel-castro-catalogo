@@ -11,16 +11,21 @@ const Itineraries = () => {
     <div className="min-h-screen bg-background">
       <Header query={query} onQueryChange={setQuery} />
 
-      <section className="border-b bg-gradient-to-b from-hotel-navy/5 to-background py-12">
+      <section className="border-b bg-gradient-to-b from-primary/5 to-background py-14">
         <div className="container px-4 text-center">
-          <p className="font-serif text-hotel-gold text-sm tracking-widest uppercase mb-2">
-            Experiencias Curadas
+          <div className="mb-4 flex items-center justify-center gap-4">
+            <div className="h-px w-12 bg-hotel-gold/50" />
+            <span className="text-hotel-gold text-base">✦</span>
+            <div className="h-px w-12 bg-hotel-gold/50" />
+          </div>
+          <p className="font-medium text-hotel-gold text-xs tracking-[0.2em] uppercase mb-3">
+            Experiências Curadas
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-4">
-            Roteiros Tematicos
+            Roteiros Temáticos
           </h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Experiencias prontas selecionadas pelo time do Castro&apos;s Park Hotel para tornar cada momento em Goiania inesquecivel.
+          <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            Experiências prontas selecionadas pelo time do Castro&apos;s Park Hotel para tornar cada momento em Goiânia inesquecível.
           </p>
         </div>
       </section>
@@ -47,9 +52,19 @@ const Itineraries = () => {
         )}
       </main>
 
-      <footer className="border-t bg-muted/30 py-8">
-        <div className="container px-4 text-center text-sm text-muted-foreground">
-          <p>Castro&apos;s Park Hotel — Curadoria especial para hospedes</p>
+      <footer className="border-t bg-muted/20 py-10">
+        <div className="container px-4 text-center">
+          <div className="mb-4 flex items-center justify-center gap-4">
+            <div className="h-px w-12 bg-hotel-gold/30" />
+            <span className="text-hotel-gold/50 text-sm">✦</span>
+            <div className="h-px w-12 bg-hotel-gold/30" />
+          </div>
+          <p className="font-serif text-base text-foreground/70 mb-1">
+            Castro&apos;s Park Hotel
+          </p>
+          <p className="text-xs text-muted-foreground tracking-wide">
+            Curadoria especial para hóspedes · Goiânia
+          </p>
         </div>
       </footer>
     </div>

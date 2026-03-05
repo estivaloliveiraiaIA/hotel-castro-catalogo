@@ -43,7 +43,7 @@ const Itinerary = () => {
     return (
       <div className="flex min-h-screen items-center justify-center px-4">
         <div className="text-center space-y-4">
-          <p className="text-lg font-semibold">Roteiro nao encontrado</p>
+          <p className="text-lg font-semibold">Roteiro não encontrado</p>
           <Button onClick={() => navigate("/itineraries")}>Ver roteiros</Button>
         </div>
       </div>
@@ -194,7 +194,7 @@ const Itinerary = () => {
                     </div>
                   ) : (
                     <div className="rounded-xl border bg-muted/30 p-4">
-                      <p className="text-sm text-muted-foreground">Lugar nao disponivel</p>
+                      <p className="text-sm text-muted-foreground">Lugar não disponível</p>
                       {stop.note && (
                         <p className="mt-1 text-sm italic">"{stop.note}"</p>
                       )}

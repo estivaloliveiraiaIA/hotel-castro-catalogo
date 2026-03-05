@@ -197,9 +197,9 @@ const Index = () => {
         }}
       />
 
-      <section className="border-b bg-muted/20">
+      <section className="border-b bg-muted/10">
         <div className="container px-4 py-4">
-          <p className="mb-3 text-sm font-medium text-muted-foreground">Escolha rápida do hóspede</p>
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-hotel-gold/80">Explorar Goiânia</p>
           <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
             {quickActions.map((item) => (
               <Button
@@ -276,7 +276,7 @@ const Index = () => {
               <div className="container px-4">
                 <div className="mb-4 flex items-end justify-between gap-4">
                   <div>
-                    <h2 className="text-xl font-bold md:text-2xl">Resultados</h2>
+                    <h2 className="font-serif text-2xl font-semibold md:text-3xl">Resultados</h2>
                     <p className="mt-1 text-sm text-muted-foreground">
                       Buscando por: <span className="font-medium">{query}</span>
                     </p>
@@ -317,7 +317,7 @@ const Index = () => {
               <div className="container px-4">
                 <div className="mb-4 flex items-end justify-between gap-4">
                   <div>
-                    <h2 className="text-xl font-bold capitalize md:text-2xl">
+                    <h2 className="font-serif text-2xl font-semibold md:text-3xl capitalize">
                       {selectedCategory === "nightlife"
                         ? "Bares"
                         : selectedCategory === "cafes"
@@ -377,14 +377,16 @@ const Index = () => {
                   <div className="container px-4">
                     <div className="mb-6 flex items-end justify-between gap-4">
                       <div>
-                        <p className="text-xs uppercase tracking-widest text-hotel-gold font-medium mb-1">
-                          Experiencias Curadas
-                        </p>
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="h-px w-8 bg-hotel-gold/60" />
+                          <span className="text-hotel-gold text-xs">✦</span>
+                          <div className="h-px w-8 bg-hotel-gold/60" />
+                        </div>
                         <h2 className="font-serif text-2xl font-semibold md:text-3xl">
-                          Roteiros Tematicos
+                          Roteiros Temáticos
                         </h2>
                         <p className="mt-1 text-sm text-muted-foreground">
-                          Experiencias prontas selecionadas pelo hotel
+                          Experiências prontas selecionadas pelo hotel
                         </p>
                       </div>
                       <button
@@ -434,13 +436,18 @@ const Index = () => {
                 places={topAttractionsAndParks}
               />
 
-              <footer className="border-t bg-muted/30 py-8">
-                <div className="container px-4 text-center text-sm text-muted-foreground">
-                  <p className="mb-2">
-                    © {new Date().getFullYear()} Castro&apos;s Park Hotel - Todos os direitos reservados
+              <footer className="border-t bg-muted/20 py-10">
+                <div className="container px-4 text-center">
+                  <div className="mb-4 flex items-center justify-center gap-4">
+                    <div className="h-px w-12 bg-hotel-gold/30" />
+                    <span className="text-hotel-gold/50 text-sm">✦</span>
+                    <div className="h-px w-12 bg-hotel-gold/30" />
+                  </div>
+                  <p className="font-serif text-base text-foreground/70 mb-1">
+                    Castro&apos;s Park Hotel
                   </p>
-                  <p>
-                    Recomendações para tornar sua experiência em Goiânia inesquecível
+                  <p className="text-xs text-muted-foreground tracking-wide">
+                    Guia exclusivo para hóspedes · Goiânia
                   </p>
                 </div>
               </footer>

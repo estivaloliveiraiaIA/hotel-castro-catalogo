@@ -11,11 +11,16 @@ export const PlaceSection = ({ title, subtitle, places }: PlaceSectionProps) => 
   if (!places.length) return null;
 
   return (
-    <section className="py-6">
+    <section className="py-8 border-b last:border-b-0">
       <div className="container px-4">
-        <div className="mb-4 flex items-end justify-between gap-4">
+        <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold md:text-2xl">{title}</h2>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="h-px w-8 bg-hotel-gold/60" />
+              <span className="text-hotel-gold text-xs">✦</span>
+              <div className="h-px w-8 bg-hotel-gold/60" />
+            </div>
+            <h2 className="font-serif text-2xl font-semibold md:text-3xl">{title}</h2>
             {subtitle && (
               <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>
             )}
