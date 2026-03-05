@@ -160,23 +160,23 @@ export default function AdminPlaces() {
     <div className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">Lugares</h1>
-          <p className="text-gray-500 text-sm">{places.length} lugares cadastrados</p>
+          <h1 className="font-serif text-2xl font-semibold text-foreground">Lugares</h1>
+          <p className="text-muted-foreground text-sm">{places.length} lugares cadastrados</p>
         </div>
-        <Button onClick={openCreate} className="bg-amber-600 hover:bg-amber-700">
+        <Button onClick={openCreate}>
           <Plus className="w-4 h-4 mr-2" />
           Novo Lugar
         </Button>
       </div>
 
       {error && (
-        <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded px-4 py-3 mb-4">
+        <p className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded px-4 py-3 mb-4">
           {error}
         </p>
       )}
 
       <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
         <Input
           className="pl-9"
           placeholder="Buscar por nome ou categoria..."
@@ -186,24 +186,24 @@ export default function AdminPlaces() {
       </div>
 
       {loading ? (
-        <p className="text-gray-400 text-sm text-center py-12">Carregando...</p>
+        <p className="text-muted-foreground/60 text-sm text-center py-12">Carregando...</p>
       ) : (
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <div className="bg-background rounded-lg border overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-100 bg-gray-50">
-                  <th className="text-left px-4 py-3 font-medium text-gray-600">Nome</th>
-                  <th className="text-left px-4 py-3 font-medium text-gray-600">Categoria</th>
-                  <th className="text-center px-4 py-3 font-medium text-gray-600">Recomendado</th>
-                  <th className="text-center px-4 py-3 font-medium text-gray-600">Score</th>
-                  <th className="text-center px-4 py-3 font-medium text-gray-600">Ativo</th>
-                  <th className="text-right px-4 py-3 font-medium text-gray-600">Ações</th>
+                <tr className="border-b border-gray-100 bg-muted/40">
+                  <th className="text-left px-4 py-3 font-medium text-muted-foreground">Nome</th>
+                  <th className="text-left px-4 py-3 font-medium text-muted-foreground">Categoria</th>
+                  <th className="text-center px-4 py-3 font-medium text-muted-foreground">Recomendado</th>
+                  <th className="text-center px-4 py-3 font-medium text-muted-foreground">Score</th>
+                  <th className="text-center px-4 py-3 font-medium text-muted-foreground">Ativo</th>
+                  <th className="text-right px-4 py-3 font-medium text-muted-foreground">Ações</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50">
+              <tbody className="divide-y divide-border">
                 {filtered.map((place) => (
-                  <tr key={place.id} className="hover:bg-gray-50">
+                  <tr key={place.id} className="hover:bg-muted/40">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
                         {place.image && (
@@ -213,17 +213,17 @@ export default function AdminPlaces() {
                             className="w-8 h-8 rounded object-cover shrink-0"
                           />
                         )}
-                        <span className="font-medium text-gray-800 line-clamp-1">{place.name}</span>
+                        <span className="font-medium text-foreground line-clamp-1">{place.name}</span>
                       </div>
                     </td>
-                    <td className="px-4 py-3 text-gray-500">{place.category}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{place.category}</td>
                     <td className="px-4 py-3 text-center">
                       <button onClick={() => toggleRecommended(place)}>
                         <Star
                           className={`w-5 h-5 mx-auto ${
                             place.hotel_recommended
                               ? "text-amber-500 fill-amber-500"
-                              : "text-gray-300"
+                              : "text-muted-foreground/30"
                           }`}
                         />
                       </button>
@@ -234,7 +234,7 @@ export default function AdminPlaces() {
                           {place.hotel_score}
                         </Badge>
                       ) : (
-                        <span className="text-gray-300">—</span>
+                        <span className="text-muted-foreground/30">—</span>
                       )}
                     </td>
                     <td className="px-4 py-3 text-center">
@@ -269,7 +269,7 @@ export default function AdminPlaces() {
             </table>
           </div>
           {filtered.length === 0 && (
-            <p className="text-center text-gray-400 text-sm py-12">Nenhum lugar encontrado</p>
+            <p className="text-center text-muted-foreground/60 text-sm py-12">Nenhum lugar encontrado</p>
           )}
         </div>
       )}
@@ -356,7 +356,7 @@ export default function AdminPlaces() {
                     if (file) handleImageUpload(file);
                   }}
                 />
-                {uploadingImg && <p className="text-xs text-gray-400">Enviando imagem...</p>}
+                {uploadingImg && <p className="text-xs text-muted-foreground/60">Enviando imagem...</p>}
               </div>
             </Field>
             <div className="flex items-center justify-between">
@@ -396,7 +396,7 @@ export default function AdminPlaces() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="space-y-1">
-      <Label className="text-xs text-gray-500">{label}</Label>
+      <Label className="text-xs text-muted-foreground">{label}</Label>
       {children}
     </div>
   );

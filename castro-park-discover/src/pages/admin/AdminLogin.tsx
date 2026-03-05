@@ -33,44 +33,54 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-sm shadow-lg">
-        <CardHeader className="text-center pb-2">
-          <div className="mx-auto mb-3 w-14 h-14 bg-amber-600 rounded-full flex items-center justify-center">
-            <span className="text-white text-xl font-bold">CP</span>
-          </div>
-          <CardTitle className="text-lg">Castro's Park Hotel</CardTitle>
-          <p className="text-sm text-gray-500 mt-1">Painel Administrativo</p>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4 mt-2">
-            <div className="space-y-1">
-              <Label htmlFor="password">Senha</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                required
-                autoFocus
-              />
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="w-full max-w-sm">
+        {/* Ornamento de topo */}
+        <div className="mb-6 flex items-center justify-center gap-4">
+          <div className="h-px w-12 bg-hotel-gold/40" />
+          <span className="text-hotel-gold text-base">✦</span>
+          <div className="h-px w-12 bg-hotel-gold/40" />
+        </div>
+
+        <Card className="shadow-lg border-hotel-gold/20">
+          <CardHeader className="text-center pb-2">
+            <div className="mx-auto mb-3 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+              <span className="text-primary-foreground text-sm font-serif font-semibold tracking-wider">CP</span>
             </div>
-            {error && (
-              <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded px-3 py-2">
-                {error}
-              </p>
-            )}
-            <Button
-              type="submit"
-              className="w-full bg-amber-600 hover:bg-amber-700"
-              disabled={loading}
-            >
-              {loading ? "Verificando..." : "Entrar"}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+            <CardTitle className="font-serif text-xl">Castro's Park Hotel</CardTitle>
+            <p className="text-xs text-muted-foreground mt-1 tracking-widest uppercase">Painel Administrativo</p>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4 mt-2">
+              <div className="space-y-1">
+                <Label htmlFor="password">Senha de acesso</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  required
+                  autoFocus
+                  className="focus-visible:border-hotel-gold/40 focus-visible:ring-hotel-gold/20"
+                />
+              </div>
+              {error && (
+                <p className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded px-3 py-2">
+                  {error}
+                </p>
+              )}
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={loading}
+              >
+                {loading ? "Verificando..." : "Entrar"}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

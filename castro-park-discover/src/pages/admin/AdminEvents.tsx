@@ -133,25 +133,25 @@ export default function AdminEvents() {
     <div className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">Eventos</h1>
-          <p className="text-gray-500 text-sm">{events.length} eventos cadastrados</p>
+          <h1 className="font-serif text-2xl font-semibold text-foreground">Eventos</h1>
+          <p className="text-muted-foreground text-sm">{events.length} eventos cadastrados</p>
         </div>
-        <Button onClick={openCreate} className="bg-amber-600 hover:bg-amber-700">
+        <Button onClick={openCreate} className="">
           <Plus className="w-4 h-4 mr-2" />
           Novo Evento
         </Button>
       </div>
 
       {error && (
-        <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded px-4 py-3 mb-4">
+        <p className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded px-4 py-3 mb-4">
           {error}
         </p>
       )}
 
       {loading ? (
-        <p className="text-gray-400 text-sm text-center py-12">Carregando...</p>
+        <p className="text-muted-foreground/60 text-sm text-center py-12">Carregando...</p>
       ) : events.length === 0 ? (
-        <div className="text-center py-16 text-gray-400">
+        <div className="text-center py-16 text-muted-foreground/60">
           <Calendar className="w-12 h-12 mx-auto mb-3 opacity-30" />
           <p>Nenhum evento cadastrado</p>
           <Button variant="outline" className="mt-4" onClick={openCreate}>
@@ -163,7 +163,7 @@ export default function AdminEvents() {
           {events.map((ev) => (
             <div
               key={ev.id}
-              className="bg-white rounded-lg border border-gray-200 p-4 flex items-start gap-4"
+              className="bg-background rounded-lg border border-border p-4 flex items-start gap-4"
             >
               {ev.image && (
                 <img
@@ -174,13 +174,13 @@ export default function AdminEvents() {
               )}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-semibold text-gray-800">{ev.title}</span>
+                  <span className="font-semibold text-foreground">{ev.title}</span>
                   <Badge variant={ev.is_active ? "default" : "secondary"} className="text-xs">
                     {ev.is_active ? "Ativo" : "Inativo"}
                   </Badge>
                 </div>
-                <p className="text-xs text-gray-500 line-clamp-2 mb-1">{ev.description}</p>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-muted-foreground line-clamp-2 mb-1">{ev.description}</p>
+                <p className="text-xs text-muted-foreground/60">
                   {formatDate(ev.start_date)}
                   {ev.end_date && ` → ${formatDate(ev.end_date)}`}
                   {ev.location && ` · ${ev.location}`}
@@ -279,7 +279,7 @@ export default function AdminEvents() {
                     if (file) handleImageUpload(file);
                   }}
                 />
-                {uploadingImg && <p className="text-xs text-gray-400">Enviando imagem...</p>}
+                {uploadingImg && <p className="text-xs text-muted-foreground/60">Enviando imagem...</p>}
               </div>
             </Field>
             <div className="flex items-center justify-between">
@@ -295,7 +295,7 @@ export default function AdminEvents() {
             <Button variant="outline" onClick={() => setDialogOpen(false)}>
               Cancelar
             </Button>
-            <Button onClick={handleSave} disabled={saving} className="bg-amber-600 hover:bg-amber-700">
+            <Button onClick={handleSave} disabled={saving} className="">
               {saving ? "Salvando..." : "Salvar"}
             </Button>
           </DialogFooter>
@@ -308,7 +308,7 @@ export default function AdminEvents() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="space-y-1">
-      <Label className="text-xs text-gray-500">{label}</Label>
+      <Label className="text-xs text-muted-foreground">{label}</Label>
       {children}
     </div>
   );

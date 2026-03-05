@@ -187,29 +187,29 @@ export default function AdminItineraries() {
     <div className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">Roteiros</h1>
-          <p className="text-gray-500 text-sm">{itineraries.length} roteiros cadastrados</p>
+          <h1 className="font-serif text-2xl font-semibold text-foreground">Roteiros</h1>
+          <p className="text-muted-foreground text-sm">{itineraries.length} roteiros cadastrados</p>
         </div>
-        <Button onClick={openCreate} className="bg-amber-600 hover:bg-amber-700">
+        <Button onClick={openCreate} className="">
           <Plus className="w-4 h-4 mr-2" />
           Novo Roteiro
         </Button>
       </div>
 
       {error && (
-        <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded px-4 py-3 mb-4">
+        <p className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded px-4 py-3 mb-4">
           {error}
         </p>
       )}
 
       {loading ? (
-        <p className="text-gray-400 text-sm text-center py-12">Carregando...</p>
+        <p className="text-muted-foreground/60 text-sm text-center py-12">Carregando...</p>
       ) : (
         <div className="space-y-3">
           {itineraries.map((it) => (
             <div
               key={it.id}
-              className="bg-white rounded-lg border border-gray-200 p-4 flex items-start gap-4"
+              className="bg-background rounded-lg border border-border p-4 flex items-start gap-4"
             >
               {it.cover_image && (
                 <img
@@ -221,13 +221,13 @@ export default function AdminItineraries() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-lg">{it.icon}</span>
-                  <span className="font-semibold text-gray-800">{it.title}</span>
+                  <span className="font-semibold text-foreground">{it.title}</span>
                   <Badge variant={it.is_active ? "default" : "secondary"} className="text-xs">
                     {it.is_active ? "Ativo" : "Inativo"}
                   </Badge>
                 </div>
-                <p className="text-xs text-gray-500 mb-1">{it.subtitle}</p>
-                <div className="flex items-center gap-3 text-xs text-gray-400">
+                <p className="text-xs text-muted-foreground mb-1">{it.subtitle}</p>
+                <div className="flex items-center gap-3 text-xs text-muted-foreground/60">
                   <span>{it.duration}</span>
                   <span>·</span>
                   <span>{it.profile}</span>
@@ -318,7 +318,7 @@ export default function AdminItineraries() {
                     if (file) handleImageUpload(file);
                   }}
                 />
-                {uploadingImg && <p className="text-xs text-gray-400">Enviando...</p>}
+                {uploadingImg && <p className="text-xs text-muted-foreground/60">Enviando...</p>}
               </div>
             </Field>
             <Field label="Dicas do concierge (uma por linha)">
@@ -332,14 +332,14 @@ export default function AdminItineraries() {
 
             {/* Stops section */}
             <div>
-              <Label className="text-xs text-gray-500 block mb-2">Paradas do roteiro</Label>
+              <Label className="text-xs text-muted-foreground block mb-2">Paradas do roteiro</Label>
               <div className="space-y-2 mb-3">
                 {form.places.map((stop, idx) => (
-                  <div key={idx} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
+                  <div key={idx} className="flex items-center gap-2 bg-muted/40 rounded-lg px-3 py-2">
                     <span className="text-xs font-bold text-amber-600 w-5">{idx + 1}</span>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-gray-700 truncate">{stop.place_id}</p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-muted-foreground/60">
                         {stop.suggested_time && `${stop.suggested_time} · `}
                         {stop.note}
                       </p>
@@ -375,8 +375,8 @@ export default function AdminItineraries() {
                   </div>
                 ))}
               </div>
-              <div className="bg-gray-50 rounded-lg p-3 space-y-2">
-                <p className="text-xs font-medium text-gray-500">Adicionar parada</p>
+              <div className="bg-muted/40 rounded-lg p-3 space-y-2">
+                <p className="text-xs font-medium text-muted-foreground">Adicionar parada</p>
                 <Input
                   placeholder="ID do lugar (ex: ChIJ...)"
                   value={newStop.place_id}
@@ -420,7 +420,7 @@ export default function AdminItineraries() {
             <Button variant="outline" onClick={() => setDialogOpen(false)}>
               Cancelar
             </Button>
-            <Button onClick={handleSave} disabled={saving} className="bg-amber-600 hover:bg-amber-700">
+            <Button onClick={handleSave} disabled={saving} className="">
               {saving ? "Salvando..." : "Salvar"}
             </Button>
           </DialogFooter>
@@ -433,7 +433,7 @@ export default function AdminItineraries() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="space-y-1">
-      <Label className="text-xs text-gray-500">{label}</Label>
+      <Label className="text-xs text-muted-foreground">{label}</Label>
       {children}
     </div>
   );

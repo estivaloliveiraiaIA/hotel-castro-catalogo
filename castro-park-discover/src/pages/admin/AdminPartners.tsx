@@ -117,25 +117,25 @@ export default function AdminPartners() {
     <div className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">Parceiros</h1>
-          <p className="text-gray-500 text-sm">{partners.length} parceiros cadastrados</p>
+          <h1 className="font-serif text-2xl font-semibold text-foreground">Parceiros</h1>
+          <p className="text-muted-foreground text-sm">{partners.length} parceiros cadastrados</p>
         </div>
-        <Button onClick={openCreate} className="bg-amber-600 hover:bg-amber-700">
+        <Button onClick={openCreate} className="">
           <Plus className="w-4 h-4 mr-2" />
           Novo Parceiro
         </Button>
       </div>
 
       {error && (
-        <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded px-4 py-3 mb-4">
+        <p className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded px-4 py-3 mb-4">
           {error}
         </p>
       )}
 
       {loading ? (
-        <p className="text-gray-400 text-sm text-center py-12">Carregando...</p>
+        <p className="text-muted-foreground/60 text-sm text-center py-12">Carregando...</p>
       ) : partners.length === 0 ? (
-        <div className="text-center py-16 text-gray-400">
+        <div className="text-center py-16 text-muted-foreground/60">
           <Handshake className="w-12 h-12 mx-auto mb-3 opacity-30" />
           <p>Nenhum parceiro cadastrado</p>
           <Button variant="outline" className="mt-4" onClick={openCreate}>
@@ -143,20 +143,20 @@ export default function AdminPartners() {
           </Button>
         </div>
       ) : (
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <div className="bg-background rounded-lg border border-border overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-100 bg-gray-50">
-                <th className="text-left px-4 py-3 font-medium text-gray-600">Parceiro</th>
-                <th className="text-left px-4 py-3 font-medium text-gray-600">Categoria</th>
-                <th className="text-left px-4 py-3 font-medium text-gray-600">Vantagem</th>
-                <th className="text-center px-4 py-3 font-medium text-gray-600">Status</th>
-                <th className="text-right px-4 py-3 font-medium text-gray-600">Ações</th>
+              <tr className="border-b border-gray-100 bg-muted/40">
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Parceiro</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Categoria</th>
+                <th className="text-left px-4 py-3 font-medium text-muted-foreground">Vantagem</th>
+                <th className="text-center px-4 py-3 font-medium text-muted-foreground">Status</th>
+                <th className="text-right px-4 py-3 font-medium text-muted-foreground">Ações</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-50">
+            <tbody className="divide-y divide-border">
               {partners.map((partner) => (
-                <tr key={partner.id} className="hover:bg-gray-50">
+                <tr key={partner.id} className="hover:bg-muted/40">
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
                       {partner.logo_url ? (
@@ -173,7 +173,7 @@ export default function AdminPartners() {
                         </div>
                       )}
                       <div>
-                        <p className="font-medium text-gray-800">{partner.name}</p>
+                        <p className="font-medium text-foreground">{partner.name}</p>
                         {partner.website && (
                           <a
                             href={partner.website}
@@ -187,14 +187,14 @@ export default function AdminPartners() {
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-gray-500">{partner.category}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{partner.category}</td>
                   <td className="px-4 py-3">
                     {partner.discount_info ? (
                       <Badge variant="outline" className="text-xs text-green-700 border-green-300">
                         {partner.discount_info}
                       </Badge>
                     ) : (
-                      <span className="text-gray-300 text-xs">—</span>
+                      <span className="text-muted-foreground/30 text-xs">—</span>
                     )}
                   </td>
                   <td className="px-4 py-3 text-center">
@@ -273,7 +273,7 @@ export default function AdminPartners() {
                   <img
                     src={form.logo_url}
                     alt=""
-                    className="h-16 object-contain rounded border border-gray-200 p-2"
+                    className="h-16 object-contain rounded border border-border p-2"
                   />
                 )}
                 <div className="flex gap-2">
@@ -303,7 +303,7 @@ export default function AdminPartners() {
                     if (file) handleImageUpload(file);
                   }}
                 />
-                {uploadingImg && <p className="text-xs text-gray-400">Enviando logo...</p>}
+                {uploadingImg && <p className="text-xs text-muted-foreground/60">Enviando logo...</p>}
               </div>
             </Field>
             <div className="flex items-center justify-between">
@@ -319,7 +319,7 @@ export default function AdminPartners() {
             <Button variant="outline" onClick={() => setDialogOpen(false)}>
               Cancelar
             </Button>
-            <Button onClick={handleSave} disabled={saving} className="bg-amber-600 hover:bg-amber-700">
+            <Button onClick={handleSave} disabled={saving} className="">
               {saving ? "Salvando..." : "Salvar"}
             </Button>
           </DialogFooter>
@@ -332,7 +332,7 @@ export default function AdminPartners() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="space-y-1">
-      <Label className="text-xs text-gray-500">{label}</Label>
+      <Label className="text-xs text-muted-foreground">{label}</Label>
       {children}
     </div>
   );
