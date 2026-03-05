@@ -49,27 +49,28 @@ function extractKeywords(query) {
     .filter((kw) => kw.length > 2 && !stopWords.has(kw));
 }
 
-async function callGemini(prompt, apiKey) {
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.3,
-          maxOutputTokens: 700,
-          responseMimeType: "application/json",
-        },
-      }),
-    }
-  );
-  if (!res.ok) throw new Error(`Gemini error: ${res.status}`);
+async function callClaude(prompt, apiKey) {
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 700,
+      temperature: 0.3,
+      messages: [{ role: "user", content: prompt }],
+    }),
+  });
+  if (!res.ok) throw new Error(`Claude error: ${res.status}`);
   const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error("Empty response from Gemini");
-  return JSON.parse(text);
+  const text = data.content?.[0]?.text;
+  if (!text) throw new Error("Empty response from Claude");
+  const match = text.match(/\{[\s\S]*\}/);
+  if (!match) throw new Error("No JSON found in Claude response");
+  return JSON.parse(match[0]);
 }
 
 export default async function handler(req, res) {
@@ -129,7 +130,7 @@ Selecione até 3 lugares que melhor atendem ao pedido. Responda SOMENTE com JSON
   "message": "Mensagem de boas-vindas curta e elegante (1-2 frases)"
 }`;
 
-    const result = await callGemini(prompt, apiKey);
+    const result = await callClaude(prompt, apiKey);
 
     if (!result.places || !Array.isArray(result.places)) {
       return res.status(200).json(FALLBACK);
