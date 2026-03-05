@@ -32,12 +32,12 @@ export default function AdminDashboard() {
   return (
     <div className="p-6 max-w-4xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
-        <p className="text-gray-500 text-sm mt-1">Visão geral do guia digital do hotel</p>
+        <h1 className="font-serif text-2xl font-semibold text-foreground">Dashboard</h1>
+        <p className="text-muted-foreground text-sm mt-1">Visão geral do guia digital do hotel</p>
       </div>
 
       {error && (
-        <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded px-4 py-3 mb-4">
+        <p className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded px-4 py-3 mb-4">
           {error}
         </p>
       )}
@@ -45,17 +45,17 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {sections.map(({ label, key, icon: Icon, to, color, bg }) => (
           <Link key={key} to={to}>
-            <Card className="hover:shadow-md transition-shadow cursor-pointer">
+            <Card className="hover:shadow-md hover:border-hotel-gold/30 transition-all cursor-pointer">
               <CardHeader className="pb-2">
                 <div className={cn("w-9 h-9 rounded-lg flex items-center justify-center", bg)}>
                   <Icon className={cn("w-5 h-5", color)} />
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-bold text-foreground">
                   {stats ? stats[key].toLocaleString("pt-BR") : "—"}
                 </p>
-                <p className="text-xs text-gray-500 mt-0.5">{label}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{label}</p>
               </CardContent>
             </Card>
           </Link>
@@ -71,13 +71,13 @@ export default function AdminDashboard() {
             <Link
               key={to}
               to={to}
-              className="flex items-center justify-between px-4 py-3 rounded-lg border border-gray-200 hover:border-amber-300 hover:bg-amber-50 transition-colors group"
+              className="flex items-center justify-between px-4 py-3 rounded-lg border hover:border-hotel-gold/40 hover:bg-hotel-gold/5 transition-colors group"
             >
-              <div className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                <Icon className="w-4 h-4 text-gray-400" />
+              <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                <Icon className="w-4 h-4 text-muted-foreground" />
                 Gerenciar {label}
               </div>
-              <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-amber-500 transition-colors" />
+              <ArrowRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-hotel-gold transition-colors" />
             </Link>
           ))}
         </CardContent>
