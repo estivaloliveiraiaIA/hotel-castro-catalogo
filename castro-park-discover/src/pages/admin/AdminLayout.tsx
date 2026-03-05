@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate, NavLink, Outlet } from "react-router-dom";
+import { useNavigate, NavLink, Outlet, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   MapPin,
@@ -21,11 +21,16 @@ const navItems = [
 
 export default function AdminLayout() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/admin/login";
 
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
-    if (!token) navigate("/admin/login", { replace: true });
-  }, [navigate]);
+    if (!token && !isLoginPage) navigate("/admin/login", { replace: true });
+  }, [navigate, isLoginPage]);
+
+  // Render only the child page (login form) without the admin sidebar
+  if (isLoginPage) return <Outlet />;
 
   const handleLogout = () => {
     localStorage.removeItem("admin_token");

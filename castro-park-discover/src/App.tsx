@@ -31,9 +31,9 @@ const App = () => (
           <Route path="/place/:id" element={<Place />} />
           <Route path="/itineraries" element={<Itineraries />} />
           <Route path="/itinerary/:id" element={<Itinerary />} />
-          {/* Admin routes */}
-          <Route path="/admin/login" element={<AdminLogin />} />
+          {/* Admin routes — login está dentro do AdminLayout para evitar conflito de rota */}
           <Route path="/admin" element={<AdminLayout />}>
+            <Route path="login" element={<AdminLogin />} />
             <Route index element={<AdminDashboard />} />
             <Route path="places" element={<AdminPlaces />} />
             <Route path="events" element={<AdminEvents />} />
