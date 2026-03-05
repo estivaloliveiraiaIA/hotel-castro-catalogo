@@ -3,7 +3,7 @@
 
 **Owner:** Orion (aiox-master)
 **Inicio:** 2026-02-18
-**Ultima revisao:** 2026-03-05 (Sprint Change Proposal — correct-course)
+**Ultima revisao:** 2026-03-05 (Epic 2 concluido — pushed para producao)
 **Repo:** `estivaloliveiraiaIA/hotel-castro-catalogo`
 **Deploy:** https://castro-park-discover.vercel.app
 
@@ -31,16 +31,16 @@ Infraestrutura Supabase criada pelo F10 (tabelas events, partners) acelera E3.
 
 ---
 
-### Epic 2 — Qualidade e Inteligencia (ATIVO)
-> Sprint atual. Foco: excelencia tecnica, experiencia premium e IA.
+### Epic 2 — Qualidade e Inteligencia (CONCLUIDO)
+> Sprint encerrado. Todas as stories entregues, QA aplicado, codigo em producao.
 
 | Story | Feature | Agente | Status |
 |-------|---------|--------|--------|
-| E2.1 | UX/UI Audit & Redesign — app completo + admin | @ux-design-expert | Approved |
-| E2.2 | Backend Review — APIs + Supabase schema + seguranca | @architect + @data-engineer | Approved |
-| E2.3 | F2 Concierge IA — Vercel Function + LLM (Opcao B) | @dev | Approved |
+| E2.1 | UX/UI Audit & Redesign — app completo + admin | @ux-design-expert | Done |
+| E2.2 | Backend Review — APIs + Supabase schema + seguranca | @architect + @data-engineer | Done |
+| E2.3 | F2 Concierge IA — Vercel Function + Claude Haiku | @dev | Done |
 
-Ordem de execucao recomendada: E2.2 -> E2.1 -> E2.3
+Deploy: push para main em 2026-03-05 — 14 commits publicados no Vercel.
 
 ---
 
@@ -102,13 +102,14 @@ Regras:
 | KPI | Meta | Status |
 |-----|------|--------|
 | Features E1 entregues | 100% | 3/3 Done |
-| Stories com rastreabilidade | 100% a partir de E2 | Em andamento |
-| QA gate por deploy | 100% a partir de E2 | Em andamento |
-| Lighthouse performance | >= 85 | A medir |
-| Concierge IA latencia p95 | <= 4s | A implementar (E2.3) |
-| Custo por query IA | <= $0.02 | A implementar (E2.3) |
+| Features E2 entregues | 100% | 3/3 Done |
+| Stories com rastreabilidade | 100% a partir de E2 | 7/7 stories documentadas |
+| QA gate por deploy | 100% a partir de E2 | Aplicado — E2.1/E2.2/E2.3 |
+| Lighthouse performance | >= 85 | A medir (proximo sprint) |
+| Concierge IA latencia p95 | <= 4s | Implementado — a medir em producao |
+| Custo por query IA | <= $0.02 | Claude Haiku ~$0.005/query |
 
 ---
 
 Documento mantido por Orion (aiox-master).
-Ultima atualizacao: 2026-03-05 via Sprint Change Proposal (correct-course).
+Ultima atualizacao: 2026-03-05 — Epic 2 concluido e em producao. Proximo: Epic 3 (Conteudo Vivo).
