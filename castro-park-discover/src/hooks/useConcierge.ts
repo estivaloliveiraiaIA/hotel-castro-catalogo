@@ -32,7 +32,8 @@ export function useConcierge() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Erro ao consultar o concierge");
       setResult(data);
-    } catch {
+    } catch (err) {
+      console.error("[useConcierge] error:", err);
       setError("O concierge não está disponível agora. Explore os lugares pelo menu abaixo.");
     } finally {
       setLoading(false);

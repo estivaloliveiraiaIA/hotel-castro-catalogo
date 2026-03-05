@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { Send, Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useConcierge, type ConciergeResult } from "@/hooks/useConcierge";
+import { useConcierge } from "@/hooks/useConcierge";
 import { ConciergeResponse } from "@/components/ConciergeResponse";
 import { Place } from "@/types/place";
 
@@ -102,6 +102,7 @@ export const ConciergeChat = ({ places }: ConciergeChatProps) => {
                 <button
                   key={s}
                   onClick={() => handleSuggestion(s)}
+                  aria-label={`Buscar: ${s}`}
                   className="rounded-full border border-hotel-gold/30 bg-background px-3 py-1 text-xs text-muted-foreground hover:border-hotel-gold/60 hover:text-foreground transition-colors"
                 >
                   {s}

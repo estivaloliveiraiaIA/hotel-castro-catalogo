@@ -45,6 +45,7 @@ export const ConciergeResponse = ({ result, places }: ConciergeResponseProps) =>
               key={item.id}
               role="button"
               tabIndex={0}
+              aria-label={`Ver detalhes de ${item.name}`}
               onClick={() => navigate(`/place/${encodeURIComponent(item.id)}`)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {

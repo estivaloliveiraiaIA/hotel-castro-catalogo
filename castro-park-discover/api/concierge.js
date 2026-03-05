@@ -52,6 +52,7 @@ function extractKeywords(query) {
 async function callClaude(prompt, apiKey) {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
+    signal: AbortSignal.timeout(10000),
     headers: {
       "Content-Type": "application/json",
       "x-api-key": apiKey,
@@ -73,12 +74,19 @@ async function callClaude(prompt, apiKey) {
   return JSON.parse(match[0]);
 }
 
+function sanitizeQuery(raw) {
+  return raw.trim().replace(/["\\\n\r]/g, " ").slice(0, 300);
+}
+
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
 
   const { query } = req.body || {};
   if (!query || typeof query !== "string" || query.trim().length < 3) {
     return res.status(400).json({ error: "query muito curta" });
+  }
+  if (query.trim().length > 500) {
+    return res.status(400).json({ error: "query muito longa" });
   }
 
   const apiKey = process.env.LLM_API_KEY;
@@ -90,29 +98,31 @@ export default async function handler(req, res) {
     const { data: places, error } = await supabase
       .from("places")
       .select("id, name, category, subcategories, description, tags, hotel_recommended, hotel_score, rating, address")
-      .eq("is_active", true);
+      .eq("is_active", true)
+      .limit(500);
 
     if (error) throw error;
 
-    const keywords = extractKeywords(query.trim());
+    const safeQuery = sanitizeQuery(query);
+    const keywords = extractKeywords(safeQuery);
     const allPlaces = places || [];
 
     const scored = allPlaces
-      .map((p) => ({ ...p, _score: scorePlace(p, keywords) }))
-      .sort((a, b) => b._score - a._score)
+      .map((p) => ({ place: p, score: scorePlace(p, keywords) }))
+      .sort((a, b) => b.score - a.score)
       .slice(0, 10);
 
-    const top = scored.filter((p) => p._score > 0);
+    const top = scored.filter((s) => s.score > 0);
     const context = (top.length > 0 ? top : scored.slice(0, 5))
       .map(
-        (p) =>
+        ({ place: p }) =>
           `ID: ${p.id}\nNome: ${p.name}\nCategoria: ${p.category}\nDescrição: ${(p.description || "").slice(0, 120)}\nAvaliação: ${p.rating || "N/A"}`
       )
       .join("\n---\n");
 
     const prompt = `Você é o concierge digital do Castro's Park Hotel em Goiânia, Brasil. Seu tom é elegante, acolhedor e prestativo.
 
-O hóspede pediu: "${query.trim()}"
+O hóspede pediu: <pedido>${safeQuery}</pedido>
 
 Lugares disponíveis no guia do hotel:
 ${context}
