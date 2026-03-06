@@ -6,18 +6,17 @@ import { Star, MapPin, DollarSign, Navigation } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getDirectionsUrl } from "@/lib/maps";
 import { Place } from "@/types/place";
+import { Partner } from "@/types/partner";
 import { useNavigate } from "react-router-dom";
-import { usePartners } from "@/hooks/usePartners";
 import { PartnerBadge } from "@/components/PartnerBadge";
 
 interface PlaceCardProps {
   place: Place;
+  partner?: Partner;
 }
 
-export const PlaceCard = ({ place }: PlaceCardProps) => {
+export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
   const navigate = useNavigate();
-  const { data: partners } = usePartners();
-  const partner = partners?.find((p) => p.placeId === place.id);
 
   const fallbackImage =
     "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop";
@@ -64,6 +63,16 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
         />
         {/* Overlay elegante no hover */}
         <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+        {/* Status aberto */}
+        {place.openStatusText?.toLowerCase().includes("aberto") && (
+          <span
+            aria-label="Aberto agora"
+            className="absolute bottom-2 left-2 flex items-center gap-1 rounded-full bg-background/90 px-2 py-0.5 text-[10px] font-medium text-green-600 backdrop-blur shadow-sm"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+            Aberto
+          </span>
+        )}
         <div className="absolute right-2 top-2 flex items-center gap-1 rounded-full bg-background/95 px-2 py-1 backdrop-blur shadow-sm">
           <Star className="h-3.5 w-3.5 fill-rating-star text-rating-star" />
           <span className="text-sm font-semibold">

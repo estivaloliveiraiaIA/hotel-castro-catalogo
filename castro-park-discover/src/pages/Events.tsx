@@ -32,7 +32,7 @@ const Events = () => {
   }, [events, selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground pb-16 md:pb-0">
       <Header />
 
       <main className="container px-4 py-8">

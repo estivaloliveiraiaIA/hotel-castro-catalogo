@@ -6,10 +6,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Place from "./pages/Place";
-import Itineraries from "./pages/Itineraries";
-import Itinerary from "./pages/Itinerary";
-import Events from "./pages/Events";
+import { BottomNav } from "./components/BottomNav";
+import { PageSkeleton } from "./components/PageSkeleton";
+
+// Páginas públicas secundárias — lazy loaded para reduzir bundle inicial
+const Place = lazy(() => import("./pages/Place"));
+const Itineraries = lazy(() => import("./pages/Itineraries"));
+const Itinerary = lazy(() => import("./pages/Itinerary"));
+const Events = lazy(() => import("./pages/Events"));
 
 // Admin carregado de forma lazy — código isolado do bundle principal
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -22,7 +26,15 @@ const AdminPartners = lazy(() => import("./pages/admin/AdminPartners"));
 
 const BASENAME = import.meta.env.BASE_URL;
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+      refetchOnWindowFocus: false,
+      retry: 1,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -32,10 +44,10 @@ const App = () => (
       <BrowserRouter basename={BASENAME}>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/place/:id" element={<Place />} />
-          <Route path="/itineraries" element={<Itineraries />} />
-          <Route path="/itinerary/:id" element={<Itinerary />} />
-          <Route path="/events" element={<Events />} />
+          <Route path="/place/:id" element={<Suspense fallback={<PageSkeleton />}><Place /></Suspense>} />
+          <Route path="/itineraries" element={<Suspense fallback={<PageSkeleton />}><Itineraries /></Suspense>} />
+          <Route path="/itinerary/:id" element={<Suspense fallback={<PageSkeleton />}><Itinerary /></Suspense>} />
+          <Route path="/events" element={<Suspense fallback={<PageSkeleton />}><Events /></Suspense>} />
           {/* Admin routes — lazy loaded, isolados do bundle principal */}
           <Route
             path="/admin"
@@ -55,6 +67,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <BottomNav />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

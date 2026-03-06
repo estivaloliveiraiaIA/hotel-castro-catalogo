@@ -8,11 +8,12 @@ import { PlaceCard } from "@/components/PlaceCard";
 import { ItineraryCard } from "@/components/ItineraryCard";
 import { EventCard } from "@/components/EventCard";
 import { HomeCarousel } from "@/components/HomeCarousel";
+import { SkeletonGrid } from "@/components/PlaceCardSkeleton";
 import { ConciergeChat } from "@/components/ConciergeChat";
 import { PartnerBadge } from "@/components/PartnerBadge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Star, Utensils, Coffee, Wine, TreePine, MapPin } from "lucide-react";
 import { usePlaces } from "@/hooks/usePlaces";
 import { useItineraries } from "@/hooks/useItineraries";
 import { useEvents } from "@/hooks/useEvents";
@@ -50,11 +51,11 @@ const Index = () => {
   });
 
   const quickActions = [
-    { label: "🍽️ Comer bem", category: "restaurants" },
-    { label: "☕ Café", category: "cafes" },
-    { label: "🍸 Noite", category: "nightlife" },
-    { label: "🌳 Passeio", category: "nature" },
-    { label: "📍 Perto do hotel", category: "all" },
+    { label: "Comer bem", category: "restaurants", icon: Utensils },
+    { label: "Café", category: "cafes", icon: Coffee },
+    { label: "Noite", category: "nightlife", icon: Wine },
+    { label: "Passeio", category: "nature", icon: TreePine },
+    { label: "Perto do hotel", category: "all", icon: MapPin },
   ] as const;
 
   const totalCategories = useMemo(
@@ -166,10 +167,12 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-16 md:pb-0">
       <Header />
       <Hero totalPlaces={places.length} totalCategories={totalCategories} updatedAt={updatedAt} />
-      <ConciergeChat places={places} />
+      <div id="concierge-section">
+        <ConciergeChat places={places} />
+      </div>
       <CategoryTabs
         selectedCategory={selectedCategory}
         onCategoryChange={(value) => {
@@ -182,20 +185,24 @@ const Index = () => {
         <div className="container px-4 py-4">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-hotel-gold/80">Explorar Goiânia</p>
           <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
-            {quickActions.map((item) => (
-              <Button
-                key={item.label}
-                variant={selectedCategory === item.category ? "default" : "secondary"}
-                size="sm"
-                className="shrink-0"
-                onClick={() => {
-                  setSelectedSubcategory(null);
-                  setSelectedCategory(item.category);
-                }}
-              >
-                {item.label}
-              </Button>
-            ))}
+            {quickActions.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Button
+                  key={item.label}
+                  variant={selectedCategory === item.category ? "default" : "secondary"}
+                  size="sm"
+                  className="shrink-0 gap-1.5"
+                  onClick={() => {
+                    setSelectedSubcategory(null);
+                    setSelectedCategory(item.category);
+                  }}
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                  {item.label}
+                </Button>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -237,7 +244,7 @@ const Index = () => {
 
       {isLoading && (
         <main className="container px-4 py-10">
-          <div className="text-muted-foreground">Carregando lugares...</div>
+          <SkeletonGrid count={8} />
         </main>
       )}
 
@@ -296,7 +303,11 @@ const Index = () => {
                 ) : (
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {categoryResults.slice(0, 60).map((place) => (
-                      <PlaceCard key={place.id} place={place} />
+                      <PlaceCard
+                        key={place.id}
+                        place={place}
+                        partner={partners?.find((p) => p.placeId === place.id)}
+                      />
                     ))}
                   </div>
                 )}
@@ -452,31 +463,37 @@ const Index = () => {
                 title="Recomendados pelo hotel"
                 subtitle="Curadoria especial para uma experiência inesquecível em Goiânia"
                 places={curatedTop}
+                partners={partners}
               />
               <PlaceSection
                 title="Perto do hotel"
                 subtitle="Sugestões a poucos minutos do Castro's Park Hotel"
                 places={nearHotel}
+                partners={partners}
               />
               <PlaceSection
                 title="Restaurantes"
                 subtitle="Os mais bem avaliados para almoço e jantar"
                 places={topRestaurants}
+                partners={partners}
               />
               <PlaceSection
                 title="Bares"
                 subtitle="Vida noturna e bons drinks"
                 places={topBars}
+                partners={partners}
               />
               <PlaceSection
                 title="Cafés"
                 subtitle="Cafeterias e lugares para um café especial"
                 places={topCafes}
+                partners={partners}
               />
               <PlaceSection
                 title="Atrações & Parques"
                 subtitle="Passeios, cultura e natureza"
                 places={topAttractionsAndParks}
+                partners={partners}
               />
 
               <footer className="border-t bg-muted/20 py-10">

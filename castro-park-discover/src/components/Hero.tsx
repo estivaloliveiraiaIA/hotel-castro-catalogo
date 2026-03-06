@@ -1,3 +1,5 @@
+import { Sparkles } from "lucide-react";
+
 interface HeroProps {
   totalPlaces: number;
   totalCategories: number;
@@ -6,6 +8,10 @@ interface HeroProps {
 
 export const Hero = ({ updatedAt }: HeroProps) => {
   const updatedText = updatedAt ? new Date(updatedAt).toLocaleString("pt-BR") : null;
+
+  const scrollToConcierge = () => {
+    document.getElementById("concierge-section")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-primary via-primary/95 to-primary/80 py-20 text-primary-foreground md:py-28">
@@ -27,9 +33,18 @@ export const Hero = ({ updatedAt }: HeroProps) => {
             Descubra Goiânia
           </h2>
 
-          <p className="mx-auto mb-10 max-w-lg font-serif text-base italic text-primary-foreground/70 sm:text-lg leading-relaxed">
+          <p className="mx-auto mb-8 max-w-lg font-serif text-base italic text-primary-foreground/70 sm:text-lg leading-relaxed">
             Uma curadoria pensada para tornar cada momento da sua estadia inesquecível
           </p>
+
+          {/* CTA */}
+          <button
+            onClick={scrollToConcierge}
+            className="inline-flex items-center gap-2 rounded-full border border-hotel-gold/50 bg-hotel-gold/10 px-6 py-2.5 text-sm font-medium text-hotel-gold backdrop-blur transition-all duration-200 hover:bg-hotel-gold/20 hover:border-hotel-gold/80 mb-8"
+          >
+            <Sparkles className="h-4 w-4" />
+            Explorar com o Concierge
+          </button>
 
           {/* Separador dourado decorativo central */}
           <div className="flex items-center justify-center gap-3">
@@ -39,7 +54,7 @@ export const Hero = ({ updatedAt }: HeroProps) => {
           </div>
 
           {updatedText && (
-            <p className="mt-8 text-xs opacity-40">Atualizado em {updatedText}</p>
+            <p className="mt-6 text-xs opacity-40">Atualizado em {updatedText}</p>
           )}
         </div>
       </div>

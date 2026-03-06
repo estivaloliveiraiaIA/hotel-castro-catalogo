@@ -1,13 +1,15 @@
 import { Place } from "@/types/place";
+import { Partner } from "@/types/partner";
 import { PlaceCard } from "@/components/PlaceCard";
 
 interface PlaceSectionProps {
   title: string;
   subtitle?: string;
   places: Place[];
+  partners?: Partner[];
 }
 
-export const PlaceSection = ({ title, subtitle, places }: PlaceSectionProps) => {
+export const PlaceSection = ({ title, subtitle, places, partners }: PlaceSectionProps) => {
   if (!places.length) return null;
 
   return (
@@ -36,11 +38,11 @@ export const PlaceSection = ({ title, subtitle, places }: PlaceSectionProps) => 
           }
         >
           {places.map((place) => (
-            <div
-              key={place.id}
-              className="min-w-[260px] md:min-w-0"
-            >
-              <PlaceCard place={place} />
+            <div key={place.id} className="min-w-[260px] md:min-w-0">
+              <PlaceCard
+                place={place}
+                partner={partners?.find((p) => p.placeId === place.id)}
+              />
             </div>
           ))}
         </div>
