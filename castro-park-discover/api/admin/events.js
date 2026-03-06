@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       .insert(payload)
       .select()
       .single();
-    if (error) return res.status(500).json({ error: error.message || "Erro ao criar evento", code: error.code, details: error.details, hint: error.hint });
+    if (error) return res.status(500).json({ error: error.message || "Erro ao criar evento" });
     return res.status(201).json(data);
   }
 
