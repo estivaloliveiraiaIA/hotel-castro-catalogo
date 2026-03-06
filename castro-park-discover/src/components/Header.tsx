@@ -1,5 +1,6 @@
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   query?: string;
@@ -12,13 +13,18 @@ export const Header = ({ query, onQueryChange }: HeaderProps) => {
       <div className="container px-4">
         <div className="flex h-16 items-center justify-between gap-4">
           <div className="flex items-center gap-3 md:gap-4">
-            <h1 className="font-serif text-xl font-semibold tracking-[0.12em] text-primary sm:text-2xl">
+            <Link to="/" className="font-serif text-xl font-semibold tracking-[0.12em] text-primary sm:text-2xl hover:text-primary/80 transition-colors">
               Castro&apos;s Park Hotel
-            </h1>
+            </Link>
             <span className="hidden text-hotel-gold/50 md:block" aria-hidden>|</span>
-            <span className="hidden text-sm tracking-wide text-muted-foreground md:block">
-              Guia de Goiânia
-            </span>
+            <nav className="hidden items-center gap-4 md:flex">
+              <Link to="/" className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors">
+                Guia
+              </Link>
+              <Link to="/events" className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors">
+                Eventos
+              </Link>
+            </nav>
           </div>
 
           {onQueryChange && (

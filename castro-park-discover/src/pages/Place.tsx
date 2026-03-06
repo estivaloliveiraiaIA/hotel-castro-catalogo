@@ -2,19 +2,23 @@ import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MapPin, ArrowLeft, ExternalLink, Globe, Phone, Clock, Tag, Star, Navigation } from "lucide-react";
 import { usePlaces } from "@/hooks/usePlaces";
+import { usePartners } from "@/hooks/usePartners";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PlaceGallery } from "@/components/PlaceGallery";
+import { PartnerBadge } from "@/components/PartnerBadge";
 import { getDirectionsUrl } from "@/lib/maps";
 
 const Place = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { data, isLoading } = usePlaces();
+  const { data: partners } = usePartners();
   const places = data?.places ?? [];
 
   const place = useMemo(() => places.find((p) => encodeURIComponent(p.id) === id), [id, places]);
+  const partner = useMemo(() => partners?.find((p) => p.placeId === place?.id), [partners, place]);
 
   if (isLoading) {
     return (
@@ -91,6 +95,9 @@ const Place = () => {
                     {place.hotelRecommended && (
                       <Badge className="bg-hotel-gold text-hotel-charcoal hover:bg-hotel-gold/90">Recomendado pelo hotel</Badge>
                     )}
+                    {partner && (
+                      <PartnerBadge label={partner.badgeLabel} size="md" />
+                    )}
                   </div>
                   <h1 className="font-serif text-3xl font-semibold leading-tight">{place.name}</h1>
                   <p className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -111,6 +118,13 @@ const Place = () => {
               )}
 
               <p className="text-base leading-relaxed text-foreground/90">{place.description}</p>
+
+              {partner?.dealDescription && (
+                <div className="rounded-lg border border-hotel-gold/30 bg-hotel-gold/5 px-4 py-3">
+                  <p className="text-xs font-medium uppercase tracking-wider text-hotel-gold mb-1">Vantagem exclusiva para hóspedes</p>
+                  <p className="text-sm text-foreground/80">{partner.dealDescription}</p>
+                </div>
+              )}
 
               <div className="flex flex-wrap gap-2">
                 {(place.subcategories || []).map((sub) => (

@@ -6,10 +6,16 @@ import { ListFilters, type ListFilterState } from "@/components/ListFilters";
 import { PlaceSection } from "@/components/PlaceSection";
 import { PlaceCard } from "@/components/PlaceCard";
 import { ItineraryCard } from "@/components/ItineraryCard";
+import { EventCard } from "@/components/EventCard";
 import { ConciergeChat } from "@/components/ConciergeChat";
+import { PartnerBadge } from "@/components/PartnerBadge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Star } from "lucide-react";
 import { usePlaces } from "@/hooks/usePlaces";
 import { useItineraries } from "@/hooks/useItineraries";
+import { useEvents } from "@/hooks/useEvents";
+import { usePartners } from "@/hooks/usePartners";
 import { Place } from "@/types/place";
 import { useNavigate } from "react-router-dom";
 
@@ -27,6 +33,8 @@ const Index = () => {
   const navigate = useNavigate();
   const { data, isLoading, isError, error } = usePlaces();
   const { data: itineraries } = useItineraries();
+  const { data: events } = useEvents();
+  const { data: partners } = usePartners();
   const places = data?.places ?? [];
   const updatedAt = data?.updatedAt;
   const [query, setQuery] = useState("");
@@ -401,6 +409,110 @@ const Index = () => {
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                       {itineraries.slice(0, 3).map((itinerary) => (
                         <ItineraryCard key={itinerary.id} itinerary={itinerary} />
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              )}
+
+              {/* Eventos em Goiânia */}
+              {events && events.length > 0 && (
+                <section className="py-8 border-b">
+                  <div className="container px-4">
+                    <div className="mb-6 flex items-end justify-between gap-4">
+                      <div>
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="h-px w-8 bg-hotel-gold/60" />
+                          <span className="text-hotel-gold text-xs">✦</span>
+                          <div className="h-px w-8 bg-hotel-gold/60" />
+                        </div>
+                        <h2 className="font-serif text-2xl font-semibold md:text-3xl">
+                          Eventos em Goiânia
+                        </h2>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          O que está acontecendo durante a sua estadia
+                        </p>
+                      </div>
+                      <button
+                        className="shrink-0 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                        onClick={() => navigate("/events")}
+                      >
+                        Ver agenda
+                      </button>
+                    </div>
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {events.slice(0, 3).map((event) => (
+                        <EventCard key={event.id} event={event} />
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              )}
+
+              {/* Parceiros do Hotel */}
+              {partners && partners.length > 0 && (
+                <section className="py-8 border-b">
+                  <div className="container px-4">
+                    <div className="mb-6">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="h-px w-8 bg-hotel-gold/60" />
+                        <span className="text-hotel-gold text-xs">✦</span>
+                        <div className="h-px w-8 bg-hotel-gold/60" />
+                      </div>
+                      <h2 className="font-serif text-2xl font-semibold md:text-3xl">
+                        Parceiros do Hotel
+                      </h2>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Benefícios exclusivos para hóspedes do Castro's Park
+                      </p>
+                    </div>
+                    <div className="-mx-4 flex gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                      {partners.map((partner) => (
+                        <div key={partner.id} className="min-w-[260px] md:min-w-0">
+                          <Card
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => navigate(`/place/${encodeURIComponent(partner.placeId)}`)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                navigate(`/place/${encodeURIComponent(partner.placeId)}`);
+                              }
+                            }}
+                            className="group overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-primary/15 hover:border-hotel-gold/50"
+                          >
+                            {partner.place.image && (
+                              <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
+                                <img
+                                  src={partner.place.image}
+                                  alt={partner.place.name}
+                                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                                  loading="lazy"
+                                  referrerPolicy="no-referrer"
+                                />
+                              </div>
+                            )}
+                            <CardContent className="p-4">
+                              <div className="mb-2">
+                                <PartnerBadge label={partner.badgeLabel} size="sm" />
+                              </div>
+                              <h3 className="font-serif text-lg font-semibold leading-tight mb-1 group-hover:text-primary transition-colors">
+                                {partner.place.name}
+                              </h3>
+                              {partner.place.rating && (
+                                <div className="mb-2 flex items-center gap-1 text-xs text-muted-foreground">
+                                  <Star className="h-3 w-3 fill-rating-star text-rating-star" />
+                                  {partner.place.rating.toFixed(1)}
+                                </div>
+                              )}
+                              {partner.dealDescription && (
+                                <p className="text-xs text-muted-foreground line-clamp-2">
+                                  {partner.dealDescription}
+                                </p>
+                              )}
+                            </CardContent>
+                          </Card>
+                        </div>
                       ))}
                     </div>
                   </div>

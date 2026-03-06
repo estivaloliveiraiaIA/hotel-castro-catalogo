@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Place from "./pages/Place";
 import Itineraries from "./pages/Itineraries";
 import Itinerary from "./pages/Itinerary";
+import Events from "./pages/Events";
 
 // Admin carregado de forma lazy — código isolado do bundle principal
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/place/:id" element={<Place />} />
           <Route path="/itineraries" element={<Itineraries />} />
           <Route path="/itinerary/:id" element={<Itinerary />} />
+          <Route path="/events" element={<Events />} />
           {/* Admin routes — lazy loaded, isolados do bundle principal */}
           <Route
             path="/admin"

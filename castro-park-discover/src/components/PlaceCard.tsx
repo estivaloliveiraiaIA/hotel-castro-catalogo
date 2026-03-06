@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { getDirectionsUrl } from "@/lib/maps";
 import { Place } from "@/types/place";
 import { useNavigate } from "react-router-dom";
+import { usePartners } from "@/hooks/usePartners";
+import { PartnerBadge } from "@/components/PartnerBadge";
 
 interface PlaceCardProps {
   place: Place;
@@ -14,6 +16,8 @@ interface PlaceCardProps {
 
 export const PlaceCard = ({ place }: PlaceCardProps) => {
   const navigate = useNavigate();
+  const { data: partners } = usePartners();
+  const partner = partners?.find((p) => p.placeId === place.id);
 
   const fallbackImage =
     "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop";
@@ -69,13 +73,16 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
             ({place.reviewCount ?? 0})
           </span>
         </div>
-        {place.hotelRecommended && (
-          <div className="absolute left-2 top-2">
+        <div className="absolute left-2 top-2 flex flex-col gap-1">
+          {place.hotelRecommended && (
             <span className="rounded-full bg-hotel-gold/90 px-2.5 py-0.5 text-[11px] font-medium text-hotel-charcoal backdrop-blur">
               ✦ Hotel
             </span>
-          </div>
-        )}
+          )}
+          {partner && (
+            <PartnerBadge label={partner.badgeLabel} size="sm" className="bg-background/90 backdrop-blur" />
+          )}
+        </div>
       </div>
 
       <CardContent className="p-4">
