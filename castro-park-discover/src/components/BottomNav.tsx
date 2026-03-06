@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Guia", href: "/", icon: Home },
   { label: "Roteiros", href: "/itineraries", icon: Map },
-  { label: "Favoritos", href: "/favorites", icon: Heart },
+  { label: "Favoritos", href: "/", icon: Heart, scrollTo: "recomendados-section" },
   { label: "Eventos", href: "/events", icon: CalendarDays },
   { label: "Concierge", href: "/", icon: Sparkles, scrollTo: "concierge-section" },
 ];
@@ -13,10 +13,10 @@ const NAV_ITEMS = [
 export const BottomNav = () => {
   const { pathname } = useLocation();
 
-  const handleConciergeClick = (e: React.MouseEvent) => {
+  const handleScrollClick = (e: React.MouseEvent, sectionId: string) => {
     if (pathname === "/") {
       e.preventDefault();
-      document.getElementById("concierge-section")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -30,7 +30,7 @@ export const BottomNav = () => {
           const isActive =
             label === "Guia"
               ? pathname === "/"
-              : label === "Concierge"
+              : label === "Concierge" || label === "Favoritos"
               ? false
               : pathname.startsWith(href) && href !== "/";
 
@@ -38,7 +38,7 @@ export const BottomNav = () => {
             <Link
               key={label}
               to={href}
-              onClick={scrollTo ? handleConciergeClick : undefined}
+              onClick={scrollTo ? (e) => handleScrollClick(e, scrollTo) : undefined}
               aria-label={label}
               className={cn(
                 "flex flex-col items-center gap-0.5 px-3 py-1.5 text-[10px] font-medium transition-colors duration-150",

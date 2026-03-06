@@ -460,12 +460,14 @@ const Index = () => {
                 </section>
               )}
 
-              <PlaceSection
-                title="Recomendados pelo hotel"
-                subtitle="Curadoria especial para uma experiência inesquecível em Goiânia"
-                places={curatedTop}
-                partners={partners}
-              />
+              <div id="recomendados-section">
+                <PlaceSection
+                  title="Recomendados pelo hotel"
+                  subtitle="Curadoria especial para uma experiência inesquecível em Goiânia"
+                  places={curatedTop}
+                  partners={partners}
+                />
+              </div>
               <PlaceSection
                 title="Perto do hotel"
                 subtitle="Sugestões a poucos minutos do Castro's Park Hotel"
