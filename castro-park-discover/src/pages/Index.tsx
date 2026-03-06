@@ -7,6 +7,7 @@ import { PlaceSection } from "@/components/PlaceSection";
 import { PlaceCard } from "@/components/PlaceCard";
 import { ItineraryCard } from "@/components/ItineraryCard";
 import { EventCard } from "@/components/EventCard";
+import { HomeCarousel } from "@/components/HomeCarousel";
 import { ConciergeChat } from "@/components/ConciergeChat";
 import { PartnerBadge } from "@/components/PartnerBadge";
 import { Button } from "@/components/ui/button";
@@ -305,7 +306,7 @@ const Index = () => {
             <>
               {/* Roteiros Tematicos */}
               {itineraries && itineraries.length > 0 && (
-                <section className="py-8 border-b">
+                <section className="py-10 border-b overflow-hidden">
                   <div className="container px-4">
                     <div className="mb-6 flex items-end justify-between gap-4">
                       <div>
@@ -328,18 +329,21 @@ const Index = () => {
                         Ver todos
                       </button>
                     </div>
-                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                      {itineraries.slice(0, 3).map((itinerary) => (
+                    <HomeCarousel
+                      label="Roteiros Temáticos"
+                      autoplayDelay={5000}
+                      slideBasis="basis-[85%] sm:basis-[48%] lg:basis-[34%]"
+                      items={itineraries.map((itinerary) => (
                         <ItineraryCard key={itinerary.id} itinerary={itinerary} />
                       ))}
-                    </div>
+                    />
                   </div>
                 </section>
               )}
 
               {/* Eventos em Goiânia */}
               {events && events.length > 0 && (
-                <section className="py-8 border-b">
+                <section className="py-10 border-b overflow-hidden">
                   <div className="container px-4">
                     <div className="mb-6 flex items-end justify-between gap-4">
                       <div>
@@ -362,11 +366,14 @@ const Index = () => {
                         Ver agenda
                       </button>
                     </div>
-                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                      {events.slice(0, 3).map((event) => (
+                    <HomeCarousel
+                      label="Eventos em Goiânia"
+                      autoplayDelay={4000}
+                      slideBasis="basis-[85%] sm:basis-[48%] lg:basis-[34%]"
+                      items={events.map((event) => (
                         <EventCard key={event.id} event={event} />
                       ))}
-                    </div>
+                    />
                   </div>
                 </section>
               )}
