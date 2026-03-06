@@ -1,7 +1,7 @@
 # E-UX.6 — Redesign Reviews (Place.tsx)
 
 **Epic:** UX Sprint 2 — Features Alto Impacto
-**Status:** Ready for Dev
+**Status:** Ready for Review
 **Executor:** @dev (Dex)
 **Prioridade:** Média
 
@@ -13,14 +13,14 @@ Como hóspede, quero ver as avaliações de outros visitantes de forma elegante 
 
 ## Acceptance Criteria
 
-- [ ] AC1: Seção "O que dizem" com design completamente redesenhado — remover visual de lista simples
-- [ ] AC2: Cada review em card individual com aspas tipográficas estilizadas (font-serif, hotel-gold)
-- [ ] AC3: Máximo de 3 reviews exibidas por padrão (era 4)
-- [ ] AC4: Botão "Ver mais avaliações" quando houver mais de 3, expande inline (sem nova página)
-- [ ] AC5: Rating do lugar (estrelas) exibido de forma proeminente no topo da seção
-- [ ] AC6: Label de fonte discreta abaixo de cada review ("via Google", "via TripAdvisor") se `review.url` disponível
-- [ ] AC7: Seção tem separador visual elegante (linha hotel-gold/20) antes do título
-- [ ] AC8: Empty state se sem reviews: seção não renderiza (já existente — manter)
+- [x] AC1: Seção "O que dizem" com design completamente redesenhado — remover visual de lista simples
+- [x] AC2: Cada review em card individual com aspas tipográficas estilizadas (font-serif, hotel-gold)
+- [x] AC3: Máximo de 3 reviews exibidas por padrão (era 4)
+- [x] AC4: Botão "Ver mais avaliações" quando houver mais de 3, expande inline (sem nova página)
+- [x] AC5: Rating do lugar (estrelas) exibido de forma proeminente no topo da seção
+- [x] AC6: Label de fonte discreta abaixo de cada review ("via Google", "via TripAdvisor") se `review.url` disponível
+- [x] AC7: Seção tem separador visual elegante (linha hotel-gold/20) antes do título
+- [x] AC8: Empty state se sem reviews: seção não renderiza (já existente — manter)
 
 ## Dev Notes
 
@@ -87,7 +87,7 @@ function getReviewSource(url?: string): string {
 
 ## Tasks
 
-- [ ] T1: Atualizar `src/pages/Place.tsx` — redesign completo da seção de reviews
+- [x] T1: Atualizar `src/pages/Place.tsx` — redesign completo da seção de reviews
   - Rating prominente no topo da seção
   - Cards de review com aspas tipográficas
   - Expand "ver mais" com useState
@@ -98,15 +98,15 @@ function getReviewSource(url?: string): string {
 ## Dev Agent Record
 
 ### Checklist
-- [ ] TypeScript sem erros (`tsc --noEmit`)
+- [x] TypeScript sem erros (`tsc --noEmit`)
 - [ ] Build sem erros (`vite build`)
-- [ ] Máx 3 reviews visíveis por padrão
-- [ ] Expand/collapse funcional
-- [ ] Rating removido da sidebar (sem duplicata)
-- [ ] Empty state mantido (seção não renderiza sem reviews)
+- [x] Máx 3 reviews visíveis por padrão
+- [x] Expand/collapse funcional
+- [x] Rating removido da sidebar (sem duplicata)
+- [x] Empty state mantido (seção não renderiza sem reviews)
 
 ### File List
-<!-- Preencher durante implementação -->
+- `src/pages/Place.tsx` — MODIFICADO
 
 ### Change Log
-<!-- Preencher durante implementação -->
+- feat: E-UX.6 — Redesign completo da seção de reviews em Place.tsx

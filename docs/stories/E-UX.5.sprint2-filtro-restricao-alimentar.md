@@ -1,9 +1,10 @@
 # E-UX.5 — Filtro Restrição Alimentar
 
 **Epic:** UX Sprint 2 — Features Alto Impacto
-**Status:** Ready for Dev
-**Executor:** @dev (Dex)
-**Prioridade:** Média
+**Status:** Dispensado
+**Executor:** —
+**Prioridade:** —
+**Motivo:** Dispensado pelo usuário (feature #9 do plano de pesquisa — fora do escopo do sprint 2)
 
 ---
 

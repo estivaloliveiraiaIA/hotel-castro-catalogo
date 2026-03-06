@@ -1,9 +1,10 @@
 # E-UX.4 — "Hoje no Hotel"
 
 **Epic:** UX Sprint 2 — Features Alto Impacto
-**Status:** Ready for Dev
-**Executor:** @dev (Dex)
-**Prioridade:** Alta
+**Status:** Dispensado
+**Executor:** —
+**Prioridade:** —
+**Motivo:** Dispensado pelo usuário (feature #8 do plano de pesquisa — fora do escopo do sprint 2)
 
 ---
 
