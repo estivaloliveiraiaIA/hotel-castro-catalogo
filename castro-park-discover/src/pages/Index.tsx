@@ -9,6 +9,8 @@ import { ItineraryCard } from "@/components/ItineraryCard";
 import { EventCard } from "@/components/EventCard";
 import { HomeCarousel } from "@/components/HomeCarousel";
 import { SkeletonGrid } from "@/components/PlaceCardSkeleton";
+import { ConciergeChat } from "@/components/ConciergeChat";
+import { CONCIERGE_OPEN_EVENT } from "@/components/ConciergeFloat";
 import { PartnerBadge } from "@/components/PartnerBadge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -169,6 +171,9 @@ const Index = () => {
     <div className="min-h-screen bg-background pb-16 md:pb-0">
       <Header />
       <Hero totalPlaces={places.length} totalCategories={totalCategories} updatedAt={updatedAt} />
+      <div id="concierge-section">
+        <ConciergeChat onOpenChat={() => window.dispatchEvent(new Event(CONCIERGE_OPEN_EVENT))} />
+      </div>
       <CategoryTabs
         selectedCategory={selectedCategory}
         onCategoryChange={(value) => {
