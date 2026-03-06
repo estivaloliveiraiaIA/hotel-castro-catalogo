@@ -49,7 +49,7 @@ export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
           navigate(`/place/${encodeURIComponent(place.id)}`);
         }
       }}
-      className="group overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/15 hover:border-hotel-gold/50 cursor-pointer"
+      className="group overflow-hidden transition-all duration-300 hover:shadow-[0_8px_40px_-8px_hsl(var(--hotel-gold)/0.35)] hover:border-hotel-gold/60 cursor-pointer"
     >
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
         <img

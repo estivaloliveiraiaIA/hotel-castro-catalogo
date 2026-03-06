@@ -1,5 +1,5 @@
 import { Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 interface ConciergeChatProps {
   onOpenChat: () => void;
@@ -20,14 +20,15 @@ export const ConciergeChat = ({ onOpenChat }: ConciergeChatProps) => {
           <p className="text-sm text-muted-foreground max-w-sm mx-auto leading-relaxed mb-6">
             Diga o que procura em suas palavras — nossa IA encontra os melhores lugares entre mais de 500 opções curadas para você
           </p>
-          <Button
+          <ShimmerButton
             onClick={onOpenChat}
-            size="lg"
-            className="rounded-full px-8 gap-2"
+            shimmerColor="#c9a84c"
+            shimmerDuration="2.5s"
+            className="text-base font-medium gap-2 px-8 py-3.5"
           >
             <Sparkles className="h-4 w-4" />
             Falar com o Concierge
-          </Button>
+          </ShimmerButton>
         </div>
       </div>
     </section>

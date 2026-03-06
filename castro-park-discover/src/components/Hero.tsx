@@ -1,3 +1,5 @@
+import { BackgroundPaths } from "@/components/BackgroundPaths";
+
 interface HeroProps {
   totalPlaces: number;
   totalCategories: number;
@@ -9,6 +11,7 @@ export const Hero = ({ updatedAt }: HeroProps) => {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-primary via-primary/95 to-primary/80 py-20 text-primary-foreground md:py-28">
+      <BackgroundPaths />
       <div className="container px-4">
         <div className="mx-auto max-w-3xl text-center">
 
