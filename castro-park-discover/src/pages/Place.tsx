@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PlaceGallery } from "@/components/PlaceGallery";
 import { PartnerBadge } from "@/components/PartnerBadge";
+import { Header } from "@/components/Header";
 import { getDirectionsUrl } from "@/lib/maps";
 
 const Place = () => {
@@ -45,7 +46,7 @@ const Place = () => {
               Não localizamos este estabelecimento na base offline. Recarregue ou volte para a lista.
             </p>
             <div className="flex justify-center gap-2">
-              <Button variant="secondary" onClick={() => navigate(-1)}>
+              <Button variant="secondary" onClick={() => navigate("/")}>
                 Voltar
               </Button>
               <Button onClick={() => navigate("/")}>Ir para início</Button>
@@ -60,29 +61,17 @@ const Place = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between px-4">
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Voltar
-            </Button>
-            <div className="hidden sm:block h-4 w-px bg-border" />
-            <div className="hidden sm:block">
-              <p className="text-xs uppercase tracking-[0.2em] text-hotel-gold/70 font-medium">Castro&apos;s Park Hotel</p>
-              <p className="text-sm font-serif font-semibold line-clamp-1">{place.name}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-              <Star className="mr-1 h-4 w-4 fill-rating-star text-rating-star" />
-              {place.rating.toFixed(1)}
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="container px-4 py-8">
+        <div className="mb-6 flex items-center gap-3">
+          <Button variant="ghost" size="sm" onClick={() => navigate("/")}>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Início
+          </Button>
+          <div className="h-4 w-px bg-border" />
+          <p className="text-sm font-serif font-semibold line-clamp-1 text-muted-foreground">{place.name}</p>
+        </div>
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-6">
             <PlaceGallery name={place.name} image={place.image} gallery={place.gallery} />

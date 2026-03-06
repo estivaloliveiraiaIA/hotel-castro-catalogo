@@ -37,7 +37,6 @@ const Index = () => {
   const { data: partners } = usePartners();
   const places = data?.places ?? [];
   const updatedAt = data?.updatedAt;
-  const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
 
@@ -48,8 +47,6 @@ const Index = () => {
     maxPriceLevel: null,
     minRating: null,
   });
-
-  const normalizedQuery = query.trim().toLowerCase();
 
   const quickActions = [
     { label: "🍽️ Comer bem", category: "restaurants" },
@@ -64,31 +61,13 @@ const Index = () => {
     [places]
   );
 
-  // categoryResults is computed after applying filters
-
-  const baseSearchResults = useMemo(() => {
-    if (!normalizedQuery) return [];
-    return places
-      .filter((p) => {
-        const haystack = [p.name, p.address, p.description, ...(p.tags || [])]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase();
-        return haystack.includes(normalizedQuery);
-      });
-  }, [places, normalizedQuery]);
-
   const baseCategoryResults = useMemo(() => {
     if (selectedCategory === "all") return [];
     return places.filter((p) => p.category === selectedCategory);
   }, [places, selectedCategory]);
 
   const subcategoryOptions = useMemo(() => {
-    const list = normalizedQuery
-      ? baseSearchResults
-      : selectedCategory !== "all"
-        ? baseCategoryResults
-        : [];
+    const list = selectedCategory !== "all" ? baseCategoryResults : [];
 
     const counts = new Map<string, number>();
     for (const p of list) {
@@ -102,7 +81,7 @@ const Index = () => {
       .sort((a, b) => b[1] - a[1])
       .map(([name, count]) => ({ name, count }))
       .slice(0, 12);
-  }, [normalizedQuery, selectedCategory, baseSearchResults, baseCategoryResults]);
+  }, [selectedCategory, baseCategoryResults]);
 
   const applyFilters = (list: Place[]) => {
     let out = list;
@@ -141,7 +120,6 @@ const Index = () => {
     return sorted;
   };
 
-  const searchResults = useMemo(() => applyFilters(baseSearchResults), [baseSearchResults, filters, selectedSubcategory]);
   const categoryResults = useMemo(() => applyFilters(baseCategoryResults), [baseCategoryResults, filters, selectedSubcategory]);
 
   const curatedTop = useMemo(
@@ -188,13 +166,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header
-        query={query}
-        onQueryChange={(v) => {
-          setQuery(v);
-          setSelectedSubcategory(null);
-        }}
-      />
+      <Header />
       <Hero totalPlaces={places.length} totalCategories={totalCategories} updatedAt={updatedAt} />
       <ConciergeChat places={places} />
       <CategoryTabs
@@ -202,8 +174,6 @@ const Index = () => {
         onCategoryChange={(value) => {
           setSelectedCategory(value);
           setSelectedSubcategory(null);
-          // Se o usuário trocar de categoria, limpamos a busca para evitar confusão.
-          setQuery("");
         }}
       />
 
@@ -218,7 +188,6 @@ const Index = () => {
                 size="sm"
                 className="shrink-0"
                 onClick={() => {
-                  setQuery("");
                   setSelectedSubcategory(null);
                   setSelectedCategory(item.category);
                 }}
@@ -231,7 +200,7 @@ const Index = () => {
       </section>
 
       {/* Subcategorias só fazem sentido quando o usuário está vendo uma lista */}
-      {!isLoading && !isError && (normalizedQuery || selectedCategory !== "all") && subcategoryOptions.length > 0 && (
+      {!isLoading && !isError && selectedCategory !== "all" && subcategoryOptions.length > 0 && (
         <section className="border-b bg-background">
           <div className="container px-4 py-3">
             <p className="mb-2 text-sm font-medium text-muted-foreground">Tipos</p>
@@ -261,7 +230,7 @@ const Index = () => {
       )}
 
       {/* Filtros só fazem sentido quando o usuário está vendo uma lista */}
-      {!isLoading && !isError && (normalizedQuery || selectedCategory !== "all") && (
+      {!isLoading && !isError && selectedCategory !== "all" && (
         <ListFilters value={filters} onChange={setFilters} />
       )}
 
@@ -281,48 +250,7 @@ const Index = () => {
 
       {!isLoading && !isError && (
         <main>
-          {normalizedQuery ? (
-            <section className="py-8">
-              <div className="container px-4">
-                <div className="mb-4 flex items-end justify-between gap-4">
-                  <div>
-                    <h2 className="font-serif text-2xl font-semibold md:text-3xl">Resultados</h2>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Buscando por: <span className="font-medium">{query}</span>
-                    </p>
-                  </div>
-                  <button
-                    className="text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    onClick={() => {
-                      setQuery("");
-                      setSelectedSubcategory(null);
-                      setFilters({
-                        sortBy: "best",
-                        openNow: false,
-                        maxDistanceKm: null,
-                        maxPriceLevel: null,
-                        minRating: null,
-                      });
-                    }}
-                  >
-                    Limpar busca
-                  </button>
-                </div>
-
-                {searchResults.length === 0 ? (
-                  <div className="rounded-md border border-border p-6 text-center text-muted-foreground">
-                    Nenhum resultado encontrado.
-                  </div>
-                ) : (
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {searchResults.slice(0, 48).map((place) => (
-                      <PlaceCard key={place.id} place={place} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </section>
-          ) : selectedCategory !== "all" ? (
+          {selectedCategory !== "all" ? (
             <section className="py-8">
               <div className="container px-4">
                 <div className="mb-4 flex items-end justify-between gap-4">
@@ -353,13 +281,7 @@ const Index = () => {
                     onClick={() => {
                       setSelectedCategory("all");
                       setSelectedSubcategory(null);
-                      setFilters({
-                        sortBy: "best",
-                        openNow: false,
-                        maxDistanceKm: null,
-                        maxPriceLevel: null,
-                        minRating: null,
-                      });
+                      setFilters({ sortBy: "best", openNow: false, maxDistanceKm: null, maxPriceLevel: null, minRating: null });
                     }}
                   >
                     Ver tudo

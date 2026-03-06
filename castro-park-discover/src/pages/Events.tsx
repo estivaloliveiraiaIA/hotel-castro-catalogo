@@ -3,6 +3,7 @@ import { ArrowLeft, CalendarX } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { EventCard } from "@/components/EventCard";
+import { Header } from "@/components/Header";
 import { useEvents } from "@/hooks/useEvents";
 
 const EventsSkeleton = () => (
@@ -32,21 +33,15 @@ const Events = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center gap-3 px-4">
-          <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Voltar
-          </Button>
-          <div className="hidden sm:block h-4 w-px bg-border" />
-          <div className="hidden sm:block">
-            <p className="text-xs uppercase tracking-[0.2em] text-hotel-gold/70 font-medium">Castro&apos;s Park Hotel</p>
-            <p className="text-sm font-serif font-semibold">Agenda de Eventos</p>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="container px-4 py-8">
+        <div className="mb-6 flex items-center gap-3">
+          <Button variant="ghost" size="sm" onClick={() => navigate("/")}>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Início
+          </Button>
+        </div>
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="h-px w-8 bg-hotel-gold/60" />

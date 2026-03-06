@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Send, Sparkles, X } from "lucide-react";
+import { Send, Sparkles, X, Utensils, Baby, Coffee, Moon, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useConcierge } from "@/hooks/useConcierge";
@@ -11,11 +11,11 @@ interface ConciergeChatProps {
 }
 
 const SUGGESTIONS = [
-  "Jantar romântico",
-  "Passeio com filhos",
-  "Café especial",
-  "Vida noturna",
-  "Compras",
+  { label: "Jantar romântico", icon: Utensils },
+  { label: "Passeio com filhos", icon: Baby },
+  { label: "Café especial", icon: Coffee },
+  { label: "Vida noturna", icon: Moon },
+  { label: "Compras", icon: ShoppingBag },
 ];
 
 export const ConciergeChat = ({ places }: ConciergeChatProps) => {
@@ -40,21 +40,21 @@ export const ConciergeChat = ({ places }: ConciergeChatProps) => {
   };
 
   return (
-    <section className="border-b bg-gradient-to-b from-primary/8 to-background py-8">
+    <section className="border-b bg-gradient-to-b from-primary/12 to-background py-10 md:py-14">
       <div className="container px-4">
         <div className="mx-auto max-w-2xl">
 
           {/* Header da seção */}
-          <div className="mb-5 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-hotel-gold/10 border border-hotel-gold/25 px-4 py-1.5 mb-3">
+          <div className="mb-7 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-hotel-gold/15 border border-hotel-gold/35 px-4 py-1.5 mb-4">
               <Sparkles className="h-3.5 w-3.5 text-hotel-gold" />
-              <span className="text-xs font-medium text-hotel-gold tracking-wide">Concierge Digital</span>
+              <span className="text-xs font-medium text-hotel-gold tracking-wider uppercase">Concierge Digital · IA</span>
             </div>
-            <p className="font-serif text-xl font-semibold text-foreground sm:text-2xl">
-              O que você procura hoje?
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Descreva em suas palavras — o concierge encontra os melhores lugares para você
+            <h2 className="font-serif text-3xl font-semibold text-foreground sm:text-4xl mb-3 leading-tight">
+              Seu concierge pessoal<br className="hidden sm:block" /> em Goiânia
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-sm mx-auto leading-relaxed">
+              Diga o que procura em suas palavras — encontramos os melhores lugares entre mais de 500 opções curadas para você
             </p>
           </div>
 
@@ -98,14 +98,15 @@ export const ConciergeChat = ({ places }: ConciergeChatProps) => {
           {/* Suggestions */}
           {!result && !loading && (
             <div className="flex flex-wrap justify-center gap-2">
-              {SUGGESTIONS.map((s) => (
+              {SUGGESTIONS.map(({ label, icon: Icon }) => (
                 <button
-                  key={s}
-                  onClick={() => handleSuggestion(s)}
-                  aria-label={`Buscar: ${s}`}
-                  className="rounded-full border border-hotel-gold/30 bg-background px-3 py-1 text-xs text-muted-foreground hover:border-hotel-gold/60 hover:text-foreground transition-colors"
+                  key={label}
+                  onClick={() => handleSuggestion(label)}
+                  aria-label={`Buscar: ${label}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-hotel-gold/30 bg-background px-3.5 py-1.5 text-xs text-muted-foreground hover:border-hotel-gold/60 hover:text-foreground hover:bg-hotel-gold/5 transition-colors"
                 >
-                  {s}
+                  <Icon className="h-3 w-3 text-hotel-gold/70" />
+                  {label}
                 </button>
               ))}
             </div>

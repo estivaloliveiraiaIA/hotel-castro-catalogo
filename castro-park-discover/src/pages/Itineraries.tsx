@@ -1,15 +1,24 @@
 import { Header } from "@/components/Header";
 import { ItineraryCard } from "@/components/ItineraryCard";
 import { useItineraries } from "@/hooks/useItineraries";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 
 const Itineraries = () => {
   const { data: itineraries, isLoading, isError } = useItineraries();
-  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
-      <Header query={query} onQueryChange={setQuery} />
+      <Header />
+
+      <div className="container px-4 pt-4">
+        <Button variant="ghost" size="sm" onClick={() => navigate("/")}>
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Início
+        </Button>
+      </div>
 
       <section className="border-b bg-gradient-to-b from-primary/5 to-background py-14">
         <div className="container px-4 text-center">

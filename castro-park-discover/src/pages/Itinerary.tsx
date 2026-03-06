@@ -5,6 +5,7 @@ import { useItineraries } from "@/hooks/useItineraries";
 import { usePlaces } from "@/hooks/usePlaces";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Header } from "@/components/Header";
 import { getDirectionsUrl } from "@/lib/maps";
 
 const Itinerary = () => {
@@ -52,20 +53,14 @@ const Itinerary = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-10">
-        <div className="container flex h-16 items-center gap-3 px-4">
-          <Button variant="ghost" size="sm" onClick={() => navigate("/itineraries")}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Roteiros
-          </Button>
-          <div className="hidden sm:block h-4 w-px bg-border" />
-          <div className="hidden sm:block">
-            <p className="text-xs uppercase tracking-wide text-muted-foreground">Castro&apos;s Park Hotel</p>
-            <p className="text-sm font-semibold line-clamp-1">{itinerary.icon} {itinerary.title}</p>
-          </div>
-        </div>
-      </header>
+      <Header />
+
+      <div className="container px-4 pt-4">
+        <Button variant="ghost" size="sm" onClick={() => navigate("/itineraries")}>
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Roteiros
+        </Button>
+      </div>
 
       {/* Hero */}
       <section className="relative h-64 md:h-80 overflow-hidden">
