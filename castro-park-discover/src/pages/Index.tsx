@@ -331,7 +331,7 @@ const Index = () => {
                     </div>
                     <HomeCarousel
                       label="Roteiros Temáticos"
-                      autoplayDelay={5000}
+                      autoplayDelay={2800}
                       slideBasis="basis-[85%] sm:basis-[48%] lg:basis-[34%]"
                       items={itineraries.map((itinerary) => (
                         <ItineraryCard key={itinerary.id} itinerary={itinerary} />
@@ -368,7 +368,7 @@ const Index = () => {
                     </div>
                     <HomeCarousel
                       label="Eventos em Goiânia"
-                      autoplayDelay={4000}
+                      autoplayDelay={2800}
                       slideBasis="basis-[85%] sm:basis-[48%] lg:basis-[34%]"
                       items={events.map((event) => (
                         <EventCard key={event.id} event={event} />

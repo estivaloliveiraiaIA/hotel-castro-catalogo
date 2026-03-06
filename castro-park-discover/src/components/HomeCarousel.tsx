@@ -53,7 +53,7 @@ export const HomeCarousel = ({
     <div className="relative group/carousel">
       <Carousel
         setApi={setApi}
-        opts={{ loop: true, align: "start" }}
+        opts={{ loop: true, align: "start", duration: 22 }}
         plugins={[plugin.current]}
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
