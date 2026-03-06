@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { BottomNav } from "./components/BottomNav";
+import { ConciergeFloat } from "./components/ConciergeFloat";
 import { PageSkeleton } from "./components/PageSkeleton";
 
 // Páginas públicas secundárias — lazy loaded para reduzir bundle inicial
@@ -69,6 +70,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ConciergeFloat />
         <BottomNav />
       </BrowserRouter>
     </TooltipProvider>

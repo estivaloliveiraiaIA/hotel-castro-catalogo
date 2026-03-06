@@ -143,42 +143,42 @@ const Place = () => {
             </div>
 
             {place.reviews && place.reviews.length > 0 && (
-              <div className=”space-y-4”>
+              <div className="space-y-4">
                 {/* Separador visual */}
-                <div className=”flex items-center gap-3”>
-                  <div className=”h-px flex-1 bg-hotel-gold/20” />
-                  <span className=”text-xs uppercase tracking-widest text-hotel-gold/60 font-medium”>O que dizem</span>
-                  <div className=”h-px flex-1 bg-hotel-gold/20” />
+                <div className="flex items-center gap-3">
+                  <div className="h-px flex-1 bg-hotel-gold/20" />
+                  <span className="text-xs uppercase tracking-widest text-hotel-gold/60 font-medium">O que dizem</span>
+                  <div className="h-px flex-1 bg-hotel-gold/20" />
                 </div>
 
                 {/* Rating prominente */}
-                <div className=”flex items-center gap-3”>
-                  <div className=”flex”>
+                <div className="flex items-center gap-3">
+                  <div className="flex">
                     {Array.from({ length: 5 }, (_, i) => (
                       <Star
                         key={i}
-                        className={`h-5 w-5 ${i < Math.round(place.rating) ? “fill-rating-star text-rating-star” : “fill-muted text-muted”}`}
+                        className={`h-5 w-5 ${i < Math.round(place.rating) ? "fill-rating-star text-rating-star" : "fill-muted text-muted"}`}
                       />
                     ))}
                   </div>
-                  <span className=”font-serif text-2xl font-semibold”>{place.rating.toFixed(1)}</span>
-                  <span className=”text-sm text-muted-foreground”>({place.reviewCount} avaliações)</span>
+                  <span className="font-serif text-2xl font-semibold">{place.rating.toFixed(1)}</span>
+                  <span className="text-sm text-muted-foreground">({place.reviewCount} avaliações)</span>
                 </div>
 
                 {/* Cards de review */}
-                <ul className=”space-y-3”>
+                <ul className="space-y-3">
                   {(showAllReviews ? place.reviews : place.reviews.slice(0, 3)).map((review, idx) => (
-                    <li key={idx} className=”rounded-xl bg-card border border-border/50 p-5 space-y-2”>
-                      <span className=”font-serif text-4xl leading-none text-hotel-gold/40 select-none”>”</span>
-                      <p className=”text-sm text-foreground/80 leading-relaxed font-serif italic -mt-2”>
+                    <li key={idx} className="rounded-xl bg-card border border-border/50 p-5 space-y-2">
+                      <span className="font-serif text-4xl leading-none text-hotel-gold/40 select-none">"</span>
+                      <p className="text-sm text-foreground/80 leading-relaxed font-serif italic -mt-2">
                         {review.text}
                       </p>
                       {review.url && (
                         <a
                           href={review.url}
-                          target=”_blank”
-                          rel=”noreferrer”
-                          className=”text-xs text-muted-foreground/60 hover:text-primary transition-colors”
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-xs text-muted-foreground/60 hover:text-primary transition-colors"
                         >
                           {getReviewSource(review.url)} ↗
                         </a>
@@ -191,10 +191,10 @@ const Place = () => {
                 {place.reviews.length > 3 && (
                   <button
                     onClick={() => setShowAllReviews((prev) => !prev)}
-                    className=”text-xs text-hotel-gold/70 hover:text-hotel-gold transition-colors font-medium”
+                    className="text-xs text-hotel-gold/70 hover:text-hotel-gold transition-colors font-medium"
                   >
                     {showAllReviews
-                      ? “Mostrar menos ↑”
+                      ? "Mostrar menos ↑"
                       : `Ver todas as ${place.reviews.length} avaliações ↓`}
                   </button>
                 )}

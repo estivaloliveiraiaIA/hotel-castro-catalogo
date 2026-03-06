@@ -49,10 +49,10 @@ function extractKeywords(query) {
     .filter((kw) => kw.length > 2 && !stopWords.has(kw));
 }
 
-async function callClaude(prompt, apiKey) {
+async function callClaude(systemPrompt, messages, apiKey) {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
-    signal: AbortSignal.timeout(10000),
+    signal: AbortSignal.timeout(15000),
     headers: {
       "Content-Type": "application/json",
       "x-api-key": apiKey,
@@ -62,7 +62,8 @@ async function callClaude(prompt, apiKey) {
       model: "claude-haiku-4-5-20251001",
       max_tokens: 700,
       temperature: 0.3,
-      messages: [{ role: "user", content: prompt }],
+      system: systemPrompt,
+      messages,
     }),
   });
   if (!res.ok) throw new Error(`Claude error: ${res.status}`);
@@ -81,12 +82,14 @@ function sanitizeQuery(raw) {
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
 
-  const { query } = req.body || {};
-  if (!query || typeof query !== "string" || query.trim().length < 3) {
-    return res.status(400).json({ error: "query muito curta" });
+  const { messages } = req.body || {};
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return res.status(400).json({ error: "messages inválido" });
   }
-  if (query.trim().length > 500) {
-    return res.status(400).json({ error: "query muito longa" });
+
+  const lastUserMsg = messages.filter((m) => m.role === "user").at(-1)?.content ?? "";
+  if (!lastUserMsg || lastUserMsg.trim().length < 2) {
+    return res.status(400).json({ error: "mensagem muito curta" });
   }
 
   const apiKey = process.env.LLM_API_KEY;
@@ -103,7 +106,7 @@ export default async function handler(req, res) {
 
     if (error) throw error;
 
-    const safeQuery = sanitizeQuery(query);
+    const safeQuery = sanitizeQuery(lastUserMsg);
     const keywords = extractKeywords(safeQuery);
     const allPlaces = places || [];
 
@@ -120,27 +123,30 @@ export default async function handler(req, res) {
       )
       .join("\n---\n");
 
-    const prompt = `Você é o concierge digital do Castro's Park Hotel em Goiânia, Brasil. Seu tom é elegante, acolhedor e prestativo.
+    const systemPrompt = `Você é o concierge digital do Castro's Park Hotel em Goiânia, Brasil. Seu tom é elegante, acolhedor e prestativo. Você mantém o contexto da conversa e responde de forma coerente com o histórico.
 
-O hóspede pediu: <pedido>${safeQuery}</pedido>
-
-Lugares disponíveis no guia do hotel:
+Lugares disponíveis no guia do hotel (selecionados por relevância à última mensagem):
 ${context}
 
-Selecione até 3 lugares que melhor atendem ao pedido. Responda SOMENTE com JSON válido, sem texto extra:
+Selecione até 3 lugares que melhor atendem ao pedido atual. Responda SOMENTE com JSON válido, sem texto extra:
 {
   "places": [
     {
       "id": "ID_exato_do_lugar",
       "name": "Nome do lugar",
-      "reason": "Uma frase elegante explicando por que este lugar é ideal para o pedido",
+      "reason": "Uma frase elegante explicando por que este lugar é ideal",
       "highlight": "Uma dica especial ou detalhe que o hóspede vai adorar"
     }
   ],
-  "message": "Mensagem de boas-vindas curta e elegante (1-2 frases)"
+  "message": "Resposta elegante ao hóspede (1-3 frases, considerando o contexto da conversa)"
 }`;
 
-    const result = await callClaude(prompt, apiKey);
+    const claudeMessages = messages.map((m) => ({
+      role: m.role,
+      content: sanitizeQuery(m.content),
+    }));
+
+    const result = await callClaude(systemPrompt, claudeMessages, apiKey);
 
     if (!result.places || !Array.isArray(result.places)) {
       return res.status(200).json(FALLBACK);

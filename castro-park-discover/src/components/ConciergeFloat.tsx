@@ -1,0 +1,73 @@
+import { useEffect } from "react";
+import { Sparkles, X } from "lucide-react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { ConciergeChatPanel } from "@/components/ConciergeChatPanel";
+import { useConciergeChat } from "@/hooks/useConciergeChat";
+
+export const CONCIERGE_OPEN_EVENT = "concierge:open";
+
+export function ConciergeFloat() {
+  const { messages, loading, error, isOpen, open, close, sendMessage, clearConversation } =
+    useConciergeChat();
+
+  // Allow any page to trigger open via custom DOM event
+  useEffect(() => {
+    const handler = () => open();
+    window.addEventListener(CONCIERGE_OPEN_EVENT, handler);
+    return () => window.removeEventListener(CONCIERGE_OPEN_EVENT, handler);
+  }, [open]);
+
+  const handleOpen = () => open();
+  const handleClose = () => close();
+  const sheetOpen = isOpen;
+
+  return (
+    <>
+      {/* Floating button */}
+      <button
+        onClick={handleOpen}
+        className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 h-14 w-14 rounded-full bg-hotel-gold shadow-lg hover:bg-hotel-gold/90 active:scale-95 transition-all flex items-center justify-center"
+        aria-label="Abrir Concierge Digital"
+      >
+        <Sparkles className="h-6 w-6 text-hotel-charcoal" />
+        {messages.length > 0 && (
+          <span className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-full bg-red-500 border-2 border-background" />
+        )}
+      </button>
+
+      {/* Sheet panel */}
+      <Sheet open={sheetOpen} onOpenChange={(open) => (open ? handleOpen() : handleClose())}>
+        <SheetContent
+          side="right"
+          className="w-full sm:w-[380px] p-0 flex flex-col"
+        >
+          <SheetHeader className="px-4 py-3 border-b shrink-0">
+            <div className="flex items-center justify-between">
+              <SheetTitle className="flex items-center gap-2 font-serif text-base">
+                <Sparkles className="h-4 w-4 text-hotel-gold" />
+                Concierge Digital
+              </SheetTitle>
+              <button
+                onClick={handleClose}
+                className="rounded-sm opacity-70 hover:opacity-100 transition-opacity"
+                aria-label="Fechar"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          </SheetHeader>
+
+          <div className="flex-1 overflow-hidden">
+            <ConciergeChatPanel
+              messages={messages}
+              loading={loading}
+              error={error}
+              onSend={sendMessage}
+              onClear={clearConversation}
+            />
+          </div>
+        </SheetContent>
+      </Sheet>
+    </>
+  );
+}
