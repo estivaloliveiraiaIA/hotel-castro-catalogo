@@ -19,7 +19,8 @@ interface Event {
   id: string;
   title: string;
   description: string;
-  location: string;
+  address: string;
+  category: string;
   image: string | null;
   start_date: string;
   end_date: string | null;
@@ -30,9 +31,10 @@ interface Event {
 const emptyEvent: Omit<Event, "id"> = {
   title: "",
   description: "",
-  location: "",
+  address: "",
+  category: "",
   image: null,
-  start_date: new Date().toISOString().slice(0, 16),
+  start_date: new Date().toISOString().slice(0, 10),
   end_date: null,
   link: null,
   is_active: true,
@@ -73,10 +75,11 @@ export default function AdminEvents() {
     setForm({
       title: ev.title,
       description: ev.description,
-      location: ev.location,
+      address: ev.address,
+      category: ev.category,
       image: ev.image,
-      start_date: ev.start_date?.slice(0, 16) ?? "",
-      end_date: ev.end_date?.slice(0, 16) ?? null,
+      start_date: ev.start_date?.slice(0, 10) ?? "",
+      end_date: ev.end_date?.slice(0, 10) ?? null,
       link: ev.link,
       is_active: ev.is_active,
     });
@@ -183,7 +186,7 @@ export default function AdminEvents() {
                 <p className="text-xs text-muted-foreground/60">
                   {formatDate(ev.start_date)}
                   {ev.end_date && ` → ${formatDate(ev.end_date)}`}
-                  {ev.location && ` · ${ev.location}`}
+                  {ev.address && ` · ${ev.address}`}
                 </p>
               </div>
               <div className="flex items-center gap-1 shrink-0">
@@ -220,20 +223,29 @@ export default function AdminEvents() {
                 onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
               />
             </Field>
-            <Field label="Local">
-              <Input value={form.location} onChange={(e) => setForm((f) => ({ ...f, location: e.target.value }))} />
-            </Field>
+            <div className="grid grid-cols-2 gap-3">
+              <Field label="Local / Endereço">
+                <Input value={form.address} onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))} />
+              </Field>
+              <Field label="Categoria">
+                <Input
+                  value={form.category}
+                  onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
+                  placeholder="ex: Música, Cultura..."
+                />
+              </Field>
+            </div>
             <div className="grid grid-cols-2 gap-3">
               <Field label="Data de início">
                 <Input
-                  type="datetime-local"
+                  type="date"
                   value={form.start_date}
                   onChange={(e) => setForm((f) => ({ ...f, start_date: e.target.value }))}
                 />
               </Field>
               <Field label="Data de término">
                 <Input
-                  type="datetime-local"
+                  type="date"
                   value={form.end_date || ""}
                   onChange={(e) => setForm((f) => ({ ...f, end_date: e.target.value || null }))}
                 />

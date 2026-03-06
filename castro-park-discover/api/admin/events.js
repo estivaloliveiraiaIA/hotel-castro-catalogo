@@ -14,21 +14,21 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const ALLOWED = ["title", "description", "location", "image", "start_date", "end_date", "link", "is_active"];
+    const ALLOWED = ["title", "description", "address", "image", "start_date", "end_date", "link", "category", "is_active"];
     const payload = Object.fromEntries(Object.entries(req.body || {}).filter(([k]) => ALLOWED.includes(k)));
     const { data, error } = await supabase
       .from("events")
       .insert(payload)
       .select()
       .single();
-    if (error) return res.status(500).json({ error: "Erro ao criar evento" });
+    if (error) return res.status(500).json({ error: error.message || "Erro ao criar evento" });
     return res.status(201).json(data);
   }
 
   if (req.method === "PUT") {
     const { id } = req.body || {};
     if (!id) return res.status(400).json({ error: "id obrigatório" });
-    const ALLOWED = ["title", "description", "location", "image", "start_date", "end_date", "link", "is_active"];
+    const ALLOWED = ["title", "description", "address", "image", "start_date", "end_date", "link", "category", "is_active"];
     const updates = Object.fromEntries(Object.entries(req.body).filter(([k]) => ALLOWED.includes(k)));
     const { data, error } = await supabase
       .from("events")
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       .eq("id", id)
       .select()
       .single();
-    if (error) return res.status(500).json({ error: "Erro ao atualizar evento" });
+    if (error) return res.status(500).json({ error: error.message || "Erro ao atualizar evento" });
     return res.status(200).json(data);
   }
 

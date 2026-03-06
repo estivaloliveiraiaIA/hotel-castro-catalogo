@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     .from("hotel-images")
     .upload(name, buffer, { contentType, upsert: false });
 
-  if (error) return res.status(500).json({ error: "Erro ao fazer upload da imagem" });
+  if (error) return res.status(500).json({ error: error.message || "Erro ao fazer upload da imagem" });
 
   const { data: { publicUrl } } = supabase.storage
     .from("hotel-images")

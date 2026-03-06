@@ -5,11 +5,12 @@ import { supabase } from "@/lib/supabase";
 const today = () => new Date().toISOString().split("T")[0];
 
 const fetchEvents = async (): Promise<Event[]> => {
+  // Inclui eventos sem data de término (end_date null) ou com end_date >= hoje
   const { data, error } = await supabase!
     .from("events")
     .select("*")
     .eq("is_active", true)
-    .gte("end_date", today())
+    .or(`end_date.is.null,end_date.gte.${today()}`)
     .order("start_date", { ascending: true });
 
   if (error) throw new Error(error.message);
