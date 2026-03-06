@@ -16,6 +16,9 @@ export const Header = () => {
             <Link to="/" className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors">
               Guia
             </Link>
+            <Link to="/recomendados" className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors">
+              Recomendados
+            </Link>
             <Link to="/events" className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors">
               Eventos
             </Link>

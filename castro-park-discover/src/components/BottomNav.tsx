@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Guia", href: "/", icon: Home },
   { label: "Roteiros", href: "/itineraries", icon: Map },
-  { label: "Favoritos", href: "/", icon: Heart, scrollTo: "recomendados-section" },
+  { label: "Favoritos", href: "/recomendados", icon: Heart },
   { label: "Eventos", href: "/events", icon: CalendarDays },
   { label: "Concierge", href: "/", icon: Sparkles, scrollTo: "concierge-section" },
 ];
@@ -30,9 +30,9 @@ export const BottomNav = () => {
           const isActive =
             label === "Guia"
               ? pathname === "/"
-              : label === "Concierge" || label === "Favoritos"
+              : label === "Concierge"
               ? false
-              : pathname.startsWith(href) && href !== "/";
+              : href !== "/" && pathname.startsWith(href);
 
           return (
             <Link
