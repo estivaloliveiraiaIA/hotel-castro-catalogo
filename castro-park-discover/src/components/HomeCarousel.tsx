@@ -1,100 +1,132 @@
-import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselApi,
-} from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
 interface HomeCarouselProps {
   items: React.ReactNode[];
-  /** Tailwind basis classes for slide width, e.g. "basis-[85%] sm:basis-[48%] lg:basis-[34%]" */
-  slideBasis?: string;
+  slideBasis?: string; // mantido para compatibilidade, não usado no modo 3D
   autoplayDelay?: number;
   label?: string;
 }
 
 export const HomeCarousel = ({
   items,
-  slideBasis = "basis-[85%] sm:basis-[48%] lg:basis-[34%]",
   autoplayDelay = 4500,
   label = "Carousel",
 }: HomeCarouselProps) => {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
+  const [current, setCurrent] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const count = items.length;
 
-  const plugin = React.useRef(
-    Autoplay({ delay: autoplayDelay, stopOnInteraction: true })
-  );
+  const startAutoplay = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % count);
+    }, autoplayDelay);
+  }, [count, autoplayDelay]);
 
-  React.useEffect(() => {
-    if (!api) return;
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => setCurrent(api.selectedScrollSnap()));
-    return () => { api.off("select", () => {}); };
-  }, [api]);
+  useEffect(() => {
+    startAutoplay();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [startAutoplay]);
 
-  const scrollPrev = React.useCallback(() => {
-    api?.scrollPrev();
-    plugin.current.reset();
-  }, [api]);
+  const prev = useCallback(() => {
+    setCurrent((p) => (p - 1 + count) % count);
+    startAutoplay();
+  }, [count, startAutoplay]);
 
-  const scrollNext = React.useCallback(() => {
-    api?.scrollNext();
-    plugin.current.reset();
-  }, [api]);
+  const next = useCallback(() => {
+    setCurrent((p) => (p + 1) % count);
+    startAutoplay();
+  }, [count, startAutoplay]);
+
+  // Posição relativa ao item central (com wrap-around circular)
+  const getPos = (i: number) => {
+    let pos = i - current;
+    if (pos > count / 2) pos -= count;
+    if (pos < -count / 2) pos += count;
+    return pos;
+  };
 
   return (
-    <div className="relative group/carousel">
-      <Carousel
-        setApi={setApi}
-        opts={{ loop: true, align: "start", duration: 22 }}
-        plugins={[plugin.current]}
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
-        aria-label={label}
+    <div
+      aria-label={label}
+      className="relative"
+      onMouseEnter={() => {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+      }}
+      onMouseLeave={startAutoplay}
+    >
+      {/* Container 3D */}
+      <div
+        className="relative h-[360px] md:h-[420px] overflow-visible"
+        style={{ perspective: "1200px" }}
       >
-        <CarouselContent className="-ml-4">
-          {items.map((item, i) => (
-            <CarouselItem key={i} className={cn("pl-4", slideBasis)}>
-              {item}
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+        {items.map((item, i) => {
+          const pos = getPos(i);
+          const absPos = Math.abs(pos);
+          const visible = absPos <= 2;
 
-      {/* Nav arrows — visible on hover on desktop */}
+          const scale = 1 - absPos * 0.16;
+          const opacity = absPos === 0 ? 1 : absPos === 1 ? 0.65 : absPos === 2 ? 0.35 : 0;
+          const blur = absPos === 0 ? 0 : absPos * 2;
+          const rotateY = pos * -8;
+          const zIndex = 10 - absPos;
+
+          return (
+            <div
+              key={i}
+              onClick={() => {
+                if (pos > 0) next();
+                else if (pos < 0) prev();
+              }}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "50%",
+                width: "min(300px, 78vw)",
+                transform: `translateX(calc(-50% + ${pos * 50}%)) scale(${scale}) rotateY(${rotateY}deg)`,
+                opacity: visible ? opacity : 0,
+                filter: blur > 0 ? `blur(${blur}px)` : "none",
+                zIndex,
+                transition: "all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                cursor: pos !== 0 ? "pointer" : "default",
+                pointerEvents: visible ? "auto" : "none",
+              }}
+            >
+              {item}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Setas de navegação */}
       {count > 1 && (
         <>
           <button
-            onClick={scrollPrev}
+            onClick={prev}
             aria-label="Slide anterior"
             className={cn(
-              "absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10",
-              "hidden md:flex items-center justify-center",
+              "absolute left-2 md:-left-4 top-1/2 -translate-y-8 z-20",
+              "flex items-center justify-center",
               "h-9 w-9 rounded-full border border-hotel-gold/40 bg-background/90 backdrop-blur-sm shadow-lg",
-              "text-hotel-gold/70 hover:text-hotel-gold hover:border-hotel-gold/70 hover:bg-background",
-              "transition-all duration-200",
-              "opacity-0 group-hover/carousel:opacity-100"
+              "text-hotel-gold/70 hover:text-hotel-gold hover:border-hotel-gold/70",
+              "transition-all duration-200"
             )}
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
-            onClick={scrollNext}
+            onClick={next}
             aria-label="Próximo slide"
             className={cn(
-              "absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10",
-              "hidden md:flex items-center justify-center",
+              "absolute right-2 md:-right-4 top-1/2 -translate-y-8 z-20",
+              "flex items-center justify-center",
               "h-9 w-9 rounded-full border border-hotel-gold/40 bg-background/90 backdrop-blur-sm shadow-lg",
-              "text-hotel-gold/70 hover:text-hotel-gold hover:border-hotel-gold/70 hover:bg-background",
-              "transition-all duration-200",
-              "opacity-0 group-hover/carousel:opacity-100"
+              "text-hotel-gold/70 hover:text-hotel-gold hover:border-hotel-gold/70",
+              "transition-all duration-200"
             )}
           >
             <ChevronRight className="h-4 w-4" />
@@ -102,15 +134,15 @@ export const HomeCarousel = ({
         </>
       )}
 
-      {/* Dot indicators */}
+      {/* Dots indicadores */}
       {count > 1 && (
-        <div className="mt-5 flex justify-center items-center gap-1.5">
+        <div className="mt-6 flex justify-center items-center gap-1.5">
           {Array.from({ length: count }).map((_, i) => (
             <button
               key={i}
               onClick={() => {
-                api?.scrollTo(i);
-                plugin.current.reset();
+                setCurrent(i);
+                startAutoplay();
               }}
               aria-label={`Ir para slide ${i + 1}`}
               className={cn(
