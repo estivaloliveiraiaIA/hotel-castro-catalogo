@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MapPin, ArrowLeft, ExternalLink, Globe, Phone, Clock, Tag, Star, Navigation } from "lucide-react";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { usePlaces } from "@/hooks/usePlaces";
 import { usePartners } from "@/hooks/usePartners";
 import { Badge } from "@/components/ui/badge";
@@ -88,7 +89,10 @@ const Place = () => {
                       <PartnerBadge label={partner.badgeLabel} size="md" />
                     )}
                   </div>
-                  <h1 className="font-serif text-3xl font-semibold leading-tight">{place.name}</h1>
+                  <div className="flex items-center gap-3">
+                    <h1 className="font-serif text-3xl font-semibold leading-tight">{place.name}</h1>
+                    <FavoriteButton placeId={place.id} />
+                  </div>
                   <p className="flex items-center gap-2 text-sm text-muted-foreground">
                     <MapPin className="h-4 w-4" />
                     {place.address}

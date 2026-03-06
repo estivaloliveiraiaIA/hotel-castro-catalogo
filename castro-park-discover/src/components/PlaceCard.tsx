@@ -9,6 +9,7 @@ import { Place } from "@/types/place";
 import { Partner } from "@/types/partner";
 import { useNavigate } from "react-router-dom";
 import { PartnerBadge } from "@/components/PartnerBadge";
+import { FavoriteButton } from "@/components/FavoriteButton";
 
 interface PlaceCardProps {
   place: Place;
@@ -73,7 +74,8 @@ export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
             Aberto
           </span>
         )}
-        <div className="absolute right-2 top-2 flex items-center gap-1 rounded-full bg-background/95 px-2 py-1 backdrop-blur shadow-sm">
+        <FavoriteButton placeId={place.id} className="absolute right-2 top-2" />
+        <div className="absolute right-10 top-2 flex items-center gap-1 rounded-full bg-background/95 px-2 py-1 backdrop-blur shadow-sm">
           <Star className="h-3.5 w-3.5 fill-rating-star text-rating-star" />
           <span className="text-sm font-semibold">
             {Number.isFinite(place.rating) ? place.rating.toFixed(1) : "N/A"}

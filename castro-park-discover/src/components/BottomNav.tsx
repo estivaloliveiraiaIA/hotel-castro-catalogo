@@ -1,10 +1,11 @@
-import { Home, Map, CalendarDays, Sparkles } from "lucide-react";
+import { Home, Map, CalendarDays, Sparkles, Heart } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { label: "Guia", href: "/", icon: Home },
   { label: "Roteiros", href: "/itineraries", icon: Map },
+  { label: "Favoritos", href: "/favorites", icon: Heart },
   { label: "Eventos", href: "/events", icon: CalendarDays },
   { label: "Concierge", href: "/", icon: Sparkles, scrollTo: "concierge-section" },
 ];

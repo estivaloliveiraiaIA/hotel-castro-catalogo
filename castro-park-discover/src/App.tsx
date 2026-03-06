@@ -14,6 +14,7 @@ const Place = lazy(() => import("./pages/Place"));
 const Itineraries = lazy(() => import("./pages/Itineraries"));
 const Itinerary = lazy(() => import("./pages/Itinerary"));
 const Events = lazy(() => import("./pages/Events"));
+const Favorites = lazy(() => import("./pages/Favorites"));
 
 // Admin carregado de forma lazy — código isolado do bundle principal
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/itineraries" element={<Suspense fallback={<PageSkeleton />}><Itineraries /></Suspense>} />
           <Route path="/itinerary/:id" element={<Suspense fallback={<PageSkeleton />}><Itinerary /></Suspense>} />
           <Route path="/events" element={<Suspense fallback={<PageSkeleton />}><Events /></Suspense>} />
+          <Route path="/favorites" element={<Suspense fallback={<PageSkeleton />}><Favorites /></Suspense>} />
           {/* Admin routes — lazy loaded, isolados do bundle principal */}
           <Route
             path="/admin"
