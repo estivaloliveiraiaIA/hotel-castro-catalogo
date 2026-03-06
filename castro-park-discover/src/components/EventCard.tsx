@@ -31,8 +31,20 @@ interface EventCardProps {
 export const EventCard = ({ event }: EventCardProps) => {
   const [imgSrc, setImgSrc] = React.useState(event.image || fallbackImage);
 
+  const handleCardClick = () => {
+    if (event.link) {
+      window.open(event.link, "_blank", "noreferrer");
+    }
+  };
+
   return (
-    <Card className="group overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/15 hover:border-hotel-gold/50">
+    <Card
+      onClick={event.link ? handleCardClick : undefined}
+      role={event.link ? "button" : undefined}
+      tabIndex={event.link ? 0 : undefined}
+      onKeyDown={event.link ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleCardClick(); } } : undefined}
+      className={`group overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/15 hover:border-hotel-gold/50${event.link ? " cursor-pointer" : ""}`}
+    >
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
         <img
           src={imgSrc}
@@ -77,15 +89,10 @@ export const EventCard = ({ event }: EventCardProps) => {
         )}
 
         {event.link && (
-          <a
-            href={event.link}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1 text-xs font-medium text-primary underline-offset-4 hover:underline"
-          >
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-primary">
             Saiba mais
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </span>
         )}
       </CardContent>
     </Card>
