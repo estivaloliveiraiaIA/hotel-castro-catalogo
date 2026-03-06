@@ -1,7 +1,7 @@
 # Story E-UX.1: Polimento Visual — Navegacao, Header e Concierge em Destaque
 
 ## Status
-Ready for Dev
+Ready for Review
 
 ## Executor Assignment
 ```
@@ -24,12 +24,12 @@ quality_gate_tools: ["build", "typecheck", "lint"]
 6. App builda sem erros de TypeScript
 
 ## Tasks / Subtasks
-- [ ] Remover o campo de busca do Header.tsx (props query e onQueryChange podem ser removidas; Header passa a ser simples)
-- [ ] Atualizar Index.tsx: remover props query/onQueryChange do <Header /> e o estado relacionado (query, setQuery) que era exclusivo do header — manter a logica de busca interna da pagina via CategoryTabs/QuickActions
-- [ ] Adicionar <Header /> em Place.tsx, Itinerary.tsx, Itineraries.tsx e Events.tsx
-- [ ] Corrigir navigate(-1) → destinos fixos: Place → navigate("/"), Itinerary → navigate("/itineraries"), Itineraries → navigate("/"), Events → navigate("/")
-- [ ] Redesenhar ConciergeChat.tsx: tipografia do titulo maior (text-2xl/3xl), subtitulo mais descritivo, chips de sugestao com icones (ex: Utensils, Baby, Coffee, Moon, ShoppingBag), fundo com gradiente mais pronunciado ou borda dourada mais evidente
-- [ ] Verificar que o estado `query` em Index.tsx ainda funciona para busca interna (CategoryTabs/filtros) apos remocao do header search
+- [x] Remover o campo de busca do Header.tsx (props query e onQueryChange podem ser removidas; Header passa a ser simples)
+- [x] Atualizar Index.tsx: remover props query/onQueryChange do <Header /> e o estado relacionado (query, setQuery) que era exclusivo do header — manter a logica de busca interna da pagina via CategoryTabs/QuickActions
+- [x] Adicionar <Header /> em Place.tsx, Itinerary.tsx, Itineraries.tsx e Events.tsx
+- [x] Corrigir navigate(-1) → destinos fixos: Place → navigate("/"), Itinerary → navigate("/itineraries"), Itineraries → navigate("/"), Events → navigate("/")
+- [x] Redesenhar ConciergeChat.tsx: tipografia do titulo maior (text-2xl/3xl), subtitulo mais descritivo, chips de sugestao com icones (ex: Utensils, Baby, Coffee, Moon, ShoppingBag), fundo com gradiente mais pronunciado ou borda dourada mais evidente
+- [x] Verificar que o estado `query` em Index.tsx ainda funciona para busca interna (CategoryTabs/filtros) apos remocao do header search
 
 ## Dev Notes
 
