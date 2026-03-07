@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -54,17 +54,22 @@ const emptyPlace: Omit<Place, "id"> = {
   hours: "",
 };
 
+const APP_URL = "https://hotel-castro-catalogo-seven.vercel.app";
+const PAGE_SIZE = 50;
+
 export default function AdminPlaces() {
   const api = useAdminApi();
   const fileRef = useRef<HTMLInputElement>(null);
-
-  const PAGE_SIZE = 50;
 
   const [places, setPlaces] = useState<Place[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
+  const [activeFilter, setActiveFilter] = useState("");
+  const [recommendedFilter, setRecommendedFilter] = useState("");
   const [page, setPage] = useState(0);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [bulkLoading, setBulkLoading] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editing, setEditing] = useState<Place | null>(null);
   const [form, setForm] = useState<Omit<Place, "id">>(emptyPlace);
@@ -86,27 +91,56 @@ export default function AdminPlaces() {
   const categories = Array.from(new Set(places.map((p) => p.category))).sort();
 
   const filtered = places.filter((p) => {
-    const matchesSearch =
-      p.name.toLowerCase().includes(search.toLowerCase()) ||
-      p.category.toLowerCase().includes(search.toLowerCase());
+    const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase());
     const matchesCategory = !categoryFilter || p.category === categoryFilter;
-    return matchesSearch && matchesCategory;
+    const matchesActive =
+      !activeFilter ||
+      (activeFilter === "active" && p.is_active) ||
+      (activeFilter === "inactive" && !p.is_active);
+    const matchesRecommended =
+      !recommendedFilter ||
+      (recommendedFilter === "yes" && p.hotel_recommended) ||
+      (recommendedFilter === "no" && !p.hotel_recommended);
+    return matchesSearch && matchesCategory && matchesActive && matchesRecommended;
   });
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
-  const openCreate = () => {
-    setEditing(null);
-    setForm(emptyPlace);
-    setDialogOpen(true);
+  const resetFilters = () => {
+    setSearch(""); setCategoryFilter(""); setActiveFilter(""); setRecommendedFilter(""); setPage(0);
   };
 
-  const openEdit = (p: Place) => {
-    setEditing(p);
-    setForm({ ...p });
-    setDialogOpen(true);
+  const hasFilters = search || categoryFilter || activeFilter || recommendedFilter;
+
+  // ── Bulk actions ──────────────────────────────────────
+  const toggleSelect = (id: string) =>
+    setSelected((prev) => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s; });
+
+  const toggleSelectAll = () =>
+    setSelected(selected.size === paginated.length ? new Set() : new Set(paginated.map((p) => p.id)));
+
+  const bulkUpdate = async (patch: Partial<Place>) => {
+    setBulkLoading(true);
+    try {
+      const ids = Array.from(selected);
+      const results = await Promise.all(
+        ids.map((id) => api.put<Place>("/api/admin/places", { id, ...patch }))
+      );
+      setPlaces((prev) =>
+        prev.map((p) => { const r = results.find((u) => u.id === p.id); return r ?? p; })
+      );
+      setSelected(new Set());
+    } catch {
+      setError("Falha na ação em massa");
+    } finally {
+      setBulkLoading(false);
+    }
   };
+
+  // ── CRUD ─────────────────────────────────────────────
+  const openCreate = () => { setEditing(null); setForm(emptyPlace); setDialogOpen(true); };
+  const openEdit = (p: Place) => { setEditing(p); setForm({ ...p }); setDialogOpen(true); };
 
   const handleImageUpload = async (file: File) => {
     setUploadingImg(true);
@@ -151,10 +185,7 @@ export default function AdminPlaces() {
 
   const toggleRecommended = async (place: Place) => {
     try {
-      const updated = await api.put<Place>("/api/admin/places", {
-        id: place.id,
-        hotel_recommended: !place.hotel_recommended,
-      });
+      const updated = await api.put<Place>("/api/admin/places", { id: place.id, hotel_recommended: !place.hotel_recommended });
       setPlaces((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
     } catch {
       setError("Falha ao atualizar");
@@ -163,15 +194,14 @@ export default function AdminPlaces() {
 
   const toggleActive = async (place: Place) => {
     try {
-      const updated = await api.put<Place>("/api/admin/places", {
-        id: place.id,
-        is_active: !place.is_active,
-      });
+      const updated = await api.put<Place>("/api/admin/places", { id: place.id, is_active: !place.is_active });
       setPlaces((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
     } catch {
       setError("Falha ao atualizar");
     }
   };
+
+  const selectStyle = "rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-ring";
 
   return (
     <div className="p-6">
@@ -192,8 +222,9 @@ export default function AdminPlaces() {
         </p>
       )}
 
-      <div className="flex gap-2 mb-4">
-        <div className="relative flex-1">
+      {/* Filtros */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        <div className="relative flex-1 min-w-48">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
           <Input
             className="pl-9"
@@ -202,17 +233,39 @@ export default function AdminPlaces() {
             onChange={(e) => { setSearch(e.target.value); setPage(0); }}
           />
         </div>
-        <select
-          value={categoryFilter}
-          onChange={(e) => { setCategoryFilter(e.target.value); setPage(0); }}
-          className="rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-ring"
-        >
+        <select value={categoryFilter} onChange={(e) => { setCategoryFilter(e.target.value); setPage(0); }} className={selectStyle}>
           <option value="">Todas as categorias</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>{cat}</option>
-          ))}
+          {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
         </select>
+        <select value={activeFilter} onChange={(e) => { setActiveFilter(e.target.value); setPage(0); }} className={selectStyle}>
+          <option value="">Ativo / Inativo</option>
+          <option value="active">Ativos</option>
+          <option value="inactive">Inativos</option>
+        </select>
+        <select value={recommendedFilter} onChange={(e) => { setRecommendedFilter(e.target.value); setPage(0); }} className={selectStyle}>
+          <option value="">Recomendados / Todos</option>
+          <option value="yes">Recomendados</option>
+          <option value="no">Não recomendados</option>
+        </select>
+        {hasFilters && (
+          <button onClick={resetFilters} className="text-xs text-muted-foreground hover:text-foreground underline px-1">
+            Limpar filtros
+          </button>
+        )}
       </div>
+
+      {/* Bulk action bar */}
+      {selected.size > 0 && (
+        <div className="flex items-center gap-2 mb-3 px-4 py-2.5 rounded-lg bg-amber-50 border border-amber-200 text-sm">
+          <span className="font-medium text-amber-800">{selected.size} selecionados</span>
+          <span className="text-amber-300 mx-1">|</span>
+          <button onClick={() => bulkUpdate({ is_active: true })} disabled={bulkLoading} className="text-green-700 hover:underline disabled:opacity-50">Ativar</button>
+          <button onClick={() => bulkUpdate({ is_active: false })} disabled={bulkLoading} className="text-red-600 hover:underline disabled:opacity-50">Desativar</button>
+          <button onClick={() => bulkUpdate({ hotel_recommended: true })} disabled={bulkLoading} className="text-amber-700 hover:underline disabled:opacity-50">Recomendar</button>
+          <button onClick={() => bulkUpdate({ hotel_recommended: false })} disabled={bulkLoading} className="text-muted-foreground hover:underline disabled:opacity-50">Remover recomendação</button>
+          <button onClick={() => setSelected(new Set())} className="ml-auto text-muted-foreground hover:text-foreground">✕ Desmarcar</button>
+        </div>
+      )}
 
       {loading ? (
         <p className="text-muted-foreground/60 text-sm text-center py-12">Carregando...</p>
@@ -222,6 +275,14 @@ export default function AdminPlaces() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-100 bg-muted/40">
+                  <th className="px-4 py-3 w-8">
+                    <input
+                      type="checkbox"
+                      checked={paginated.length > 0 && selected.size === paginated.length}
+                      onChange={toggleSelectAll}
+                      className="rounded"
+                    />
+                  </th>
                   <th className="text-left px-4 py-3 font-medium text-muted-foreground">Nome</th>
                   <th className="text-left px-4 py-3 font-medium text-muted-foreground">Categoria</th>
                   <th className="text-center px-4 py-3 font-medium text-muted-foreground">Recomendado</th>
@@ -232,62 +293,47 @@ export default function AdminPlaces() {
               </thead>
               <tbody className="divide-y divide-border">
                 {paginated.map((place) => (
-                  <tr key={place.id} className="hover:bg-muted/40">
+                  <tr key={place.id} className={`hover:bg-muted/40 ${selected.has(place.id) ? "bg-amber-50/50" : ""}`}>
+                    <td className="px-4 py-3">
+                      <input type="checkbox" checked={selected.has(place.id)} onChange={() => toggleSelect(place.id)} className="rounded" />
+                    </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
-                        {place.image && (
-                          <img
-                            src={place.image}
-                            alt=""
-                            className="w-8 h-8 rounded object-cover shrink-0"
-                          />
-                        )}
+                        {place.image && <img src={place.image} alt="" className="w-8 h-8 rounded object-cover shrink-0" />}
                         <span className="font-medium text-foreground line-clamp-1">{place.name}</span>
                       </div>
                     </td>
                     <td className="px-4 py-3 text-muted-foreground">{place.category}</td>
                     <td className="px-4 py-3 text-center">
                       <button onClick={() => toggleRecommended(place)}>
-                        <Star
-                          className={`w-5 h-5 mx-auto ${
-                            place.hotel_recommended
-                              ? "text-amber-500 fill-amber-500"
-                              : "text-muted-foreground/30"
-                          }`}
-                        />
+                        <Star className={`w-5 h-5 mx-auto ${place.hotel_recommended ? "text-amber-500 fill-amber-500" : "text-muted-foreground/30"}`} />
                       </button>
                     </td>
                     <td className="px-4 py-3 text-center">
                       {place.hotel_score != null ? (
-                        <Badge variant="outline" className="text-xs">
-                          {place.hotel_score}
-                        </Badge>
+                        <Badge variant="outline" className="text-xs">{place.hotel_score}</Badge>
                       ) : (
                         <span className="text-muted-foreground/30">—</span>
                       )}
                     </td>
                     <td className="px-4 py-3 text-center">
-                      <Switch
-                        checked={place.is_active}
-                        onCheckedChange={() => toggleActive(place)}
-                      />
+                      <Switch checked={place.is_active} onCheckedChange={() => toggleActive(place)} />
                     </td>
                     <td className="px-4 py-3 text-right">
                       <div className="flex items-center justify-end gap-1">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="h-8 w-8 p-0"
-                          onClick={() => openEdit(place)}
+                        <a
+                          href={`${APP_URL}/place/${encodeURIComponent(place.id)}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          title="Ver no app"
+                          className="inline-flex items-center justify-center h-8 w-8 rounded hover:bg-muted text-muted-foreground/50 hover:text-hotel-gold transition-colors"
                         >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openEdit(place)}>
                           <Pencil className="w-4 h-4" />
                         </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="h-8 w-8 p-0 text-red-400 hover:text-red-600 hover:bg-red-50"
-                          onClick={() => handleDelete(place.id, place.name)}
-                        >
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-red-400 hover:text-red-600 hover:bg-red-50" onClick={() => handleDelete(place.id, place.name)}>
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       </div>
@@ -304,18 +350,10 @@ export default function AdminPlaces() {
             <div className="flex items-center justify-between px-4 py-3 border-t border-border bg-muted/20 text-sm text-muted-foreground">
               <span>{filtered.length} lugares · página {page + 1} de {totalPages}</span>
               <div className="flex items-center gap-1">
-                <button
-                  onClick={() => setPage((p) => Math.max(0, p - 1))}
-                  disabled={page === 0}
-                  className="p-1 rounded hover:bg-muted disabled:opacity-30"
-                >
+                <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0} className="p-1 rounded hover:bg-muted disabled:opacity-30">
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <button
-                  onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-                  disabled={page >= totalPages - 1}
-                  className="p-1 rounded hover:bg-muted disabled:opacity-30"
-                >
+                <button onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))} disabled={page >= totalPages - 1} className="p-1 rounded hover:bg-muted disabled:opacity-30">
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -324,6 +362,7 @@ export default function AdminPlaces() {
         </div>
       )}
 
+      {/* Dialog editar/criar */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
           <DialogHeader>
@@ -337,11 +376,7 @@ export default function AdminPlaces() {
               <Input value={form.category} onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))} />
             </Field>
             <Field label="Descrição">
-              <Textarea
-                rows={3}
-                value={form.description}
-                onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
-              />
+              <Textarea rows={3} value={form.description} onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))} />
             </Field>
             <Field label="Endereço">
               <Input value={form.address} onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))} />
@@ -355,125 +390,59 @@ export default function AdminPlaces() {
               </Field>
             </div>
             <Field label="URL do Cardápio">
-              <Input
-                type="url"
-                value={form.menu_url || ""}
-                onChange={(e) => setForm((f) => ({ ...f, menu_url: e.target.value }))}
-                placeholder="https://..."
-              />
+              <Input type="url" value={form.menu_url || ""} onChange={(e) => setForm((f) => ({ ...f, menu_url: e.target.value }))} placeholder="https://..." />
             </Field>
             <Field label="Subcategorias (separadas por vírgula)">
               <Input
                 value={(form.subcategories || []).join(", ")}
-                onChange={(e) =>
-                  setForm((f) => ({
-                    ...f,
-                    subcategories: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
-                  }))
-                }
+                onChange={(e) => setForm((f) => ({ ...f, subcategories: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) }))}
                 placeholder="brunch, café, sobremesa"
               />
             </Field>
             <Field label="Tags (separadas por vírgula)">
               <Input
                 value={(form.tags || []).join(", ")}
-                onChange={(e) =>
-                  setForm((f) => ({
-                    ...f,
-                    tags: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
-                  }))
-                }
+                onChange={(e) => setForm((f) => ({ ...f, tags: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) }))}
                 placeholder="romântico, família, vegano"
               />
             </Field>
             <Field label="Horários de funcionamento">
-              <Textarea
-                rows={3}
-                value={form.hours || ""}
-                onChange={(e) => setForm((f) => ({ ...f, hours: e.target.value }))}
-                placeholder={"Segunda a Sexta: 11h00–22h30\nSábado e Domingo: 10h00–23h00"}
-              />
+              <Textarea rows={3} value={form.hours || ""} onChange={(e) => setForm((f) => ({ ...f, hours: e.target.value }))} placeholder={"Segunda a Sexta: 11h00–22h30\nSábado e Domingo: 10h00–23h00"} />
             </Field>
             <div className="grid grid-cols-2 gap-3">
               <Field label="Score do hotel (1-100)">
-                <Input
-                  type="number"
-                  min={1}
-                  max={100}
-                  value={form.hotel_score ?? ""}
-                  onChange={(e) => setForm((f) => ({ ...f, hotel_score: e.target.value ? Number(e.target.value) : undefined }))}
-                />
+                <Input type="number" min={1} max={100} value={form.hotel_score ?? ""} onChange={(e) => setForm((f) => ({ ...f, hotel_score: e.target.value ? Number(e.target.value) : undefined }))} />
               </Field>
               <Field label="Nível de preço (1-4)">
-                <Input
-                  type="number"
-                  min={1}
-                  max={4}
-                  value={form.price_level ?? ""}
-                  onChange={(e) => setForm((f) => ({ ...f, price_level: e.target.value ? Number(e.target.value) : undefined }))}
-                />
+                <Input type="number" min={1} max={4} value={form.price_level ?? ""} onChange={(e) => setForm((f) => ({ ...f, price_level: e.target.value ? Number(e.target.value) : undefined }))} />
               </Field>
             </div>
             <Field label="Imagem">
               <div className="space-y-2">
-                {form.image && (
-                  <img src={form.image} alt="" className="w-full h-32 object-cover rounded-md" />
-                )}
+                {form.image && <img src={form.image} alt="" className="w-full h-32 object-cover rounded-md" />}
                 <div className="flex gap-2">
-                  <Input
-                    placeholder="URL da imagem"
-                    value={form.image || ""}
-                    onChange={(e) => setForm((f) => ({ ...f, image: e.target.value }))}
-                  />
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={() => fileRef.current?.click()}
-                    disabled={uploadingImg}
-                    className="shrink-0"
-                  >
+                  <Input placeholder="URL da imagem" value={form.image || ""} onChange={(e) => setForm((f) => ({ ...f, image: e.target.value }))} />
+                  <Button type="button" variant="outline" size="sm" onClick={() => fileRef.current?.click()} disabled={uploadingImg} className="shrink-0">
                     <Upload className="w-4 h-4" />
                   </Button>
                 </div>
-                <input
-                  ref={fileRef}
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) handleImageUpload(file);
-                  }}
-                />
+                <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={(e) => { const file = e.target.files?.[0]; if (file) handleImageUpload(file); }} />
                 {uploadingImg && <p className="text-xs text-muted-foreground/60">Enviando imagem...</p>}
               </div>
             </Field>
             <div className="flex items-center justify-between">
               <Label>Recomendado pelo hotel</Label>
-              <Switch
-                checked={form.hotel_recommended}
-                onCheckedChange={(v) => setForm((f) => ({ ...f, hotel_recommended: v }))}
-              />
+              <Switch checked={form.hotel_recommended} onCheckedChange={(v) => setForm((f) => ({ ...f, hotel_recommended: v }))} />
             </div>
             <div className="flex items-center justify-between">
               <Label>Ativo (visível no app)</Label>
-              <Switch
-                checked={form.is_active}
-                onCheckedChange={(v) => setForm((f) => ({ ...f, is_active: v }))}
-              />
+              <Switch checked={form.is_active} onCheckedChange={(v) => setForm((f) => ({ ...f, is_active: v }))} />
             </div>
             {error && <p className="text-sm text-red-500">{error}</p>}
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setDialogOpen(false)}>
-              Cancelar
-            </Button>
-            <Button
-              onClick={handleSave}
-              disabled={saving}
-              className="bg-amber-600 hover:bg-amber-700"
-            >
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancelar</Button>
+            <Button onClick={handleSave} disabled={saving} className="bg-amber-600 hover:bg-amber-700">
               {saving ? "Salvando..." : "Salvar"}
             </Button>
           </DialogFooter>

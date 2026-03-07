@@ -27,6 +27,7 @@ const AdminPlaces = lazy(() => import("./pages/admin/AdminPlaces"));
 const AdminEvents = lazy(() => import("./pages/admin/AdminEvents"));
 const AdminItineraries = lazy(() => import("./pages/admin/AdminItineraries"));
 const AdminPartners = lazy(() => import("./pages/admin/AdminPartners"));
+const AdminKnowledge = lazy(() => import("./pages/admin/AdminKnowledge"));
 
 const BASENAME = import.meta.env.BASE_URL;
 
@@ -70,6 +71,7 @@ const App = () => (
             <Route path="events" element={<Suspense fallback={null}><AdminEvents /></Suspense>} />
             <Route path="itineraries" element={<Suspense fallback={null}><AdminItineraries /></Suspense>} />
             <Route path="partners" element={<Suspense fallback={null}><AdminPartners /></Suspense>} />
+            <Route path="knowledge" element={<Suspense fallback={null}><AdminKnowledge /></Suspense>} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

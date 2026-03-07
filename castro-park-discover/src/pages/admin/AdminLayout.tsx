@@ -6,6 +6,7 @@ import {
   Calendar,
   Map,
   Handshake,
+  Bot,
   LogOut,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,7 @@ const navItems = [
   { to: "/admin/events", label: "Eventos", icon: Calendar, end: false },
   { to: "/admin/itineraries", label: "Roteiros", icon: Map, end: false },
   { to: "/admin/partners", label: "Parceiros", icon: Handshake, end: false },
+  { to: "/admin/knowledge", label: "Concierge IA", icon: Bot, end: false },
 ];
 
 export default function AdminLayout() {

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Plus, Pencil, Trash2, Upload, Calendar } from "lucide-react";
+import { Plus, Pencil, Trash2, Upload, Calendar, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -199,6 +199,15 @@ export default function AdminEvents() {
                 </p>
               </div>
               <div className="flex items-center gap-1 shrink-0">
+                <a
+                  href="https://hotel-castro-catalogo-seven.vercel.app/events"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Ver eventos no app"
+                  className="inline-flex items-center justify-center h-8 w-8 rounded hover:bg-muted text-muted-foreground/50 hover:text-hotel-gold transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
                 <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openEdit(ev)}>
                   <Pencil className="w-4 h-4" />
                 </Button>
