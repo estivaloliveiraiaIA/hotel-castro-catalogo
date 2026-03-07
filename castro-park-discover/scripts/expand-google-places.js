@@ -6,8 +6,8 @@ const KEY = process.env.GOOGLE_PLACES_API_KEY;
 const ROOT = path.resolve(".");
 const PLACES_JSON_PATH = path.join(ROOT, "public", "data", "places.json");
 
-const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6799);
-const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2540);
+const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6804);
+const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2541);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 

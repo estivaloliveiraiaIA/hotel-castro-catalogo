@@ -1,10 +1,10 @@
 import { Place } from "@/types/place";
 
 // Coordenadas do Castro's Park Hotel — Av. República do Líbano, 1520, St. Oeste, Goiânia
-// Plus Code: 8PCJ+6W St. Oeste, Goiânia - GO
+// Verificadas e consistentes com fix-distances-driving.js (ORS)
 export const HOTEL_COORDS = {
-  lat: -16.6794,
-  lng: -49.2677,
+  lat: -16.6804,
+  lng: -49.2541,
 };
 
 export function getGoogleMapsUrl(place: Place): string {

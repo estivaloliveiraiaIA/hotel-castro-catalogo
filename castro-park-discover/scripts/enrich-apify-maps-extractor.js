@@ -9,8 +9,8 @@ const PLACES_JSON_PATH = path.join(ROOT, "public", "data", "places.json");
 const ACTOR_ID = "compass~google-maps-extractor";
 const APIFY_API_BASE = "https://api.apify.com/v2";
 
-const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6799);
-const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.254);
+const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6804);
+const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2541);
 
 function parseArgs() {
   const args = process.argv.slice(2);

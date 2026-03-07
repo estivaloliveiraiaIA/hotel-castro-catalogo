@@ -9,8 +9,8 @@ const APIFY_TOKEN = process.env.APIFY_TOKEN;
 const APIFY_TOKEN_FREE = process.env.APIFY_TOKEN_FREE;
 const LOCATION_QUERY = process.env.LOCATION_QUERY || "Goiania, Goias, Brasil";
 const MAX_ITEMS = Number(process.env.MAX_RESULTS || 500);
-const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6799);
-const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2540);
+const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6804);
+const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2541);
 
 // Termos de busca específicos para Goiânia
 const SEARCH_TERMS = process.env.SEARCH_TERMS
