@@ -71,7 +71,7 @@ export const IpeHeroCard = () => {
               </ShimmerButton>
 
               <button
-                onClick={() => window.open("https://www.castrospark.com.br/experiencias/gastronomia/restaurante-ipe", "_blank", "noreferrer")}
+                onClick={() => window.open("https://castros-park-hotel-restaurante-ip-1.goomer.app/menu", "_blank", "noreferrer")}
                 className="inline-flex items-center gap-2 rounded-full border border-hotel-gold/40 px-5 py-2.5 text-sm font-medium text-hotel-gold/90 hover:border-hotel-gold/70 hover:text-hotel-gold transition-colors"
               >
                 <Wine className="h-3.5 w-3.5" />
