@@ -20,32 +20,38 @@ interface Place {
   name: string;
   category: string;
   subcategories: string[];
+  tags: string[];
   description: string;
   image: string | null;
   address: string;
   phone?: string;
   website?: string;
+  menu_url?: string;
   price_level?: number;
   hotel_recommended: boolean;
   hotel_score?: number;
   is_active: boolean;
   rating?: number;
+  hours?: string;
 }
 
 const emptyPlace: Omit<Place, "id"> = {
   name: "",
   category: "",
   subcategories: [],
+  tags: [],
   description: "",
   image: null,
   address: "",
   phone: "",
   website: "",
+  menu_url: "",
   price_level: undefined,
   hotel_recommended: false,
   hotel_score: undefined,
   is_active: true,
   rating: undefined,
+  hours: "",
 };
 
 export default function AdminPlaces() {
@@ -304,6 +310,46 @@ export default function AdminPlaces() {
                 <Input value={form.website || ""} onChange={(e) => setForm((f) => ({ ...f, website: e.target.value }))} />
               </Field>
             </div>
+            <Field label="URL do Cardápio">
+              <Input
+                type="url"
+                value={form.menu_url || ""}
+                onChange={(e) => setForm((f) => ({ ...f, menu_url: e.target.value }))}
+                placeholder="https://..."
+              />
+            </Field>
+            <Field label="Subcategorias (separadas por vírgula)">
+              <Input
+                value={(form.subcategories || []).join(", ")}
+                onChange={(e) =>
+                  setForm((f) => ({
+                    ...f,
+                    subcategories: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
+                  }))
+                }
+                placeholder="brunch, café, sobremesa"
+              />
+            </Field>
+            <Field label="Tags (separadas por vírgula)">
+              <Input
+                value={(form.tags || []).join(", ")}
+                onChange={(e) =>
+                  setForm((f) => ({
+                    ...f,
+                    tags: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
+                  }))
+                }
+                placeholder="romântico, família, vegano"
+              />
+            </Field>
+            <Field label="Horários de funcionamento">
+              <Textarea
+                rows={3}
+                value={form.hours || ""}
+                onChange={(e) => setForm((f) => ({ ...f, hours: e.target.value }))}
+                placeholder={"Segunda a Sexta: 11h00–22h30\nSábado e Domingo: 10h00–23h00"}
+              />
+            </Field>
             <div className="grid grid-cols-2 gap-3">
               <Field label="Score do hotel (1-100)">
                 <Input
