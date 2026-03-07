@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight, ExternalLink, X, ImagePlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,6 +15,49 @@ import {
 } from "@/components/ui/dialog";
 import { useAdminApi } from "@/hooks/useAdminApi";
 
+// ─── Taxonomia de categorias e subcategorias ───────────────────────────────
+const CATEGORIES: { value: string; label: string }[] = [
+  { value: "restaurants", label: "Restaurantes" },
+  { value: "cafes",       label: "Cafés & Padarias" },
+  { value: "nightlife",   label: "Vida Noturna" },
+  { value: "nature",      label: "Natureza" },
+  { value: "attractions", label: "Atrações" },
+  { value: "culture",     label: "Cultura" },
+  { value: "shopping",    label: "Compras" },
+];
+
+const SUBCATEGORY_OPTIONS: Record<string, string[]> = {
+  restaurants: [
+    "Italiana", "Japonesa", "Brasileira", "Churrascaria", "Hambúrguer",
+    "Pizza", "Contemporânea", "Frutos do mar", "Vegetariana/Vegana",
+    "Árabe", "Peruana", "Francesa", "Fast food", "Self service", "Rodízio", "Buffet",
+  ],
+  cafes: [
+    "Café colonial", "Café especial", "Padaria", "Confeitaria",
+    "Brunch", "Açaí", "Sorvetes", "Doces e bolos",
+  ],
+  nightlife: [
+    "Bar", "Pub", "Balada", "Karaokê", "Rooftop", "Boteco", "Clube", "Jazz bar", "Happy hour",
+  ],
+  nature: [
+    "Parque", "Lago", "Trilha", "Cachoeira", "Jardim botânico",
+    "Reserva ecológica", "Praça", "Área verde",
+  ],
+  attractions: [
+    "Museu", "Zoológico", "Aquário", "Parque temático",
+    "Mirante", "Ponto histórico", "Memorial", "Passeio guiado",
+  ],
+  culture: [
+    "Teatro", "Cinema", "Galeria de arte", "Centro cultural",
+    "Exposição", "Show", "Música ao vivo", "Dança",
+  ],
+  shopping: [
+    "Shopping center", "Mercado", "Outlet", "Mercado municipal",
+    "Feira", "Loja de roupas", "Loja de presentes", "Artesanato",
+  ],
+};
+
+// ─── Types ─────────────────────────────────────────────────────────────────
 interface Place {
   id: string;
   name: string;
@@ -23,6 +66,7 @@ interface Place {
   tags: string[];
   description: string;
   image: string | null;
+  gallery: string[];
   address: string;
   phone?: string;
   website?: string;
@@ -36,30 +80,21 @@ interface Place {
 }
 
 const emptyPlace: Omit<Place, "id"> = {
-  name: "",
-  category: "",
-  subcategories: [],
-  tags: [],
-  description: "",
-  image: null,
-  address: "",
-  phone: "",
-  website: "",
-  menu_url: "",
-  price_level: undefined,
-  hotel_recommended: false,
-  hotel_score: undefined,
-  is_active: true,
-  rating: undefined,
-  hours: "",
+  name: "", category: "", subcategories: [], tags: [],
+  description: "", image: null, gallery: [],
+  address: "", phone: "", website: "", menu_url: "",
+  price_level: undefined, hotel_recommended: false,
+  hotel_score: undefined, is_active: true, rating: undefined, hours: "",
 };
 
 const APP_URL = "https://hotel-castro-catalogo-seven.vercel.app";
 const PAGE_SIZE = 50;
 
+// ─── Componente principal ──────────────────────────────────────────────────
 export default function AdminPlaces() {
   const api = useAdminApi();
   const fileRef = useRef<HTMLInputElement>(null);
+  const galleryFileRef = useRef<HTMLInputElement>(null);
 
   const [places, setPlaces] = useState<Place[]>([]);
   const [loading, setLoading] = useState(true);
@@ -73,14 +108,15 @@ export default function AdminPlaces() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editing, setEditing] = useState<Place | null>(null);
   const [form, setForm] = useState<Omit<Place, "id">>(emptyPlace);
+  const [galleryInput, setGalleryInput] = useState("");
   const [saving, setSaving] = useState(false);
   const [uploadingImg, setUploadingImg] = useState(false);
+  const [uploadingGallery, setUploadingGallery] = useState(false);
   const [error, setError] = useState("");
 
   const load = () => {
     setLoading(true);
-    api
-      .get<Place[]>("/api/admin/places")
+    api.get<Place[]>("/api/admin/places")
       .then(setPlaces)
       .catch(() => setError("Falha ao carregar lugares"))
       .finally(() => setLoading(false));
@@ -88,8 +124,7 @@ export default function AdminPlaces() {
 
   useEffect(() => { load(); }, []);
 
-  const categories = Array.from(new Set(places.map((p) => p.category))).sort();
-
+  // ── Filtros ──────────────────────────────────────────────────────────────
   const filtered = places.filter((p) => {
     const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase());
     const matchesCategory = !categoryFilter || p.category === categoryFilter;
@@ -106,14 +141,13 @@ export default function AdminPlaces() {
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+  const hasFilters = search || categoryFilter || activeFilter || recommendedFilter;
 
   const resetFilters = () => {
     setSearch(""); setCategoryFilter(""); setActiveFilter(""); setRecommendedFilter(""); setPage(0);
   };
 
-  const hasFilters = search || categoryFilter || activeFilter || recommendedFilter;
-
-  // ── Bulk actions ──────────────────────────────────────
+  // ── Bulk actions ─────────────────────────────────────────────────────────
   const toggleSelect = (id: string) =>
     setSelected((prev) => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s; });
 
@@ -123,13 +157,10 @@ export default function AdminPlaces() {
   const bulkUpdate = async (patch: Partial<Place>) => {
     setBulkLoading(true);
     try {
-      const ids = Array.from(selected);
       const results = await Promise.all(
-        ids.map((id) => api.put<Place>("/api/admin/places", { id, ...patch }))
+        Array.from(selected).map((id) => api.put<Place>("/api/admin/places", { id, ...patch }))
       );
-      setPlaces((prev) =>
-        prev.map((p) => { const r = results.find((u) => u.id === p.id); return r ?? p; })
-      );
+      setPlaces((prev) => prev.map((p) => results.find((u) => u.id === p.id) ?? p));
       setSelected(new Set());
     } catch {
       setError("Falha na ação em massa");
@@ -138,25 +169,23 @@ export default function AdminPlaces() {
     }
   };
 
-  // ── CRUD ─────────────────────────────────────────────
-  const openCreate = () => { setEditing(null); setForm(emptyPlace); setDialogOpen(true); };
-  const openEdit = (p: Place) => { setEditing(p); setForm({ ...p }); setDialogOpen(true); };
+  // ── CRUD ─────────────────────────────────────────────────────────────────
+  const openCreate = () => {
+    setEditing(null);
+    setForm(emptyPlace);
+    setGalleryInput("");
+    setDialogOpen(true);
+  };
 
-  const handleImageUpload = async (file: File) => {
-    setUploadingImg(true);
-    try {
-      const url = await api.uploadImage(file);
-      setForm((f) => ({ ...f, image: url }));
-    } catch {
-      setError("Falha ao enviar imagem");
-    } finally {
-      setUploadingImg(false);
-    }
+  const openEdit = (p: Place) => {
+    setEditing(p);
+    setForm({ ...p, gallery: p.gallery || [] });
+    setGalleryInput("");
+    setDialogOpen(true);
   };
 
   const handleSave = async () => {
-    setSaving(true);
-    setError("");
+    setSaving(true); setError("");
     try {
       if (editing) {
         const updated = await api.put<Place>("/api/admin/places", { id: editing.id, ...form });
@@ -178,64 +207,90 @@ export default function AdminPlaces() {
     try {
       await api.del(`/api/admin/places?id=${id}`);
       setPlaces((prev) => prev.filter((p) => p.id !== id));
-    } catch {
-      setError("Falha ao remover lugar");
-    }
+    } catch { setError("Falha ao remover lugar"); }
   };
 
   const toggleRecommended = async (place: Place) => {
     try {
       const updated = await api.put<Place>("/api/admin/places", { id: place.id, hotel_recommended: !place.hotel_recommended });
       setPlaces((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
-    } catch {
-      setError("Falha ao atualizar");
-    }
+    } catch { setError("Falha ao atualizar"); }
   };
 
   const toggleActive = async (place: Place) => {
     try {
       const updated = await api.put<Place>("/api/admin/places", { id: place.id, is_active: !place.is_active });
       setPlaces((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
-    } catch {
-      setError("Falha ao atualizar");
-    }
+    } catch { setError("Falha ao atualizar"); }
   };
+
+  // ── Upload imagens ────────────────────────────────────────────────────────
+  const handleCoverUpload = async (file: File) => {
+    setUploadingImg(true);
+    try { setForm((f) => ({ ...f, image: await api.uploadImage(file) })); }
+    catch { setError("Falha ao enviar imagem"); }
+    finally { setUploadingImg(false); }
+  };
+
+  const handleGalleryUpload = async (file: File) => {
+    setUploadingGallery(true);
+    try {
+      const url = await api.uploadImage(file);
+      setForm((f) => ({ ...f, gallery: [...(f.gallery || []), url] }));
+    } catch { setError("Falha ao enviar imagem"); }
+    finally { setUploadingGallery(false); }
+  };
+
+  const addGalleryUrl = () => {
+    const url = galleryInput.trim();
+    if (!url) return;
+    setForm((f) => ({ ...f, gallery: [...(f.gallery || []), url] }));
+    setGalleryInput("");
+  };
+
+  const removeGalleryImage = (idx: number) =>
+    setForm((f) => ({ ...f, gallery: (f.gallery || []).filter((_, i) => i !== idx) }));
+
+  // ── Subcategorias ────────────────────────────────────────────────────────
+  const subcatOptions = SUBCATEGORY_OPTIONS[form.category] || [];
+
+  const toggleSubcat = (sub: string) =>
+    setForm((f) => ({
+      ...f,
+      subcategories: f.subcategories.includes(sub)
+        ? f.subcategories.filter((s) => s !== sub)
+        : [...f.subcategories, sub],
+    }));
 
   const selectStyle = "rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-ring";
 
   return (
     <div className="p-6">
+      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="font-serif text-2xl font-semibold text-foreground">Lugares</h1>
           <p className="text-muted-foreground text-sm">{places.length} lugares cadastrados</p>
         </div>
         <Button onClick={openCreate}>
-          <Plus className="w-4 h-4 mr-2" />
-          Novo Lugar
+          <Plus className="w-4 h-4 mr-2" />Novo Lugar
         </Button>
       </div>
 
       {error && (
-        <p className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded px-4 py-3 mb-4">
-          {error}
-        </p>
+        <p className="text-sm text-destructive bg-destructive/10 border border-destructive/20 rounded px-4 py-3 mb-4">{error}</p>
       )}
 
       {/* Filtros */}
       <div className="flex flex-wrap gap-2 mb-4">
         <div className="relative flex-1 min-w-48">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
-          <Input
-            className="pl-9"
-            placeholder="Buscar por nome..."
-            value={search}
-            onChange={(e) => { setSearch(e.target.value); setPage(0); }}
-          />
+          <Input className="pl-9" placeholder="Buscar por nome..." value={search}
+            onChange={(e) => { setSearch(e.target.value); setPage(0); }} />
         </div>
         <select value={categoryFilter} onChange={(e) => { setCategoryFilter(e.target.value); setPage(0); }} className={selectStyle}>
           <option value="">Todas as categorias</option>
-          {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
+          {CATEGORIES.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
         </select>
         <select value={activeFilter} onChange={(e) => { setActiveFilter(e.target.value); setPage(0); }} className={selectStyle}>
           <option value="">Ativo / Inativo</option>
@@ -248,9 +303,7 @@ export default function AdminPlaces() {
           <option value="no">Não recomendados</option>
         </select>
         {hasFilters && (
-          <button onClick={resetFilters} className="text-xs text-muted-foreground hover:text-foreground underline px-1">
-            Limpar filtros
-          </button>
+          <button onClick={resetFilters} className="text-xs text-muted-foreground hover:text-foreground underline px-1">Limpar filtros</button>
         )}
       </div>
 
@@ -267,6 +320,7 @@ export default function AdminPlaces() {
         </div>
       )}
 
+      {/* Tabela */}
       {loading ? (
         <p className="text-muted-foreground/60 text-sm text-center py-12">Carregando...</p>
       ) : (
@@ -276,12 +330,8 @@ export default function AdminPlaces() {
               <thead>
                 <tr className="border-b border-gray-100 bg-muted/40">
                   <th className="px-4 py-3 w-8">
-                    <input
-                      type="checkbox"
-                      checked={paginated.length > 0 && selected.size === paginated.length}
-                      onChange={toggleSelectAll}
-                      className="rounded"
-                    />
+                    <input type="checkbox" checked={paginated.length > 0 && selected.size === paginated.length}
+                      onChange={toggleSelectAll} className="rounded" />
                   </th>
                   <th className="text-left px-4 py-3 font-medium text-muted-foreground">Nome</th>
                   <th className="text-left px-4 py-3 font-medium text-muted-foreground">Categoria</th>
@@ -300,10 +350,17 @@ export default function AdminPlaces() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
                         {place.image && <img src={place.image} alt="" className="w-8 h-8 rounded object-cover shrink-0" />}
-                        <span className="font-medium text-foreground line-clamp-1">{place.name}</span>
+                        <div>
+                          <span className="font-medium text-foreground line-clamp-1">{place.name}</span>
+                          {(place.gallery || []).length > 0 && (
+                            <span className="text-[10px] text-muted-foreground/50 ml-1">+{place.gallery.length} foto{place.gallery.length > 1 ? "s" : ""}</span>
+                          )}
+                        </div>
                       </div>
                     </td>
-                    <td className="px-4 py-3 text-muted-foreground">{place.category}</td>
+                    <td className="px-4 py-3 text-muted-foreground">
+                      {CATEGORIES.find((c) => c.value === place.category)?.label ?? place.category}
+                    </td>
                     <td className="px-4 py-3 text-center">
                       <button onClick={() => toggleRecommended(place)}>
                         <Star className={`w-5 h-5 mx-auto ${place.hotel_recommended ? "text-amber-500 fill-amber-500" : "text-muted-foreground/30"}`} />
@@ -312,22 +369,15 @@ export default function AdminPlaces() {
                     <td className="px-4 py-3 text-center">
                       {place.hotel_score != null ? (
                         <Badge variant="outline" className="text-xs">{place.hotel_score}</Badge>
-                      ) : (
-                        <span className="text-muted-foreground/30">—</span>
-                      )}
+                      ) : <span className="text-muted-foreground/30">—</span>}
                     </td>
                     <td className="px-4 py-3 text-center">
                       <Switch checked={place.is_active} onCheckedChange={() => toggleActive(place)} />
                     </td>
                     <td className="px-4 py-3 text-right">
                       <div className="flex items-center justify-end gap-1">
-                        <a
-                          href={`${APP_URL}/place/${encodeURIComponent(place.id)}`}
-                          target="_blank"
-                          rel="noreferrer"
-                          title="Ver no app"
-                          className="inline-flex items-center justify-center h-8 w-8 rounded hover:bg-muted text-muted-foreground/50 hover:text-hotel-gold transition-colors"
-                        >
+                        <a href={`${APP_URL}/place/${encodeURIComponent(place.id)}`} target="_blank" rel="noreferrer"
+                          title="Ver no app" className="inline-flex items-center justify-center h-8 w-8 rounded hover:bg-muted text-muted-foreground/50 hover:text-hotel-gold transition-colors">
                           <ExternalLink className="w-4 h-4" />
                         </a>
                         <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openEdit(place)}>
@@ -350,37 +400,78 @@ export default function AdminPlaces() {
             <div className="flex items-center justify-between px-4 py-3 border-t border-border bg-muted/20 text-sm text-muted-foreground">
               <span>{filtered.length} lugares · página {page + 1} de {totalPages}</span>
               <div className="flex items-center gap-1">
-                <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0} className="p-1 rounded hover:bg-muted disabled:opacity-30">
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))} disabled={page >= totalPages - 1} className="p-1 rounded hover:bg-muted disabled:opacity-30">
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+                <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0} className="p-1 rounded hover:bg-muted disabled:opacity-30"><ChevronLeft className="w-4 h-4" /></button>
+                <button onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))} disabled={page >= totalPages - 1} className="p-1 rounded hover:bg-muted disabled:opacity-30"><ChevronRight className="w-4 h-4" /></button>
               </div>
             </div>
           )}
         </div>
       )}
 
-      {/* Dialog editar/criar */}
+      {/* Dialog editar / criar */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{editing ? "Editar Lugar" : "Novo Lugar"}</DialogTitle>
           </DialogHeader>
-          <div className="space-y-4 py-2">
+
+          <div className="space-y-5 py-2">
+
+            {/* ── Informações básicas ── */}
             <Field label="Nome">
               <Input value={form.name} onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))} />
             </Field>
-            <Field label="Categoria">
-              <Input value={form.category} onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))} />
-            </Field>
+
+            <div className="grid grid-cols-2 gap-3">
+              <Field label="Categoria">
+                <select
+                  value={form.category}
+                  onChange={(e) => setForm((f) => ({ ...f, category: e.target.value, subcategories: [] }))}
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-ring"
+                >
+                  <option value="">Selecionar categoria</option>
+                  {CATEGORIES.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
+                </select>
+              </Field>
+
+              <Field label="Nível de preço (1-4)">
+                <Input type="number" min={1} max={4} value={form.price_level ?? ""}
+                  onChange={(e) => setForm((f) => ({ ...f, price_level: e.target.value ? Number(e.target.value) : undefined }))} />
+              </Field>
+            </div>
+
+            {/* Subcategorias — só aparece quando categoria está selecionada */}
+            {form.category && subcatOptions.length > 0 && (
+              <Field label={`Subcategorias — ${CATEGORIES.find((c) => c.value === form.category)?.label}`}>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 rounded-md border border-input bg-background p-3">
+                  {subcatOptions.map((sub) => (
+                    <label key={sub} className="flex items-center gap-2 cursor-pointer text-sm hover:text-foreground">
+                      <input
+                        type="checkbox"
+                        checked={form.subcategories.includes(sub)}
+                        onChange={() => toggleSubcat(sub)}
+                        className="rounded"
+                      />
+                      <span className={form.subcategories.includes(sub) ? "text-foreground font-medium" : "text-muted-foreground"}>
+                        {sub}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+                {form.subcategories.length > 0 && (
+                  <p className="text-[11px] text-muted-foreground/60 mt-1">{form.subcategories.length} subcategoria(s) selecionada(s)</p>
+                )}
+              </Field>
+            )}
+
             <Field label="Descrição">
               <Textarea rows={3} value={form.description} onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))} />
             </Field>
+
             <Field label="Endereço">
               <Input value={form.address} onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))} />
             </Field>
+
             <div className="grid grid-cols-2 gap-3">
               <Field label="Telefone">
                 <Input value={form.phone || ""} onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))} />
@@ -389,16 +480,11 @@ export default function AdminPlaces() {
                 <Input value={form.website || ""} onChange={(e) => setForm((f) => ({ ...f, website: e.target.value }))} />
               </Field>
             </div>
+
             <Field label="URL do Cardápio">
               <Input type="url" value={form.menu_url || ""} onChange={(e) => setForm((f) => ({ ...f, menu_url: e.target.value }))} placeholder="https://..." />
             </Field>
-            <Field label="Subcategorias (separadas por vírgula)">
-              <Input
-                value={(form.subcategories || []).join(", ")}
-                onChange={(e) => setForm((f) => ({ ...f, subcategories: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) }))}
-                placeholder="brunch, café, sobremesa"
-              />
-            </Field>
+
             <Field label="Tags (separadas por vírgula)">
               <Input
                 value={(form.tags || []).join(", ")}
@@ -406,40 +492,113 @@ export default function AdminPlaces() {
                 placeholder="romântico, família, vegano"
               />
             </Field>
+
             <Field label="Horários de funcionamento">
-              <Textarea rows={3} value={form.hours || ""} onChange={(e) => setForm((f) => ({ ...f, hours: e.target.value }))} placeholder={"Segunda a Sexta: 11h00–22h30\nSábado e Domingo: 10h00–23h00"} />
+              <Textarea rows={3} value={form.hours || ""} onChange={(e) => setForm((f) => ({ ...f, hours: e.target.value }))}
+                placeholder={"Segunda a Sexta: 11h00–22h30\nSábado e Domingo: 10h00–23h00"} />
             </Field>
-            <div className="grid grid-cols-2 gap-3">
-              <Field label="Score do hotel (1-100)">
-                <Input type="number" min={1} max={100} value={form.hotel_score ?? ""} onChange={(e) => setForm((f) => ({ ...f, hotel_score: e.target.value ? Number(e.target.value) : undefined }))} />
-              </Field>
-              <Field label="Nível de preço (1-4)">
-                <Input type="number" min={1} max={4} value={form.price_level ?? ""} onChange={(e) => setForm((f) => ({ ...f, price_level: e.target.value ? Number(e.target.value) : undefined }))} />
-              </Field>
-            </div>
-            <Field label="Imagem">
-              <div className="space-y-2">
-                {form.image && <img src={form.image} alt="" className="w-full h-32 object-cover rounded-md" />}
-                <div className="flex gap-2">
-                  <Input placeholder="URL da imagem" value={form.image || ""} onChange={(e) => setForm((f) => ({ ...f, image: e.target.value }))} />
-                  <Button type="button" variant="outline" size="sm" onClick={() => fileRef.current?.click()} disabled={uploadingImg} className="shrink-0">
-                    <Upload className="w-4 h-4" />
-                  </Button>
+
+            <Field label="Score do hotel (1-100)">
+              <Input type="number" min={1} max={100} value={form.hotel_score ?? ""}
+                onChange={(e) => setForm((f) => ({ ...f, hotel_score: e.target.value ? Number(e.target.value) : undefined }))} />
+            </Field>
+
+            {/* ── Gestão de imagens ── */}
+            <div className="space-y-3 rounded-lg border border-border bg-muted/20 p-4">
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Imagens</p>
+
+              {/* Capa */}
+              <Field label="Imagem de capa (principal)">
+                <div className="space-y-2">
+                  {form.image && (
+                    <div className="relative inline-block">
+                      <img src={form.image} alt="" className="h-28 w-full object-cover rounded-md" />
+                      <button
+                        type="button"
+                        onClick={() => setForm((f) => ({ ...f, image: null }))}
+                        className="absolute top-1 right-1 bg-red-500 hover:bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs"
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                  )}
+                  <div className="flex gap-2">
+                    <Input
+                      placeholder="URL da imagem de capa"
+                      value={form.image || ""}
+                      onChange={(e) => setForm((f) => ({ ...f, image: e.target.value || null }))}
+                    />
+                    <Button type="button" variant="outline" size="sm" onClick={() => fileRef.current?.click()}
+                      disabled={uploadingImg} className="shrink-0">
+                      <Upload className="w-4 h-4" />
+                    </Button>
+                  </div>
+                  <input ref={fileRef} type="file" accept="image/*" className="hidden"
+                    onChange={(e) => { const f = e.target.files?.[0]; if (f) handleCoverUpload(f); }} />
+                  {uploadingImg && <p className="text-xs text-muted-foreground/60">Enviando...</p>}
                 </div>
-                <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={(e) => { const file = e.target.files?.[0]; if (file) handleImageUpload(file); }} />
-                {uploadingImg && <p className="text-xs text-muted-foreground/60">Enviando imagem...</p>}
+              </Field>
+
+              {/* Galeria */}
+              <Field label={`Galeria (${(form.gallery || []).length} foto${(form.gallery || []).length !== 1 ? "s" : ""})`}>
+                <div className="space-y-2">
+                  {/* Grid de thumbnails */}
+                  {(form.gallery || []).length > 0 && (
+                    <div className="grid grid-cols-4 gap-2">
+                      {(form.gallery || []).map((url, idx) => (
+                        <div key={idx} className="relative group">
+                          <img src={url} alt="" className="w-full h-16 object-cover rounded-md border border-border" />
+                          <button
+                            type="button"
+                            onClick={() => removeGalleryImage(idx)}
+                            className="absolute top-0.5 right-0.5 bg-red-500 hover:bg-red-600 text-white rounded-full w-4 h-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                          >
+                            <X className="w-2.5 h-2.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Adicionar por URL */}
+                  <div className="flex gap-2">
+                    <Input
+                      placeholder="URL de nova foto..."
+                      value={galleryInput}
+                      onChange={(e) => setGalleryInput(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addGalleryUrl(); } }}
+                    />
+                    <Button type="button" variant="outline" size="sm" onClick={addGalleryUrl} className="shrink-0">
+                      <Plus className="w-4 h-4" />
+                    </Button>
+                    <Button type="button" variant="outline" size="sm" onClick={() => galleryFileRef.current?.click()}
+                      disabled={uploadingGallery} className="shrink-0" title="Upload para galeria">
+                      <ImagePlus className="w-4 h-4" />
+                    </Button>
+                  </div>
+                  <input ref={galleryFileRef} type="file" accept="image/*" className="hidden"
+                    onChange={(e) => { const f = e.target.files?.[0]; if (f) handleGalleryUpload(f); e.target.value = ""; }} />
+                  {uploadingGallery && <p className="text-xs text-muted-foreground/60">Enviando para galeria...</p>}
+                  <p className="text-[11px] text-muted-foreground/50">Cole uma URL e pressione Enter, ou faça upload. Passe o mouse sobre a foto para remover.</p>
+                </div>
+              </Field>
+            </div>
+
+            {/* Switches */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <Label>Recomendado pelo hotel</Label>
+                <Switch checked={form.hotel_recommended} onCheckedChange={(v) => setForm((f) => ({ ...f, hotel_recommended: v }))} />
               </div>
-            </Field>
-            <div className="flex items-center justify-between">
-              <Label>Recomendado pelo hotel</Label>
-              <Switch checked={form.hotel_recommended} onCheckedChange={(v) => setForm((f) => ({ ...f, hotel_recommended: v }))} />
+              <div className="flex items-center justify-between">
+                <Label>Ativo (visível no app)</Label>
+                <Switch checked={form.is_active} onCheckedChange={(v) => setForm((f) => ({ ...f, is_active: v }))} />
+              </div>
             </div>
-            <div className="flex items-center justify-between">
-              <Label>Ativo (visível no app)</Label>
-              <Switch checked={form.is_active} onCheckedChange={(v) => setForm((f) => ({ ...f, is_active: v }))} />
-            </div>
+
             {error && <p className="text-sm text-red-500">{error}</p>}
           </div>
+
           <DialogFooter>
             <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancelar</Button>
             <Button onClick={handleSave} disabled={saving} className="bg-amber-600 hover:bg-amber-700">
@@ -454,8 +613,8 @@ export default function AdminPlaces() {
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="space-y-1">
-      <Label className="text-xs text-muted-foreground">{label}</Label>
+    <div className="space-y-1.5">
+      <Label className="text-xs font-medium text-muted-foreground">{label}</Label>
       {children}
     </div>
   );
