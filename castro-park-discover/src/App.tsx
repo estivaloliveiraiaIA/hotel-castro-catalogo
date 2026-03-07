@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import { BottomNav } from "./components/BottomNav";
 import { ConciergeFloat } from "./components/ConciergeFloat";
 import { PageSkeleton } from "./components/PageSkeleton";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 // Páginas públicas secundárias — lazy loaded para reduzir bundle inicial
 const Place = lazy(() => import("./pages/Place"));
@@ -45,6 +46,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename={BASENAME}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/place/:id" element={<Suspense fallback={<PageSkeleton />}><Place /></Suspense>} />
