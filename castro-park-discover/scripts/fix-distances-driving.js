@@ -28,9 +28,10 @@ const PLACES_JSON = path.join(ROOT, "public", "data", "places.json");
 const ORS_API_KEY = process.env.ORS_API_KEY;
 const ORS_MATRIX_URL = "https://api.openrouteservice.org/v2/matrix/driving-car";
 
-// Coordenadas precisas do Castro's Park Hotel
+// Coordenadas do Castro's Park Hotel — Av. República do Líbano, 1520, St. Oeste, Goiânia
+// Fonte: Google Maps (Place ID 0x935ef15d3fffff91:0xe79dd97bb706e727)
 // ⚠️  ORS usa formato [longitude, latitude] — diferente do padrão lat/lng!
-const HOTEL_COORD = [-49.2541, -16.6804]; // [lng, lat]
+const HOTEL_COORD = [-49.2677, -16.6794]; // [lng, lat]
 
 // ORS free tier: máximo de 3500 elementos por request (origins × destinations)
 // Com 1 origem: aceita até 3500 destinos por chamada.

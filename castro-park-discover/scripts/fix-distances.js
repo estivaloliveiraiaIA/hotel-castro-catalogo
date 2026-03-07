@@ -25,8 +25,8 @@ const PLACES_JSON = path.join(ROOT, "public", "data", "places.json");
 // Coordenadas precisas do Castro's Park Hotel
 // Av. República do Líbano, 1520 - St. Oeste, Goiânia - GO
 // ────────────────────────────────────────────────────────
-const HOTEL_LAT = -16.6804;
-const HOTEL_LNG = -49.2541;
+const HOTEL_LAT = -16.6794;
+const HOTEL_LNG = -49.2677;
 
 // ────────────────────────────────────────────────────────
 // Haversine — distância em linha reta entre dois pontos

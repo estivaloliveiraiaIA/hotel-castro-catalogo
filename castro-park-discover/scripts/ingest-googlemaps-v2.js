@@ -7,8 +7,8 @@ await loadEnv();
 
 const APIFY_TOKEN = process.env.APIFY_TOKEN_FREE || process.env.APIFY_TOKEN;
 const LOCATION = "Goiânia, Goiás, Brasil";
-const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6804);
-const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2541);
+const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6794);
+const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2677);
 
 // Categorias e termos de busca para Goiânia
 const SEARCH_QUERIES = [

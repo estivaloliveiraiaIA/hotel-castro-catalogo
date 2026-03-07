@@ -6,8 +6,8 @@ import Database from "better-sqlite3";
 await loadEnv();
 
 const APIFY_TOKEN = process.env.APIFY_TOKEN_FREE || process.env.APIFY_TOKEN;
-const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6804);
-const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2541);
+const HOTEL_LAT = Number(process.env.HOTEL_LAT || -16.6794);
+const HOTEL_LNG = Number(process.env.HOTEL_LNG || -49.2677);
 
 // Queries simplificadas para teste
 const SEARCH_QUERIES = [
