@@ -248,7 +248,10 @@ export default function AdminPlaces() {
   // ── Upload imagens ────────────────────────────────────────────────────────
   const handleCoverUpload = async (file: File) => {
     setUploadingImg(true);
-    try { setForm((f) => ({ ...f, image: await api.uploadImage(file) })); }
+    try {
+      const url = await api.uploadImage(file);
+      setForm((f) => ({ ...f, image: url }));
+    }
     catch { setError("Falha ao enviar imagem"); }
     finally { setUploadingImg(false); }
   };
