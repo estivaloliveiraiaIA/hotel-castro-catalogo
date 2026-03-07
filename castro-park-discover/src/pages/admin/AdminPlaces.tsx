@@ -156,11 +156,21 @@ export default function AdminPlaces() {
 
   const bulkUpdate = async (patch: Partial<Place>) => {
     setBulkLoading(true);
+    setError("");
     try {
-      const results = await Promise.all(
+      const results = await Promise.allSettled(
         Array.from(selected).map((id) => api.put<Place>("/api/admin/places", { id, ...patch }))
       );
-      setPlaces((prev) => prev.map((p) => results.find((u) => u.id === p.id) ?? p));
+      const succeeded = results
+        .filter((r): r is PromiseFulfilledResult<Place> => r.status === "fulfilled")
+        .map((r) => r.value);
+      const failCount = results.filter((r) => r.status === "rejected").length;
+      if (succeeded.length > 0) {
+        setPlaces((prev) => prev.map((p) => succeeded.find((u) => u.id === p.id) ?? p));
+      }
+      if (failCount > 0) {
+        setError(`${failCount} atualização(ões) falharam. ${succeeded.length} realizadas com sucesso.`);
+      }
       setSelected(new Set());
     } catch {
       setError("Falha na ação em massa");
@@ -400,8 +410,8 @@ export default function AdminPlaces() {
             <div className="flex items-center justify-between px-4 py-3 border-t border-border bg-muted/20 text-sm text-muted-foreground">
               <span>{filtered.length} lugares · página {page + 1} de {totalPages}</span>
               <div className="flex items-center gap-1">
-                <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0} className="p-1 rounded hover:bg-muted disabled:opacity-30"><ChevronLeft className="w-4 h-4" /></button>
-                <button onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))} disabled={page >= totalPages - 1} className="p-1 rounded hover:bg-muted disabled:opacity-30"><ChevronRight className="w-4 h-4" /></button>
+                <button onClick={() => { setPage((p) => Math.max(0, p - 1)); setSelected(new Set()); }} disabled={page === 0} className="p-1 rounded hover:bg-muted disabled:opacity-30"><ChevronLeft className="w-4 h-4" /></button>
+                <button onClick={() => { setPage((p) => Math.min(totalPages - 1, p + 1)); setSelected(new Set()); }} disabled={page >= totalPages - 1} className="p-1 rounded hover:bg-muted disabled:opacity-30"><ChevronRight className="w-4 h-4" /></button>
               </div>
             </div>
           )}

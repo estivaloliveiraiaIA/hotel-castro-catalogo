@@ -28,6 +28,7 @@ export default async function handler(req, res) {
   if (req.method === "PUT") {
     const { id, topic, content, keywords } = req.body || {};
     if (!id) return res.status(400).json({ error: "id obrigatório" });
+    if (!topic || !content) return res.status(400).json({ error: "topic e content obrigatórios" });
     const { data, error } = await supabase
       .from("hotel_knowledge")
       .update({ topic, content, keywords })

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Plus, Pencil, Trash2, Bot } from "lucide-react";
+import { Plus, Pencil, Trash2, Bot, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,6 +33,7 @@ export default function AdminKnowledge() {
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
 
   const load = () => {
     setLoading(true);
@@ -100,8 +101,18 @@ export default function AdminKnowledge() {
         </Button>
       </div>
 
-      <div className="mb-5 rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-xs text-amber-800">
+      <div className="mb-4 rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-xs text-amber-800">
         Cada chunk é um bloco de informação que o concierge usa para responder perguntas sobre o hotel. Edite com cuidado — alterações afetam imediatamente as respostas da IA.
+      </div>
+
+      <div className="relative mb-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+        <Input
+          className="pl-9"
+          placeholder="Buscar por tópico, conteúdo ou keyword..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
 
       {error && (
@@ -116,9 +127,21 @@ export default function AdminKnowledge() {
           <p>Nenhum chunk cadastrado</p>
           <Button variant="outline" className="mt-4" onClick={openCreate}>Adicionar primeiro chunk</Button>
         </div>
-      ) : (
+      ) : (() => {
+        const q = search.toLowerCase().trim();
+        const visible = q
+          ? chunks.filter((c) =>
+              c.topic.toLowerCase().includes(q) ||
+              c.content.toLowerCase().includes(q) ||
+              (c.keywords || []).some((kw) => kw.toLowerCase().includes(q))
+            )
+          : chunks;
+        return (
         <div className="space-y-2">
-          {chunks.map((chunk) => (
+          {visible.length === 0 && (
+            <p className="text-center text-muted-foreground/60 text-sm py-12">Nenhum chunk encontrado para "{search}"</p>
+          )}
+          {visible.map((chunk) => (
             <div key={chunk.id} className="bg-background rounded-lg border border-border p-4">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1 min-w-0">
@@ -147,7 +170,8 @@ export default function AdminKnowledge() {
             </div>
           ))}
         </div>
-      )}
+        );
+      })()}
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">

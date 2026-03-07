@@ -18,11 +18,13 @@ export default async function handler(req, res) {
   if (!verifyToken(req)) return unauthorized(res);
 
   if (req.method === "GET") {
+    // gallery é omitido da listagem geral (payload pesado, não usado na tabela).
+    // É carregado apenas no PUT/POST via pickAllowed quando o admin edita um lugar.
     const { data, error } = await supabase
       .from("places")
-      .select("id, name, category, subcategories, rating, price_level, description, image, gallery, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url")
+      .select("id, name, category, subcategories, rating, price_level, description, image, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url")
       .order("hotel_score", { ascending: false, nullsFirst: false });
-    if (error) return res.status(500).json({ error: "Erro ao buscar lugares" });
+    if (error) return res.status(500).json({ error: `Erro ao buscar lugares: ${error.message}` });
     return res.status(200).json(data);
   }
 
