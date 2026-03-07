@@ -103,7 +103,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "shimmer-slide": "shimmer-slide var(--speed) ease-in-out infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
-        "fade-up": "fade-up 0.7s ease-out forwards",
+        "fade-up": "fade-up 0.7s ease-out both",
       },
     },
   },
