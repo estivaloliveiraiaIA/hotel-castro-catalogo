@@ -345,6 +345,7 @@ const Index = () => {
                       label="Roteiros Temáticos"
                       autoplayDelay={2800}
                       slideBasis="basis-[85%] sm:basis-[48%] lg:basis-[34%]"
+                      containerHeight="h-[235px] md:h-[250px]"
                       items={itineraries.map((itinerary) => (
                         <ItineraryCard key={itinerary.id} itinerary={itinerary} />
                       ))}

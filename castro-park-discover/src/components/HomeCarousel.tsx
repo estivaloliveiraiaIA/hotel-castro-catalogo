@@ -7,12 +7,14 @@ interface HomeCarouselProps {
   slideBasis?: string; // mantido para compatibilidade, não usado no modo 3D
   autoplayDelay?: number;
   label?: string;
+  containerHeight?: string;
 }
 
 export const HomeCarousel = ({
   items,
   autoplayDelay = 4500,
   label = "Carousel",
+  containerHeight = "h-[360px] md:h-[420px]",
 }: HomeCarouselProps) => {
   const [current, setCurrent] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -61,7 +63,7 @@ export const HomeCarousel = ({
     >
       {/* Container 3D */}
       <div
-        className="relative h-[360px] md:h-[420px] overflow-visible"
+        className={cn("relative overflow-visible", containerHeight)}
         style={{ perspective: "1200px" }}
       >
         {items.map((item, i) => {
