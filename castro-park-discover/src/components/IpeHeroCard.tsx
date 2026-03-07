@@ -4,7 +4,7 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 const PILLS = [
   { label: "72 pratos" },
   { label: "Feijoada premiada · Sábados" },
-  { label: "11h às 23h" },
+  { label: "11h às 22h30" },
 ];
 
 export const IpeHeroCard = () => {

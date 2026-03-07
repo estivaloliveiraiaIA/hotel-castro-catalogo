@@ -3,7 +3,7 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const FACTS = [
   { icon: Music, label: "Música ao vivo · Sábados" },
-  { icon: Clock, label: "Seg–Dom · 11h às 23h" },
+  { icon: Clock, label: "Seg–Dom · 11h às 22h30" },
   { icon: Phone, label: "Café da manhã incluso" },
 ];
 
