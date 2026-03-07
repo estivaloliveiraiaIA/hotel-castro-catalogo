@@ -18,8 +18,20 @@ export default async function handler(req, res) {
   if (!verifyToken(req)) return unauthorized(res);
 
   if (req.method === "GET") {
-    // gallery é omitido da listagem geral (payload pesado, não usado na tabela).
-    // É carregado apenas no PUT/POST via pickAllowed quando o admin edita um lugar.
+    const { id } = req.query;
+
+    // GET ?id=xxx — busca lugar completo (com gallery) para o formulário de edição
+    if (id) {
+      const { data, error } = await supabase
+        .from("places")
+        .select("id, name, category, subcategories, rating, price_level, description, image, gallery, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url")
+        .eq("id", id)
+        .single();
+      if (error) return res.status(404).json({ error: `Lugar não encontrado: ${error.message}` });
+      return res.status(200).json(data);
+    }
+
+    // GET sem id — listagem geral sem gallery (payload reduzido para 500 registros)
     const { data, error } = await supabase
       .from("places")
       .select("id, name, category, subcategories, rating, price_level, description, image, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url")

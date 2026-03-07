@@ -105,6 +105,7 @@ export default function AdminPlaces() {
   const [page, setPage] = useState(0);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [bulkLoading, setBulkLoading] = useState(false);
+  const [loadingEditId, setLoadingEditId] = useState<string | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editing, setEditing] = useState<Place | null>(null);
   const [form, setForm] = useState<Omit<Place, "id">>(emptyPlace);
@@ -187,9 +188,19 @@ export default function AdminPlaces() {
     setDialogOpen(true);
   };
 
-  const openEdit = (p: Place) => {
-    setEditing(p);
-    setForm({ ...p, gallery: p.gallery || [] });
+  const openEdit = async (p: Place) => {
+    // Busca dados completos (incluindo gallery) antes de abrir o dialog
+    setLoadingEditId(p.id);
+    let full = p;
+    try {
+      full = await api.get<Place>(`/api/admin/places?id=${p.id}`);
+    } catch {
+      // fallback: usa dados da lista (gallery será vazio)
+    } finally {
+      setLoadingEditId(null);
+    }
+    setEditing(full);
+    setForm({ ...full, gallery: full.gallery || [] });
     setGalleryInput("");
     setDialogOpen(true);
   };
@@ -390,8 +401,8 @@ export default function AdminPlaces() {
                           title="Ver no app" className="inline-flex items-center justify-center h-8 w-8 rounded hover:bg-muted text-muted-foreground/50 hover:text-hotel-gold transition-colors">
                           <ExternalLink className="w-4 h-4" />
                         </a>
-                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openEdit(place)}>
-                          <Pencil className="w-4 h-4" />
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openEdit(place)} disabled={loadingEditId === place.id}>
+                          <Pencil className={`w-4 h-4 ${loadingEditId === place.id ? "animate-spin opacity-50" : ""}`} />
                         </Button>
                         <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-red-400 hover:text-red-600 hover:bg-red-50" onClick={() => handleDelete(place.id, place.name)}>
                           <Trash2 className="w-4 h-4" />
