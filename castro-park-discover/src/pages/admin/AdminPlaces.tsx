@@ -28,7 +28,7 @@ const CATEGORIES: { value: string; label: string }[] = [
 
 const SUBCATEGORY_OPTIONS: Record<string, string[]> = {
   restaurants: [
-    "Italiana", "Japonesa", "Brasileira", "Churrascaria", "Hambúrguer",
+    "Italiana", "Japonesa", "Brasileira", "Típica Goiana", "Churrascaria", "Hambúrguer",
     "Pizza", "Contemporânea", "Frutos do mar", "Vegetariana/Vegana",
     "Árabe", "Peruana", "Francesa", "Fast food", "Self service", "Rodízio", "Buffet",
   ],
