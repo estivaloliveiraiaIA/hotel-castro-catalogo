@@ -74,7 +74,7 @@ export const ConciergeChatPanel = ({
           <div className="space-y-4">
             <div className="text-center py-6">
               <p className="font-serif text-sm italic text-muted-foreground leading-relaxed">
-                Olá! Sou o concierge digital do Castro's Park Hotel.<br />
+                Olá! Sou a concierge digital do Castro's Park Hotel.<br />
                 Como posso ajudar você a aproveitar Goiânia?
               </p>
             </div>
