@@ -1,4 +1,8 @@
+import * as React from "react";
 import { BackgroundPaths } from "@/components/BackgroundPaths";
+
+const HERO_IMAGES = ["/images/hero1.jpg", "/images/hero2.jpg"];
+const SLIDE_INTERVAL = 5000; // ms
 
 interface HeroProps {
   totalPlaces: number;
@@ -8,17 +12,28 @@ interface HeroProps {
 
 export const Hero = ({ updatedAt }: HeroProps) => {
   const updatedText = updatedAt ? new Date(updatedAt).toLocaleString("pt-BR") : null;
+  const [current, setCurrent] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, SLIDE_INTERVAL);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="relative overflow-hidden py-24 text-white md:py-36">
-      {/* Imagem de fundo full-bleed — Goiânia / paisagem urbana */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[8s] ease-out scale-105 group-hover:scale-100"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80&auto=format&fit=crop')",
-        }}
-      />
+      {/* Slideshow de imagens com crossfade */}
+      {HERO_IMAGES.map((src, i) => (
+        <div
+          key={src}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out"
+          style={{
+            backgroundImage: `url('${src}')`,
+            opacity: i === current ? 1 : 0,
+          }}
+        />
+      ))}
       {/* Overlay escuro com gradiente — mantém legibilidade */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       {/* BackgroundPaths animado sobre o overlay */}
