@@ -132,6 +132,11 @@ export default function AdminEvents() {
     return new Date(str).toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" });
   };
 
+  const isExpired = (ev: Event) => {
+    const ref = ev.end_date || ev.start_date;
+    return ref ? new Date(ref) < new Date(new Date().toDateString()) : false;
+  };
+
   return (
     <div className="p-6">
       <div className="flex items-center justify-between mb-6">
@@ -178,9 +183,13 @@ export default function AdminEvents() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="font-semibold text-foreground">{ev.title}</span>
-                  <Badge variant={ev.is_active ? "default" : "secondary"} className="text-xs">
-                    {ev.is_active ? "Ativo" : "Inativo"}
-                  </Badge>
+                  {isExpired(ev) ? (
+                    <Badge variant="secondary" className="text-xs text-muted-foreground">Encerrado</Badge>
+                  ) : (
+                    <Badge variant={ev.is_active ? "default" : "secondary"} className="text-xs">
+                      {ev.is_active ? "Ativo" : "Inativo"}
+                    </Badge>
+                  )}
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2 mb-1">{ev.description}</p>
                 <p className="text-xs text-muted-foreground/60">

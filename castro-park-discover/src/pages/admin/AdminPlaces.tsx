@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Search, Plus, Pencil, Trash2, Star, Upload } from "lucide-react";
+import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -58,9 +58,13 @@ export default function AdminPlaces() {
   const api = useAdminApi();
   const fileRef = useRef<HTMLInputElement>(null);
 
+  const PAGE_SIZE = 50;
+
   const [places, setPlaces] = useState<Place[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [page, setPage] = useState(0);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editing, setEditing] = useState<Place | null>(null);
   const [form, setForm] = useState<Omit<Place, "id">>(emptyPlace);
@@ -79,11 +83,18 @@ export default function AdminPlaces() {
 
   useEffect(() => { load(); }, []);
 
-  const filtered = places.filter(
-    (p) =>
+  const categories = Array.from(new Set(places.map((p) => p.category))).sort();
+
+  const filtered = places.filter((p) => {
+    const matchesSearch =
       p.name.toLowerCase().includes(search.toLowerCase()) ||
-      p.category.toLowerCase().includes(search.toLowerCase())
-  );
+      p.category.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = !categoryFilter || p.category === categoryFilter;
+    return matchesSearch && matchesCategory;
+  });
+
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  const paginated = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
   const openCreate = () => {
     setEditing(null);
@@ -181,14 +192,26 @@ export default function AdminPlaces() {
         </p>
       )}
 
-      <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
-        <Input
-          className="pl-9"
-          placeholder="Buscar por nome ou categoria..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+      <div className="flex gap-2 mb-4">
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+          <Input
+            className="pl-9"
+            placeholder="Buscar por nome..."
+            value={search}
+            onChange={(e) => { setSearch(e.target.value); setPage(0); }}
+          />
+        </div>
+        <select
+          value={categoryFilter}
+          onChange={(e) => { setCategoryFilter(e.target.value); setPage(0); }}
+          className="rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+        >
+          <option value="">Todas as categorias</option>
+          {categories.map((cat) => (
+            <option key={cat} value={cat}>{cat}</option>
+          ))}
+        </select>
       </div>
 
       {loading ? (
@@ -208,7 +231,7 @@ export default function AdminPlaces() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
-                {filtered.map((place) => (
+                {paginated.map((place) => (
                   <tr key={place.id} className="hover:bg-muted/40">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
@@ -276,6 +299,27 @@ export default function AdminPlaces() {
           </div>
           {filtered.length === 0 && (
             <p className="text-center text-muted-foreground/60 text-sm py-12">Nenhum lugar encontrado</p>
+          )}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between px-4 py-3 border-t border-border bg-muted/20 text-sm text-muted-foreground">
+              <span>{filtered.length} lugares · página {page + 1} de {totalPages}</span>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setPage((p) => Math.max(0, p - 1))}
+                  disabled={page === 0}
+                  className="p-1 rounded hover:bg-muted disabled:opacity-30"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                  disabled={page >= totalPages - 1}
+                  className="p-1 rounded hover:bg-muted disabled:opacity-30"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
           )}
         </div>
       )}

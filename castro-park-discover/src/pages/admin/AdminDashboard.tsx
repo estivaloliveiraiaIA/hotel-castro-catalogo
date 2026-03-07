@@ -6,6 +6,7 @@ import { useAdminApi } from "@/hooks/useAdminApi";
 
 interface Stats {
   places: number;
+  places_active: number;
   events: number;
   itineraries: number;
   partners: number;
@@ -55,7 +56,12 @@ export default function AdminDashboard() {
                 <p className="text-2xl font-bold text-foreground">
                   {stats ? stats[key].toLocaleString("pt-BR") : "—"}
                 </p>
-                <p className="text-xs text-muted-foreground mt-0.5">{label}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {label}
+                  {key === "places" && stats && (
+                    <span className="ml-1 text-green-600">({stats.places_active} ativos)</span>
+                  )}
+                </p>
               </CardContent>
             </Card>
           </Link>
