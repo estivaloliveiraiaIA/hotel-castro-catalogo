@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { PlaceCard } from "@/components/PlaceCard";
 import { SkeletonGrid } from "@/components/PlaceCardSkeleton";
 import { BackgroundPaths } from "@/components/BackgroundPaths";
+import { IpeHeroCard } from "@/components/IpeHeroCard";
 import { Button } from "@/components/ui/button";
 import { usePlaces } from "@/hooks/usePlaces";
 import { usePartners } from "@/hooks/usePartners";
@@ -115,6 +116,9 @@ const Recomendados = () => {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent" />
       </section>
+
+      {/* Restaurante Ipê — destaque principal */}
+      <IpeHeroCard />
 
       {/* Filtros */}
       {!isLoading && categories.length > 1 && (

@@ -10,6 +10,7 @@ import { EventCard } from "@/components/EventCard";
 import { HomeCarousel } from "@/components/HomeCarousel";
 import { SkeletonGrid } from "@/components/PlaceCardSkeleton";
 import { ConciergeChat } from "@/components/ConciergeChat";
+import { IpeStripBanner } from "@/components/IpeStripBanner";
 import { CONCIERGE_OPEN_EVENT } from "@/components/ConciergeFloat";
 import { PartnerBadge } from "@/components/PartnerBadge";
 import { Button } from "@/components/ui/button";
@@ -174,6 +175,7 @@ const Index = () => {
       <div id="concierge-section">
         <ConciergeChat onOpenChat={() => window.dispatchEvent(new Event(CONCIERGE_OPEN_EVENT))} />
       </div>
+      <IpeStripBanner />
       <CategoryTabs
         selectedCategory={selectedCategory}
         onCategoryChange={(value) => {
