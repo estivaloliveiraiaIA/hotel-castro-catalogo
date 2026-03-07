@@ -93,12 +93,17 @@ export default {
           "65%, 85%": { transform: "translateZ(0) rotate(270deg)" },
           "100%": { transform: "translateZ(0) rotate(360deg)" },
         },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(18px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "shimmer-slide": "shimmer-slide var(--speed) ease-in-out infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
+        "fade-up": "fade-up 0.7s ease-out forwards",
       },
     },
   },
