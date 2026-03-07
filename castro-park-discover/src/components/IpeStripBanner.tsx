@@ -2,7 +2,7 @@ import { Phone, Clock, Music } from "lucide-react";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const FACTS = [
-  { icon: Music, label: "Piano ao vivo · Sábados" },
+  { icon: Music, label: "Música ao vivo · Sábados" },
   { icon: Clock, label: "Seg–Dom · 11h às 23h" },
   { icon: Phone, label: "Café da manhã incluso" },
 ];

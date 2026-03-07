@@ -80,13 +80,13 @@ export const IpeHeroCard = () => {
             </div>
           </div>
 
-          {/* Lado direito — Piano ao vivo */}
+          {/* Lado direito — Música ao vivo */}
           <div className="hidden md:flex flex-col items-center gap-2 shrink-0 text-center">
             <div className="flex h-10 w-10 items-center justify-center rounded-full border border-hotel-gold/30 bg-hotel-gold/10">
               <Music className="h-4 w-4 text-hotel-gold" />
             </div>
             <p className="text-xs text-primary-foreground/50 leading-tight">
-              Piano ao vivo<br />todo sábado
+              Música ao vivo<br />todo sábado
             </p>
           </div>
 
