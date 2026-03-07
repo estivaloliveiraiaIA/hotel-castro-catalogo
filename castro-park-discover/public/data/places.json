@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-07T14:15:54.393Z",
+  "updatedAt": "2026-03-07T15:45:28.407Z",
   "location": {
     "query": "Goiânia, GO"
   },
@@ -501,51 +501,6 @@
       ]
     },
     {
-      "id": "ChIJq8KpLAAR9YgR6Rjmlral7XA",
-      "sourceId": "ChIJq8KpLAAR9YgR6Rjmlral7XA",
-      "name": "Bom Brazil",
-      "category": "restaurants",
-      "rating": 4.9,
-      "reviewCount": 134,
-      "priceLevel": 0,
-      "priceText": null,
-      "description": "Restaurante brasileiro, Restaurante de almoço em Goiânia",
-      "image": "https://lh3.googleusercontent.com/places/ANXAkqHq243FYCKm1NOFK6esYW42SMAEf8586bNG0QpIm7qBgqm54PEoo_SJ8Tt4h5b4qpNCU-r9enYPPGkQIAjQmiro7qRhB1NvWF0=s1600-w1200",
-      "address": "570 Cobb Pkwy SE, Marietta, GA 30060, EUA",
-      "latitude": 33.9383008,
-      "longitude": -84.51436319999999,
-      "distanceKm": 6754.69,
-      "phone": "(770) 999-1167",
-      "website": "http://bom-brazil.com/",
-      "tags": [
-        "Restaurante"
-      ],
-      "sourceUrl": "https://maps.google.com/?cid=8137342305362647273",
-      "gallery": [
-        "https://lh3.googleusercontent.com/places/ANXAkqHq243FYCKm1NOFK6esYW42SMAEf8586bNG0QpIm7qBgqm54PEoo_SJ8Tt4h5b4qpNCU-r9enYPPGkQIAjQmiro7qRhB1NvWF0=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqEO6gIG5KjH6_7a7yDaQfcMWBG1xVLiWPpzl-C8KNFZCu2vtoDgYxiEl3QS46LjFtENKtvq3zZ1LyAmAU2BW5MbltB_Y2BVjR0=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNHrytmCxLF4jpU7il426ebjdaYggB4K7oXYm18855vLJLG0o9R-I9xWDLUPE974gPoiz6IFZK59sPFN7dSMJbAQKoMRruKASGNSyp9yiNSbeOqQZCFeaR7HBrwErykwS2nYuV8FP8FX3tj7lg=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqE2gaWC3ASla6UN1rotIdTastt2lpMO0e263j0JMScUW2VF8RhTLrpM5Mod8VySI-uP2Vgc43c9wo7NPvQq4UHchp3DEGDDqSs=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqHZ-CquZHfH5WhibfGD1m3UmaVARd6yNVAoC8ubK0yp2g-Gek29owOsVkp66283cAPMmnmPhY6G_kcSem-C08WZdfhlTAv-ARQ=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNG0F3nMPnkvLy3ZWOcx0em0TN02RJIJhV5vkd3LglJrn3AeNDWS_JGD_lkfOxIAVQJZF4r_yfwkOHYx_90G4r7rnH9HFRFY_kC-TWsw9X0SwwhP8MCuZFIj-g-x_LYcbOx-YyBFN2zL8E5rR38VmvgR_Q=s1600-w1200"
-      ],
-      "hours": [
-        "segunda-feira: 10:30 – 19:00",
-        "terça-feira: 10:30 – 19:00",
-        "quarta-feira: 10:30 – 19:00",
-        "quinta-feira: 10:30 – 19:00",
-        "sexta-feira: 10:30 – 19:00",
-        "sábado: 10:30 – 17:00",
-        "domingo: 10:30 – 17:00"
-      ],
-      "openStatusText": "Aberto agora",
-      "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:38:53.612Z",
-      "subcategories": [
-        "Restaurante"
-      ]
-    },
-    {
       "id": "ChIJIzNSvM_3XpMRL99rCHCZUe4",
       "sourceId": "ChIJIzNSvM_3XpMRL99rCHCZUe4",
       "name": "Parquinho",
@@ -727,51 +682,6 @@
       "_enrichedAt": "2026-02-11T17:39:00.107Z",
       "subcategories": [
         "Cafeteria"
-      ]
-    },
-    {
-      "id": "ChIJ3_kEiLVZwokRFHm5LRT1fTY",
-      "sourceId": "ChIJ3_kEiLVZwokRFHm5LRT1fTY",
-      "name": "Bar Goyana",
-      "category": "nightlife",
-      "rating": 4.8,
-      "reviewCount": 236,
-      "priceLevel": 0,
-      "priceText": null,
-      "description": "",
-      "image": "https://lh3.googleusercontent.com/places/ANXAkqFM40xgVXJoaj-VY0l6OExtTKlrAUS5xUrjDXsd9uTVEb12N3BkyjtvnYEnGWf4TGq1xnsNk8tJWYgKUEeUjPbf_d2EXfBiaNQ=s1600-w1200",
-      "address": "177 E 100th St, New York, NY 10029, EUA",
-      "latitude": 40.78836039999999,
-      "longitude": -73.9486555,
-      "distanceKm": 6879.93,
-      "phone": "(917) 213-4480",
-      "website": "https://bargoyana.com/",
-      "tags": [
-        "Bar"
-      ],
-      "sourceUrl": "https://maps.google.com/?cid=3926563917152221460",
-      "gallery": [
-        "https://lh3.googleusercontent.com/places/ANXAkqFM40xgVXJoaj-VY0l6OExtTKlrAUS5xUrjDXsd9uTVEb12N3BkyjtvnYEnGWf4TGq1xnsNk8tJWYgKUEeUjPbf_d2EXfBiaNQ=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqFEbqHpvvTw0Nf-Lc2ZQ3b2M-tknr0zl0UCgZPifroAQimPIOidRLAt-h8EGGWA5L7WZhoYENZ4Ny0JCv1D33rlWvPNkfokdKw=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNEc_ri3hbU2zBmNeU9Pmz4BUjLzODfKIx2Qx_dMUaAGdgb-83wTbOuYpKBtA7GiaQyNM6GnYRFD1abnaO6-N_FQnSPwcm1K6hSlfEzdWbOh_d0nP3cIcyoKbSUT_S2fhWhWnd-RECrFe0Uy=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqE80w8VKK_NcIMTsjyMq7xwoYcySq-Xjkn8j30UuLZJimd0txh1IKXBMqibf7dFukFGpLx0QaC1Ey3jfCVqSxwLXjsOYc3K7BY=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNEQu617cazThEKpVsB_rNE455LfjodDVlH9zWSJNynapZWpekczOIj9Pzjkrhv0KXsOXgFFNlzLGdWvK6tPv9lZit_SAdSjMOr1n-qRQP2SuSRUEYK_KjJvQlX4iotymg9ftsYfp2R-FZ8=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNGW6rltfg8BHzaHi9-PFEaREt0BXQVQ1Papp-z4pXBE5Hekc4gvLYCbRjl5j0s7NM7WmAq91q9PcSU98ejmSoAxw6Av7tCxzlrxjJ65sdpaULiPjV_L8vjDfp-DL7LQU6KQBBECe1s7Lca_6A=s1600-w1200"
-      ],
-      "hours": [
-        "segunda-feira: Fechado",
-        "terça-feira: 15:00 – 21:30",
-        "quarta-feira: 15:00 – 21:30",
-        "quinta-feira: 15:00 – 21:30",
-        "sexta-feira: 15:00 – 22:00",
-        "sábado: 13:00 – 22:00",
-        "domingo: 13:00 – 21:30"
-      ],
-      "openStatusText": "Fechado agora",
-      "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:01.734Z",
-      "subcategories": [
-        "Bar"
       ]
     },
     {
@@ -1858,51 +1768,6 @@
       "_enrichedAt": "2026-02-11T17:39:39.650Z",
       "subcategories": [
         "Parque"
-      ]
-    },
-    {
-      "id": "ChIJ2TQc0a_zwokRx4bQpvaBz_c",
-      "sourceId": "ChIJ2TQc0a_zwokRx4bQpvaBz_c",
-      "name": "BR Brazilian Restaurant & Bar",
-      "category": "restaurants",
-      "rating": 4.7,
-      "reviewCount": 98,
-      "priceLevel": 2,
-      "priceText": "$$",
-      "description": "",
-      "image": "https://lh3.googleusercontent.com/places/ANXAkqEaj1BEXOXd3k7WO7RXwo6tAfziUcKCxHzXlyAHBmv_nBp1jtkrjm8TvfJISUxP-Wpzxn_czY5Ea9tGFdx-1PsKVg_LohvFX_U=s1600-w1200",
-      "address": "197 W Lincoln Ave, Mt Vernon, NY 10550, EUA",
-      "latitude": 40.9139611,
-      "longitude": -73.8437075,
-      "distanceKm": 6888.39,
-      "phone": "(518) 309-5295",
-      "website": "https://order.toasttab.com/online/brbrazilian",
-      "tags": [
-        "Restaurante"
-      ],
-      "sourceUrl": "https://maps.google.com/?cid=17856633943907927751",
-      "gallery": [
-        "https://lh3.googleusercontent.com/places/ANXAkqEaj1BEXOXd3k7WO7RXwo6tAfziUcKCxHzXlyAHBmv_nBp1jtkrjm8TvfJISUxP-Wpzxn_czY5Ea9tGFdx-1PsKVg_LohvFX_U=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqECki25uLHBasq6GuGASGsErDrOXHdUhzLMOrNOo1Q3giDissA7hjATPJuFAiJ3q4vWGjkf7E3n0UBxbvE8-EYJFo6SoL-T4pU=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNGgtpdCseD5letsxwuz-5XEnRKYzKoyhLq05xVmqzudwXfymlG9ChAh_quH-iQr7RntWIDM82Pff-c8ySRsruuHqNQjDi8MZQtTYDQv4iihXgmqu0Qq_KhdqqfEBK3VMFMUbOxfc4LpyONmqg=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNG5ZaSHt98PjjYKTu9odoJurxekKvLTZYVlpSdLb9WQYWp8YxvhICwis2kV6pQA1VxoxvFFYdD-VOz9FcFYctOWmolOqqiWsb9r-bvbpvWfq8rsStYkRGO6abfY_ettKi3CjEJQz58lniDmyw=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNG7iNQlfROo_c2OYNqm01uVGotLfMGrya4f7x5wD19fQ_Fr_EtRyB7GSSIp98oPdbioyquUm7iojx_XJK_Ku5mOhlu3ea9khQC7A-9z_mZRusPPfF8xGcow8d6aR1YEJpahemQCd7mB3d20Zsr2BGtBrQ=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNG9IQ5DjTN-r7GrQDGv1DOGRTbMwrFa95YC3XAJv7BGOXirqnRqUYKkyG2hplhGVOjOodY6sE-EMSHRHidWOOQfLN0aZWqKHOYCxtOCdLJJBVkZAgYer9j12FEq5uY_eqYRQYqODvcCyJYMQgbPwrIL2g=s1600-w1200"
-      ],
-      "hours": [
-        "segunda-feira: 11:30 – 23:00",
-        "terça-feira: 11:30 – 23:00",
-        "quarta-feira: 11:30 – 23:00",
-        "quinta-feira: 11:30 – 23:00",
-        "sexta-feira: 11:30 – 00:00",
-        "sábado: 11:30 – 00:00",
-        "domingo: 11:30 – 23:00"
-      ],
-      "openStatusText": "Aberto agora",
-      "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:39:41.245Z",
-      "subcategories": [
-        "Restaurante"
       ]
     },
     {
@@ -4865,51 +4730,6 @@
       ]
     },
     {
-      "id": "ChIJfyllhDdfwokRR9VTZ34SmkA",
-      "sourceId": "ChIJfyllhDdfwokRR9VTZ34SmkA",
-      "name": "New York Pao De Queijo",
-      "category": "restaurants",
-      "rating": 4.4,
-      "reviewCount": 681,
-      "priceLevel": 1,
-      "priceText": "$",
-      "description": "Buzzy destination serving traditional Brazilian entrees plus burgers with inventive toppings.",
-      "image": "https://lh3.googleusercontent.com/place-photos/AL8-SNE24a3M5qw3H30VPnUHDOYgMtr1zmGHj5xfyrEQrOsj6PByBQtvdxGcAnhdOm2gwmlthOy0_BdkL83X4CNLZGmj9LfPTlgpepHASLkeSCnpwAAYL5_2ky3yB8i9b0Pu7uDbad7N0uViYdutSnU=s1600-w1200",
-      "address": "31-90 30th St, Astoria, NY 11106, EUA",
-      "latitude": 40.7626879,
-      "longitude": -73.9261034,
-      "distanceKm": 6876.53,
-      "phone": "(718) 204-1979",
-      "website": "https://newyorkpaodequeijo.com/?utm_source=google",
-      "tags": [
-        "Restaurante"
-      ],
-      "sourceUrl": "https://maps.google.com/?cid=4655053498949555527",
-      "gallery": [
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNE24a3M5qw3H30VPnUHDOYgMtr1zmGHj5xfyrEQrOsj6PByBQtvdxGcAnhdOm2gwmlthOy0_BdkL83X4CNLZGmj9LfPTlgpepHASLkeSCnpwAAYL5_2ky3yB8i9b0Pu7uDbad7N0uViYdutSnU=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqE9qUlvqG8BzBIi_9TD6aOxiuvP2ChhR1Dm8UJO7UJWCVRHl6MeKpT1YxYwr3u2fIiH0TKahpZVFjRsdYbVjPSYhpnWZFfGB90=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNFqYWs7Qh4l4TSRRrppAsvZGb4QS9HB8yxzM0Pj_tJj5itNNEIW6U0LmtGJCNeab9fGgSnkU7ppsdOKAIeYr2TJwgYXpBV64vvkVNeXDnb8rpJ0jrxXI_x6hKytKNe0BzdQpnaw2WIZy67noA=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNHiHiX7hHGrkC5QHMxnXMoJlUCCL17xKDjBdXo12vFBtEj1gTFKE6jVQRQGM6VBL4h17cajJo-Dqq9sGTDUdsXc5IwpgF-Na22MCESxRIVtHl01bMYvZwMGdlELka3K8BRZYVnMDZkSjfz0xk36yOCa=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNEIDPUkNLzsBILvtw25ybjUj54P3UjVFixxGaLjs7gWtq_SvgYHnxEE1ofkUjJHpJqTAIuj4bRGU8VGuz_GtXhny6I4jlxnQDeORwDcLi_-1V9OG_kpJx-xFSwfqkYLEcT_YBiTiFxdkofMx0E=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNGpPeGvjrFAKaJMKJSwTBXI9exreGAXh3bQ1OCKE4unKAyKlUGXh3DOiWzySFPwseNkdXOhG5cBsy9JqJQjB3KuxwRmvCOJCSH2q5wyFSrRbe8HnJXCeTgIo6LHfvh1hveOy8sdNG5vcE4l7Q=s1600-w1200"
-      ],
-      "hours": [
-        "segunda-feira: 11:00 – 21:30",
-        "terça-feira: 11:00 – 21:30",
-        "quarta-feira: 11:00 – 21:30",
-        "quinta-feira: 11:00 – 21:30",
-        "sexta-feira: 11:00 – 22:30",
-        "sábado: 11:00 – 22:30",
-        "domingo: 11:00 – 21:30"
-      ],
-      "openStatusText": "Aberto agora",
-      "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:28.102Z",
-      "subcategories": [
-        "Restaurante"
-      ]
-    },
-    {
       "id": "ChIJB1JatEPxXpMR9PcjvTnohGU",
       "sourceId": "ChIJB1JatEPxXpMR9PcjvTnohGU",
       "name": "Doce Café",
@@ -5461,52 +5281,6 @@
       ]
     },
     {
-      "id": "ChIJVdhJjwZu5IkRXoMDfrpuXLc",
-      "sourceId": "ChIJVdhJjwZu5IkRXoMDfrpuXLc",
-      "name": "Outback Steakhouse",
-      "category": "nightlife",
-      "rating": 4.3,
-      "reviewCount": 1550,
-      "priceLevel": 2,
-      "priceText": "$$",
-      "description": "Rede de restaurantes em estilo australiano que serve vários cortes de carne e frutos do mar em porções fartas.",
-      "image": "https://lh3.googleusercontent.com/place-photos/AL8-SNGPeS1n3ika5ztgYzBLdIgzsfyM4QKd0DN1B_nOgnG7TI4yVdFGC2Wq-crOqb-1PDCI2tIT0Cw1grwo4h33ekKvaQct8eZWQJQiHhqXkCE8MMmSNH-h2WJShd3ySe6TuoN_EEbVk_Lz-cEXXw=s1600-w1200",
-      "address": "275 N Main St, Bellingham, MA 02019, EUA",
-      "latitude": 42.112998,
-      "longitude": -71.4724366,
-      "distanceKm": 6923.7,
-      "phone": "(508) 966-9333",
-      "website": "https://locations.outback.com/massachusetts/bellingham/275-north-main-street?utm_source=gmb&utm_medium=local_search&utm_campaign=website_cta&y_source=1_MTU1MDI0NDgtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
-      "tags": [
-        "Restaurante",
-        "Bar"
-      ],
-      "sourceUrl": "https://maps.google.com/?cid=13212557154055324510",
-      "gallery": [
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNGPeS1n3ika5ztgYzBLdIgzsfyM4QKd0DN1B_nOgnG7TI4yVdFGC2Wq-crOqb-1PDCI2tIT0Cw1grwo4h33ekKvaQct8eZWQJQiHhqXkCE8MMmSNH-h2WJShd3ySe6TuoN_EEbVk_Lz-cEXXw=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqE-4bnNe0e4sj9Kv_4vOXxTV3_pgCn0YzVgugoPLmZQmYVUyf0ErbAHVzkYzcJEgExSRmEVNhXQE7nc10rglO2Sg7w-1DQrTVo=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqE4HFtZhLVIwIoOFMCAaewtdevvdzjQ3Sxn-uVMPU6vyz4kJSH6IMlL0OcAYt1u3mspveRdNZ3W5JplqDxiWXhZ-G4NShU6MUc=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqHbB5DvoXzSYxqx9BfU5-3a4pYpcMpfk56hlkgDfvn_e58F69qnRMLJMnvIgU8n4l1OrKelyEwBM_AtX8m_1ryw31LZBLQ4A6A=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqFRpd4ZEYDdyJxAONfs1gtg_2raX6CjqsA2lRNG72VlLybm1aoVofPOXqyOdncCoDXY8F0-9Y45mtWV5yDhiU0qn_UkSN8KFxQ=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqFoNdcDEE0nYJsBUQwQhMNUwdZqDkiKzwAvMV9cq04yyqrzcVoKd5riwHj1uYSwvTwvrprOszgtAHgYNYhe4MwbNoWdNVjo4gM=s1600-w1200"
-      ],
-      "hours": [
-        "segunda-feira: 11:00 – 22:00",
-        "terça-feira: 11:00 – 22:00",
-        "quarta-feira: 11:00 – 22:00",
-        "quinta-feira: 11:00 – 22:00",
-        "sexta-feira: 11:00 – 23:00",
-        "sábado: 11:00 – 23:00",
-        "domingo: 11:00 – 21:00"
-      ],
-      "openStatusText": "Aberto agora",
-      "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:41:49.128Z",
-      "subcategories": [
-        "Bar"
-      ]
-    },
-    {
       "id": "ChIJSw62U-DwXpMR4Y0rWx--fMY",
       "sourceId": "ChIJSw62U-DwXpMR4Y0rWx--fMY",
       "name": "S4 Bar",
@@ -5872,51 +5646,6 @@
       ]
     },
     {
-      "id": "ChIJLQCw4_5YwokRd5hb1b2IUYU",
-      "sourceId": "ChIJLQCw4_5YwokRd5hb1b2IUYU",
-      "name": "Five Guys",
-      "category": "restaurants",
-      "rating": 4.2,
-      "reviewCount": 2786,
-      "priceLevel": 2,
-      "priceText": "$$",
-      "description": "Rede de fast-food com hambúrgueres, batatas fritas e cachorros-quentes feitos na hora, além de amendoim grátis enquanto você espera.",
-      "image": "https://lh3.googleusercontent.com/places/ANXAkqFmP2sCrrT2uX_9t_PbvXwB0yPlOCFQI-blMZLl8aCgHMfguw_n5hoF-oWC0AfG2e-9GwTH4MBCCq5qyXzs7lPhzixw5ma8qQE=s1600-w1200",
-      "address": "36 W 48th St, New York, NY 10036, EUA",
-      "latitude": 40.7578961,
-      "longitude": -73.97993310000001,
-      "distanceKm": 6878.11,
-      "phone": "(212) 997-1270",
-      "website": "https://restaurants.fiveguys.com/36-west-48th-street",
-      "tags": [
-        "Restaurante"
-      ],
-      "sourceUrl": "https://maps.google.com/?cid=9606609829067724919",
-      "gallery": [
-        "https://lh3.googleusercontent.com/places/ANXAkqFmP2sCrrT2uX_9t_PbvXwB0yPlOCFQI-blMZLl8aCgHMfguw_n5hoF-oWC0AfG2e-9GwTH4MBCCq5qyXzs7lPhzixw5ma8qQE=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqHwMy_HOb2Aic0LhCiet86puhBDYPmB4NVGoXvxI5x5WK4mMenapm5RNgWiW847HQDbWp3QyRWC5XZVpxHZvA4CwX3-VjFMSdw=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNHwxUXrz841tEqN5S58h3EhtGa1JUX4i8dtjKfZ5Bo52YkejTUGIuD216YPb2kZpcMlHr1xj3sFh4a1abq6BNpeYxkEUgljCi02g3Rzh-auLDWSxbV7QJRwuGBodAisVzirm9XAIphf8zwL8ijkzbFB=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqFSBlVQoEA_T1_WCwOFfycl4YmYO8_O2_WlHJ2RRJptSt8dT3JJoPZwZ09nssIdasRb3eL22AOH7pZTPXEgy7bdSLOONIhlwA4=s1600-w880",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNGi26l1j0x9aJy4kmRdVYsyFGpnP9eO8cqHHMsEJcUNDODI7umhC52zBvKYTGHdiWoixWdEI8-SAty5lZdpU24Q0qxDWtbQ6AXIGhUSQ5kdMZOUOHodAEdBWCnWqL5eIaOLEMrYmgZkO6Xqy6rde6SK=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqHuEF6zoJ54WsV4aLdylrihbZR149lsIsUo2FYDnZNQ88Kp7XGEWG287n6rt7Kq7qvYhkeRD07lWqwx8YAcq-IW9wtR01auzZs=s1600-w1200"
-      ],
-      "hours": [
-        "segunda-feira: 10:30 – 00:00",
-        "terça-feira: 10:30 – 00:00",
-        "quarta-feira: 10:30 – 00:00",
-        "quinta-feira: 10:30 – 00:00",
-        "sexta-feira: 10:30 – 00:00",
-        "sábado: 10:30 – 00:00",
-        "domingo: 10:30 – 00:00"
-      ],
-      "openStatusText": "Aberto agora",
-      "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:03.769Z",
-      "subcategories": [
-        "Restaurante"
-      ]
-    },
-    {
       "id": "ChIJzTjwGjnxXpMRlB8bVPE4WMU",
       "sourceId": "ChIJzTjwGjnxXpMRlB8bVPE4WMU",
       "name": "Bahrem Bar",
@@ -5960,52 +5689,6 @@
       "_enrichedAt": "2026-02-11T17:42:05.454Z",
       "subcategories": [
         "Bar"
-      ]
-    },
-    {
-      "id": "ChIJ1e28nFE0K4gRSVh9irzkI4c",
-      "sourceId": "ChIJ1e28nFE0K4gRSVh9irzkI4c",
-      "name": "Padaria e Pastelaria Brasil",
-      "category": "restaurants",
-      "rating": 4.2,
-      "reviewCount": 812,
-      "priceLevel": 1,
-      "priceText": "$",
-      "description": "",
-      "image": "https://lh3.googleusercontent.com/place-photos/AL8-SNEgMZu5vLoKe-YzmeLL-DtzBQXCQnM62yPaqaeQ9WgSem4wUQhY2dsWkJCcbEH6qYZu9SNeEGN1Q5Km84SaRxM6SwaOhJcTGVq-iMEfQXdUQ_moMtTe1Fdl8VVntc-1b2nsmx9R9RBDsylP-hA=s1600-w1200",
-      "address": "1566 Dundas St W, Toronto, ON M6K 1T5, Canadá",
-      "latitude": 43.6498915,
-      "longitude": -79.4341361,
-      "distanceKm": 7378.49,
-      "phone": "(416) 531-2888",
-      "website": "http://brocktonvillagebakery.com/",
-      "tags": [
-        "Restaurante",
-        "Compras"
-      ],
-      "sourceUrl": "https://maps.google.com/?cid=9737878317733599305",
-      "gallery": [
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNEgMZu5vLoKe-YzmeLL-DtzBQXCQnM62yPaqaeQ9WgSem4wUQhY2dsWkJCcbEH6qYZu9SNeEGN1Q5Km84SaRxM6SwaOhJcTGVq-iMEfQXdUQ_moMtTe1Fdl8VVntc-1b2nsmx9R9RBDsylP-hA=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNHwTHczmf5LOSCDrIeGeOMz70hxliGPwfsnnAhEQS71ydaBMkJOqsvabvYA-tDjUTA-eSnK8CTZYSr0-S7zB-sui0d9-ypUUrb1XsePBwYQhqwpb12G6mSwaAuo7yONXmAspeXtrMjrybadkkk=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNELI4dIVq6CAteh9tkICBYBYkhTbnjbj0_wPk5wbkXvrUNvr-BlBDz5Gj_5-LCQo_VWlGG_Bbd549v8ax_TZpMTqSkSm-U2PXm5yB4Xg24aRmOvpnqqnd8jwEm6f6It4XYYE1sAWqT_0qx8Gg=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNFOLfwjWT6xJfHaaI0SvGg6MPehoifgVGO2NuSuHzOdFhy7a4KC-wmSZ-CNKUWZvAqh03qlt3K6JbUMfqaYbqKMCGkFDeoqWrK96DY9wYB0UDPOrQwNBhSvXFggouoBGbXZEOdW3JUVcidpSw=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNFcjoWx7ZQuU33FFDFiiuK2UraFpEyyAGcSqr1eVyiAk-MEtdi1iDkwOp7VRSd0wbe7XDw4X6rUcsXecvwVLtFum1kCC-Ic3K9vfHkOUKm5DtEfsDMHdWJsoNepH69DHYS-zP8WQ9tFOuMYsw=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNEd-GuyT9_Nuj9NH5rq7JK7ify5oQNph5Pa8OZ075ciZ6pPSnmTOViCX8pfv30IvTc3fIdRB7K6DRwAJqS3DetbHNosvQ-R11e9sn5vM5RLF4xqmZNuQW3iVHbcspyjHiiepvy4tcdZFDnReA=s1600-w1200"
-      ],
-      "hours": [
-        "segunda-feira: 05:00 – 21:00",
-        "terça-feira: 05:00 – 21:00",
-        "quarta-feira: 05:00 – 21:00",
-        "quinta-feira: 05:00 – 21:00",
-        "sexta-feira: 05:00 – 21:00",
-        "sábado: 06:00 – 21:00",
-        "domingo: 07:00 – 19:00"
-      ],
-      "openStatusText": "Aberto agora",
-      "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:07.155Z",
-      "subcategories": [
-        "Padaria"
       ]
     },
     {
@@ -6178,51 +5861,6 @@
       "_enrichedAt": "2026-02-11T17:42:13.524Z",
       "subcategories": [
         "Museu"
-      ]
-    },
-    {
-      "id": "ChIJKcNGXwK0xokRz28DBnf4pis",
-      "sourceId": "ChIJKcNGXwK0xokRz28DBnf4pis",
-      "name": "Bellissima Pizza",
-      "category": "restaurants",
-      "rating": 3.8,
-      "reviewCount": 353,
-      "priceLevel": 1,
-      "priceText": "$",
-      "description": "",
-      "image": "https://lh3.googleusercontent.com/place-photos/AL8-SNERZFRYPmaGDaJG8fwuGRbNSvZUubO72rY_fjZVH1FlvJsb5oz6BrPaAqrVqnU-D-iYfSTparwVX1TyUR2kuyWhqnIIAxTeac4vQ3aWJZxp9DSIsQBL0eUIuA-e-2fZxDALL6Ili9Kpcl92ajI=s1600-w1200",
-      "address": "7816 Castor Ave, Philadelphia, PA 19152, EUA",
-      "latitude": 40.0586108,
-      "longitude": -75.0593586,
-      "distanceKm": 6851.67,
-      "phone": "(215) 745-8676",
-      "website": "https://www.bellissimapizzaphilly.com/",
-      "tags": [
-        "Restaurante"
-      ],
-      "sourceUrl": "https://maps.google.com/?cid=3145474579850555343",
-      "gallery": [
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNERZFRYPmaGDaJG8fwuGRbNSvZUubO72rY_fjZVH1FlvJsb5oz6BrPaAqrVqnU-D-iYfSTparwVX1TyUR2kuyWhqnIIAxTeac4vQ3aWJZxp9DSIsQBL0eUIuA-e-2fZxDALL6Ili9Kpcl92ajI=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNH5YpTLfEyrZ6JcWCTInRYw83SeL5GE6tK-Gdr2Q50F8kJTVcNa1FUayYAHjCCkC-jRic87jAYimE0eJYK5ZGHBCfFgLolS1XN-zK3ke5T04EylN8w-gCnKECS_SxASbapcf1T1SFYqDiEDTU8=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNHzky1fia0EkDIwAcvtcddeZ0RmAWR9XQZpwoSC3V0AyBAUZSNjt_zRwvDplTUKy9foC6XwpLu3IrbN6eF-hxypo60pyVlvRsp1TC_DBaTiWwB4z3EYmTDEK6ZbqtqZUUQGDgx--dVnvZntpC5dfJSk1w=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNEyBpWpfiKmB_CfjQXFvJZnZxJQfzA5th1QmQhBEFYe4PXzXH-mBV79MONhyvFUdjrWf5KebGxatlQSkmpfeCKa5cIa7gxooQonxYCNUhZV_yVr4LTk83ypGA0heWH2RKYHt_kr5yLGcv1tAg=s1600-w1200",
-        "https://lh3.googleusercontent.com/place-photos/AL8-SNEfFNu5YfaGuo1X6YO8Y_sIhNkRy4k7VZiXAdi8ip11NBbykxHOtYgLj35etMwqUjYBp7OB7YVGrR0X7Ve8a5V6MPBbrX7aHG1G6n1blZ2xTZsGKX59QF4J30R_BpFfq37THhvnGQrgjKPC4Q=s1600-w1200",
-        "https://lh3.googleusercontent.com/places/ANXAkqFeGteFIBg_8qmbSuhqjJEsWnN3G61LKfTqOinaDzO0AprV-QRZrNcc7XDN14-NcyTuk3DvCfZuGYOFHwcn2bAnpOr8-BYxwy0=s1600-w1200"
-      ],
-      "hours": [
-        "segunda-feira: 11:00 – 23:00",
-        "terça-feira: 11:00 – 23:00",
-        "quarta-feira: 11:00 – 23:00",
-        "quinta-feira: 11:00 – 23:00",
-        "sexta-feira: 11:00 – 00:00",
-        "sábado: 11:00 – 00:00",
-        "domingo: 12:00 – 23:00"
-      ],
-      "openStatusText": "Aberto agora",
-      "menuUrl": null,
-      "_enrichedAt": "2026-02-11T17:42:15.129Z",
-      "subcategories": [
-        "Pizza"
       ]
     },
     {
@@ -20115,38 +19753,6 @@
       "menuUrl": null,
       "_discoveredAt": "2026-02-11T19:51:23.727Z",
       "_enrichedAt": "2026-02-12T13:30:58.083Z",
-      "subcategories": [
-        "Padaria"
-      ]
-    },
-    {
-      "id": "ChIJW7ZIZsclz5QRRobvjlsUap4",
-      "sourceId": "ChIJW7ZIZsclz5QRRobvjlsUap4",
-      "name": "Mamí - Padaria Artesanal",
-      "category": "restaurants",
-      "rating": 4.9,
-      "reviewCount": 71,
-      "priceLevel": 0,
-      "priceText": null,
-      "description": "",
-      "image": "https://lh3.googleusercontent.com/gps-cs-s/AHVAwep5fDhC6PCjQ5vz0tDH8g7C9riNNRqhPFmZIkTegmnejLxy2S5jjxIhiavOLU4syl4AF0M6PkIl1P0t-E3aYvq5ZaEGQA9b-d-rfxNOX-7mNA_I5JC2fEnNYVHMNbgSgyZ7B-qH=s1600-w960",
-      "address": "Av. Comend. Gumercindo Barranqueiros, 400 - Jardim Santa Teresa, Jundiaí - SP, 13211-410",
-      "latitude": -23.1967266,
-      "longitude": -46.9085006,
-      "distanceKm": 889.71,
-      "phone": null,
-      "website": null,
-      "hours": [],
-      "tags": [
-        "Restaurante"
-      ],
-      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Mam%C3%AD%20-%20Padaria%20Artesanal&query_place_id=ChIJW7ZIZsclz5QRRobvjlsUap4",
-      "gallery": [
-        "https://lh3.googleusercontent.com/gps-cs-s/AHVAwep5fDhC6PCjQ5vz0tDH8g7C9riNNRqhPFmZIkTegmnejLxy2S5jjxIhiavOLU4syl4AF0M6PkIl1P0t-E3aYvq5ZaEGQA9b-d-rfxNOX-7mNA_I5JC2fEnNYVHMNbgSgyZ7B-qH=s1600-w960"
-      ],
-      "openStatusText": null,
-      "menuUrl": null,
-      "_discoveredAt": "2026-02-11T19:51:23.974Z",
       "subcategories": [
         "Padaria"
       ]
