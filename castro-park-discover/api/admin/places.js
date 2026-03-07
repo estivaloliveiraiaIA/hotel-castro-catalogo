@@ -5,7 +5,7 @@ const ALLOWED_FIELDS = [
   "name", "category", "subcategories", "rating", "price_level",
   "description", "image", "gallery", "address", "phone", "website",
   "hotel_recommended", "hotel_score", "is_active", "hours", "tags",
-  "menu_url",
+  "menu_url", "distance_km",
 ];
 
 function pickAllowed(body) {
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     if (id) {
       const { data, error } = await supabase
         .from("places")
-        .select("id, name, category, subcategories, rating, price_level, description, image, gallery, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url")
+        .select("id, name, category, subcategories, rating, price_level, description, image, gallery, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url, distance_km")
         .eq("id", id)
         .single();
       if (error) return res.status(404).json({ error: `Lugar não encontrado: ${error.message}` });
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
     // GET sem id — listagem geral sem gallery (payload reduzido para 500 registros)
     const { data, error } = await supabase
       .from("places")
-      .select("id, name, category, subcategories, rating, price_level, description, image, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url")
+      .select("id, name, category, subcategories, rating, price_level, description, image, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url, distance_km")
       .order("hotel_score", { ascending: false, nullsFirst: false });
     if (error) return res.status(500).json({ error: `Erro ao buscar lugares: ${error.message}` });
     return res.status(200).json(data);

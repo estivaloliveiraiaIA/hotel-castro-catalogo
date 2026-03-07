@@ -77,6 +77,7 @@ interface Place {
   is_active: boolean;
   rating?: number;
   hours?: string;
+  distance_km?: number;
 }
 
 const emptyPlace: Omit<Place, "id"> = {
@@ -85,6 +86,7 @@ const emptyPlace: Omit<Place, "id"> = {
   address: "", phone: "", website: "", menu_url: "",
   price_level: undefined, hotel_recommended: false,
   hotel_score: undefined, is_active: true, rating: undefined, hours: "",
+  distance_km: undefined,
 };
 
 const APP_URL = "https://hotel-castro-catalogo-seven.vercel.app";
@@ -604,10 +606,17 @@ export default function AdminPlaces() {
                 placeholder={"Segunda a Sexta: 11h00–22h30\nSábado e Domingo: 10h00–23h00"} />
             </Field>
 
-            <Field label="Score do hotel (1-100)">
-              <Input type="number" min={1} max={100} value={form.hotel_score ?? ""}
-                onChange={(e) => setForm((f) => ({ ...f, hotel_score: e.target.value ? Number(e.target.value) : undefined }))} />
-            </Field>
+            <div className="grid grid-cols-2 gap-3">
+              <Field label="Score do hotel (1-100)">
+                <Input type="number" min={1} max={100} value={form.hotel_score ?? ""}
+                  onChange={(e) => setForm((f) => ({ ...f, hotel_score: e.target.value ? Number(e.target.value) : undefined }))} />
+              </Field>
+              <Field label="Distância do hotel (km)">
+                <Input type="number" min={0} step={0.1} value={form.distance_km ?? ""}
+                  onChange={(e) => setForm((f) => ({ ...f, distance_km: e.target.value ? Number(e.target.value) : undefined }))}
+                  placeholder="Auto via ORS" />
+              </Field>
+            </div>
 
             {/* ── Gestão de imagens ── */}
             <div className="space-y-3 rounded-lg border border-border bg-muted/20 p-4">

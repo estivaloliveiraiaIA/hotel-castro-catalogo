@@ -1,5 +1,8 @@
 import { verifyToken, unauthorized } from "../_lib/auth.js";
 
+const HOTEL_LAT = -16.6804;
+const HOTEL_LNG = -49.2541;
+
 // ── Extrai dados brutos da URL do Google Maps ─────────────────────────────
 function extractFromUrl(url) {
   const placeMatch = url.match(/\/maps\/place\/([^/@?#]+)/);
@@ -26,6 +29,49 @@ async function resolveUrl(url) {
     return res.url || url;
   } catch {
     return url;
+  }
+}
+
+// ── Busca dados via Apify Google Maps Scraper ─────────────────────────────
+async function fetchFromApify(resolvedUrl, apifyToken) {
+  try {
+    const res = await fetch(
+      `https://api.apify.com/v2/acts/compass~google-maps-scraper/run-sync-get-dataset-items?token=${apifyToken}&timeout=7`,
+      {
+        method: "POST",
+        signal: AbortSignal.timeout(7000),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          startUrls: [{ url: resolvedUrl }],
+          maxCrawledPlacesPerSearch: 1,
+          language: "pt",
+          countryCode: "br",
+        }),
+      }
+    );
+    if (!res.ok) return null;
+    const items = await res.json();
+    const p = Array.isArray(items) ? items[0] : null;
+    if (!p) return null;
+
+    const hoursText = Array.isArray(p.openingHours)
+      ? p.openingHours.map((h) => `${h.day}: ${h.hours}`).join("\n")
+      : null;
+
+    return {
+      name: p.title || null,
+      address: p.address || null,
+      phone: p.phone || null,
+      website: p.website || null,
+      rating: p.totalScore || null,
+      hours: hoursText,
+      image: p.imageUrl || null,
+      price_level: p.price ? p.price.length : null,
+      lat: p.location?.lat || null,
+      lng: p.location?.lng || null,
+    };
+  } catch {
+    return null;
   }
 }
 
@@ -127,6 +173,28 @@ async function fetchFromPage(resolvedUrl) {
   return null;
 }
 
+// ── Calcula distância real de carro via ORS Matrix API ────────────────────
+async function calcDistanceORS(lat, lng, orsKey) {
+  try {
+    const res = await fetch("https://api.openrouteservice.org/v2/matrix/driving-car", {
+      method: "POST",
+      signal: AbortSignal.timeout(5000),
+      headers: { Authorization: orsKey, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        locations: [[HOTEL_LNG, HOTEL_LAT], [lng, lat]],
+        metrics: ["distance"],
+      }),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const meters = data.distances?.[0]?.[1];
+    if (meters == null) return null;
+    return Math.round((meters / 1000) * 10) / 10; // km, 1 decimal
+  } catch {
+    return null;
+  }
+}
+
 // ── Enriquece com Claude Haiku ────────────────────────────────────────────
 async function enrichWithHaiku(rawData, llmKey) {
   const prompt = `Você é curador de um guia turístico premium de Goiânia, Brasil, para hóspedes do Castro's Park Hotel.
@@ -203,25 +271,47 @@ export default async function handler(req, res) {
   }
 
   const googleKey = process.env.GOOGLE_PLACES_API_KEY || null;
+  const apifyToken = process.env.APIFY_TOKEN || null;
+  const orsKey = process.env.ORS_API_KEY || null;
 
   try {
     // 1. Resolve URL (short links)
     const resolvedUrl = await resolveUrl(url);
     const { name: urlName, lat, lng } = extractFromUrl(resolvedUrl);
 
-    // 2. Busca dados do lugar (Places API > JSON-LD > só o nome da URL)
-    let raw = null;
-    if (googleKey && urlName) {
-      raw = await fetchFromPlacesApi(urlName, lat, lng, googleKey);
+    // 2. Scraping + ORS em paralelo (ORS usa lat/lng da URL — independente do scraping)
+    const [rawResult, distanceResult] = await Promise.allSettled([
+      // Cadeia: Apify → Places API → JSON-LD → fallback por nome da URL
+      (async () => {
+        let data = null;
+        if (apifyToken) {
+          data = await fetchFromApify(resolvedUrl, apifyToken);
+        }
+        if (!data && googleKey && urlName) {
+          data = await fetchFromPlacesApi(urlName, lat, lng, googleKey);
+        }
+        if (!data) {
+          data = await fetchFromPage(resolvedUrl);
+        }
+        if (!data) {
+          data = { name: urlName || "Lugar importado", address: null, phone: null, website: null, rating: null, hours: null, image: null, price_level: null };
+        }
+        if (!data.name && urlName) data.name = urlName;
+        return data;
+      })(),
+      // ORS: calcula distância se tivermos coordenadas da URL
+      lat && lng && orsKey ? calcDistanceORS(lat, lng, orsKey) : Promise.resolve(null),
+    ]);
+
+    const raw = rawResult.status === "fulfilled"
+      ? rawResult.value
+      : { name: urlName || "Lugar importado", address: null, phone: null, website: null, rating: null, hours: null, image: null, price_level: null };
+
+    // Se Apify retornou coordenadas e URL não tinha, tenta ORS com coords do Apify
+    let distance_km = distanceResult.status === "fulfilled" ? distanceResult.value : null;
+    if (distance_km === null && orsKey && raw.lat && raw.lng) {
+      distance_km = await calcDistanceORS(raw.lat, raw.lng, orsKey);
     }
-    if (!raw) {
-      raw = await fetchFromPage(resolvedUrl);
-    }
-    if (!raw) {
-      raw = { name: urlName || "Lugar importado", address: null, phone: null, website: null, rating: null, hours: null, image: null, price_level: null };
-    }
-    // Garante que o nome da URL prevalece se o scraping não retornou nome
-    if (!raw.name && urlName) raw.name = urlName;
 
     // 3. Haiku enriquece com categoria, descrição e subcategorias
     const enriched = await enrichWithHaiku(raw, llmKey);
@@ -239,6 +329,7 @@ export default async function handler(req, res) {
       subcategories: Array.isArray(enriched.subcategories) ? enriched.subcategories : [],
       description: enriched.description || "",
       tags: Array.isArray(enriched.tags) ? enriched.tags : [],
+      distance_km,
     });
   } catch (err) {
     console.error("[scrape-place]", err.message);
