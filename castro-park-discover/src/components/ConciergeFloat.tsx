@@ -64,6 +64,7 @@ export function ConciergeFloat() {
               error={error}
               onSend={sendMessage}
               onClear={clearConversation}
+              onClose={handleClose}
             />
           </div>
         </SheetContent>

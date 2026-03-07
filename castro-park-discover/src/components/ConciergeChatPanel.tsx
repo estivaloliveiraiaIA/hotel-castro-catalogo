@@ -20,9 +20,10 @@ interface ConciergeChatPanelProps {
   error: string | null;
   onSend: (text: string) => void;
   onClear: () => void;
+  onClose?: () => void;
 }
 
-function PlaceSuggestions({ places }: { places: ConciergePlace[] }) {
+function PlaceSuggestions({ places, onClose }: { places: ConciergePlace[]; onClose?: () => void }) {
   if (!places.length) return null;
   return (
     <div className="mt-3 space-y-2">
@@ -30,6 +31,7 @@ function PlaceSuggestions({ places }: { places: ConciergePlace[] }) {
         <Link
           key={p.id}
           to={`/place/${encodeURIComponent(p.id)}`}
+          onClick={onClose}
           className="block rounded-xl border border-hotel-gold/20 bg-hotel-gold/5 px-3 py-2.5 hover:bg-hotel-gold/10 transition-colors"
         >
           <p className="text-xs font-semibold text-foreground">{p.name}</p>
@@ -46,6 +48,7 @@ export const ConciergeChatPanel = ({
   error,
   onSend,
   onClear,
+  onClose,
 }: ConciergeChatPanelProps) => {
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -108,7 +111,7 @@ export const ConciergeChatPanel = ({
             >
               <p className="leading-relaxed">{msg.content}</p>
               {msg.role === "assistant" && msg.places && (
-                <PlaceSuggestions places={msg.places} />
+                <PlaceSuggestions places={msg.places} onClose={onClose} />
               )}
             </div>
           </div>
