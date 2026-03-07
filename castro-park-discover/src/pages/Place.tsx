@@ -1,6 +1,9 @@
 import { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { MapPin, ArrowLeft, ExternalLink, Globe, Phone, Clock, Tag, Star, Navigation } from "lucide-react";
+import {
+  MapPin, ArrowLeft, ExternalLink, Globe, Phone,
+  Star, Navigation, Clock, Mail, DollarSign, Tag, Sparkles
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { usePlaces } from "@/hooks/usePlaces";
 import { usePartners } from "@/hooks/usePartners";
@@ -20,6 +23,30 @@ function getReviewSource(url?: string): string {
   return "ver avaliação";
 }
 
+function PriceLevel({ level }: { level: number }) {
+  if (!level) return null;
+  return (
+    <div className="flex items-center gap-px">
+      {Array.from({ length: 4 }, (_, i) => (
+        <DollarSign
+          key={i}
+          className={`h-3.5 w-3.5 ${i < level ? "text-hotel-gold" : "text-white/20"}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+function SectionDivider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-3 my-1">
+      <div className="h-px flex-1 bg-hotel-gold/20" />
+      <span className="text-[10px] uppercase tracking-[0.25em] text-hotel-gold/60 font-medium">{label}</span>
+      <div className="h-px flex-1 bg-hotel-gold/20" />
+    </div>
+  );
+}
+
 const Place = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -30,6 +57,10 @@ const Place = () => {
 
   const place = useMemo(() => places.find((p) => encodeURIComponent(p.id) === id), [id, places]);
   const partner = useMemo(() => partners?.find((p) => p.placeId === place?.id), [partners, place]);
+  const openStatus = useMemo(() => computeOpenStatus(place?.hours), [place?.id]);
+
+  const fallbackImage =
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80&auto=format&fit=crop";
 
   if (isLoading) {
     return (
@@ -53,12 +84,10 @@ const Place = () => {
           <CardContent className="space-y-4 p-6 text-center">
             <p className="text-lg font-semibold">Lugar não encontrado</p>
             <p className="text-sm text-muted-foreground">
-              Não localizamos este estabelecimento na base offline. Recarregue ou volte para a lista.
+              Não localizamos este estabelecimento. Recarregue ou volte para a lista.
             </p>
             <div className="flex justify-center gap-2">
-              <Button variant="secondary" onClick={() => navigate("/")}>
-                Voltar
-              </Button>
+              <Button variant="secondary" onClick={() => navigate(-1)}>Voltar</Button>
               <Button onClick={() => navigate("/")}>Ir para início</Button>
             </div>
           </CardContent>
@@ -67,213 +96,309 @@ const Place = () => {
     );
   }
 
-  // Gallery is now handled by PlaceGallery (mosaic + full-screen carousel).
+  const heroImage = place.image || fallbackImage;
 
   return (
-    <div className="min-h-screen bg-background text-foreground pb-16 md:pb-0">
+    <div className="min-h-screen bg-background text-foreground pb-24 md:pb-0">
       <Header />
 
-      <main className="container px-4 py-8">
-        <div className="mb-6 flex items-center gap-3">
-          <Button variant="ghost" size="sm" onClick={() => navigate("/")}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Início
-          </Button>
-          <div className="h-4 w-px bg-border" />
-          <p className="text-sm font-serif font-semibold line-clamp-1 text-muted-foreground">{place.name}</p>
+      {/* ── HERO FULL-BLEED ─────────────────────────────────────── */}
+      <section className="relative h-[55vh] min-h-[340px] max-h-[520px] overflow-hidden">
+        {/* Imagem de fundo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url('${heroImage}')` }}
+        />
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+
+        {/* Topo: voltar + favorito */}
+        <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 pt-4">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-1.5 rounded-full bg-black/50 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm border border-white/10 hover:bg-black/70 transition-colors"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            Voltar
+          </button>
+          <FavoriteButton placeId={place.id} className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-full p-2" />
         </div>
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2 space-y-6">
-            <PlaceGallery name={place.name} image={place.image} gallery={place.gallery} />
 
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="space-y-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="secondary" className="capitalize">{place.category}</Badge>
-                    {place.hotelRecommended && (
-                      <Badge className="bg-hotel-gold text-hotel-charcoal hover:bg-hotel-gold/90">Recomendado pelo hotel</Badge>
-                    )}
-                    {partner && (
-                      <PartnerBadge label={partner.badgeLabel} size="md" />
-                    )}
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <h1 className="font-serif text-3xl font-semibold leading-tight">{place.name}</h1>
-                    <FavoriteButton placeId={place.id} />
-                  </div>
-                  <p className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
-                    {place.address}
-                  </p>
-                </div>
-                <div className="text-right text-sm">
-                  <p className="font-semibold text-muted-foreground">Preço</p>
-                  <p className="text-lg">{place.priceText || "Não informado"}</p>
-                </div>
-              </div>
+        {/* Base: badges + nome + endereço */}
+        <div className="absolute bottom-0 left-0 right-0 px-4 pb-6 space-y-3">
 
-              {(() => {
-                const status = computeOpenStatus(place.hours);
-                if (!status) return null;
-                return (
-                  <Badge
-                    className={status.isOpen
-                      ? "bg-green-600 text-white"
-                      : "bg-muted text-muted-foreground border border-border"
-                    }
-                  >
-                    <span className={`mr-1.5 inline-block h-1.5 w-1.5 rounded-full ${status.isOpen ? "bg-green-300 animate-pulse" : "bg-muted-foreground/50"}`} />
-                    {status.label}
-                    {status.closesAt && ` · fecha às ${status.closesAt}`}
-                  </Badge>
-                );
-              })()}
-
-              <p className="text-base leading-relaxed text-foreground/90">{place.description}</p>
-
-              {partner?.dealDescription && (
-                <div className="rounded-lg border border-hotel-gold/30 bg-hotel-gold/5 px-4 py-3">
-                  <p className="text-xs font-medium uppercase tracking-wider text-hotel-gold mb-1">Vantagem exclusiva para hóspedes</p>
-                  <p className="text-sm text-foreground/80">{partner.dealDescription}</p>
-                </div>
-              )}
-
-              <div className="flex flex-wrap gap-2">
-                {(place.subcategories || []).map((sub) => (
-                  <Badge key={sub} variant="outline" className="font-medium">
-                    {sub}
-                  </Badge>
-                ))}
-                {(place.tags || []).map((tag) => (
-                  <Badge key={tag} variant="outline" className="flex items-center gap-1">
-                    <Tag className="h-3 w-3" />
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            {place.reviews && place.reviews.length > 0 && (
-              <div className="space-y-4">
-                {/* Separador visual */}
-                <div className="flex items-center gap-3">
-                  <div className="h-px flex-1 bg-hotel-gold/20" />
-                  <span className="text-xs uppercase tracking-widest text-hotel-gold/60 font-medium">O que dizem</span>
-                  <div className="h-px flex-1 bg-hotel-gold/20" />
-                </div>
-
-                {/* Rating prominente */}
-                <div className="flex items-center gap-3">
-                  <div className="flex">
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-5 w-5 ${i < Math.round(place.rating) ? "fill-rating-star text-rating-star" : "fill-muted text-muted"}`}
-                      />
-                    ))}
-                  </div>
-                  <span className="font-serif text-2xl font-semibold">{place.rating.toFixed(1)}</span>
-                  <span className="text-sm text-muted-foreground">({place.reviewCount} avaliações)</span>
-                </div>
-
-                {/* Cards de review */}
-                <ul className="space-y-3">
-                  {(showAllReviews ? place.reviews : place.reviews.slice(0, 3)).map((review, idx) => (
-                    <li key={idx} className="rounded-xl bg-card border border-border/50 p-5 space-y-2">
-                      <span className="font-serif text-4xl leading-none text-hotel-gold/40 select-none">"</span>
-                      <p className="text-sm text-foreground/80 leading-relaxed font-serif italic -mt-2">
-                        {review.text}
-                      </p>
-                      {review.url && (
-                        <a
-                          href={review.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-xs text-muted-foreground/60 hover:text-primary transition-colors"
-                        >
-                          {getReviewSource(review.url)} ↗
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Expand/collapse */}
-                {place.reviews.length > 3 && (
-                  <button
-                    onClick={() => setShowAllReviews((prev) => !prev)}
-                    className="text-xs text-hotel-gold/70 hover:text-hotel-gold transition-colors font-medium"
-                  >
-                    {showAllReviews
-                      ? "Mostrar menos ↑"
-                      : `Ver todas as ${place.reviews.length} avaliações ↓`}
-                  </button>
-                )}
-              </div>
+          {/* Badges de status */}
+          <div className="flex flex-wrap items-center gap-2">
+            {place.hotelRecommended && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-hotel-gold px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-black shadow-md">
+                ✦ Recomendado pelo Hotel
+              </span>
+            )}
+            {partner && (
+              <PartnerBadge
+                label={partner.badgeLabel}
+                size="sm"
+                className="bg-black/50 backdrop-blur border-white/20 text-white"
+              />
+            )}
+            {openStatus && (
+              <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-medium backdrop-blur-sm border ${
+                openStatus.isOpen
+                  ? "bg-black/50 text-green-400 border-green-500/30"
+                  : "bg-black/50 text-red-400/90 border-red-500/20"
+              }`}>
+                <span className={`h-1.5 w-1.5 rounded-full ${openStatus.isOpen ? "bg-green-400 animate-pulse" : "bg-red-400/80"}`} />
+                {openStatus.label}
+                {openStatus.closesAt && ` · fecha às ${openStatus.closesAt}`}
+              </span>
             )}
           </div>
 
+          {/* Nome */}
+          <h1 className="font-serif text-3xl sm:text-4xl font-semibold leading-tight text-white drop-shadow-lg">
+            {place.name}
+          </h1>
+
+          {/* Endereço + metadados inline */}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-white/70 text-xs">
+            <span className="flex items-center gap-1">
+              <MapPin className="h-3.5 w-3.5 text-hotel-gold/70 shrink-0" />
+              {place.address}
+            </span>
+            {place.distanceKm && (
+              <span className="flex items-center gap-1 text-hotel-gold/90 font-medium">
+                <Navigation className="h-3.5 w-3.5" />
+                {place.distanceKm} km do hotel
+              </span>
+            )}
+            <PriceLevel level={place.priceLevel ?? 0} />
+          </div>
+        </div>
+      </section>
+
+      <main className="container px-4 py-8 space-y-8">
+
+        {/* ── GALERIA ─────────────────────────────────────────────── */}
+        <PlaceGallery name={place.name} image={place.image} gallery={place.gallery} />
+
+        {/* ── VANTAGEM PARCEIRO ────────────────────────────────────── */}
+        {partner?.dealDescription && (
+          <div className="rounded-xl border border-hotel-gold/40 bg-hotel-gold/5 px-5 py-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-hotel-gold mb-1.5">
+              ✦ Vantagem exclusiva para hóspedes
+            </p>
+            <p className="text-sm text-foreground/80 leading-relaxed">{partner.dealDescription}</p>
+          </div>
+        )}
+
+        {/* ── GRID PRINCIPAL ───────────────────────────────────────── */}
+        <div className="grid gap-8 lg:grid-cols-3">
+
+          {/* Coluna esquerda — conteúdo editorial */}
+          <div className="lg:col-span-2 space-y-8">
+
+            {/* Sobre */}
+            <section className="space-y-3">
+              <SectionDivider label="Sobre" />
+              <p className="text-base leading-relaxed text-foreground/85">{place.description}</p>
+            </section>
+
+            {/* Destaques */}
+            {place.highlights && place.highlights.length > 0 && (
+              <section className="space-y-3">
+                <SectionDivider label="Destaques" />
+                <div className="flex flex-wrap gap-2">
+                  {place.highlights.map((h) => (
+                    <span
+                      key={h}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-hotel-gold/30 bg-hotel-gold/5 px-3 py-1 text-xs font-medium text-foreground/80"
+                    >
+                      <Sparkles className="h-3 w-3 text-hotel-gold/70" />
+                      {h}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Tags e subcategorias */}
+            {((place.subcategories?.length ?? 0) > 0 || (place.tags?.length ?? 0) > 0) && (
+              <section className="space-y-3">
+                <SectionDivider label="Categorias" />
+                <div className="flex flex-wrap gap-2">
+                  {(place.subcategories || []).map((sub) => (
+                    <Badge key={sub} variant="secondary" className="font-medium">
+                      {sub}
+                    </Badge>
+                  ))}
+                  {(place.tags || []).map((tag) => (
+                    <Badge key={tag} variant="outline" className="flex items-center gap-1 border-hotel-gold/20">
+                      <Tag className="h-3 w-3 text-hotel-gold/60" />
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Nota do hotel */}
+            {place.notes && (
+              <section className="space-y-3">
+                <SectionDivider label="Nota do Hotel" />
+                <div className="rounded-xl border border-hotel-gold/25 bg-hotel-gold/5 px-5 py-4">
+                  <p className="font-serif italic text-sm text-foreground/75 leading-relaxed">
+                    "{place.notes}"
+                  </p>
+                </div>
+              </section>
+            )}
+          </div>
+
+          {/* Coluna direita — sidebar informações */}
           <aside className="space-y-4">
-            <Card>
-              <CardContent className="space-y-3 p-5">
-                <p className="text-sm font-semibold">Informações</p>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  {place.openStatusText && (
-                    <div className="flex items-center gap-2">
-                      <Clock className="h-4 w-4" />
-                      <span>{place.openStatusText}</span>
-                    </div>
-                  )}
-                  {place.menuUrl && (
-                    <div className="flex items-center gap-2">
-                      <Globe className="h-4 w-4" />
-                      <a className="underline" href={place.menuUrl} target="_blank" rel="noreferrer">
-                        Menu
-                      </a>
-                    </div>
-                  )}
-                  {place.website && (
-                    <div className="flex items-center gap-2">
-                      <Globe className="h-4 w-4" />
-                      <a className="underline" href={place.website} target="_blank" rel="noreferrer">
-                        Site oficial
-                      </a>
-                    </div>
-                  )}
-                  {place.phone && (
-                    <div className="flex items-center gap-2">
-                      <Phone className="h-4 w-4" />
-                      <span>{place.phone}</span>
-                    </div>
-                  )}
+
+            {/* Card horários */}
+            {place.hours && place.hours.length > 0 && (
+              <div className="rounded-xl border border-border/60 bg-card p-5 space-y-3">
+                <div className="flex items-center gap-2 text-sm font-semibold">
+                  <Clock className="h-4 w-4 text-hotel-gold/70" />
+                  Horários
                 </div>
-                <div className="flex flex-col gap-2">
-                  <Button asChild>
-                    <a href={getDirectionsUrl(place)} target="_blank" rel="noreferrer">
-                      <Navigation className="mr-2 h-4 w-4" />
-                      Como chegar (Google Maps)
-                    </a>
-                  </Button>
+                <ul className="space-y-1.5">
+                  {place.hours.map((h, i) => {
+                    const [day, ...rest] = h.split(/:\s*/);
+                    const hours = rest.join(": ");
+                    const isToday = (() => {
+                      const days = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+                      const todayIdx = new Date().toLocaleDateString("pt-BR", { weekday: "long" }).toLowerCase().split("-")[0];
+                      return day.toLowerCase().startsWith(todayIdx.slice(0, 3));
+                    })();
+                    return (
+                      <li key={i} className={`flex justify-between text-xs gap-3 ${isToday ? "text-hotel-gold font-semibold" : "text-muted-foreground"}`}>
+                        <span className="shrink-0">{day}</span>
+                        <span className="text-right">{hours || h}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
 
-                  {/* Removido: botão "Ver no Google Maps" ("Como chegar" já atende) */}
+            {/* Card contato + CTA */}
+            <div className="rounded-xl border border-border/60 bg-card p-5 space-y-4">
+              <p className="text-sm font-semibold">Contato & Acesso</p>
 
-                  {place.sourceUrl && !place.sourceUrl.includes("google.com/maps") && (
-                    <Button asChild variant="outline">
-                      <a href={place.sourceUrl} target="_blank" rel="noreferrer">
-                        Ver fonte <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
+              <div className="space-y-2.5 text-sm text-muted-foreground">
+                {place.phone && (
+                  <a href={`tel:${place.phone}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
+                    <Phone className="h-4 w-4 text-hotel-gold/60 shrink-0" />
+                    {place.phone}
+                  </a>
+                )}
+                {place.email && (
+                  <a href={`mailto:${place.email}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
+                    <Mail className="h-4 w-4 text-hotel-gold/60 shrink-0" />
+                    <span className="truncate">{place.email}</span>
+                  </a>
+                )}
+                {place.menuUrl && (
+                  <a href={place.menuUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                    <Globe className="h-4 w-4 text-hotel-gold/60 shrink-0" />
+                    Ver cardápio
+                  </a>
+                )}
+                {place.website && (
+                  <a href={place.website} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                    <Globe className="h-4 w-4 text-hotel-gold/60 shrink-0" />
+                    Site oficial
+                  </a>
+                )}
+              </div>
 
-                  <Button variant="outline" onClick={() => navigate("/")}>
-                    Voltar ao início
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+              {/* CTA Como Chegar */}
+              <a
+                href={getDirectionsUrl(place)}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 w-full rounded-lg bg-hotel-gold px-4 py-3 text-sm font-semibold text-black hover:bg-hotel-gold/90 transition-colors"
+              >
+                <Navigation className="h-4 w-4" />
+                Como Chegar
+                {place.distanceKm && (
+                  <span className="ml-1 rounded-full bg-black/15 px-2 py-0.5 text-xs font-medium">
+                    {place.distanceKm} km
+                  </span>
+                )}
+              </a>
+
+              {place.sourceUrl && !place.sourceUrl.includes("google.com/maps") && (
+                <a
+                  href={place.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2 w-full rounded-lg border border-border/60 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:border-hotel-gold/40 transition-colors"
+                >
+                  Ver fonte <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              )}
+            </div>
           </aside>
         </div>
+
+        {/* ── AVALIAÇÕES ──────────────────────────────────────────── */}
+        {place.reviews && place.reviews.length > 0 && (
+          <section className="space-y-5 pt-2">
+            <SectionDivider label="O que dizem" />
+
+            {/* Rating prominente */}
+            <div className="flex items-center gap-3">
+              <div className="flex">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star
+                    key={i}
+                    className={`h-5 w-5 ${i < Math.round(place.rating) ? "fill-rating-star text-rating-star" : "fill-muted text-muted"}`}
+                  />
+                ))}
+              </div>
+              <span className="font-serif text-2xl font-semibold">{place.rating.toFixed(1)}</span>
+              <span className="text-sm text-muted-foreground">({place.reviewCount} avaliações)</span>
+            </div>
+
+            {/* Cards de review */}
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {(showAllReviews ? place.reviews : place.reviews.slice(0, 3)).map((review, idx) => (
+                <li key={idx} className="rounded-xl bg-card border border-border/50 p-5 space-y-2 flex flex-col">
+                  <span className="font-serif text-4xl leading-none text-hotel-gold/40 select-none">"</span>
+                  <p className="text-sm text-foreground/80 leading-relaxed font-serif italic flex-1 -mt-2">
+                    {review.text}
+                  </p>
+                  {review.url && (
+                    <a
+                      href={review.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs text-muted-foreground/60 hover:text-hotel-gold transition-colors mt-auto"
+                    >
+                      {getReviewSource(review.url)} ↗
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+
+            {place.reviews.length > 3 && (
+              <button
+                onClick={() => setShowAllReviews((prev) => !prev)}
+                className="text-xs text-hotel-gold/70 hover:text-hotel-gold transition-colors font-medium"
+              >
+                {showAllReviews
+                  ? "Mostrar menos ↑"
+                  : `Ver todas as ${place.reviews.length} avaliações ↓`}
+              </button>
+            )}
+          </section>
+        )}
       </main>
     </div>
   );
