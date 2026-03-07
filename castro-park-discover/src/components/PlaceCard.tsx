@@ -179,7 +179,7 @@ export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
             className="shrink-0 flex items-center gap-1 text-[11px] font-medium text-hotel-gold/70 hover:text-hotel-gold transition-colors"
           >
             <Navigation className="h-3 w-3" />
-            Chegar
+            Como Chegar
           </a>
         </div>
       </CardContent>
