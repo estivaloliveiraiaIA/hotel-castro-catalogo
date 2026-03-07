@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Star, MapPin, DollarSign, Navigation } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getDirectionsUrl } from "@/lib/maps";
+import { computeOpenStatus } from "@/lib/openStatus";
 import { Place } from "@/types/place";
 import { Partner } from "@/types/partner";
 import { useNavigate } from "react-router-dom";
@@ -24,6 +25,14 @@ export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
   const [imgSrc, setImgSrc] = React.useState(place.image || fallbackImage);
 
   const directionsUrl = getDirectionsUrl(place);
+
+  // Calcula status aberto em tempo real baseado nos horários do lugar
+  const openStatus = React.useMemo(
+    () => computeOpenStatus(place.hours),
+    // Recalcula a cada vez que o componente monta — suficiente para uma sessão
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [place.id]
+  );
 
   const renderPriceLevel = (level: number) => {
     if (!level) return null;
@@ -90,14 +99,18 @@ export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
         {/* Favorito topo-direita */}
         <FavoriteButton placeId={place.id} className="absolute right-3 top-3" />
 
-        {/* Status aberto */}
-        {place.openStatusText?.toLowerCase().includes("aberto") && (
+        {/* Status aberto — calculado em tempo real */}
+        {openStatus && (
           <span
-            aria-label="Aberto agora"
-            className="absolute right-3 bottom-[5.5rem] flex items-center gap-1 rounded-full bg-black/50 px-2.5 py-1 text-[10px] font-medium text-green-400 backdrop-blur-sm border border-green-500/30"
+            aria-label={openStatus.label}
+            className={`absolute right-3 bottom-[5.5rem] flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-medium backdrop-blur-sm border ${
+              openStatus.isOpen
+                ? "bg-black/50 text-green-400 border-green-500/30"
+                : "bg-black/50 text-red-400/90 border-red-500/20"
+            }`}
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-            Aberto
+            <span className={`h-1.5 w-1.5 rounded-full ${openStatus.isOpen ? "bg-green-400 animate-pulse" : "bg-red-400/80"}`} />
+            {openStatus.label}
           </span>
         )}
 

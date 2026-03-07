@@ -11,6 +11,7 @@ import { PlaceGallery } from "@/components/PlaceGallery";
 import { PartnerBadge } from "@/components/PartnerBadge";
 import { Header } from "@/components/Header";
 import { getDirectionsUrl } from "@/lib/maps";
+import { computeOpenStatus } from "@/lib/openStatus";
 
 function getReviewSource(url?: string): string {
   if (!url) return "";
@@ -112,11 +113,22 @@ const Place = () => {
                 </div>
               </div>
 
-              {place.openStatusText && (
-                <Badge className="bg-green-600 text-primary-foreground">
-                  {place.openStatusText}
-                </Badge>
-              )}
+              {(() => {
+                const status = computeOpenStatus(place.hours);
+                if (!status) return null;
+                return (
+                  <Badge
+                    className={status.isOpen
+                      ? "bg-green-600 text-white"
+                      : "bg-muted text-muted-foreground border border-border"
+                    }
+                  >
+                    <span className={`mr-1.5 inline-block h-1.5 w-1.5 rounded-full ${status.isOpen ? "bg-green-300 animate-pulse" : "bg-muted-foreground/50"}`} />
+                    {status.label}
+                    {status.closesAt && ` · fecha às ${status.closesAt}`}
+                  </Badge>
+                );
+              })()}
 
               <p className="text-base leading-relaxed text-foreground/90">{place.description}</p>
 
