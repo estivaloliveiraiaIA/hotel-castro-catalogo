@@ -1,4 +1,4 @@
-import { Phone, Clock, Music } from "lucide-react";
+import { Phone, Clock, Music, Wine } from "lucide-react";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const FACTS = [
@@ -35,7 +35,7 @@ export const IpeStripBanner = () => {
                 Mais de 30 anos de tradição · Certificação 5 estrelas · 72 pratos
               </p>
 
-              <div className="flex justify-center md:justify-start">
+              <div className="flex flex-wrap justify-center md:justify-start gap-3">
                 <ShimmerButton
                   shimmerColor="#c9a84c"
                   shimmerDuration="2.5s"
@@ -45,6 +45,14 @@ export const IpeStripBanner = () => {
                   <Phone className="h-4 w-4" />
                   Reservar mesa
                 </ShimmerButton>
+
+                <button
+                  onClick={() => window.open("https://castros-park-hotel-restaurante-ip-1.goomer.app/menu", "_blank", "noreferrer")}
+                  className="inline-flex items-center gap-2 rounded-full border border-hotel-gold/40 px-6 py-3 text-sm font-medium text-hotel-gold/90 hover:border-hotel-gold/70 hover:text-hotel-gold transition-colors"
+                >
+                  <Wine className="h-4 w-4" />
+                  Ver cardápio
+                </button>
               </div>
             </div>
 
