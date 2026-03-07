@@ -14,13 +14,28 @@ export interface ChatMessage {
   timestamp: number;
 }
 
+function classifyError(err: unknown): string {
+  if (err instanceof Error) {
+    if (err.name === "AbortError" || err.message.includes("timeout")) {
+      return "Demorei mais que o esperado. Por favor, tente novamente em instantes.";
+    }
+    if (
+      err.message === "Failed to fetch" ||
+      err.message.includes("NetworkError") ||
+      err.message.includes("network")
+    ) {
+      return "Sem conexão com o servidor. Verifique sua internet e tente novamente.";
+    }
+  }
+  return "O concierge não está disponível agora. Tente novamente em instantes.";
+}
+
 export function useConciergeChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Keep messages in ref so the callback always has latest value
   const messagesRef = useRef<ChatMessage[]>([]);
   messagesRef.current = messages;
 
@@ -68,7 +83,7 @@ export function useConciergeChat() {
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (err) {
       console.error("[useConciergeChat] error:", err);
-      setError("O concierge não está disponível agora. Tente novamente em instantes.");
+      setError(classifyError(err));
     } finally {
       setLoading(false);
     }

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Send, Utensils, Baby, Coffee, Moon, ShoppingBag, Trash2 } from "lucide-react";
+import { Send, Utensils, Baby, Coffee, Moon, ShoppingBag, Trash2, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,14 @@ const SUGGESTIONS = [
   { label: "Café especial", icon: Coffee },
   { label: "Vida noturna", icon: Moon },
   { label: "Compras", icon: ShoppingBag },
+];
+
+const LOADING_MESSAGES = [
+  "Estou verificando as melhores opções...",
+  "Consultando o guia do hotel...",
+  "Procurando o que há de melhor em Goiânia...",
+  "Selecionando com cuidado para você...",
+  "Quase lá, só mais um instante...",
 ];
 
 interface ConciergeChatPanelProps {
@@ -34,8 +42,16 @@ function PlaceSuggestions({ places, onClose }: { places: ConciergePlace[]; onClo
           onClick={onClose}
           className="block rounded-xl border border-hotel-gold/20 bg-hotel-gold/5 px-3 py-2.5 hover:bg-hotel-gold/10 transition-colors"
         >
-          <p className="text-xs font-semibold text-foreground">{p.name}</p>
+          <div className="flex items-start justify-between gap-2">
+            <p className="text-xs font-semibold text-foreground">{p.name}</p>
+            <ExternalLink className="h-3 w-3 shrink-0 text-hotel-gold/40 mt-0.5" />
+          </div>
           <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{p.reason}</p>
+          {p.highlight && (
+            <p className="text-[11px] italic text-hotel-gold/70 mt-1 line-clamp-1">
+              ✦ {p.highlight}
+            </p>
+          )}
         </Link>
       ))}
     </div>
@@ -51,7 +67,20 @@ export const ConciergeChatPanel = ({
   onClose,
 }: ConciergeChatPanelProps) => {
   const [input, setInput] = useState("");
+  const [loadingMsgIdx, setLoadingMsgIdx] = useState(0);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Roda mensagens de loading humanizadas
+  useEffect(() => {
+    if (!loading) {
+      setLoadingMsgIdx(0);
+      return;
+    }
+    const timer = setInterval(() => {
+      setLoadingMsgIdx((i) => (i + 1) % LOADING_MESSAGES.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [loading]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -65,15 +94,15 @@ export const ConciergeChatPanel = ({
     }
   };
 
-  const handleSuggestion = (label: string) => {
-    onSend(label);
-  };
+  const hasMessages = messages.length > 0;
 
   return (
     <div className="flex flex-col h-full">
-      {/* Messages area */}
+      {/* Área de mensagens */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
-        {messages.length === 0 && !loading && (
+
+        {/* Tela de boas-vindas */}
+        {!hasMessages && !loading && (
           <div className="space-y-4">
             <div className="text-center py-6">
               <p className="font-serif text-sm italic text-muted-foreground leading-relaxed">
@@ -85,7 +114,7 @@ export const ConciergeChatPanel = ({
               {SUGGESTIONS.map(({ label, icon: Icon }) => (
                 <button
                   key={label}
-                  onClick={() => handleSuggestion(label)}
+                  onClick={() => onSend(label)}
                   className="inline-flex items-center gap-1.5 rounded-full border border-hotel-gold/30 bg-background px-3 py-1.5 text-xs text-muted-foreground hover:border-hotel-gold/60 hover:text-foreground hover:bg-hotel-gold/5 transition-colors"
                 >
                   <Icon className="h-3 w-3 text-hotel-gold/70" />
@@ -96,6 +125,7 @@ export const ConciergeChatPanel = ({
           </div>
         )}
 
+        {/* Mensagens */}
         {messages.map((msg, idx) => (
           <div
             key={idx}
@@ -117,19 +147,18 @@ export const ConciergeChatPanel = ({
           </div>
         ))}
 
-        {/* Loading bubble */}
+        {/* Loading humanizado */}
         {loading && (
           <div className="flex justify-start">
-            <div className="bg-card border border-border/60 rounded-2xl rounded-bl-sm px-4 py-3">
-              <div className="flex gap-1 items-center h-4">
-                <span className="h-1.5 w-1.5 rounded-full bg-hotel-gold/60 animate-bounce [animation-delay:0ms]" />
-                <span className="h-1.5 w-1.5 rounded-full bg-hotel-gold/60 animate-bounce [animation-delay:150ms]" />
-                <span className="h-1.5 w-1.5 rounded-full bg-hotel-gold/60 animate-bounce [animation-delay:300ms]" />
-              </div>
+            <div className="bg-card border border-border/60 rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
+              <p className="text-xs text-muted-foreground italic animate-pulse">
+                {LOADING_MESSAGES[loadingMsgIdx]}
+              </p>
             </div>
           </div>
         )}
 
+        {/* Erro tipado */}
         {error && (
           <div className="rounded-xl border border-border bg-muted/30 px-3 py-2 text-center text-xs text-muted-foreground">
             {error}
@@ -139,9 +168,28 @@ export const ConciergeChatPanel = ({
         <div ref={bottomRef} />
       </div>
 
-      {/* Footer: clear + input */}
+      {/* Footer */}
       <div className="border-t px-4 py-3 space-y-2">
-        {messages.length > 0 && (
+
+        {/* Chips persistentes — aparecem após primeira mensagem */}
+        {hasMessages && (
+          <div className="-mx-1 flex gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
+            {SUGGESTIONS.map(({ label, icon: Icon }) => (
+              <button
+                key={label}
+                onClick={() => onSend(label)}
+                disabled={loading}
+                className="shrink-0 inline-flex items-center gap-1 rounded-full border border-hotel-gold/25 bg-background px-2.5 py-1 text-[10px] text-muted-foreground hover:border-hotel-gold/50 hover:text-foreground hover:bg-hotel-gold/5 transition-colors disabled:opacity-40"
+              >
+                <Icon className="h-2.5 w-2.5 text-hotel-gold/60" />
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Limpar conversa */}
+        {hasMessages && (
           <button
             onClick={onClear}
             className="flex items-center gap-1 text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors"
@@ -150,6 +198,8 @@ export const ConciergeChatPanel = ({
             Limpar conversa
           </button>
         )}
+
+        {/* Input */}
         <form onSubmit={handleSubmit} className="flex gap-2">
           <Input
             value={input}
