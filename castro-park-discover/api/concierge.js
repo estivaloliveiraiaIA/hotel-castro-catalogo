@@ -30,6 +30,11 @@ const HOTEL_TRIGGER_KEYWORDS = [
   "check-in", "room service", "ipe", "feijoada", "recepcao", "suite", "diaria",
   "valet", "sauna", "brinquedoteca", "convencao", "salao", "musica ao vivo",
   "animais", "pet", "cachorro", "preco", "tarifa", "reserva", "transferencia",
+  // Adicionados para cobrir perguntas diretas sobre o hotel
+  "telefone", "numero", "ligar", "contato", "email", "whatsapp", "horario",
+  "valor", "custa", "quanto", "cardapio", "menu", "café", "manha", "almoco",
+  "jantar", "standart", "standard", "single", "duplo", "suite", "deluxe",
+  "café", "buffet", "incluso", "inclui", "gratis", "gratuito",
 ];
 
 // ────────────────────────────────────────────────────────
@@ -287,13 +292,12 @@ Selecione até 3 lugares que melhor atendem ao pedido atual. Responda SOMENTE co
 
     const result = await callClaude(systemPrompt, claudeMessages, apiKey);
 
-    if (!result.places || !Array.isArray(result.places)) {
-      return res.status(200).json(FALLBACK);
-    }
+    // places pode ser null ou ausente quando Claude responde só sobre o hotel
+    const places = Array.isArray(result.places) ? result.places : [];
 
     return res.status(200).json({
       message: result.message || "",
-      places: result.places.slice(0, 3),
+      places: places.slice(0, 3),
     });
   } catch (err) {
     console.error("[concierge] error:", err.message);
@@ -301,6 +305,16 @@ Selecione até 3 lugares que melhor atendem ao pedido atual. Responda SOMENTE co
     if (err.name === "AbortError" || err.message?.includes("timeout")) {
       return res.status(200).json({
         message: "Demorei um pouco mais que o esperado. Pode tentar novamente?",
+        places: [],
+      });
+    }
+
+    // Se falhou mas era uma pergunta sobre o hotel, resposta mais útil que o FALLBACK
+    const safeQuery = sanitizeQuery(lastUserMsg);
+    const keywords = extractKeywords(safeQuery);
+    if (isHotelQuery(keywords)) {
+      return res.status(200).json({
+        message: "Para essa informação, recomendo falar diretamente com nossa recepção pelo (62) 3096-2000 — nossa equipe terá prazer em ajudar!",
         places: [],
       });
     }
