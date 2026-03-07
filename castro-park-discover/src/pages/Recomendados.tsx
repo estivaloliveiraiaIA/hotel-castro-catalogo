@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -10,11 +10,22 @@ import { Button } from "@/components/ui/button";
 import { usePlaces } from "@/hooks/usePlaces";
 import { usePartners } from "@/hooks/usePartners";
 
+const HERO_IMAGES = ["/images/hero1.jpg", "/images/hero2.jpg"];
+const SLIDE_INTERVAL = 10000;
+
 const Recomendados = () => {
   const navigate = useNavigate();
   const { data, isLoading } = usePlaces();
   const { data: partners } = usePartners();
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, SLIDE_INTERVAL);
+    return () => clearInterval(timer);
+  }, []);
 
   const recomendados = useMemo(
     () =>
@@ -55,7 +66,17 @@ const Recomendados = () => {
       <Header />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary via-primary/95 to-primary/80 py-16 md:py-24 text-primary-foreground">
+      <section className="relative overflow-hidden py-16 md:py-24 text-white">
+        {/* Slideshow de imagens com crossfade */}
+        {HERO_IMAGES.map((src, i) => (
+          <div
+            key={src}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out"
+            style={{ backgroundImage: `url('${src}')`, opacity: i === currentSlide ? 1 : 0 }}
+          />
+        ))}
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         <BackgroundPaths />
         <div className="container px-4">
           <div className="mx-auto max-w-2xl text-center">
@@ -99,10 +120,10 @@ const Recomendados = () => {
             </h1>
 
             <p
-              className="font-serif italic text-primary-foreground/70 text-base sm:text-lg leading-relaxed max-w-md mx-auto animate-fade-up"
+              className="font-serif italic text-white/70 text-base sm:text-lg leading-relaxed max-w-md mx-auto animate-fade-up"
               style={{ animationDelay: "440ms" }}
             >
-              Uma curadoria criteriosamente selecionada para tornar cada momento da sua estadia em Goiânia inesquecível
+              Uma curadoria criteriosamente selecionada para tornar<br className="hidden sm:block" /> cada momento da sua estadia em Goiânia inesquecível
             </p>
 
             {!isLoading && (

@@ -2,7 +2,7 @@ import * as React from "react";
 import { BackgroundPaths } from "@/components/BackgroundPaths";
 
 const HERO_IMAGES = ["/images/hero1.jpg", "/images/hero2.jpg"];
-const SLIDE_INTERVAL = 5000; // ms
+const SLIDE_INTERVAL = 10000; // ms
 
 interface HeroProps {
   totalPlaces: number;
