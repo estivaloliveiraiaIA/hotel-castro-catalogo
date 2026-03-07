@@ -51,7 +51,7 @@ const Recomendados = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground pb-16 md:pb-0">
+    <div className="min-h-screen bg-background text-foreground pb-24 md:pb-0">
       <Header />
 
       {/* Hero */}
@@ -74,11 +74,12 @@ const Recomendados = () => {
 
             {/* Ornamento */}
             <div
-              className="mb-5 flex items-center justify-center gap-4 animate-fade-up"
+              className="mb-5 flex items-center justify-center gap-3 animate-fade-up"
               style={{ animationDelay: "120ms" }}
             >
-              <div className="h-px w-16 bg-hotel-gold/60" />
-              <div className="h-px w-16 bg-hotel-gold/60" />
+              <div className="h-px w-12 bg-hotel-gold/50" />
+              <span className="text-hotel-gold/70 text-sm">✦</span>
+              <div className="h-px w-12 bg-hotel-gold/50" />
             </div>
 
             <div

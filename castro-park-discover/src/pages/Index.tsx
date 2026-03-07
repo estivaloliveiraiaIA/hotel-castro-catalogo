@@ -169,7 +169,7 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background pb-16 md:pb-0">
+    <div className="min-h-screen bg-background pb-24 md:pb-0">
       <Header />
       <Hero totalPlaces={places.length} totalCategories={totalCategories} updatedAt={updatedAt} />
       <div id="concierge-section">
@@ -184,26 +184,29 @@ const Index = () => {
         }}
       />
 
-      <section className="border-b bg-muted/10">
-        <div className="container px-4 py-4">
-          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-hotel-gold/80">Explorar Goiânia</p>
-          <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
+      <section className="border-b bg-background">
+        <div className="container px-4 py-5">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-hotel-gold/70">Explorar Goiânia</p>
+          <div className="-mx-4 flex gap-2.5 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
             {quickActions.map((item) => {
               const Icon = item.icon;
+              const isActive = selectedCategory === item.category;
               return (
-                <Button
+                <button
                   key={item.label}
-                  variant={selectedCategory === item.category ? "default" : "secondary"}
-                  size="sm"
-                  className="shrink-0 gap-1.5"
                   onClick={() => {
                     setSelectedSubcategory(null);
                     setSelectedCategory(item.category);
                   }}
+                  className={`shrink-0 flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium border transition-all duration-200 ${
+                    isActive
+                      ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/20"
+                      : "bg-background border-hotel-gold/20 text-muted-foreground hover:border-hotel-gold/50 hover:text-foreground hover:bg-hotel-gold/5"
+                  }`}
                 >
-                  <Icon className="h-3.5 w-3.5" />
+                  <Icon className={`h-4 w-4 ${isActive ? "text-hotel-gold" : ""}`} />
                   {item.label}
-                </Button>
+                </button>
               );
             })}
           </div>
@@ -463,13 +466,46 @@ const Index = () => {
                 </section>
               )}
 
+              {/* Recomendados — seção dark premium */}
               <div id="recomendados-section">
-                <PlaceSection
-                  title="Recomendados pelo hotel"
-                  subtitle="Curadoria especial para uma experiência inesquecível em Goiânia"
-                  places={curatedTop}
-                  partners={partners}
-                />
+                <section className="py-12 bg-primary text-primary-foreground overflow-hidden">
+                  <div className="container px-4">
+                    <div className="mb-8 text-center">
+                      <div className="flex items-center justify-center gap-3 mb-4">
+                        <div className="h-px w-10 bg-hotel-gold/50" />
+                        <span className="text-hotel-gold text-sm">✦</span>
+                        <div className="h-px w-10 bg-hotel-gold/50" />
+                      </div>
+                      <p className="text-xs font-medium uppercase tracking-[0.3em] text-hotel-gold/80 mb-3">
+                        Seleção do Hotel
+                      </p>
+                      <h2 className="font-serif text-3xl font-semibold md:text-4xl mb-2">
+                        Recomendados pelo hotel
+                      </h2>
+                      <p className="font-serif italic text-primary-foreground/60 text-sm md:text-base max-w-md mx-auto">
+                        Curadoria especial para uma experiência inesquecível em Goiânia
+                      </p>
+                    </div>
+                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                      {curatedTop.map((place) => (
+                        <PlaceCard
+                          key={place.id}
+                          place={place}
+                          partner={partners?.find((p) => p.placeId === place.id)}
+                        />
+                      ))}
+                    </div>
+                    <div className="mt-8 flex justify-center">
+                      <button
+                        onClick={() => window.location.href = "/recomendados"}
+                        className="inline-flex items-center gap-2 rounded-full border border-hotel-gold/40 bg-hotel-gold/10 px-6 py-2.5 text-sm font-medium text-hotel-gold hover:bg-hotel-gold/20 hover:border-hotel-gold/60 transition-all duration-200"
+                      >
+                        <span className="text-hotel-gold text-xs">✦</span>
+                        Ver todos os recomendados
+                      </button>
+                    </div>
+                  </div>
+                </section>
               </div>
               <PlaceSection
                 title="Perto do hotel"
@@ -502,18 +538,21 @@ const Index = () => {
                 partners={partners}
               />
 
-              <footer className="border-t bg-muted/20 py-10">
+              <footer className="border-t bg-primary text-primary-foreground py-12">
                 <div className="container px-4 text-center">
-                  <div className="mb-4 flex items-center justify-center gap-4">
+                  <div className="mb-5 flex items-center justify-center gap-3">
                     <div className="h-px w-12 bg-hotel-gold/30" />
-                    <span className="text-hotel-gold/50 text-sm">✦</span>
+                    <span className="text-hotel-gold/60 text-sm">✦</span>
                     <div className="h-px w-12 bg-hotel-gold/30" />
                   </div>
-                  <p className="font-serif text-base text-foreground/70 mb-1">
+                  <p className="font-serif text-2xl font-semibold text-white mb-1">
                     Castro&apos;s Park Hotel
                   </p>
-                  <p className="text-xs text-muted-foreground tracking-wide">
+                  <p className="text-xs text-primary-foreground/50 tracking-[0.2em] uppercase mb-4">
                     Guia exclusivo para hóspedes · Goiânia
+                  </p>
+                  <p className="text-xs text-primary-foreground/40">
+                    Av. República do Líbano, 1520 · Setor Oeste · Goiânia, GO
                   </p>
                 </div>
               </footer>

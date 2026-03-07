@@ -10,14 +10,26 @@ export const Hero = ({ updatedAt }: HeroProps) => {
   const updatedText = updatedAt ? new Date(updatedAt).toLocaleString("pt-BR") : null;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary via-primary/95 to-primary/80 py-20 text-primary-foreground md:py-28">
+    <section className="relative overflow-hidden py-24 text-white md:py-36">
+      {/* Imagem de fundo full-bleed — Goiânia / paisagem urbana */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[8s] ease-out scale-105 group-hover:scale-100"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80&auto=format&fit=crop')",
+        }}
+      />
+      {/* Overlay escuro com gradiente — mantém legibilidade */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+      {/* BackgroundPaths animado sobre o overlay */}
       <BackgroundPaths />
-      <div className="container px-4">
+
+      <div className="relative container px-4">
         <div className="mx-auto max-w-3xl text-center">
 
           {/* Badge Castro's Park Hotel */}
           <div
-            className="mb-7 inline-flex items-center gap-2 rounded-full border border-hotel-gold/50 bg-hotel-gold/10 px-5 py-2 shadow-[0_0_18px_0_rgba(212,175,55,0.18)] animate-fade-up"
+            className="mb-7 inline-flex items-center gap-2 rounded-full border border-hotel-gold/50 bg-hotel-gold/10 px-5 py-2 shadow-[0_0_24px_0_rgba(212,175,55,0.22)] backdrop-blur-sm animate-fade-up"
             style={{ animationDelay: "0ms" }}
           >
             <span className="text-hotel-gold text-xs">✦</span>
@@ -27,31 +39,32 @@ export const Hero = ({ updatedAt }: HeroProps) => {
             <span className="text-hotel-gold text-xs">✦</span>
           </div>
 
-          {/* Ornamento superior dourado */}
+          {/* Ornamento dourado */}
           <div
-            className="mb-6 flex items-center justify-center gap-4 animate-fade-up"
+            className="mb-6 flex items-center justify-center gap-3 animate-fade-up"
             style={{ animationDelay: "120ms" }}
           >
-            <div className="h-px w-16 bg-hotel-gold/60" />
-            <div className="h-px w-16 bg-hotel-gold/60" />
+            <div className="h-px w-12 bg-hotel-gold/50" />
+            <span className="text-hotel-gold/70 text-sm">✦</span>
+            <div className="h-px w-12 bg-hotel-gold/50" />
           </div>
 
           <p
-            className="mb-5 text-xs font-medium uppercase tracking-[0.3em] text-hotel-gold/90 animate-fade-up"
+            className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-hotel-gold/90 animate-fade-up"
             style={{ animationDelay: "200ms" }}
           >
             Guia exclusivo para hóspedes
           </p>
 
           <h2
-            className="mb-5 font-serif text-4xl font-semibold sm:text-5xl md:text-6xl animate-fade-up"
+            className="mb-5 font-serif text-5xl font-semibold sm:text-6xl md:text-7xl animate-fade-up drop-shadow-lg"
             style={{ animationDelay: "320ms" }}
           >
             Descubra Goiânia
           </h2>
 
           <p
-            className="mx-auto mb-8 max-w-lg font-serif text-base italic text-primary-foreground/70 sm:text-lg leading-relaxed animate-fade-up"
+            className="mx-auto mb-8 max-w-lg font-serif text-base italic text-white/75 sm:text-lg leading-relaxed animate-fade-up"
             style={{ animationDelay: "440ms" }}
           >
             Uma curadoria pensada para tornar cada momento da sua estadia inesquecível
@@ -59,7 +72,7 @@ export const Hero = ({ updatedAt }: HeroProps) => {
 
           {updatedText && (
             <p
-              className="mt-6 text-xs opacity-40 animate-fade-up"
+              className="mt-4 text-xs text-white/30 animate-fade-up"
               style={{ animationDelay: "560ms" }}
             >
               Atualizado em {updatedText}
@@ -69,7 +82,7 @@ export const Hero = ({ updatedAt }: HeroProps) => {
       </div>
 
       {/* Fade para o background */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };

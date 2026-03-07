@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Star, MapPin, DollarSign, Navigation } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getDirectionsUrl } from "@/lib/maps";
@@ -27,15 +26,20 @@ export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
   const directionsUrl = getDirectionsUrl(place);
 
   const renderPriceLevel = (level: number) => {
-    return Array.from({ length: 4 }, (_, i) => (
-      <DollarSign
-        key={i}
-        className={cn(
-          "h-3 w-3",
-          i < level ? "text-hotel-gold" : "text-muted-foreground/30"
-        )}
-      />
-    ));
+    if (!level) return null;
+    return (
+      <div className="flex items-center gap-px">
+        {Array.from({ length: 4 }, (_, i) => (
+          <DollarSign
+            key={i}
+            className={cn(
+              "h-3 w-3",
+              i < level ? "text-hotel-gold/90" : "text-white/20"
+            )}
+          />
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -49,107 +53,121 @@ export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
           navigate(`/place/${encodeURIComponent(place.id)}`);
         }
       }}
-      className="group overflow-hidden transition-all duration-300 hover:shadow-[0_8px_40px_-8px_hsl(var(--hotel-gold)/0.35)] hover:border-hotel-gold/60 cursor-pointer"
+      className="group overflow-hidden transition-all duration-500 hover:shadow-[0_12px_48px_-8px_hsl(var(--hotel-gold)/0.30)] hover:border-hotel-gold/50 cursor-pointer border-border/60"
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
+      {/* Imagem com overlay editorial */}
+      <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={imgSrc}
           alt={place.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
           loading="lazy"
           referrerPolicy="no-referrer"
           onError={() => {
             if (imgSrc !== fallbackImage) setImgSrc(fallbackImage);
           }}
         />
-        {/* Overlay elegante no hover */}
-        <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
-        {/* Status aberto */}
-        {place.openStatusText?.toLowerCase().includes("aberto") && (
-          <span
-            aria-label="Aberto agora"
-            className="absolute bottom-2 left-2 flex items-center gap-1 rounded-full bg-background/90 px-2 py-0.5 text-[10px] font-medium text-green-600 backdrop-blur shadow-sm"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-            Aberto
-          </span>
-        )}
-        <FavoriteButton placeId={place.id} className="absolute right-2 top-2" />
-        <div className="absolute right-10 top-2 flex items-center gap-1 rounded-full bg-background/95 px-2 py-1 backdrop-blur shadow-sm">
-          <Star className="h-3.5 w-3.5 fill-rating-star text-rating-star" />
-          <span className="text-sm font-semibold">
-            {Number.isFinite(place.rating) ? place.rating.toFixed(1) : "N/A"}
-          </span>
-          <span className="text-xs text-muted-foreground">
-            ({place.reviewCount ?? 0})
-          </span>
-        </div>
-        <div className="absolute left-2 top-2 flex flex-col gap-1">
+
+        {/* Gradient overlay editorial — forte na base */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+
+        {/* Badges topo-esquerda */}
+        <div className="absolute left-3 top-3 flex flex-col gap-1.5">
           {place.hotelRecommended && (
-            <span className="rounded-full bg-hotel-gold/90 px-2.5 py-0.5 text-[11px] font-medium text-hotel-charcoal backdrop-blur">
+            <span className="inline-flex items-center gap-1 rounded-full bg-hotel-gold px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-black shadow-md">
               ✦ Hotel
             </span>
           )}
           {partner && (
-            <PartnerBadge label={partner.badgeLabel} size="sm" className="bg-background/90 backdrop-blur" />
+            <PartnerBadge
+              label={partner.badgeLabel}
+              size="sm"
+              className="bg-black/50 backdrop-blur border-white/20 text-white"
+            />
           )}
+        </div>
+
+        {/* Favorito topo-direita */}
+        <FavoriteButton placeId={place.id} className="absolute right-3 top-3" />
+
+        {/* Status aberto */}
+        {place.openStatusText?.toLowerCase().includes("aberto") && (
+          <span
+            aria-label="Aberto agora"
+            className="absolute right-3 bottom-[5.5rem] flex items-center gap-1 rounded-full bg-black/50 px-2.5 py-1 text-[10px] font-medium text-green-400 backdrop-blur-sm border border-green-500/30"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+            Aberto
+          </span>
+        )}
+
+        {/* Conteúdo editorial sobre a imagem — base */}
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <h3 className="font-serif text-xl font-semibold leading-tight text-white mb-1.5 group-hover:text-hotel-gold/90 transition-colors duration-300">
+            {place.name}
+          </h3>
+          <div className="flex items-center gap-3">
+            {/* Rating */}
+            <div className="flex items-center gap-1">
+              <Star className="h-3.5 w-3.5 fill-rating-star text-rating-star" />
+              <span className="text-sm font-semibold text-white">
+                {Number.isFinite(place.rating) ? place.rating.toFixed(1) : "—"}
+              </span>
+              {place.reviewCount ? (
+                <span className="text-[11px] text-white/50">({place.reviewCount})</span>
+              ) : null}
+            </div>
+
+            {/* Distância */}
+            {place.distanceKm && (
+              <div className="flex items-center gap-1 text-hotel-gold/90 text-xs font-medium">
+                <Navigation className="h-3 w-3" />
+                {place.distanceKm} km
+              </div>
+            )}
+
+            {/* Preço */}
+            {renderPriceLevel(place.priceLevel ?? 0)}
+          </div>
         </div>
       </div>
 
-      <CardContent className="p-4">
-        <div className="mb-1.5 flex items-start justify-between gap-3">
-          <h3 className="font-serif text-lg font-semibold leading-tight group-hover:text-primary transition-colors">{place.name}</h3>
-          <div className="flex shrink-0 pt-0.5">{renderPriceLevel(place.priceLevel ?? 0)}</div>
-        </div>
-
-        <div className="mb-2 flex items-center gap-1 text-sm text-muted-foreground">
-          <MapPin className="h-3 w-3 shrink-0" />
+      {/* Conteúdo mínimo abaixo da imagem */}
+      <CardContent className="p-3.5">
+        <div className="mb-2.5 flex items-center gap-1 text-xs text-muted-foreground">
+          <MapPin className="h-3 w-3 shrink-0 text-hotel-gold/60" />
           <span className="line-clamp-1">{place.address}</span>
         </div>
 
-        {place.distanceKm && (
-          <div className="mb-2 flex items-center gap-1 text-xs text-hotel-gold font-medium">
-            <Navigation className="h-3 w-3" />
-            {place.distanceKm} km do hotel
+        <div className="flex items-center justify-between gap-2">
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1">
+            {place.subcategories?.[0] &&
+              !["Restaurante", "Bar & Noite", "Atração", "Cultura", "Compras", "Ao ar livre", "Café"].includes(
+                place.subcategories[0]
+              ) && (
+                <Badge variant="outline" className="text-[10px] px-2 py-0 border-hotel-gold/20 text-muted-foreground">
+                  {place.subcategories[0]}
+                </Badge>
+              )}
+            {(place.tags || []).slice(0, 1).map((tag) => (
+              <Badge key={tag} variant="secondary" className="text-[10px] px-2 py-0">
+                {tag}
+              </Badge>
+            ))}
           </div>
-        )}
 
-        <p className="mb-3 line-clamp-2 text-sm text-muted-foreground">
-          {place.description || "Explore este lugar em Goiânia"}
-        </p>
-        
-        <div className="flex flex-wrap gap-1 mb-3">
-          {place.subcategories?.[0] && !["Restaurante", "Bar & Noite", "Atração", "Cultura", "Compras", "Ao ar livre", "Café"].includes(place.subcategories[0]) && (
-            <Badge variant="outline" className="text-xs">
-              {place.subcategories[0]}
-            </Badge>
-          )}
-
-          {(place.tags || []).slice(0, 2).map((tag) => (
-            <Badge key={tag} variant="secondary" className="text-xs">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-
-        {/* Quick actions (do not navigate) */}
-        <div className="flex flex-wrap gap-2">
-          <Button
-            variant="outline"
-            size="sm"
-            asChild
-            className="border-hotel-gold/50 text-primary hover:bg-hotel-gold/10 hover:border-hotel-gold hover:text-primary"
+          {/* Como chegar — link elegante */}
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="shrink-0 flex items-center gap-1 text-[11px] font-medium text-hotel-gold/70 hover:text-hotel-gold transition-colors"
           >
-            <a
-              href={directionsUrl}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Navigation className="mr-2 h-3.5 w-3.5" />
-              Como chegar
-            </a>
-          </Button>
+            <Navigation className="h-3 w-3" />
+            Chegar
+          </a>
         </div>
       </CardContent>
     </Card>

@@ -23,9 +23,9 @@ export const BottomNav = () => {
   return (
     <nav
       aria-label="Navegação principal"
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-hotel-gold/20 bg-background/95 backdrop-blur-sm md:hidden"
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden"
     >
-      <div className="flex h-16 items-center justify-around px-2">
+      <div className="flex items-center gap-1 rounded-2xl border border-hotel-gold/25 bg-background/90 backdrop-blur-md shadow-[0_8px_32px_-4px_rgba(0,0,0,0.25),0_0_0_1px_hsl(var(--hotel-gold)/0.08)] px-2 py-2">
         {NAV_ITEMS.map(({ label, href, icon: Icon, scrollTo }) => {
           const isActive =
             label === "Guia"
@@ -41,14 +41,17 @@ export const BottomNav = () => {
               onClick={scrollTo ? (e) => handleScrollClick(e, scrollTo) : undefined}
               aria-label={label}
               className={cn(
-                "flex flex-col items-center gap-0.5 px-3 py-1.5 text-[10px] font-medium transition-colors duration-150",
+                "relative flex flex-col items-center gap-0.5 px-3.5 py-1.5 text-[10px] font-medium rounded-xl transition-all duration-200",
                 isActive
-                  ? "text-hotel-gold"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-hotel-gold bg-hotel-gold/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
               )}
             >
-              <Icon className={cn("h-5 w-5", isActive && "stroke-[2.5]")} />
+              <Icon className={cn("h-5 w-5 transition-all duration-200", isActive && "stroke-[2.5] scale-110")} />
               {label}
+              {isActive && (
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-3 rounded-full bg-hotel-gold" />
+              )}
             </Link>
           );
         })}
