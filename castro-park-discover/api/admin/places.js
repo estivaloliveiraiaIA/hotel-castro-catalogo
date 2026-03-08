@@ -31,13 +31,18 @@ export default async function handler(req, res) {
       return res.status(200).json(data);
     }
 
-    // GET sem id — listagem geral sem gallery (payload reduzido para 500 registros)
+    // GET sem id — listagem geral sem gallery completa (payload reduzido para 500 registros)
     const { data, error } = await supabase
       .from("places")
-      .select("id, name, category, subcategories, rating, price_level, description, image, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url, distance_km")
+      .select("id, name, category, subcategories, rating, price_level, description, image, gallery, address, phone, website, hotel_recommended, hotel_score, is_active, hours, tags, menu_url, distance_km")
       .order("hotel_score", { ascending: false, nullsFirst: false });
     if (error) return res.status(500).json({ error: `Erro ao buscar lugares: ${error.message}` });
-    return res.status(200).json(data);
+    // Transforma gallery em gallery_count para reduzir payload
+    const list = (data || []).map(({ gallery, ...rest }) => ({
+      ...rest,
+      gallery_count: Array.isArray(gallery) ? gallery.length : 0,
+    }));
+    return res.status(200).json(list);
   }
 
   if (req.method === "POST") {

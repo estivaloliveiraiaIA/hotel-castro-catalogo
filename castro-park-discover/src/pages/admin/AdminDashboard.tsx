@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Calendar, Map, Handshake, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, Map, Handshake, ArrowRight, ShieldCheck, AlertTriangle, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAdminApi } from "@/hooks/useAdminApi";
 
@@ -13,6 +13,18 @@ interface Stats {
   partners: number;
 }
 
+interface QaStats {
+  total: number;
+  excellent: number;
+  good: number;
+  regular: number;
+  critical: number;
+  needsAttention: number;
+  avgScore: number;
+  topIssues: { issue: string; count: number }[];
+  worst: { id: string; name: string; score: number; issues: string[] }[];
+}
+
 const sections = [
   { label: "Lugares", key: "places" as const, icon: MapPin, to: "/admin/places", color: "text-blue-600", bg: "bg-blue-50" },
   { label: "Eventos", key: "events" as const, icon: Calendar, to: "/admin/events", color: "text-green-600", bg: "bg-green-50" },
@@ -20,16 +32,43 @@ const sections = [
   { label: "Parceiros", key: "partners" as const, icon: Handshake, to: "/admin/partners", color: "text-amber-600", bg: "bg-amber-50" },
 ];
 
+function QaScoreBar({ label, count, total, color }: { label: string; count: number; total: number; color: string }) {
+  const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+  return (
+    <div className="flex items-center gap-2 text-xs">
+      <span className="w-16 text-muted-foreground shrink-0">{label}</span>
+      <div className="flex-1 bg-muted rounded-full h-1.5 overflow-hidden">
+        <div className={cn("h-full rounded-full transition-all", color)} style={{ width: `${pct}%` }} />
+      </div>
+      <span className="w-6 text-right font-medium text-foreground">{count}</span>
+    </div>
+  );
+}
+
 export default function AdminDashboard() {
   const api = useAdminApi();
   const [stats, setStats] = useState<Stats | null>(null);
+  const [qa, setQa] = useState<QaStats | null>(null);
+  const [qaLoading, setQaLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     api.get<Stats>("/api/admin/stats")
       .then(setStats)
       .catch(() => setError("Falha ao carregar estatísticas"));
+
+    api.get<QaStats>("/api/admin/qa-score")
+      .then(setQa)
+      .catch(() => {})
+      .finally(() => setQaLoading(false));
   }, []);
+
+  const qaColor = qa
+    ? qa.avgScore >= 90 ? "text-green-600"
+    : qa.avgScore >= 70 ? "text-blue-600"
+    : qa.avgScore >= 50 ? "text-amber-600"
+    : "text-red-600"
+    : "text-muted-foreground";
 
   return (
     <div className="p-6 max-w-4xl">
@@ -44,7 +83,7 @@ export default function AdminDashboard() {
         </p>
       )}
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         {sections.map(({ label, key, icon: Icon, to, color, bg }) => (
           <Link key={key} to={to}>
             <Card className="hover:shadow-md hover:border-hotel-gold/30 transition-all cursor-pointer">
@@ -70,6 +109,85 @@ export default function AdminDashboard() {
           </Link>
         ))}
       </div>
+
+      {/* ── Card de Qualidade (QA) ──────────────────────────────────── */}
+      <Card className="mb-6 border-border">
+        <CardHeader className="pb-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-violet-50">
+                <ShieldCheck className="w-5 h-5 text-violet-600" />
+              </div>
+              <div>
+                <CardTitle className="text-base">Qualidade dos Lugares</CardTitle>
+                <p className="text-xs text-muted-foreground">Foto, descrição, horários, site e cardápio</p>
+              </div>
+            </div>
+            {qa && !qaLoading && (
+              <div className="text-right">
+                <p className={cn("text-3xl font-bold", qaColor)}>{qa.avgScore}</p>
+                <p className="text-[11px] text-muted-foreground">score médio</p>
+              </div>
+            )}
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {qaLoading ? (
+            <p className="text-xs text-muted-foreground/60 text-center py-4">Analisando {stats?.places_active ?? "..."} lugares...</p>
+          ) : qa ? (
+            <>
+              {/* Distribuição de scores */}
+              <div className="space-y-2">
+                <QaScoreBar label="Excelente" count={qa.excellent} total={qa.total} color="bg-green-500" />
+                <QaScoreBar label="Bom" count={qa.good} total={qa.total} color="bg-blue-500" />
+                <QaScoreBar label="Regular" count={qa.regular} total={qa.total} color="bg-amber-400" />
+                <QaScoreBar label="Crítico" count={qa.critical} total={qa.total} color="bg-red-500" />
+              </div>
+
+              {/* Alerta de lugares que precisam de atenção */}
+              {qa.needsAttention > 0 && (
+                <Link
+                  to="/admin/places?qa=low"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg bg-red-50 border border-red-200 hover:border-red-400 transition-colors group"
+                >
+                  <div className="flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4 text-red-500 shrink-0" />
+                    <span className="text-sm font-medium text-red-700">
+                      {qa.needsAttention} lugar{qa.needsAttention !== 1 ? "es" : ""} precisam de atenção
+                    </span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-red-400 group-hover:text-red-600 transition-colors" />
+                </Link>
+              )}
+
+              {/* Top issues */}
+              {qa.topIssues.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wide mb-2 flex items-center gap-1">
+                    <TrendingUp className="w-3 h-3" /> Campos mais ausentes
+                  </p>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {qa.topIssues.map(({ issue, count }) => (
+                      <div key={issue} className="flex items-center justify-between px-2.5 py-1.5 rounded-md bg-muted/60 text-xs">
+                        <span className="text-muted-foreground capitalize truncate">{issue}</span>
+                        <span className="font-semibold text-foreground ml-2 shrink-0">{count}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {qa.needsAttention === 0 && (
+                <p className="text-xs text-green-700 bg-green-50 border border-green-200 rounded-lg px-3 py-2 text-center">
+                  Todos os lugares estão com qualidade boa ou excelente ✓
+                </p>
+              )}
+            </>
+          ) : (
+            <p className="text-xs text-muted-foreground/60 text-center py-4">Não foi possível carregar dados de qualidade</p>
+          )}
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>

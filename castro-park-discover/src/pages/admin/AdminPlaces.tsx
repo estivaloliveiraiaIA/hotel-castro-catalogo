@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight, ExternalLink, X, ImagePlus, Sparkles, Link } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight, ExternalLink, X, ImagePlus, Sparkles, Link, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -66,7 +67,8 @@ interface Place {
   tags: string[];
   description: string;
   image: string | null;
-  gallery: string[];
+  gallery?: string[];
+  gallery_count?: number;
   address: string;
   phone?: string;
   website?: string;
@@ -92,11 +94,39 @@ const emptyPlace: Omit<Place, "id"> = {
 const APP_URL = "https://hotel-castro-catalogo-seven.vercel.app";
 const PAGE_SIZE = 50;
 
+// ── Calcula QA Score de 0-100 por lugar ───────────────────────────────────
+function calcQaScore(p: Place): number {
+  let score = 0;
+  if (p.image) score += 20;
+  const gc = p.gallery_count ?? (Array.isArray(p.gallery) ? p.gallery.length : 0);
+  if (gc >= 3) score += 20;
+  else if (gc >= 1) score += 10;
+  if (p.description && p.description.length >= 50) score += 20;
+  if (p.hours) score += 20;
+  if (p.website) score += 10;
+  if (p.menu_url) score += 10;
+  return score;
+}
+
+function QaBadge({ score }: { score: number }) {
+  const cfg =
+    score >= 90 ? { bg: "bg-green-100", text: "text-green-700", border: "border-green-300" } :
+    score >= 70 ? { bg: "bg-blue-100",  text: "text-blue-700",  border: "border-blue-300" } :
+    score >= 50 ? { bg: "bg-amber-100", text: "text-amber-700", border: "border-amber-300" } :
+                  { bg: "bg-red-100",   text: "text-red-700",   border: "border-red-300" };
+  return (
+    <span className={`inline-flex items-center justify-center w-9 h-6 rounded text-[11px] font-semibold border ${cfg.bg} ${cfg.text} ${cfg.border}`}>
+      {score}
+    </span>
+  );
+}
+
 // ─── Componente principal ──────────────────────────────────────────────────
 export default function AdminPlaces() {
   const api = useAdminApi();
   const fileRef = useRef<HTMLInputElement>(null);
   const galleryFileRef = useRef<HTMLInputElement>(null);
+  const location = useLocation();
 
   const [places, setPlaces] = useState<Place[]>([]);
   const [loading, setLoading] = useState(true);
@@ -104,6 +134,10 @@ export default function AdminPlaces() {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [activeFilter, setActiveFilter] = useState("");
   const [recommendedFilter, setRecommendedFilter] = useState("");
+  const [qaFilter, setQaFilter] = useState(() => {
+    const params = new URLSearchParams(location.search);
+    return params.get("qa") === "low" ? "low" : "";
+  });
   const [page, setPage] = useState(0);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [bulkLoading, setBulkLoading] = useState(false);
@@ -145,15 +179,23 @@ export default function AdminPlaces() {
       !recommendedFilter ||
       (recommendedFilter === "yes" && p.hotel_recommended) ||
       (recommendedFilter === "no" && !p.hotel_recommended);
-    return matchesSearch && matchesCategory && matchesActive && matchesRecommended;
+    const qa = calcQaScore(p);
+    const matchesQa =
+      !qaFilter ||
+      (qaFilter === "low"       && qa < 70) ||
+      (qaFilter === "critical"  && qa < 50) ||
+      (qaFilter === "regular"   && qa >= 50 && qa < 70) ||
+      (qaFilter === "good"      && qa >= 70 && qa < 90) ||
+      (qaFilter === "excellent" && qa >= 90);
+    return matchesSearch && matchesCategory && matchesActive && matchesRecommended && matchesQa;
   });
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
-  const hasFilters = search || categoryFilter || activeFilter || recommendedFilter;
+  const hasFilters = !!(search || categoryFilter || activeFilter || recommendedFilter || qaFilter);
 
   const resetFilters = () => {
-    setSearch(""); setCategoryFilter(""); setActiveFilter(""); setRecommendedFilter(""); setPage(0);
+    setSearch(""); setCategoryFilter(""); setActiveFilter(""); setRecommendedFilter(""); setQaFilter(""); setPage(0);
   };
 
   // ── Bulk actions ─────────────────────────────────────────────────────────
@@ -363,6 +405,14 @@ export default function AdminPlaces() {
           <option value="yes">Recomendados</option>
           <option value="no">Não recomendados</option>
         </select>
+        <select value={qaFilter} onChange={(e) => { setQaFilter(e.target.value); setPage(0); }} className={`${selectStyle} ${qaFilter === "low" || qaFilter === "critical" ? "border-red-300 text-red-700 bg-red-50" : ""}`}>
+          <option value="">Qualidade / Todos</option>
+          <option value="low">⚠️ Precisam atenção (&lt;70)</option>
+          <option value="critical">🔴 Crítico (&lt;50)</option>
+          <option value="regular">🟡 Regular (50-69)</option>
+          <option value="good">🔵 Bom (70-89)</option>
+          <option value="excellent">🟢 Excelente (90+)</option>
+        </select>
         {hasFilters && (
           <button onClick={resetFilters} className="text-xs text-muted-foreground hover:text-foreground underline px-1">Limpar filtros</button>
         )}
@@ -397,7 +447,9 @@ export default function AdminPlaces() {
                   <th className="text-left px-4 py-3 font-medium text-muted-foreground">Nome</th>
                   <th className="text-left px-4 py-3 font-medium text-muted-foreground">Categoria</th>
                   <th className="text-center px-4 py-3 font-medium text-muted-foreground">Recomendado</th>
-                  <th className="text-center px-4 py-3 font-medium text-muted-foreground">Score</th>
+                  <th className="text-center px-4 py-3 font-medium text-muted-foreground">
+                    <span className="flex items-center justify-center gap-1"><ShieldAlert className="w-3.5 h-3.5" />QA</span>
+                  </th>
                   <th className="text-center px-4 py-3 font-medium text-muted-foreground">Ativo</th>
                   <th className="text-right px-4 py-3 font-medium text-muted-foreground">Ações</th>
                 </tr>
@@ -413,8 +465,10 @@ export default function AdminPlaces() {
                         {place.image && <img src={place.image} alt="" className="w-8 h-8 rounded object-cover shrink-0" />}
                         <div>
                           <span className="font-medium text-foreground line-clamp-1">{place.name}</span>
-                          {(place.gallery || []).length > 0 && (
-                            <span className="text-[10px] text-muted-foreground/50 ml-1">+{place.gallery.length} foto{place.gallery.length > 1 ? "s" : ""}</span>
+                          {(place.gallery_count ?? (place.gallery?.length ?? 0)) > 0 && (
+                            <span className="text-[10px] text-muted-foreground/50 ml-1">
+                              +{place.gallery_count ?? place.gallery?.length} foto{(place.gallery_count ?? place.gallery?.length ?? 0) > 1 ? "s" : ""}
+                            </span>
                           )}
                         </div>
                       </div>
@@ -428,9 +482,7 @@ export default function AdminPlaces() {
                       </button>
                     </td>
                     <td className="px-4 py-3 text-center">
-                      {place.hotel_score != null ? (
-                        <Badge variant="outline" className="text-xs">{place.hotel_score}</Badge>
-                      ) : <span className="text-muted-foreground/30">—</span>}
+                      <QaBadge score={calcQaScore(place)} />
                     </td>
                     <td className="px-4 py-3 text-center">
                       <Switch checked={place.is_active} onCheckedChange={() => toggleActive(place)} />
