@@ -24,6 +24,8 @@ const LIMIT = parseInt(
   process.argv.find((a) => a.startsWith("--limit="))?.split("=")[1] || "500"
 );
 const BATCH_SIZE = 5; // traduções em paralelo para não sobrecarregar DeepL
+const BATCH_DELAY_MS = 3000; // pausa entre batches para evitar rate limit (3s)
+const RETRY_DELAYS = [5000, 15000, 30000]; // backoff em ms para 429
 
 if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
   console.error("❌ VITE_SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY são obrigatórios");
@@ -39,7 +41,9 @@ const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
 // DeepL Free API endpoint
 const DEEPL_ENDPOINT = "https://api-free.deepl.com/v2/translate";
 
-async function translate(texts, targetLang) {
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+
+async function translate(texts, targetLang, attempt = 0) {
   if (!texts.length) return [];
   const res = await fetch(DEEPL_ENDPOINT, {
     method: "POST",
@@ -53,6 +57,16 @@ async function translate(texts, targetLang) {
       source_lang: "PT",
     }),
   });
+  if (res.status === 429) {
+    if (attempt < RETRY_DELAYS.length) {
+      const delay = RETRY_DELAYS[attempt];
+      console.warn(`  ⏳ DeepL 429 (rate limit) — aguardando ${delay / 1000}s antes de tentar novamente...`);
+      await sleep(delay);
+      return translate(texts, targetLang, attempt + 1);
+    }
+    const body = await res.text();
+    throw new Error(`DeepL 429 (esgotou retentativas): ${body}`);
+  }
   if (!res.ok) {
     const body = await res.text();
     throw new Error(`DeepL ${res.status}: ${body}`);
@@ -111,7 +125,7 @@ async function processBatch(places) {
     }
   }
 
-  return descs.reduce((sum, d) => sum + d.length + names[i]?.length || 0, 0);
+  return descs.reduce((sum, d, idx) => sum + d.length + (names[idx]?.length || 0), 0);
 }
 
 async function main() {
@@ -144,10 +158,14 @@ async function main() {
   }
 
   let totalChars = 0;
+  const totalBatches = Math.ceil(pending.length / BATCH_SIZE);
   for (let i = 0; i < pending.length; i += BATCH_SIZE) {
+    const batchNum = Math.floor(i / BATCH_SIZE) + 1;
     const batch = pending.slice(i, i + BATCH_SIZE);
-    console.log(`Batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(pending.length / BATCH_SIZE)}`);
+    console.log(`Batch ${batchNum}/${totalBatches}`);
     totalChars += await processBatch(batch);
+    // Pausa entre batches para não sobrecarregar o rate limit da DeepL
+    if (batchNum < totalBatches) await sleep(BATCH_DELAY_MS);
   }
 
   console.log(`\n📊 Concluído`);
