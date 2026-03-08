@@ -15,7 +15,19 @@ export function resolveI18nField(
   fallback = ""
 ): string {
   if (!field) return fallback;
-  if (typeof field === "string") return field;
+  if (typeof field === "string") {
+    // Detecta JSON string armazenada em coluna TEXT (ex: '{"pt":"...","en":"..."}')
+    if (field.startsWith("{")) {
+      try {
+        const parsed = JSON.parse(field) as Record<string, string>;
+        const key = lang.slice(0, 2) as "pt" | "en" | "es";
+        return parsed[key] || parsed.pt || parsed.en || parsed.es || fallback;
+      } catch {
+        // não é JSON — retorna string normal
+      }
+    }
+    return field;
+  }
   const key = lang.slice(0, 2) as "pt" | "en" | "es";
   return field[key] || field.pt || field.en || field.es || fallback;
 }
