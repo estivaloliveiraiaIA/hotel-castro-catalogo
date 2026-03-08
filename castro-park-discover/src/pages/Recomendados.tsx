@@ -1,5 +1,6 @@
 import { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import { Header } from "@/components/Header";
 import { PlaceCard } from "@/components/PlaceCard";
@@ -15,6 +16,7 @@ const SLIDE_INTERVAL = 10000;
 
 const Recomendados = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { data, isLoading } = usePlaces();
   const { data: partners } = usePartners();
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -51,14 +53,14 @@ const Recomendados = () => {
     [recomendados, selectedCategory]
   );
 
-  const CATEGORY_LABELS: Record<string, string> = {
-    restaurants: "Restaurantes",
-    cafes: "Cafés",
-    nightlife: "Bares",
-    attractions: "Atrações",
-    nature: "Parques",
-    culture: "Cultura",
-    shopping: "Compras",
+  const CATEGORY_KEYS: Record<string, string> = {
+    restaurants: "categories.restaurants",
+    cafes: "categories.cafes",
+    nightlife: "categories.bars",
+    attractions: "categories.attractions",
+    nature: "categories.parksNature",
+    culture: "categories.culture",
+    shopping: "categories.shopping",
   };
 
   return (
@@ -67,7 +69,6 @@ const Recomendados = () => {
 
       {/* Hero */}
       <section className="relative overflow-hidden py-16 md:py-24 text-white">
-        {/* Slideshow de imagens com crossfade */}
         {HERO_IMAGES.map((src, i) => (
           <div
             key={src}
@@ -75,25 +76,22 @@ const Recomendados = () => {
             style={{ backgroundImage: `url('${src}')`, opacity: i === currentSlide ? 1 : 0 }}
           />
         ))}
-        {/* Overlay escuro */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         <BackgroundPaths />
         <div className="container px-4">
           <div className="mx-auto max-w-2xl text-center">
 
-            {/* Badge Castro's Park Hotel */}
             <div
               className="mb-7 inline-flex items-center gap-2 rounded-full border border-hotel-gold/50 bg-hotel-gold/10 px-5 py-2 shadow-[0_0_18px_0_rgba(212,175,55,0.18)] animate-fade-up"
               style={{ animationDelay: "0ms" }}
             >
               <span className="text-hotel-gold text-xs">✦</span>
               <span className="text-xs font-semibold tracking-[0.28em] uppercase text-hotel-gold">
-                Castro&apos;s Park Hotel
+                {t("recommended.hotelName")}
               </span>
               <span className="text-hotel-gold text-xs">✦</span>
             </div>
 
-            {/* Ornamento */}
             <div
               className="mb-5 flex items-center justify-center gap-3 animate-fade-up"
               style={{ animationDelay: "120ms" }}
@@ -108,7 +106,7 @@ const Recomendados = () => {
               style={{ animationDelay: "200ms" }}
             >
               <span className="text-xs font-medium text-hotel-gold tracking-wider uppercase">
-                Seleção do Hotel
+                {t("recommended.selectionTitle")}
               </span>
             </div>
 
@@ -116,14 +114,14 @@ const Recomendados = () => {
               className="font-serif text-4xl font-semibold sm:text-5xl mb-4 leading-tight animate-fade-up"
               style={{ animationDelay: "320ms" }}
             >
-              Os favoritos do<br className="hidden sm:block" /> Castro&apos;s Park
+              {t("recommended.favoritesTitle")}
             </h1>
 
             <p
               className="font-serif italic text-white/70 text-base sm:text-lg leading-relaxed max-w-md mx-auto animate-fade-up"
               style={{ animationDelay: "440ms" }}
             >
-              Uma curadoria criteriosamente selecionada para tornar<br className="hidden sm:block" /> cada momento da sua estadia em Goiânia inesquecível
+              {t("recommended.favoritesSubtitle")}
             </p>
 
             {!isLoading && (
@@ -131,7 +129,7 @@ const Recomendados = () => {
                 className="mt-5 text-xs text-hotel-gold/60 tracking-widest uppercase animate-fade-up"
                 style={{ animationDelay: "560ms" }}
               >
-                {recomendados.length} lugares selecionados
+                {t("recommended.selectedPlaces", { count: recomendados.length })}
               </p>
             )}
           </div>
@@ -155,7 +153,7 @@ const Recomendados = () => {
                     : "border-hotel-gold/30 text-muted-foreground hover:border-hotel-gold/60 hover:text-foreground"
                 }`}
               >
-                Todos ({recomendados.length})
+                {t("categories.allWithCount", { count: recomendados.length })}
               </button>
               {categories.map(([cat, count]) => (
                 <button
@@ -167,7 +165,7 @@ const Recomendados = () => {
                       : "border-hotel-gold/30 text-muted-foreground hover:border-hotel-gold/60 hover:text-foreground"
                   }`}
                 >
-                  {CATEGORY_LABELS[cat] ?? cat} ({count})
+                  {CATEGORY_KEYS[cat] ? t(CATEGORY_KEYS[cat]) : cat} ({count})
                 </button>
               ))}
             </div>
@@ -181,7 +179,7 @@ const Recomendados = () => {
           <SkeletonGrid count={6} />
         ) : filtered.length === 0 ? (
           <div className="py-16 text-center text-muted-foreground">
-            <p className="font-serif italic">Nenhum lugar encontrado nesta categoria.</p>
+            <p className="font-serif italic">{t("recommended.noCategoryPlaces")}</p>
           </div>
         ) : (
           <>
@@ -198,7 +196,7 @@ const Recomendados = () => {
             <div className="mt-10 flex justify-center">
               <Button variant="ghost" onClick={() => navigate("/")}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Voltar ao guia completo
+                {t("recommended.backToGuide")}
               </Button>
             </div>
           </>

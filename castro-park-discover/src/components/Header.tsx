@@ -1,14 +1,17 @@
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
-
-const NAV_LINKS = [
-  { label: "Guia", href: "/" },
-  { label: "Recomendados", href: "/recomendados" },
-  { label: "Eventos", href: "/events" },
-];
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 export const Header = () => {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
+
+  const NAV_LINKS = [
+    { label: t("nav.guide"), href: "/" },
+    { label: t("nav.recommended"), href: "/recomendados" },
+    { label: t("nav.events"), href: "/events" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-hotel-gold/20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -18,7 +21,7 @@ export const Header = () => {
             to="/"
             className="font-serif text-xl font-semibold tracking-[0.12em] text-primary sm:text-2xl hover:text-primary/80 transition-colors shrink-0"
           >
-            Castro&apos;s Park Hotel
+            {t("header.hotelName")}
           </Link>
           <span className="hidden text-hotel-gold/30 md:block" aria-hidden>|</span>
           <nav className="hidden items-center gap-1 md:flex">
@@ -43,6 +46,9 @@ export const Header = () => {
               );
             })}
           </nav>
+          <div className="ml-auto">
+            <LangSwitcher />
+          </div>
         </div>
       </div>
     </header>

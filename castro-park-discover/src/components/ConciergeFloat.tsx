@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Sparkles, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { ConciergeChatPanel } from "@/components/ConciergeChatPanel";
 import { useConciergeChat } from "@/hooks/useConciergeChat";
@@ -9,6 +10,7 @@ export const CONCIERGE_OPEN_EVENT = "concierge:open";
 export function ConciergeFloat() {
   const { messages, loading, error, isOpen, open, close, sendMessage, clearConversation } =
     useConciergeChat();
+  const { t } = useTranslation();
 
   // Allow any page to trigger open via custom DOM event
   useEffect(() => {
@@ -27,7 +29,7 @@ export function ConciergeFloat() {
       <button
         onClick={handleOpen}
         className="hidden md:flex fixed md:bottom-6 md:right-6 z-50 h-14 w-14 rounded-full bg-hotel-gold shadow-lg hover:bg-hotel-gold/90 active:scale-95 transition-all items-center justify-center"
-        aria-label="Abrir Concierge Digital"
+        aria-label={t("concierge.openAriaLabel")}
       >
         <Sparkles className="h-6 w-6 text-hotel-charcoal" />
         {messages.length > 0 && (
@@ -45,12 +47,12 @@ export function ConciergeFloat() {
             <div className="flex items-center justify-between">
               <SheetTitle className="flex items-center gap-2 font-serif text-base">
                 <Sparkles className="h-4 w-4 text-hotel-gold" />
-                Concierge Digital
+                {t("concierge.title")}
               </SheetTitle>
               <button
                 onClick={handleClose}
                 className="rounded-sm opacity-70 hover:opacity-100 transition-opacity"
-                aria-label="Fechar"
+                aria-label={t("concierge.closeAriaLabel")}
               >
                 <X className="h-4 w-4" />
               </button>

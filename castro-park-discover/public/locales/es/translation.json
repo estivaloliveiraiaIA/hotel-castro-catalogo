@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "guide": "Guía",
+    "itineraries": "Itinerarios",
+    "favorites": "Favoritos",
+    "events": "Eventos",
+    "concierge": "Concierge IA",
+    "recommended": "Recomendados",
+    "mainNavAriaLabel": "Navegación principal"
+  },
+  "header": {
+    "hotelName": "Castro's Park Hotel"
+  },
+  "home": {
+    "quickActions": {
+      "eat": "Buena comida",
+      "coffee": "Café",
+      "night": "Vida nocturna",
+      "tour": "Turismo",
+      "nearby": "Cerca del hotel"
+    },
+    "exploreGoiania": "Explorar Goiânia",
+    "types": "Tipos",
+    "all": "Todos",
+    "places": "Lugares",
+    "placesFound": "{{count}} lugares encontrados",
+    "seeAll": "Ver todos",
+    "noCategoryResults": "No hay resultados para esta categoría en este momento.",
+    "loadError": "No se pudieron cargar los lugares en este momento.",
+    "loadErrorRetry": "Inténtalo de nuevo en un momento.",
+    "thematicItineraries": "Itinerarios Temáticos",
+    "thematicItinerariesSubtitle": "Experiencias listas seleccionadas por el hotel",
+    "seeAllItineraries": "Ver todos",
+    "eventsInGoiania": "Eventos en Goiânia",
+    "eventsSubtitle": "Qué está pasando durante tu estadía",
+    "seeSchedule": "Ver agenda",
+    "hotelPartners": "Socios del Hotel",
+    "hotelPartnersSubtitle": "Beneficios exclusivos para huéspedes del Castro's Park",
+    "hotelRecommended": "Recomendado por el hotel",
+    "hotelSelection": "Selección del Hotel",
+    "hotelSelectionSubtitle": "Curaduría especial para una experiencia inolvidable en Goiânia",
+    "seeAllRecommended": "Ver todas las recomendaciones",
+    "nearbyHotel": "Cerca del hotel",
+    "nearbySubtitle": "Sugerencias a pocos minutos del Castro's Park Hotel",
+    "restaurants": "Restaurantes",
+    "restaurantsSubtitle": "Los mejor valorados para almuerzo y cena",
+    "bars": "Bares",
+    "barsSubtitle": "Vida nocturna y buenas bebidas",
+    "cafes": "Cafeterías",
+    "cafesSubtitle": "Cafeterías y lugares para un café especial",
+    "attractionsParks": "Atracciones y Parques",
+    "attractionsParksSubtitle": "Paseos, cultura y naturaleza"
+  },
+  "categories": {
+    "bars": "Bares",
+    "cafes": "Cafeterías",
+    "restaurants": "Restaurantes",
+    "parksNature": "Parques y Naturaleza",
+    "attractions": "Atracciones",
+    "culture": "Cultura",
+    "shopping": "Compras",
+    "all": "Todos",
+    "allWithCount": "Todos ({{count}})"
+  },
+  "events": {
+    "title": "Eventos en Goiânia",
+    "subtitle": "Qué está pasando durante tu estadía",
+    "home": "Inicio",
+    "all": "Todos",
+    "comingSoon": "Próximos nuevos eventos",
+    "comingSoonSubtitle": "Estate atento — la agenda se actualiza regularmente",
+    "seeDetails": "Ver detalles",
+    "aboutEvent": "Sobre el evento",
+    "notFound": "Evento no encontrado",
+    "seeAllEvents": "Ver todos los eventos",
+    "moreInfoTickets": "Más info / Entradas",
+    "seeOnMap": "Ver en el mapa"
+  },
+  "favorites": {
+    "title": "Mi Goiânia",
+    "subtitle": "Tus lugares favoritos durante la estadía",
+    "home": "Inicio",
+    "empty": "Aún no hay favoritos",
+    "emptySubtitle": "Explora la guía y guarda los lugares que más te interesen",
+    "explorePlaces": "Explorar lugares"
+  },
+  "recommended": {
+    "selectionTitle": "Selección del Hotel",
+    "hotelName": "Castro's Park Hotel",
+    "favoritesTitle": "Los favoritos del Castro's Park",
+    "favoritesSubtitle": "Una curaduría cuidadosamente seleccionada para hacer cada momento de tu estadía en Goiânia inolvidable",
+    "selectedPlaces": "{{count}} lugares seleccionados",
+    "noCategoryPlaces": "No se encontraron lugares en esta categoría.",
+    "backToGuide": "Volver a la guía completa"
+  },
+  "place": {
+    "openNow": "Abierto ahora",
+    "closedNow": "Cerrado",
+    "closes": "Cierra a las {{time}}",
+    "opens": "Abre a las {{time}}",
+    "getDirections": "Cómo llegar",
+    "visitWebsite": "Visitar sitio web",
+    "menu": "Ver menú",
+    "hotelRecommended": "Recomendado por el hotel",
+    "gallery": "Galería",
+    "hours": "Horarios",
+    "highlights": "Destacados",
+    "notes": "Notas",
+    "reviews": "Reseñas",
+    "backToGuide": "Volver a la guía",
+    "notFound": "Lugar no encontrado",
+    "distance": "{{distance}} km del hotel",
+    "seeOnMap": "Ver en el mapa"
+  },
+  "itinerary": {
+    "backToItineraries": "Ver todos los itinerarios",
+    "notFound": "Itinerario no encontrado",
+    "stops": "paradas",
+    "duration": "Duración",
+    "startItinerary": "Iniciar itinerario"
+  },
+  "concierge": {
+    "openAriaLabel": "Abrir Concierge Digital",
+    "title": "Concierge Digital",
+    "closeAriaLabel": "Cerrar"
+  },
+  "footer": {
+    "hotelName": "Castro's Park Hotel",
+    "tagline": "Guía exclusiva para huéspedes · Goiânia",
+    "address": "Av. República do Líbano, 1520 · Setor Oeste · Goiânia, GO"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "¡Ups! Página no encontrada",
+    "backHome": "Volver al inicio"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "home": "Inicio",
+    "seeAll": "Ver todos",
+    "back": "Volver"
+  },
+  "langSwitcher": {
+    "pt": "PT",
+    "en": "EN",
+    "es": "ES",
+    "label": "Idioma"
+  }
+}

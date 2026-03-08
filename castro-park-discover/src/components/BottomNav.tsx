@@ -1,18 +1,20 @@
 import { Home, Map, CalendarDays, Sparkles, Heart } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import { CONCIERGE_OPEN_EVENT } from "@/components/ConciergeFloat";
 
-const NAV_ITEMS = [
-  { label: "Guia", href: "/", icon: Home },
-  { label: "Roteiros", href: "/itineraries", icon: Map },
-  { label: "Favoritos", href: "/recomendados", icon: Heart },
-  { label: "Eventos", href: "/events", icon: CalendarDays },
-  { label: "Concierge IA", href: null, icon: Sparkles },
-];
-
 export const BottomNav = () => {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
+
+  const NAV_ITEMS = [
+    { label: t("nav.guide"), href: "/", icon: Home },
+    { label: t("nav.itineraries"), href: "/itineraries", icon: Map },
+    { label: t("nav.favorites"), href: "/recomendados", icon: Heart },
+    { label: t("nav.events"), href: "/events", icon: CalendarDays },
+    { label: t("nav.concierge"), href: null, icon: Sparkles },
+  ];
 
   const handleConciergeClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -21,15 +23,15 @@ export const BottomNav = () => {
 
   return (
     <nav
-      aria-label="Navegação principal"
+      aria-label={t("nav.mainNavAriaLabel")}
       className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden"
     >
       <div className="flex items-center gap-1 rounded-2xl border border-hotel-gold/25 bg-background/90 backdrop-blur-md shadow-[0_8px_32px_-4px_rgba(0,0,0,0.25),0_0_0_1px_hsl(var(--hotel-gold)/0.08)] px-2 py-2">
         {NAV_ITEMS.map(({ label, href, icon: Icon }) => {
-          const isConcierge = label === "Concierge IA";
+          const isConcierge = href === null;
           const isActive = isConcierge
             ? false
-            : label === "Guia"
+            : label === t("nav.guide")
             ? pathname === "/"
             : href !== null && href !== "/" && pathname.startsWith(href);
 

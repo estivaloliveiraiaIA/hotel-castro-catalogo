@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { CategoryTabs } from "@/components/CategoryTabs";
@@ -35,6 +36,7 @@ const byBest = (a: Place, b: Place) => {
 
 const Index = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { data, isLoading, isError, error } = usePlaces();
   const { data: itineraries } = useItineraries();
   const { data: events } = useEvents();
@@ -53,12 +55,22 @@ const Index = () => {
   });
 
   const quickActions = [
-    { label: "Comer bem", category: "restaurants", icon: Utensils },
-    { label: "Café", category: "cafes", icon: Coffee },
-    { label: "Noite", category: "nightlife", icon: Wine },
-    { label: "Passeio", category: "nature", icon: TreePine },
-    { label: "Perto do hotel", category: "all", icon: MapPin },
+    { labelKey: "home.quickActions.eat", category: "restaurants", icon: Utensils },
+    { labelKey: "home.quickActions.coffee", category: "cafes", icon: Coffee },
+    { labelKey: "home.quickActions.night", category: "nightlife", icon: Wine },
+    { labelKey: "home.quickActions.tour", category: "nature", icon: TreePine },
+    { labelKey: "home.quickActions.nearby", category: "all", icon: MapPin },
   ] as const;
+
+  const CATEGORY_LABEL_KEYS: Record<string, string> = {
+    nightlife: "categories.bars",
+    cafes: "categories.cafes",
+    restaurants: "categories.restaurants",
+    nature: "categories.parksNature",
+    attractions: "categories.attractions",
+    culture: "categories.culture",
+    shopping: "categories.shopping",
+  };
 
   const totalCategories = useMemo(
     () => new Set(places.map((p) => p.category).filter(Boolean)).size,
@@ -186,14 +198,16 @@ const Index = () => {
 
       <section className="border-b bg-background">
         <div className="container px-4 py-5">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-hotel-gold/70">Explorar Goiânia</p>
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-hotel-gold/70">
+            {t("home.exploreGoiania")}
+          </p>
           <div className="-mx-4 flex gap-2.5 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
             {quickActions.map((item) => {
               const Icon = item.icon;
               const isActive = selectedCategory === item.category;
               return (
                 <button
-                  key={item.label}
+                  key={item.labelKey}
                   onClick={() => {
                     setSelectedSubcategory(null);
                     setSelectedCategory(item.category);
@@ -205,7 +219,7 @@ const Index = () => {
                   }`}
                 >
                   <Icon className={`h-4 w-4 ${isActive ? "text-hotel-gold" : ""}`} />
-                  {item.label}
+                  {t(item.labelKey)}
                 </button>
               );
             })}
@@ -213,11 +227,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Subcategorias só fazem sentido quando o usuário está vendo uma lista */}
       {!isLoading && !isError && selectedCategory !== "all" && subcategoryOptions.length > 0 && (
         <section className="border-b bg-background">
           <div className="container px-4 py-3">
-            <p className="mb-2 text-sm font-medium text-muted-foreground">Tipos</p>
+            <p className="mb-2 text-sm font-medium text-muted-foreground">{t("home.types")}</p>
             <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
               <Button
                 size="sm"
@@ -225,7 +238,7 @@ const Index = () => {
                 className="shrink-0"
                 onClick={() => setSelectedSubcategory(null)}
               >
-                Todos
+                {t("home.all")}
               </Button>
               {subcategoryOptions.map((opt) => (
                 <Button
@@ -243,7 +256,6 @@ const Index = () => {
         </section>
       )}
 
-      {/* Filtros só fazem sentido quando o usuário está vendo uma lista */}
       {!isLoading && !isError && selectedCategory !== "all" && (
         <ListFilters value={filters} onChange={setFilters} />
       )}
@@ -257,7 +269,7 @@ const Index = () => {
       {isError && (
         <main className="container px-4 py-10">
           <div className="rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
-            Não foi possível carregar os lugares agora. {error instanceof Error ? error.message : "Tente novamente em instantes."}
+            {t("home.loadError")} {error instanceof Error ? error.message : t("home.loadErrorRetry")}
           </div>
         </main>
       )}
@@ -270,24 +282,12 @@ const Index = () => {
                 <div className="mb-4 flex items-end justify-between gap-4">
                   <div>
                     <h2 className="font-serif text-2xl font-semibold md:text-3xl capitalize">
-                      {selectedCategory === "nightlife"
-                        ? "Bares"
-                        : selectedCategory === "cafes"
-                          ? "Cafés"
-                          : selectedCategory === "restaurants"
-                            ? "Restaurantes"
-                            : selectedCategory === "nature"
-                              ? "Parques & Natureza"
-                              : selectedCategory === "attractions"
-                                ? "Atrações"
-                                : selectedCategory === "culture"
-                                  ? "Cultura"
-                                  : selectedCategory === "shopping"
-                                    ? "Compras"
-                                    : "Lugares"}
+                      {CATEGORY_LABEL_KEYS[selectedCategory]
+                        ? t(CATEGORY_LABEL_KEYS[selectedCategory])
+                        : t("home.places")}
                     </h2>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {categoryResults.length} lugares encontrados
+                      {t("home.placesFound", { count: categoryResults.length })}
                     </p>
                   </div>
                   <button
@@ -298,13 +298,13 @@ const Index = () => {
                       setFilters({ sortBy: "best", openNow: false, maxDistanceKm: null, maxPriceLevel: null, minRating: null });
                     }}
                   >
-                    Ver tudo
+                    {t("home.seeAll")}
                   </button>
                 </div>
 
                 {categoryResults.length === 0 ? (
                   <div className="rounded-md border border-border p-6 text-center text-muted-foreground">
-                    Nenhum resultado para esta categoria no momento.
+                    {t("home.noCategoryResults")}
                   </div>
                 ) : (
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -321,7 +321,7 @@ const Index = () => {
             </section>
           ) : (
             <>
-              {/* Roteiros Tematicos */}
+              {/* Roteiros Temáticos */}
               {itineraries && itineraries.length > 0 && (
                 <section className="py-10 border-b overflow-hidden">
                   <div className="container px-4">
@@ -333,21 +333,21 @@ const Index = () => {
                           <div className="h-px w-8 bg-hotel-gold/60" />
                         </div>
                         <h2 className="font-serif text-2xl font-semibold md:text-3xl">
-                          Roteiros Temáticos
+                          {t("home.thematicItineraries")}
                         </h2>
                         <p className="mt-1 text-sm text-muted-foreground">
-                          Experiências prontas selecionadas pelo hotel
+                          {t("home.thematicItinerariesSubtitle")}
                         </p>
                       </div>
                       <button
                         className="shrink-0 text-sm font-medium text-primary underline-offset-4 hover:underline"
                         onClick={() => navigate("/itineraries")}
                       >
-                        Ver todos
+                        {t("home.seeAllItineraries")}
                       </button>
                     </div>
                     <HomeCarousel
-                      label="Roteiros Temáticos"
+                      label={t("home.thematicItineraries")}
                       autoplayDelay={2800}
                       slideBasis="basis-[85%] sm:basis-[48%] lg:basis-[34%]"
                       containerHeight="h-[235px] md:h-[250px]"
@@ -371,21 +371,21 @@ const Index = () => {
                           <div className="h-px w-8 bg-hotel-gold/60" />
                         </div>
                         <h2 className="font-serif text-2xl font-semibold md:text-3xl">
-                          Eventos em Goiânia
+                          {t("home.eventsInGoiania")}
                         </h2>
                         <p className="mt-1 text-sm text-muted-foreground">
-                          O que está acontecendo durante a sua estadia
+                          {t("home.eventsSubtitle")}
                         </p>
                       </div>
                       <button
                         className="shrink-0 text-sm font-medium text-primary underline-offset-4 hover:underline"
                         onClick={() => navigate("/events")}
                       >
-                        Ver agenda
+                        {t("home.seeSchedule")}
                       </button>
                     </div>
                     <HomeCarousel
-                      label="Eventos em Goiânia"
+                      label={t("home.eventsInGoiania")}
                       autoplayDelay={2800}
                       slideBasis="basis-[85%] sm:basis-[48%] lg:basis-[34%]"
                       items={events.map((event) => (
@@ -407,10 +407,10 @@ const Index = () => {
                         <div className="h-px w-8 bg-hotel-gold/60" />
                       </div>
                       <h2 className="font-serif text-2xl font-semibold md:text-3xl">
-                        Parceiros do Hotel
+                        {t("home.hotelPartners")}
                       </h2>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        Benefícios exclusivos para hóspedes do Castro's Park
+                        {t("home.hotelPartnersSubtitle")}
                       </p>
                     </div>
                     <div className="-mx-4 flex gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -477,13 +477,13 @@ const Index = () => {
                         <div className="h-px w-10 bg-hotel-gold/50" />
                       </div>
                       <p className="text-xs font-medium uppercase tracking-[0.3em] text-hotel-gold/80 mb-3">
-                        Seleção do Hotel
+                        {t("home.hotelSelection")}
                       </p>
                       <h2 className="font-serif text-3xl font-semibold md:text-4xl mb-2">
-                        Recomendados pelo hotel
+                        {t("home.hotelRecommended")}
                       </h2>
                       <p className="font-serif italic text-primary-foreground/60 text-sm md:text-base max-w-md mx-auto">
-                        Curadoria especial para uma experiência inesquecível em Goiânia
+                        {t("home.hotelSelectionSubtitle")}
                       </p>
                     </div>
                     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -497,43 +497,43 @@ const Index = () => {
                     </div>
                     <div className="mt-8 flex justify-center">
                       <button
-                        onClick={() => window.location.href = "/recomendados"}
+                        onClick={() => navigate("/recomendados")}
                         className="inline-flex items-center gap-2 rounded-full border border-hotel-gold/40 bg-hotel-gold/10 px-6 py-2.5 text-sm font-medium text-hotel-gold hover:bg-hotel-gold/20 hover:border-hotel-gold/60 transition-all duration-200"
                       >
                         <span className="text-hotel-gold text-xs">✦</span>
-                        Ver todos os recomendados
+                        {t("home.seeAllRecommended")}
                       </button>
                     </div>
                   </div>
                 </section>
               </div>
               <PlaceSection
-                title="Perto do hotel"
-                subtitle="Sugestões a poucos minutos do Castro's Park Hotel"
+                title={t("home.nearbyHotel")}
+                subtitle={t("home.nearbySubtitle")}
                 places={nearHotel}
                 partners={partners}
               />
               <PlaceSection
-                title="Restaurantes"
-                subtitle="Os mais bem avaliados para almoço e jantar"
+                title={t("home.restaurants")}
+                subtitle={t("home.restaurantsSubtitle")}
                 places={topRestaurants}
                 partners={partners}
               />
               <PlaceSection
-                title="Bares"
-                subtitle="Vida noturna e bons drinks"
+                title={t("home.bars")}
+                subtitle={t("home.barsSubtitle")}
                 places={topBars}
                 partners={partners}
               />
               <PlaceSection
-                title="Cafés"
-                subtitle="Cafeterias e lugares para um café especial"
+                title={t("home.cafes")}
+                subtitle={t("home.cafesSubtitle")}
                 places={topCafes}
                 partners={partners}
               />
               <PlaceSection
-                title="Atrações & Parques"
-                subtitle="Passeios, cultura e natureza"
+                title={t("home.attractionsParks")}
+                subtitle={t("home.attractionsParksSubtitle")}
                 places={topAttractionsAndParks}
                 partners={partners}
               />
@@ -546,13 +546,13 @@ const Index = () => {
                     <div className="h-px w-12 bg-hotel-gold/30" />
                   </div>
                   <p className="font-serif text-2xl font-semibold text-white mb-1">
-                    Castro&apos;s Park Hotel
+                    {t("footer.hotelName")}
                   </p>
                   <p className="text-xs text-primary-foreground/50 tracking-[0.2em] uppercase mb-4">
-                    Guia exclusivo para hóspedes · Goiânia
+                    {t("footer.tagline")}
                   </p>
                   <p className="text-xs text-primary-foreground/40">
-                    Av. República do Líbano, 1520 · Setor Oeste · Goiânia, GO
+                    {t("footer.address")}
                   </p>
                 </div>
               </footer>

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { ArrowLeft, CalendarX } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { EventCard } from "@/components/EventCard";
 import { Header } from "@/components/Header";
@@ -16,6 +17,7 @@ const EventsSkeleton = () => (
 
 const Events = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { data: events, isLoading } = useEvents();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -39,7 +41,7 @@ const Events = () => {
         <div className="mb-6 flex items-center gap-3">
           <Button variant="ghost" size="sm" onClick={() => navigate("/")}>
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Início
+            {t("common.home")}
           </Button>
         </div>
         <div className="mb-8">
@@ -49,14 +51,13 @@ const Events = () => {
             <div className="h-px w-8 bg-hotel-gold/60" />
           </div>
           <h1 className="font-serif text-3xl font-semibold md:text-4xl mb-2">
-            Eventos em Goiânia
+            {t("events.title")}
           </h1>
           <p className="text-muted-foreground">
-            O que está acontecendo durante a sua estadia
+            {t("events.subtitle")}
           </p>
         </div>
 
-        {/* Filtros por categoria */}
         {categories.length > 0 && (
           <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-4 md:mx-0 md:flex-wrap md:overflow-visible md:px-0 mb-6">
             <Button
@@ -65,7 +66,7 @@ const Events = () => {
               className="shrink-0"
               onClick={() => setSelectedCategory(null)}
             >
-              Todos
+              {t("events.all")}
             </Button>
             {categories.map((cat) => (
               <Button
@@ -88,10 +89,10 @@ const Events = () => {
             <CalendarX className="h-12 w-12 text-muted-foreground/40" />
             <div>
               <p className="font-serif text-lg font-semibold text-foreground/70">
-                Em breve novos eventos
+                {t("events.comingSoon")}
               </p>
               <p className="text-sm text-muted-foreground mt-1">
-                Fique de olho — a agenda é atualizada regularmente
+                {t("events.comingSoonSubtitle")}
               </p>
             </div>
           </div>

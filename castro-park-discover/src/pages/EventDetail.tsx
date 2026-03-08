@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, CalendarDays, MapPin, ExternalLink, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -28,6 +29,7 @@ function formatFullDate(startDate: string, endDate: string | null): string {
 const EventDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { data: events, isLoading } = useEvents();
 
   const event = useMemo(
@@ -44,7 +46,7 @@ const EventDetail = () => {
             <span className="text-sm">✦</span>
             <div className="h-px w-8 bg-hotel-gold/40" />
           </div>
-          <p className="text-sm text-muted-foreground font-serif italic">Carregando...</p>
+          <p className="text-sm text-muted-foreground font-serif italic">{t("common.loading")}</p>
         </div>
       </div>
     );
@@ -53,10 +55,10 @@ const EventDetail = () => {
   if (!event) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-background">
-        <p className="font-serif text-xl text-muted-foreground">Evento não encontrado</p>
+        <p className="font-serif text-xl text-muted-foreground">{t("events.notFound")}</p>
         <Button variant="outline" onClick={() => navigate("/events")}>
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Ver todos os eventos
+          {t("events.seeAllEvents")}
         </Button>
       </div>
     );
@@ -84,7 +86,7 @@ const EventDetail = () => {
           className="absolute top-4 left-4 flex items-center gap-1.5 rounded-full bg-black/40 backdrop-blur-sm px-3 py-1.5 text-white/90 text-sm hover:bg-black/60 transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
-          Eventos
+          {t("nav.events")}
         </button>
 
         {/* Badge categoria */}
@@ -123,7 +125,7 @@ const EventDetail = () => {
                 rel="noreferrer"
                 className="text-xs text-hotel-gold hover:underline mt-0.5 inline-block"
               >
-                Ver no mapa
+                {t("events.seeOnMap")}
               </a>
             </div>
           </div>
@@ -134,7 +136,7 @@ const EventDetail = () => {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="h-px flex-1 bg-hotel-gold/20" />
-              <span className="text-[10px] uppercase tracking-[0.25em] text-hotel-gold/60 font-medium">Sobre o evento</span>
+              <span className="text-[10px] uppercase tracking-[0.25em] text-hotel-gold/60 font-medium">{t("events.aboutEvent")}</span>
               <div className="h-px flex-1 bg-hotel-gold/20" />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
@@ -157,7 +159,7 @@ const EventDetail = () => {
             <a href={event.link} target="_blank" rel="noreferrer" className="block">
               <Button className="w-full bg-hotel-gold hover:bg-hotel-gold/90 text-hotel-charcoal font-semibold h-12 text-base">
                 <ExternalLink className="mr-2 h-4 w-4" />
-                Saiba mais / Ingressos
+                {t("events.moreInfoTickets")}
               </Button>
             </a>
           </div>
@@ -167,7 +169,7 @@ const EventDetail = () => {
         <div className="pt-2">
           <Button variant="outline" className="w-full" onClick={() => navigate("/events")}>
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Ver todos os eventos
+            {t("events.seeAllEvents")}
           </Button>
         </div>
       </div>

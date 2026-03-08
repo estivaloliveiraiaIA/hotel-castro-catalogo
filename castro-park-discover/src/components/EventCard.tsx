@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -32,6 +33,7 @@ interface EventCardProps {
 export const EventCard = ({ event }: EventCardProps) => {
   const [imgSrc, setImgSrc] = React.useState(event.image || fallbackImage);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleCardClick = () => navigate(`/event/${event.id}`);
 
@@ -87,7 +89,7 @@ export const EventCard = ({ event }: EventCardProps) => {
         )}
 
         <span className="inline-flex items-center gap-1 text-xs font-medium text-primary">
-          Ver detalhes
+          {t("events.seeDetails")}
           <ArrowRight className="h-3 w-3" />
         </span>
       </CardContent>
