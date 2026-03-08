@@ -26,7 +26,7 @@ export function ConciergeFloat() {
       {/* Floating button */}
       <button
         onClick={handleOpen}
-        className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 h-14 w-14 rounded-full bg-hotel-gold shadow-lg hover:bg-hotel-gold/90 active:scale-95 transition-all flex items-center justify-center"
+        className="hidden md:flex fixed md:bottom-6 md:right-6 z-50 h-14 w-14 rounded-full bg-hotel-gold shadow-lg hover:bg-hotel-gold/90 active:scale-95 transition-all items-center justify-center"
         aria-label="Abrir Concierge Digital"
       >
         <Sparkles className="h-6 w-6 text-hotel-charcoal" />
