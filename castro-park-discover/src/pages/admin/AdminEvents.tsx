@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Plus, Pencil, Trash2, Upload, Calendar, ExternalLink, Sparkles, Link } from "lucide-react";
+import { Plus, Pencil, Trash2, Upload, Calendar, ExternalLink, Sparkles, Link, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -50,6 +50,7 @@ export default function AdminEvents() {
   const [editing, setEditing] = useState<Event | null>(null);
   const [form, setForm] = useState<Omit<Event, "id">>(emptyEvent);
   const [saving, setSaving] = useState(false);
+  const [translating, setTranslating] = useState(false);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [error, setError] = useState("");
 
@@ -143,6 +144,27 @@ export default function AdminEvents() {
       setError(err instanceof Error ? err.message : "Erro ao salvar");
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleTranslate = async () => {
+    if (!form.title && !form.description) return;
+    setTranslating(true);
+    setError("");
+    try {
+      const fields: Record<string, string> = {};
+      if (form.title) fields.title = form.title;
+      if (form.description) fields.description = form.description;
+      const result = await api.post<Record<string, string>>("/api/admin/translate", { fields });
+      setForm((f) => ({
+        ...f,
+        ...(result.title ? { title: result.title } : {}),
+        ...(result.description ? { description: result.description } : {}),
+      }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Falha ao traduzir");
+    } finally {
+      setTranslating(false);
     }
   };
 
@@ -400,11 +422,19 @@ export default function AdminEvents() {
             </div>
             {error && <p className="text-sm text-red-500">{error}</p>}
           </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setDialogOpen(false)}>
-              Cancelar
+          <DialogFooter className="flex-wrap gap-2">
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancelar</Button>
+            <Button
+              variant="outline"
+              onClick={handleTranslate}
+              disabled={translating || (!form.title && !form.description)}
+              className="border-blue-300 text-blue-700 hover:bg-blue-50 mr-auto"
+              title="Traduz título e descrição para EN e ES via DeepL"
+            >
+              <Languages className="w-4 h-4 mr-2" />
+              {translating ? "Traduzindo..." : "Traduzir EN+ES"}
             </Button>
-            <Button onClick={handleSave} disabled={saving} className="">
+            <Button onClick={handleSave} disabled={saving} className="bg-amber-600 hover:bg-amber-700">
               {saving ? "Salvando..." : "Salvar"}
             </Button>
           </DialogFooter>

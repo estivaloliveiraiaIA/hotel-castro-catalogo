@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight, ExternalLink, X, ImagePlus, Sparkles, Link, ShieldAlert } from "lucide-react";
+import { Search, Plus, Pencil, Trash2, Star, Upload, ChevronLeft, ChevronRight, ExternalLink, X, ImagePlus, Sparkles, Link, ShieldAlert, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -147,6 +147,7 @@ export default function AdminPlaces() {
   const [form, setForm] = useState<Omit<Place, "id">>(emptyPlace);
   const [galleryInput, setGalleryInput] = useState("");
   const [saving, setSaving] = useState(false);
+  const [translating, setTranslating] = useState(false);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [uploadingGallery, setUploadingGallery] = useState(false);
   const [error, setError] = useState("");
@@ -294,6 +295,27 @@ export default function AdminPlaces() {
       setError(err instanceof Error ? err.message : "Erro ao salvar");
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleTranslate = async () => {
+    if (!form.name && !form.description) return;
+    setTranslating(true);
+    setError("");
+    try {
+      const fields: Record<string, string> = {};
+      if (form.name) fields.name = form.name;
+      if (form.description) fields.description = form.description;
+      const result = await api.post<Record<string, string>>("/api/admin/translate", { fields });
+      setForm((f) => ({
+        ...f,
+        ...(result.name ? { name: result.name } : {}),
+        ...(result.description ? { description: result.description } : {}),
+      }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Falha ao traduzir");
+    } finally {
+      setTranslating(false);
     }
   };
 
@@ -766,8 +788,18 @@ export default function AdminPlaces() {
             {error && <p className="text-sm text-red-500">{error}</p>}
           </div>
 
-          <DialogFooter>
+          <DialogFooter className="flex-wrap gap-2">
             <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancelar</Button>
+            <Button
+              variant="outline"
+              onClick={handleTranslate}
+              disabled={translating || (!form.name && !form.description)}
+              className="border-blue-300 text-blue-700 hover:bg-blue-50 mr-auto"
+              title="Traduz nome e descrição para EN e ES via DeepL"
+            >
+              <Languages className="w-4 h-4 mr-2" />
+              {translating ? "Traduzindo..." : "Traduzir EN+ES"}
+            </Button>
             <Button onClick={handleSave} disabled={saving} className="bg-amber-600 hover:bg-amber-700">
               {saving ? "Salvando..." : "Salvar"}
             </Button>
