@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Clock, Users } from "lucide-react";
 import { Itinerary } from "@/types/itinerary";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,7 @@ interface ItineraryCardProps {
 
 export const ItineraryCard = ({ itinerary }: ItineraryCardProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div
@@ -55,7 +57,7 @@ export const ItineraryCard = ({ itinerary }: ItineraryCardProps) => {
               {itinerary.profile}
             </span>
             <span className="ml-auto text-hotel-gold font-medium">
-              {itinerary.places.length} lugares
+              {t("itinerary.placesCount", { count: itinerary.places.length })}
             </span>
           </div>
         </div>

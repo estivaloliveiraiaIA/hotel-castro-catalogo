@@ -136,12 +136,17 @@
     "itinerariesSubtitle": "Experiências prontas selecionadas pelo time do Castro's Park Hotel para tornar cada momento em Goiânia inesquecível.",
     "loadingItineraries": "Carregando roteiros...",
     "loadError": "Não foi possível carregar os roteiros. Tente novamente.",
-    "footerTagline": "Curadoria especial para hóspedes · Goiânia"
+    "footerTagline": "Curadoria especial para hóspedes · Goiânia",
+    "placesCount": "{{count}} lugares"
   },
   "concierge": {
     "openAriaLabel": "Abrir Concierge Digital",
     "title": "Concierge Digital",
-    "closeAriaLabel": "Fechar"
+    "closeAriaLabel": "Fechar",
+    "badge": "Concierge Digital · IA",
+    "heroTitle": "Seu concierge pessoal em Goiânia",
+    "heroDesc": "Diga o que procura em suas palavras — nossa IA encontra os melhores lugares entre mais de 500 opções curadas para você",
+    "cta": "Falar com a Concierge IA"
   },
   "footer": {
     "hotelName": "Castro's Park Hotel",
@@ -194,5 +199,21 @@
     "prevPhoto": "Foto anterior",
     "nextPhoto": "Próxima foto",
     "goToPhoto": "Ir para foto {{n}}"
+  },
+  "hero": {
+    "exclusiveGuide": "Guia exclusivo para hóspedes",
+    "title": "Descubra Goiânia",
+    "subtitle": "Uma curadoria pensada para tornar cada momento da sua estadia inesquecível",
+    "updatedAt": "Atualizado em {{date}}"
+  },
+  "ipe": {
+    "badge": "Dentro do hotel",
+    "tagline": "No seu hotel. Agora.",
+    "description": "Mais de 30 anos de tradição · Certificação 5 estrelas · 72 pratos",
+    "reserve": "Reservar mesa",
+    "viewMenu": "Ver cardápio",
+    "fact1": "Música ao vivo · Sábados",
+    "fact2": "Seg–Dom · 11h às 22h30",
+    "fact3": "Café da manhã incluso"
   }
 }

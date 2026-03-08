@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, MapPin, DollarSign, Navigation } from "lucide-react";
@@ -18,6 +19,7 @@ interface PlaceCardProps {
 
 export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const fallbackImage =
     "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop";
@@ -179,7 +181,7 @@ export const PlaceCard = ({ place, partner }: PlaceCardProps) => {
             className="shrink-0 flex items-center gap-1 text-[11px] font-medium text-hotel-gold/70 hover:text-hotel-gold transition-colors"
           >
             <Navigation className="h-3 w-3" />
-            Como Chegar
+            {t("place.getDirections")}
           </a>
         </div>
       </CardContent>

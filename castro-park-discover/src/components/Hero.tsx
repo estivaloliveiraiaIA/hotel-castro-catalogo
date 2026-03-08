@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { BackgroundPaths } from "@/components/BackgroundPaths";
 
 const HERO_IMAGES = ["/images/hero1.jpg", "/images/hero2.jpg"];
@@ -11,7 +12,9 @@ interface HeroProps {
 }
 
 export const Hero = ({ updatedAt }: HeroProps) => {
-  const updatedText = updatedAt ? new Date(updatedAt).toLocaleString("pt-BR") : null;
+  const { t, i18n } = useTranslation();
+  const locale = i18n.language === "pt" ? "pt-BR" : i18n.language === "es" ? "es-ES" : "en-US";
+  const updatedText = updatedAt ? new Date(updatedAt).toLocaleString(locale) : null;
   const [current, setCurrent] = React.useState(0);
 
   React.useEffect(() => {
@@ -68,21 +71,21 @@ export const Hero = ({ updatedAt }: HeroProps) => {
             className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-hotel-gold/90 animate-fade-up"
             style={{ animationDelay: "200ms" }}
           >
-            Guia exclusivo para hóspedes
+            {t("hero.exclusiveGuide")}
           </p>
 
           <h2
             className="mb-5 font-serif text-5xl font-semibold sm:text-6xl md:text-7xl animate-fade-up drop-shadow-lg"
             style={{ animationDelay: "320ms" }}
           >
-            Descubra Goiânia
+            {t("hero.title")}
           </h2>
 
           <p
             className="mx-auto mb-8 max-w-lg font-serif text-base italic text-white/75 sm:text-lg leading-relaxed animate-fade-up"
             style={{ animationDelay: "440ms" }}
           >
-            Uma curadoria pensada para tornar cada momento da sua estadia inesquecível
+            {t("hero.subtitle")}
           </p>
 
           {updatedText && (
@@ -90,7 +93,7 @@ export const Hero = ({ updatedAt }: HeroProps) => {
               className="mt-4 text-xs text-white/30 animate-fade-up"
               style={{ animationDelay: "560ms" }}
             >
-              Atualizado em {updatedText}
+              {t("hero.updatedAt", { date: updatedText })}
             </p>
           )}
         </div>

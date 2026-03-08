@@ -136,12 +136,17 @@
     "itinerariesSubtitle": "Ready-made experiences selected by the Castro's Park Hotel team to make every moment in Goiânia unforgettable.",
     "loadingItineraries": "Loading itineraries...",
     "loadError": "Could not load itineraries. Please try again.",
-    "footerTagline": "Special curation for guests · Goiânia"
+    "footerTagline": "Special curation for guests · Goiânia",
+    "placesCount": "{{count}} places"
   },
   "concierge": {
     "openAriaLabel": "Open Digital Concierge",
     "title": "Digital Concierge",
-    "closeAriaLabel": "Close"
+    "closeAriaLabel": "Close",
+    "badge": "Digital Concierge · AI",
+    "heroTitle": "Your personal concierge in Goiânia",
+    "heroDesc": "Tell us what you're looking for in your own words — our AI finds the best places among 500+ curated options for you",
+    "cta": "Talk to the AI Concierge"
   },
   "footer": {
     "hotelName": "Castro's Park Hotel",
@@ -194,5 +199,21 @@
     "prevPhoto": "Previous photo",
     "nextPhoto": "Next photo",
     "goToPhoto": "Go to photo {{n}}"
+  },
+  "hero": {
+    "exclusiveGuide": "Exclusive guide for guests",
+    "title": "Discover Goiânia",
+    "subtitle": "A curation designed to make every moment of your stay unforgettable",
+    "updatedAt": "Updated on {{date}}"
+  },
+  "ipe": {
+    "badge": "Inside the hotel",
+    "tagline": "In your hotel. Right now.",
+    "description": "Over 30 years of tradition · 5-star certification · 72 dishes",
+    "reserve": "Reserve a table",
+    "viewMenu": "View menu",
+    "fact1": "Live music · Saturdays",
+    "fact2": "Mon–Sun · 11am to 10:30pm",
+    "fact3": "Breakfast included"
   }
 }
