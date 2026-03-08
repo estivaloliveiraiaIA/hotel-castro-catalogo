@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   MapPin, ArrowLeft, ExternalLink, Globe, Phone,
   Star, Navigation, Clock, Mail, DollarSign, Tag, Sparkles
@@ -50,6 +51,7 @@ function SectionDivider({ label }: { label: string }) {
 const Place = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [showAllReviews, setShowAllReviews] = useState(false);
   const { data, isLoading } = usePlaces();
   const { data: partners } = usePartners();
@@ -71,7 +73,7 @@ const Place = () => {
             <span className="text-sm">✦</span>
             <div className="h-px w-8 bg-hotel-gold/40" />
           </div>
-          <p className="text-sm text-muted-foreground font-serif italic">Carregando...</p>
+          <p className="text-sm text-muted-foreground font-serif italic">{t("common.loading")}</p>
         </div>
       </div>
     );
@@ -82,13 +84,13 @@ const Place = () => {
       <div className="flex min-h-screen items-center justify-center bg-muted px-4">
         <Card className="max-w-lg">
           <CardContent className="space-y-4 p-6 text-center">
-            <p className="text-lg font-semibold">Lugar não encontrado</p>
+            <p className="text-lg font-semibold">{t("place.notFound")}</p>
             <p className="text-sm text-muted-foreground">
-              Não localizamos este estabelecimento. Recarregue ou volte para a lista.
+              {t("place.notFoundDesc")}
             </p>
             <div className="flex justify-center gap-2">
-              <Button variant="secondary" onClick={() => navigate(-1)}>Voltar</Button>
-              <Button onClick={() => navigate("/")}>Ir para início</Button>
+              <Button variant="secondary" onClick={() => navigate(-1)}>{t("common.back")}</Button>
+              <Button onClick={() => navigate("/")}>{t("common.home")}</Button>
             </div>
           </CardContent>
         </Card>
@@ -104,12 +106,10 @@ const Place = () => {
 
       {/* ── HERO FULL-BLEED ─────────────────────────────────────── */}
       <section className="relative h-[55vh] min-h-[340px] max-h-[520px] overflow-hidden">
-        {/* Imagem de fundo */}
         <div
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url('${heroImage}')` }}
         />
-        {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
 
@@ -120,7 +120,7 @@ const Place = () => {
             className="flex items-center gap-1.5 rounded-full bg-black/50 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm border border-white/10 hover:bg-black/70 transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            Voltar
+            {t("common.back")}
           </button>
           <FavoriteButton placeId={place.id} className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-full p-2" />
         </div>
@@ -132,7 +132,7 @@ const Place = () => {
           <div className="flex flex-wrap items-center gap-2">
             {place.hotelRecommended && (
               <span className="inline-flex items-center gap-1 rounded-full bg-hotel-gold px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-black shadow-md">
-                ✦ Recomendado pelo Hotel
+                {t("place.hotelRecommended")}
               </span>
             )}
             {partner && (
@@ -150,7 +150,7 @@ const Place = () => {
               }`}>
                 <span className={`h-1.5 w-1.5 rounded-full ${openStatus.isOpen ? "bg-green-400 animate-pulse" : "bg-red-400/80"}`} />
                 {openStatus.label}
-                {openStatus.closesAt && ` · fecha às ${openStatus.closesAt}`}
+                {openStatus.closesAt && ` · ${t("place.closes", { time: openStatus.closesAt })}`}
               </span>
             )}
           </div>
@@ -169,7 +169,7 @@ const Place = () => {
             {place.distanceKm && (
               <span className="flex items-center gap-1 text-hotel-gold/90 font-medium">
                 <Navigation className="h-3.5 w-3.5" />
-                {place.distanceKm} km do hotel
+                {t("place.distance", { distance: place.distanceKm })}
               </span>
             )}
             <PriceLevel level={place.priceLevel ?? 0} />
@@ -186,7 +186,7 @@ const Place = () => {
         {partner?.dealDescription && (
           <div className="rounded-xl border border-hotel-gold/40 bg-hotel-gold/5 px-5 py-4">
             <p className="text-xs font-semibold uppercase tracking-widest text-hotel-gold mb-1.5">
-              ✦ Vantagem exclusiva para hóspedes
+              {t("place.exclusiveGuest")}
             </p>
             <p className="text-sm text-foreground/80 leading-relaxed">{partner.dealDescription}</p>
           </div>
@@ -200,14 +200,14 @@ const Place = () => {
 
             {/* Sobre */}
             <section className="space-y-3">
-              <SectionDivider label="Sobre" />
+              <SectionDivider label={t("place.about")} />
               <p className="text-base leading-relaxed text-foreground/85">{place.description}</p>
             </section>
 
             {/* Destaques */}
             {place.highlights && place.highlights.length > 0 && (
               <section className="space-y-3">
-                <SectionDivider label="Destaques" />
+                <SectionDivider label={t("place.highlights")} />
                 <div className="flex flex-wrap gap-2">
                   {place.highlights.map((h) => (
                     <span
@@ -225,7 +225,7 @@ const Place = () => {
             {/* Tags e subcategorias */}
             {((place.subcategories?.length ?? 0) > 0 || (place.tags?.length ?? 0) > 0) && (
               <section className="space-y-3">
-                <SectionDivider label="Categorias" />
+                <SectionDivider label={t("place.categories")} />
                 <div className="flex flex-wrap gap-2">
                   {(place.subcategories || []).map((sub) => (
                     <Badge key={sub} variant="secondary" className="font-medium">
@@ -245,7 +245,7 @@ const Place = () => {
             {/* Nota do hotel */}
             {place.notes && (
               <section className="space-y-3">
-                <SectionDivider label="Nota do Hotel" />
+                <SectionDivider label={t("place.notes")} />
                 <div className="rounded-xl border border-hotel-gold/25 bg-hotel-gold/5 px-5 py-4">
                   <p className="font-serif italic text-sm text-foreground/75 leading-relaxed">
                     "{place.notes}"
@@ -263,14 +263,13 @@ const Place = () => {
               <div className="rounded-xl border border-border/60 bg-card p-5 space-y-3">
                 <div className="flex items-center gap-2 text-sm font-semibold">
                   <Clock className="h-4 w-4 text-hotel-gold/70" />
-                  Horários
+                  {t("place.hours")}
                 </div>
                 <ul className="space-y-1.5">
                   {place.hours.map((h, i) => {
                     const [day, ...rest] = h.split(/:\s*/);
                     const hours = rest.join(": ");
                     const isToday = (() => {
-                      const days = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
                       const todayIdx = new Date().toLocaleDateString("pt-BR", { weekday: "long" }).toLowerCase().split("-")[0];
                       return day.toLowerCase().startsWith(todayIdx.slice(0, 3));
                     })();
@@ -287,7 +286,7 @@ const Place = () => {
 
             {/* Card contato + CTA */}
             <div className="rounded-xl border border-border/60 bg-card p-5 space-y-4">
-              <p className="text-sm font-semibold">Contato & Acesso</p>
+              <p className="text-sm font-semibold">{t("place.contactAccess")}</p>
 
               <div className="space-y-2.5 text-sm text-muted-foreground">
                 {place.phone && (
@@ -305,13 +304,13 @@ const Place = () => {
                 {place.menuUrl && (
                   <a href={place.menuUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-foreground transition-colors">
                     <Globe className="h-4 w-4 text-hotel-gold/60 shrink-0" />
-                    Ver cardápio
+                    {t("place.menu")}
                   </a>
                 )}
                 {place.website && (
                   <a href={place.website} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-foreground transition-colors">
                     <Globe className="h-4 w-4 text-hotel-gold/60 shrink-0" />
-                    Site oficial
+                    {t("place.visitWebsite")}
                   </a>
                 )}
               </div>
@@ -324,7 +323,7 @@ const Place = () => {
                 className="flex items-center justify-center gap-2 w-full rounded-lg bg-hotel-gold px-4 py-3 text-sm font-semibold text-black hover:bg-hotel-gold/90 transition-colors"
               >
                 <Navigation className="h-4 w-4" />
-                Como Chegar
+                {t("place.getDirections")}
                 {place.distanceKm && (
                   <span className="ml-1 rounded-full bg-black/15 px-2 py-0.5 text-xs font-medium">
                     {place.distanceKm} km
@@ -339,7 +338,7 @@ const Place = () => {
                   rel="noreferrer"
                   className="flex items-center justify-center gap-2 w-full rounded-lg border border-border/60 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:border-hotel-gold/40 transition-colors"
                 >
-                  Ver fonte <ExternalLink className="h-3.5 w-3.5" />
+                  {t("place.source")} <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               )}
             </div>
@@ -349,7 +348,7 @@ const Place = () => {
         {/* ── AVALIAÇÕES ──────────────────────────────────────────── */}
         {place.reviews && place.reviews.length > 0 && (
           <section className="space-y-5 pt-2">
-            <SectionDivider label="O que dizem" />
+            <SectionDivider label={t("place.reviews")} />
 
             {/* Rating prominente */}
             <div className="flex items-center gap-3">
@@ -362,7 +361,7 @@ const Place = () => {
                 ))}
               </div>
               <span className="font-serif text-2xl font-semibold">{place.rating.toFixed(1)}</span>
-              <span className="text-sm text-muted-foreground">({place.reviewCount} avaliações)</span>
+              <span className="text-sm text-muted-foreground">{t("place.reviewsCount", { count: place.reviewCount })}</span>
             </div>
 
             {/* Cards de review */}
@@ -393,8 +392,8 @@ const Place = () => {
                 className="text-xs text-hotel-gold/70 hover:text-hotel-gold transition-colors font-medium"
               >
                 {showAllReviews
-                  ? "Mostrar menos ↑"
-                  : `Ver todas as ${place.reviews.length} avaliações ↓`}
+                  ? t("place.showLess")
+                  : t("place.showAll", { count: place.reviews.length })}
               </button>
             )}
           </section>

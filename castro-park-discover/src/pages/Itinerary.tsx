@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, Clock, Users, MapPin, Navigation, Lightbulb } from "lucide-react";
 import { useItineraries } from "@/hooks/useItineraries";
 import { usePlaces } from "@/hooks/usePlaces";
@@ -11,6 +12,7 @@ import { getDirectionsUrl } from "@/lib/maps";
 const Itinerary = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { data: itineraries, isLoading: loadingItineraries } = useItineraries();
   const { data: placesData, isLoading: loadingPlaces } = usePlaces();
 
@@ -35,7 +37,7 @@ const Itinerary = () => {
   if (isLoading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <p className="text-muted-foreground">Carregando roteiro...</p>
+        <p className="text-muted-foreground">{t("common.loading")}</p>
       </div>
     );
   }
@@ -44,8 +46,8 @@ const Itinerary = () => {
     return (
       <div className="flex min-h-screen items-center justify-center px-4">
         <div className="text-center space-y-4">
-          <p className="text-lg font-semibold">Roteiro não encontrado</p>
-          <Button onClick={() => navigate("/itineraries")}>Ver roteiros</Button>
+          <p className="text-lg font-semibold">{t("itinerary.notFound")}</p>
+          <Button onClick={() => navigate("/itineraries")}>{t("itinerary.backToItineraries")}</Button>
         </div>
       </div>
     );
@@ -58,7 +60,7 @@ const Itinerary = () => {
       <div className="container px-4 pt-4">
         <Button variant="ghost" size="sm" onClick={() => navigate("/itineraries")}>
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Roteiros
+          {t("itinerary.thematicItineraries")}
         </Button>
       </div>
 
@@ -97,7 +99,7 @@ const Itinerary = () => {
           {/* Timeline */}
           <div className="lg:col-span-2 space-y-0">
             <h2 className="text-xl font-semibold mb-6">
-              {stops.length} paradas neste roteiro
+              {t("itinerary.stops", { count: stops.length })}
             </h2>
 
             {stops.map((stop, index) => (
@@ -180,7 +182,7 @@ const Itinerary = () => {
                                 rel="noreferrer"
                               >
                                 <Navigation className="mr-1 h-3 w-3" />
-                                Como chegar
+                                {t("itinerary.getDirections")}
                               </a>
                             </Button>
                           </div>
@@ -189,7 +191,7 @@ const Itinerary = () => {
                     </div>
                   ) : (
                     <div className="rounded-xl border bg-muted/30 p-4">
-                      <p className="text-sm text-muted-foreground">Lugar não disponível</p>
+                      <p className="text-sm text-muted-foreground">{t("place.unavailable")}</p>
                       {stop.note && (
                         <p className="mt-1 text-sm italic">"{stop.note}"</p>
                       )}
@@ -206,7 +208,7 @@ const Itinerary = () => {
               <div className="rounded-xl border bg-hotel-gold/5 border-hotel-gold/20 p-5">
                 <h3 className="font-semibold flex items-center gap-2 mb-3">
                   <Lightbulb className="h-4 w-4 text-hotel-gold" />
-                  Dicas do concierge
+                  {t("itinerary.conciergeHints")}
                 </h3>
                 <ul className="space-y-2">
                   {itinerary.tips.map((tip, i) => (
@@ -220,20 +222,20 @@ const Itinerary = () => {
             )}
 
             <div className="rounded-xl border p-5 space-y-3">
-              <h3 className="font-semibold text-sm">Outros roteiros</h3>
+              <h3 className="font-semibold text-sm">{t("itinerary.otherItineraries")}</h3>
               <Button
                 variant="outline"
                 className="w-full"
                 onClick={() => navigate("/itineraries")}
               >
-                Ver todos os roteiros
+                {t("itinerary.backToItineraries")}
               </Button>
               <Button
                 variant="outline"
                 className="w-full"
                 onClick={() => navigate("/")}
               >
-                Explorar lugares
+                {t("favorites.explorePlaces")}
               </Button>
             </div>
           </aside>

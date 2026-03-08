@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { ItineraryCard } from "@/components/ItineraryCard";
 import { useItineraries } from "@/hooks/useItineraries";
@@ -8,6 +9,7 @@ import { ArrowLeft } from "lucide-react";
 const Itineraries = () => {
   const { data: itineraries, isLoading, isError } = useItineraries();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
@@ -16,7 +18,7 @@ const Itineraries = () => {
       <div className="container px-4 pt-4">
         <Button variant="ghost" size="sm" onClick={() => navigate("/")}>
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Início
+          {t("common.home")}
         </Button>
       </div>
 
@@ -28,13 +30,13 @@ const Itineraries = () => {
             <div className="h-px w-12 bg-hotel-gold/50" />
           </div>
           <p className="font-medium text-hotel-gold text-xs tracking-[0.2em] uppercase mb-3">
-            Experiências Curadas
+            {t("itinerary.curatedExperiences")}
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-4">
-            Roteiros Temáticos
+            {t("itinerary.thematicItineraries")}
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Experiências prontas selecionadas pelo time do Castro&apos;s Park Hotel para tornar cada momento em Goiânia inesquecível.
+            {t("itinerary.itinerariesSubtitle")}
           </p>
         </div>
       </section>
@@ -42,13 +44,13 @@ const Itineraries = () => {
       <main className="container px-4 py-10">
         {isLoading && (
           <div className="text-muted-foreground text-center py-16">
-            Carregando roteiros...
+            {t("itinerary.loadingItineraries")}
           </div>
         )}
 
         {isError && (
           <div className="rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive text-center">
-            Nao foi possivel carregar os roteiros. Tente novamente.
+            {t("itinerary.loadError")}
           </div>
         )}
 
@@ -69,10 +71,10 @@ const Itineraries = () => {
             <div className="h-px w-12 bg-hotel-gold/30" />
           </div>
           <p className="font-serif text-base text-foreground/70 mb-1">
-            Castro&apos;s Park Hotel
+            {t("header.hotelName")}
           </p>
           <p className="text-xs text-muted-foreground tracking-wide">
-            Curadoria especial para hóspedes · Goiânia
+            {t("itinerary.footerTagline")}
           </p>
         </div>
       </footer>
