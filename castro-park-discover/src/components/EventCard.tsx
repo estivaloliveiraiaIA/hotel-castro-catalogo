@@ -1,5 +1,6 @@
 import * as React from "react";
-import { CalendarDays, MapPin, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Event } from "@/types/event";
@@ -30,20 +31,17 @@ interface EventCardProps {
 
 export const EventCard = ({ event }: EventCardProps) => {
   const [imgSrc, setImgSrc] = React.useState(event.image || fallbackImage);
+  const navigate = useNavigate();
 
-  const handleCardClick = () => {
-    if (event.link) {
-      window.open(event.link, "_blank", "noreferrer");
-    }
-  };
+  const handleCardClick = () => navigate(`/event/${event.id}`);
 
   return (
     <Card
-      onClick={event.link ? handleCardClick : undefined}
-      role={event.link ? "button" : undefined}
-      tabIndex={event.link ? 0 : undefined}
-      onKeyDown={event.link ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleCardClick(); } } : undefined}
-      className={`group overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/15 hover:border-hotel-gold/50${event.link ? " cursor-pointer" : ""}`}
+      onClick={handleCardClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleCardClick(); } }}
+      className="group overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/15 hover:border-hotel-gold/50 cursor-pointer"
     >
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
         <img
@@ -88,12 +86,10 @@ export const EventCard = ({ event }: EventCardProps) => {
           </div>
         )}
 
-        {event.link && (
-          <span className="inline-flex items-center gap-1 text-xs font-medium text-primary">
-            Saiba mais
-            <ExternalLink className="h-3 w-3" />
-          </span>
-        )}
+        <span className="inline-flex items-center gap-1 text-xs font-medium text-primary">
+          Ver detalhes
+          <ArrowRight className="h-3 w-3" />
+        </span>
       </CardContent>
     </Card>
   );
