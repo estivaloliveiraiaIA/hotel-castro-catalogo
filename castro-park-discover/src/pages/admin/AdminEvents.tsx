@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Plus, Pencil, Trash2, Upload, Calendar, ExternalLink } from "lucide-react";
+import { Plus, Pencil, Trash2, Upload, Calendar, ExternalLink, Sparkles, Link } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -53,6 +53,12 @@ export default function AdminEvents() {
   const [uploadingImg, setUploadingImg] = useState(false);
   const [error, setError] = useState("");
 
+  // ── Importação por URL ────────────────────────────────────────────────────
+  const [importOpen, setImportOpen] = useState(false);
+  const [importUrl, setImportUrl] = useState("");
+  const [importing, setImporting] = useState(false);
+  const [importError, setImportError] = useState("");
+
   const load = () => {
     setLoading(true);
     api
@@ -68,6 +74,29 @@ export default function AdminEvents() {
     setEditing(null);
     setForm(emptyEvent);
     setDialogOpen(true);
+  };
+
+  const openImport = () => {
+    setImportUrl("");
+    setImportError("");
+    setImportOpen(true);
+  };
+
+  const handleImport = async () => {
+    if (!importUrl.trim()) { setImportError("Cole uma URL válida"); return; }
+    setImporting(true);
+    setImportError("");
+    try {
+      const data = await api.post<Omit<Event, "id">>("/api/admin/scrape-event", { url: importUrl.trim() });
+      setImportOpen(false);
+      setEditing(null);
+      setForm({ ...emptyEvent, ...data });
+      setDialogOpen(true);
+    } catch (err) {
+      setImportError(err instanceof Error ? err.message : "Falha ao importar");
+    } finally {
+      setImporting(false);
+    }
   };
 
   const openEdit = (ev: Event) => {
@@ -144,10 +173,15 @@ export default function AdminEvents() {
           <h1 className="font-serif text-2xl font-semibold text-foreground">Eventos</h1>
           <p className="text-muted-foreground text-sm">{events.length} eventos cadastrados</p>
         </div>
-        <Button onClick={openCreate} className="">
-          <Plus className="w-4 h-4 mr-2" />
-          Novo Evento
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" onClick={openImport} className="border-amber-300 text-amber-700 hover:bg-amber-50">
+            <Sparkles className="w-4 h-4 mr-2" />Importar com IA
+          </Button>
+          <Button onClick={openCreate}>
+            <Plus className="w-4 h-4 mr-2" />
+            Novo Evento
+          </Button>
+        </div>
       </div>
 
       {error && (
@@ -224,6 +258,51 @@ export default function AdminEvents() {
           ))}
         </div>
       )}
+
+      {/* Dialog importar com IA */}
+      <Dialog open={importOpen} onOpenChange={setImportOpen}>
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-amber-500" />
+              Importar Evento com IA
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-2">
+            <div className="rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-xs text-amber-800">
+              Cole o link do evento — Sympla, site de shows, página de teatro ou qualquer página. A IA vai extrair automaticamente título, datas, local, descrição e categoria.
+            </div>
+            <Field label="Link do evento">
+              <div className="relative">
+                <Link className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 pointer-events-none" />
+                <Input
+                  className="pl-9"
+                  placeholder="https://sympla.com.br/... ou qualquer URL de evento"
+                  value={importUrl}
+                  onChange={(e) => setImportUrl(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === "Enter" && !importing) handleImport(); }}
+                  disabled={importing}
+                />
+              </div>
+            </Field>
+            {importing && (
+              <div className="flex items-center gap-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+                <div className="w-4 h-4 border-2 border-amber-400 border-t-transparent rounded-full animate-spin shrink-0" />
+                <span>Importando dados e gerando descrição com IA... pode levar até 20 segundos.</span>
+              </div>
+            )}
+            {importError && (
+              <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded px-3 py-2">{importError}</p>
+            )}
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setImportOpen(false)} disabled={importing}>Cancelar</Button>
+            <Button onClick={handleImport} disabled={importing || !importUrl.trim()} className="bg-amber-600 hover:bg-amber-700">
+              {importing ? "Importando..." : "Importar"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">

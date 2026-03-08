@@ -1,7 +1,7 @@
 import { verifyToken, unauthorized } from "../_lib/auth.js";
 
-const HOTEL_LAT = -16.6804;
-const HOTEL_LNG = -49.2541;
+const HOTEL_LAT = -16.6794;
+const HOTEL_LNG = -49.2677;
 
 // ── Extrai dados brutos da URL do Google Maps ─────────────────────────────
 function extractFromUrl(url) {
@@ -111,7 +111,61 @@ async function fetchFromPlacesApi(name, lat, lng, apiKey) {
   };
 }
 
-// ── Extrai JSON-LD da página do Google Maps (fallback sem API key) ────────
+// ── Busca dados via Firecrawl (qualquer URL) ─────────────────────────────
+async function fetchFromFirecrawl(url, apiKey) {
+  try {
+    const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
+      method: "POST",
+      signal: AbortSignal.timeout(20000),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        url,
+        formats: ["extract"],
+        extract: {
+          prompt: "Extract business information from this page. Return null for fields not found.",
+          schema: {
+            type: "object",
+            properties: {
+              name:        { type: "string" },
+              address:     { type: "string" },
+              phone:       { type: "string" },
+              website:     { type: "string" },
+              rating:      { type: "number" },
+              hours:       { type: "string", description: "Opening hours as text, one day per line" },
+              image:       { type: "string", description: "Main image URL" },
+              latitude:    { type: "number" },
+              longitude:   { type: "number" },
+              price_level: { type: "integer", description: "1=budget, 2=moderate, 3=upscale, 4=luxury" },
+            },
+          },
+        },
+      }),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data.success || !data.extract) return null;
+    const e = data.extract;
+    return {
+      name:        e.name        || null,
+      address:     e.address     || null,
+      phone:       e.phone       || null,
+      website:     e.website     || null,
+      rating:      e.rating      || null,
+      hours:       e.hours       || null,
+      image:       e.image       || null,
+      price_level: e.price_level || null,
+      lat:         e.latitude    || null,
+      lng:         e.longitude   || null,
+    };
+  } catch {
+    return null;
+  }
+}
+
+// ── Extrai JSON-LD da página (fallback genérico) ──────────────────────────
 async function fetchFromPage(resolvedUrl) {
   try {
     const res = await fetch(resolvedUrl, {
@@ -261,8 +315,8 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
 
   const { url } = req.body || {};
-  if (!url || typeof url !== "string" || !url.includes("google")) {
-    return res.status(400).json({ error: "URL do Google Maps inválida" });
+  if (!url || typeof url !== "string" || !url.startsWith("http")) {
+    return res.status(400).json({ error: "URL inválida" });
   }
 
   const llmKey = process.env.LLM_API_KEY;
@@ -273,6 +327,7 @@ export default async function handler(req, res) {
   const googleKey = process.env.GOOGLE_PLACES_API_KEY || null;
   const apifyToken = process.env.APIFY_TOKEN || null;
   const orsKey = process.env.ORS_API_KEY || null;
+  const firecrawlKey = process.env.FIRECRAWL_API_KEY || null;
 
   try {
     // 1. Resolve URL (short links)
@@ -280,16 +335,27 @@ export default async function handler(req, res) {
     const { name: urlName, lat, lng } = extractFromUrl(resolvedUrl);
 
     // 2. Scraping + ORS em paralelo (ORS usa lat/lng da URL — independente do scraping)
+    const isGoogleMaps = resolvedUrl.includes("google.com/maps") ||
+                         resolvedUrl.includes("goo.gl/maps") ||
+                         resolvedUrl.includes("maps.app.goo.gl");
+
     const [rawResult, distanceResult] = await Promise.allSettled([
-      // Cadeia: Apify → Places API → JSON-LD → fallback por nome da URL
+      // Cadeia: Apify (Google Maps) → Firecrawl (qualquer URL) → JSON-LD → fallback
       (async () => {
         let data = null;
-        if (apifyToken) {
+        // Apify: melhor para Google Maps (dados estruturados nativos)
+        if (apifyToken && isGoogleMaps) {
           data = await fetchFromApify(resolvedUrl, apifyToken);
         }
-        if (!data && googleKey && urlName) {
+        // Google Places API: fallback para Maps quando Apify falha
+        if (!data && googleKey && urlName && isGoogleMaps) {
           data = await fetchFromPlacesApi(urlName, lat, lng, googleKey);
         }
+        // Firecrawl: qualquer URL (restaurante, evento, TripAdvisor, Sympla...)
+        if (!data && firecrawlKey) {
+          data = await fetchFromFirecrawl(resolvedUrl, firecrawlKey);
+        }
+        // JSON-LD: fallback genérico sem API key
         if (!data) {
           data = await fetchFromPage(resolvedUrl);
         }

@@ -203,7 +203,7 @@ export default function AdminPlaces() {
   };
 
   const handleImport = async () => {
-    if (!importUrl.trim()) { setImportError("Cole a URL do Google Maps"); return; }
+    if (!importUrl.trim()) { setImportError("Cole uma URL válida"); return; }
     setImporting(true);
     setImportError("");
     try {
@@ -480,15 +480,15 @@ export default function AdminPlaces() {
           </DialogHeader>
           <div className="space-y-4 py-2">
             <div className="rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-xs text-amber-800">
-              Cole o link do Google Maps do lugar. A IA vai extrair automaticamente nome, endereço, horários, categoria, descrição e mais.
+              Cole o link do lugar — Google Maps, TripAdvisor, Sympla, site do restaurante ou qualquer página. A IA vai extrair automaticamente nome, endereço, horários, categoria, descrição e mais.
             </div>
-            <Field label="Link do Google Maps">
+            <Field label="Link do lugar">
               <div className="flex gap-2">
                 <div className="relative flex-1">
                   <Link className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60 pointer-events-none" />
                   <Input
                     className="pl-9"
-                    placeholder="https://maps.google.com/... ou https://maps.app.goo.gl/..."
+                    placeholder="https://maps.google.com/... ou https://tripadvisor.com/... ou qualquer URL"
                     value={importUrl}
                     onChange={(e) => setImportUrl(e.target.value)}
                     onKeyDown={(e) => { if (e.key === "Enter" && !importing) handleImport(); }}
