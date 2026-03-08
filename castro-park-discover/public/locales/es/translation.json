@@ -164,5 +164,35 @@
     "en": "EN",
     "es": "ES",
     "label": "Idioma"
+  },
+  "filters": {
+    "sort": "Ordenar",
+    "sortBest": "Mejor recomendado",
+    "sortDistance": "Más cerca del hotel",
+    "sortRating": "Mayor puntuación",
+    "sortReviews": "Más reseñas",
+    "distance": "Distancia",
+    "distanceAny": "Cualquiera",
+    "distanceUpTo": "Hasta {{km}} km",
+    "price": "Precio",
+    "priceAny": "Cualquiera",
+    "priceCheap": "$ (barato)",
+    "priceMedium": "$$ (moderado)",
+    "priceExpensive": "$$$ (caro)",
+    "pricePremium": "$$$$ (premium)",
+    "minRating": "Puntuación mínima",
+    "ratingAny": "Cualquiera",
+    "openNow": "Abierto ahora",
+    "openNowHint": "(cuando esté disponible)"
+  },
+  "carousel": {
+    "prevSlide": "Diapositiva anterior",
+    "nextSlide": "Siguiente diapositiva",
+    "goToSlide": "Ir a la diapositiva {{n}}"
+  },
+  "gallery": {
+    "prevPhoto": "Foto anterior",
+    "nextPhoto": "Siguiente foto",
+    "goToPhoto": "Ir a la foto {{n}}"
   }
 }

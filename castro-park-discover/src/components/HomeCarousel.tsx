@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -33,6 +34,8 @@ export const HomeCarousel = ({
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [startAutoplay]);
+
+  const { t } = useTranslation();
 
   const prev = useCallback(() => {
     setCurrent((p) => (p - 1 + count) % count);
@@ -109,7 +112,7 @@ export const HomeCarousel = ({
         <>
           <button
             onClick={prev}
-            aria-label="Slide anterior"
+            aria-label={t("carousel.prevSlide")}
             className={cn(
               "absolute left-2 md:-left-4 top-1/2 -translate-y-8 z-20",
               "flex items-center justify-center",
@@ -122,7 +125,7 @@ export const HomeCarousel = ({
           </button>
           <button
             onClick={next}
-            aria-label="Próximo slide"
+            aria-label={t("carousel.nextSlide")}
             className={cn(
               "absolute right-2 md:-right-4 top-1/2 -translate-y-8 z-20",
               "flex items-center justify-center",
@@ -146,7 +149,7 @@ export const HomeCarousel = ({
                 setCurrent(i);
                 startAutoplay();
               }}
-              aria-label={`Ir para slide ${i + 1}`}
+              aria-label={t("carousel.goToSlide", { n: i + 1 })}
               className={cn(
                 "h-1.5 rounded-full transition-all duration-300 ease-out",
                 i === current

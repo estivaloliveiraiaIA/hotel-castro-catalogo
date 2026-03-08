@@ -1,0 +1,78 @@
+name: i18n-validator
+version: "1.0.0"
+description: >
+  Squad especializado em validar a implementação de internacionalização (i18n)
+  do app hotel-castro-catalogo. Garante que todas as chaves de tradução existem
+  nos 3 locales (PT/EN/ES), que nenhuma string está hardcoded no código e que
+  o conteúdo dinâmico do Supabase resolve corretamente por idioma.
+
+author: Craft (squad-creator) via Orion (aiox-master)
+created_at: "2026-03-08"
+target_project: hotel-castro-catalogo
+stack:
+  - React 18
+  - TypeScript
+  - react-i18next
+  - i18next-browser-languagedetector
+  - Supabase
+
+agents:
+  - id: i18n-qa
+    file: agents/i18n-qa.md
+    role: lead
+    description: QA agent especializado em validação de i18n
+
+tasks:
+  - id: validate-locale-completeness
+    file: tasks/validate-locale-completeness.md
+    agent: i18n-qa
+    order: 1
+    description: Valida que todas as chaves existem nos 3 arquivos de locale
+
+  - id: validate-hardcoded-strings
+    file: tasks/validate-hardcoded-strings.md
+    agent: i18n-qa
+    order: 2
+    description: Detecta strings PT hardcoded que não usam t()
+
+  - id: validate-dynamic-i18n
+    file: tasks/validate-dynamic-i18n.md
+    agent: i18n-qa
+    order: 3
+    description: Valida resolveI18nField no conteúdo dinâmico do Supabase
+
+  - id: validate-lang-switcher
+    file: tasks/validate-lang-switcher.md
+    agent: i18n-qa
+    order: 4
+    description: Valida o LangSwitcher e persistência de idioma
+
+  - id: generate-i18n-report
+    file: tasks/generate-i18n-report.md
+    agent: i18n-qa
+    order: 5
+    description: Compila relatório final com todos os resultados
+
+checklists:
+  - id: i18n-qa-checklist
+    file: checklists/i18n-qa-checklist.md
+    description: Checklist de 20 pontos para validação completa de i18n
+
+scripts:
+  - id: check-locale-keys
+    file: scripts/check-locale-keys.js
+    description: Compara chaves entre os 3 arquivos de locale e reporta divergências
+
+  - id: find-hardcoded-strings
+    file: scripts/find-hardcoded-strings.js
+    description: Varre src/ em busca de strings PT hardcoded fora de t()
+
+config:
+  - file: config/tech-stack.md
+    description: Stack técnica e contexto do projeto
+
+quality_gates:
+  - all_locale_keys_match: true
+  - zero_hardcoded_strings: true
+  - dynamic_i18n_coverage: 100%
+  - lang_switcher_functional: true

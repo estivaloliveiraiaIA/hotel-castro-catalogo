@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Images } from "lucide-react";
 
@@ -27,6 +28,7 @@ type PlaceGalleryProps = {
 };
 
 export function PlaceGallery({ name, image, gallery }: PlaceGalleryProps) {
+  const { t } = useTranslation();
   const images = useMemo(() => {
     const all = dedupeUrls([image, ...(gallery || [])]);
     return all;
@@ -153,7 +155,7 @@ export function PlaceGallery({ name, image, gallery }: PlaceGalleryProps) {
                 size="icon"
                 className="text-white hover:bg-white/10"
                 onClick={() => emblaApi?.scrollPrev()}
-                aria-label="Foto anterior"
+                aria-label={t("gallery.prevPhoto")}
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
@@ -163,7 +165,7 @@ export function PlaceGallery({ name, image, gallery }: PlaceGalleryProps) {
                 size="icon"
                 className="text-white hover:bg-white/10"
                 onClick={() => emblaApi?.scrollNext()}
-                aria-label="Próxima foto"
+                aria-label={t("gallery.nextPhoto")}
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>
@@ -205,7 +207,7 @@ export function PlaceGallery({ name, image, gallery }: PlaceGalleryProps) {
                       "relative overflow-hidden rounded-md border transition",
                       idx === selectedIndex ? "border-white" : "border-white/20 opacity-70 hover:opacity-100",
                     )}
-                    aria-label={`Ir para foto ${idx + 1}`}
+                    aria-label={t("gallery.goToPhoto", { n: idx + 1 })}
                   >
                     <img
                       src={url}
