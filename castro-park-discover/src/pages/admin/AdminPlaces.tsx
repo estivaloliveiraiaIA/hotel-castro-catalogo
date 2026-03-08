@@ -306,7 +306,7 @@ export default function AdminPlaces() {
       const fields: Record<string, string> = {};
       if (form.name) fields.name = form.name;
       if (form.description) fields.description = form.description;
-      const result = await api.post<Record<string, string>>("/api/admin/translate", { fields });
+      const result = await api.post<Record<string, string>>("/api/admin/places", { action: "translate", fields });
       setForm((f) => ({
         ...f,
         ...(result.name ? { name: result.name } : {}),
