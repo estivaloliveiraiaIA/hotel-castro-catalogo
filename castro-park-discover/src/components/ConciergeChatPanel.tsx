@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { ChatMessage, ConciergePlace } from "@/hooks/useConciergeChat";
+import { ChatMessage, ConciergePlace, ConciergeLanguage } from "@/hooks/useConciergeChat";
 
 const SUGGESTIONS = [
   { label: "Jantar romântico", icon: Utensils },
@@ -22,10 +22,24 @@ const LOADING_MESSAGES = [
   "Quase lá, só mais um instante...",
 ];
 
+const LANGUAGES: { code: ConciergeLanguage; flag: string; label: string; sub: string }[] = [
+  { code: "pt", flag: "🇧🇷", label: "Português", sub: "Brasileiro" },
+  { code: "en", flag: "🇺🇸", label: "English",   sub: "American" },
+  { code: "es", flag: "🇪🇸", label: "Español",   sub: "Latinoamericano" },
+];
+
+const WELCOME: Record<ConciergeLanguage, string> = {
+  pt: "Olá! Sou a Didi, concierge digital do Castro's Park Hotel.\nComo posso ajudar você a aproveitar Goiânia?",
+  en: "Hello! I'm Didi, the digital concierge of Castro's Park Hotel.\nHow can I help you enjoy Goiânia?",
+  es: "¡Hola! Soy Didi, la concierge digital del Castro's Park Hotel.\n¿Cómo puedo ayudarte a disfrutar Goiânia?",
+};
+
 interface ConciergeChatPanelProps {
   messages: ChatMessage[];
   loading: boolean;
   error: string | null;
+  language: ConciergeLanguage | null;
+  onSelectLanguage: (lang: ConciergeLanguage) => void;
   onSend: (text: string) => void;
   onClear: () => void;
   onClose?: () => void;
@@ -62,6 +76,8 @@ export const ConciergeChatPanel = ({
   messages,
   loading,
   error,
+  language,
+  onSelectLanguage,
   onSend,
   onClear,
   onClose,
@@ -101,8 +117,40 @@ export const ConciergeChatPanel = ({
       {/* Área de mensagens */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
 
-        {/* Tela de boas-vindas */}
-        {!hasMessages && !loading && (
+        {/* Tela de seleção de idioma */}
+        {!hasMessages && !loading && !language && (
+          <div className="flex flex-col items-center justify-center h-full py-8 px-4 space-y-6">
+            <div className="text-center space-y-2">
+              <div className="w-14 h-14 rounded-full bg-hotel-gold/10 border border-hotel-gold/30 flex items-center justify-center mx-auto text-2xl">
+                👩‍💼
+              </div>
+              <p className="font-serif text-base font-medium text-foreground">Didi</p>
+              <p className="text-xs text-hotel-gold/70 tracking-wide uppercase">Concierge Digital · Castro's Park</p>
+            </div>
+            <div className="text-center space-y-1">
+              <p className="text-sm font-medium text-foreground">Escolha seu idioma</p>
+              <p className="text-xs text-muted-foreground">Choose your language · Elige tu idioma</p>
+            </div>
+            <div className="flex flex-col gap-3 w-full max-w-[220px]">
+              {LANGUAGES.map(({ code, flag, label, sub }) => (
+                <button
+                  key={code}
+                  onClick={() => onSelectLanguage(code)}
+                  className="flex items-center gap-3 w-full rounded-2xl border border-hotel-gold/20 bg-background px-4 py-3 hover:border-hotel-gold/60 hover:bg-hotel-gold/5 transition-all group text-left"
+                >
+                  <span className="text-2xl">{flag}</span>
+                  <div>
+                    <p className="text-sm font-medium text-foreground group-hover:text-hotel-gold transition-colors">{label}</p>
+                    <p className="text-[10px] text-muted-foreground">{sub}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Tela de boas-vindas após seleção de idioma */}
+        {!hasMessages && !loading && language && (
           <div className="space-y-4">
             <div className="text-center py-6 space-y-2">
               <div className="w-12 h-12 rounded-full bg-hotel-gold/10 border border-hotel-gold/30 flex items-center justify-center mx-auto text-xl">
@@ -110,9 +158,8 @@ export const ConciergeChatPanel = ({
               </div>
               <p className="font-serif text-base font-medium text-foreground">Didi</p>
               <p className="text-xs text-hotel-gold/70 tracking-wide uppercase">Concierge Digital · Castro's Park</p>
-              <p className="font-serif text-sm italic text-muted-foreground leading-relaxed mt-2">
-                Olá! Sou a Didi, concierge digital do Castro's Park Hotel.<br />
-                Como posso ajudar você a aproveitar Goiânia?
+              <p className="font-serif text-sm italic text-muted-foreground leading-relaxed mt-2 whitespace-pre-line">
+                {WELCOME[language]}
               </p>
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
@@ -178,8 +225,8 @@ export const ConciergeChatPanel = ({
         <div ref={bottomRef} />
       </div>
 
-      {/* Footer */}
-      <div className="border-t px-4 py-3 space-y-2">
+      {/* Footer — só aparece após idioma selecionado */}
+      <div className={cn("border-t px-4 py-3 space-y-2", !language && "hidden")}>
 
         {/* Chips persistentes — aparecem após primeira mensagem */}
         {hasMessages && (

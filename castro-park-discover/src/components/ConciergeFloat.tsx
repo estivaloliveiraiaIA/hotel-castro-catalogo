@@ -8,7 +8,7 @@ import { useConciergeChat } from "@/hooks/useConciergeChat";
 export const CONCIERGE_OPEN_EVENT = "concierge:open";
 
 export function ConciergeFloat() {
-  const { messages, loading, error, isOpen, open, close, sendMessage, clearConversation } =
+  const { messages, loading, error, isOpen, language, setLanguage, open, close, sendMessage, clearConversation } =
     useConciergeChat();
   const { t } = useTranslation();
 
@@ -67,6 +67,8 @@ export function ConciergeFloat() {
               messages={messages}
               loading={loading}
               error={error}
+              language={language}
+              onSelectLanguage={setLanguage}
               onSend={sendMessage}
               onClear={clearConversation}
               onClose={handleClose}

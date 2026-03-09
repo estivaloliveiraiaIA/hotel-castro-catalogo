@@ -30,11 +30,14 @@ function classifyError(err: unknown): string {
   return "O concierge não está disponível agora. Tente novamente em instantes.";
 }
 
+export type ConciergeLanguage = "pt" | "en" | "es";
+
 export function useConciergeChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [language, setLanguage] = useState<ConciergeLanguage | null>(null);
 
   const messagesRef = useRef<ChatMessage[]>([]);
   messagesRef.current = messages;
@@ -44,6 +47,7 @@ export function useConciergeChat() {
   const clearConversation = useCallback(() => {
     setMessages([]);
     setError(null);
+    setLanguage(null);
   }, []);
 
   const sendMessage = useCallback(async (text: string) => {
@@ -67,6 +71,7 @@ export function useConciergeChat() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: nextMessages.map(({ role, content }) => ({ role, content })),
+          language,
         }),
       });
 
@@ -94,6 +99,8 @@ export function useConciergeChat() {
     loading,
     error,
     isOpen,
+    language,
+    setLanguage,
     open,
     close,
     sendMessage,

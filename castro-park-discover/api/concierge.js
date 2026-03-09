@@ -192,10 +192,15 @@ async function callClaude(systemPrompt, messages, apiKey) {
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
 
-  const { messages } = req.body || {};
+  const { messages, language } = req.body || {};
   if (!Array.isArray(messages) || messages.length === 0) {
     return res.status(400).json({ error: "messages inválido" });
   }
+
+  const LANGUAGE_NAMES = { pt: "português", en: "English", es: "español" };
+  const langInstruction = language && LANGUAGE_NAMES[language]
+    ? `\nIDIOMA OBRIGATÓRIO: Responda SEMPRE em ${LANGUAGE_NAMES[language]}, independente do idioma das perguntas. Nunca mude de idioma durante a conversa.`
+    : "";
 
   const lastUserMsg = messages.filter((m) => m.role === "user").at(-1)?.content ?? "";
   if (!lastUserMsg || lastUserMsg.trim().length < 2) {
@@ -266,7 +271,7 @@ export default async function handler(req, res) {
       ? `\n\nINFORMAÇÕES DO HOTEL (use apenas quando relevante à pergunta do hóspede):\n${hotelChunks.join("\n\n")}`
       : "";
 
-    const systemPrompt = `Você é a Didi, concierge digital do Castro's Park Hotel em Goiânia, Brasil.
+    const systemPrompt = `Você é a Didi, concierge digital do Castro's Park Hotel em Goiânia, Brasil.${langInstruction}
 
 PERSONALIDADE:
 - Tom caloroso, elegante e genuinamente prestativo — como uma amiga que conhece Goiânia de cor
