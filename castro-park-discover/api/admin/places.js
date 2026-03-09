@@ -27,7 +27,7 @@ async function deeplTranslate(texts, targetLang) {
 }
 
 const ALLOWED_FIELDS = [
-  "name", "category", "subcategories", "rating", "price_level",
+  "id", "name", "category", "subcategories", "rating", "price_level",
   "description", "image", "gallery", "address", "phone", "website",
   "hotel_recommended", "hotel_score", "is_active", "hours", "tags",
   "menu_url", "distance_km",
@@ -92,12 +92,13 @@ export default async function handler(req, res) {
     }
 
     const payload = pickAllowed(req.body || {});
+    if (!payload.id) payload.id = crypto.randomUUID();
     const { data, error } = await supabase
       .from("places")
       .insert(payload)
       .select()
       .single();
-    if (error) return res.status(500).json({ error: "Erro ao criar lugar" });
+    if (error) return res.status(500).json({ error: `Erro ao criar lugar: ${error.message}` });
     return res.status(201).json(data);
   }
 
