@@ -6,21 +6,61 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { ChatMessage, ConciergePlace, ConciergeLanguage } from "@/hooks/useConciergeChat";
 
-const SUGGESTIONS = [
-  { label: "Jantar romântico", icon: Utensils },
-  { label: "Passeio com filhos", icon: Baby },
-  { label: "Café especial", icon: Coffee },
-  { label: "Vida noturna", icon: Moon },
-  { label: "Compras", icon: ShoppingBag },
-];
+const SUGGESTION_ICONS = [Utensils, Baby, Coffee, Moon, ShoppingBag];
 
-const LOADING_MESSAGES = [
-  "Deixa eu verificar as melhores opções para você...",
-  "Consultando o guia do hotel...",
-  "Procurando o que há de melhor em Goiânia...",
-  "Selecionando com carinho para você...",
-  "Quase lá, só mais um instante...",
-];
+const SUGGESTIONS: Record<ConciergeLanguage, { label: string; icon: typeof Utensils }[]> = {
+  pt: [
+    { label: "Jantar romântico", icon: Utensils },
+    { label: "Passeio com filhos", icon: Baby },
+    { label: "Café especial", icon: Coffee },
+    { label: "Vida noturna", icon: Moon },
+    { label: "Compras", icon: ShoppingBag },
+  ],
+  en: [
+    { label: "Romantic dinner", icon: Utensils },
+    { label: "Family outing", icon: Baby },
+    { label: "Special coffee", icon: Coffee },
+    { label: "Nightlife", icon: Moon },
+    { label: "Shopping", icon: ShoppingBag },
+  ],
+  es: [
+    { label: "Cena romántica", icon: Utensils },
+    { label: "Paseo con hijos", icon: Baby },
+    { label: "Café especial", icon: Coffee },
+    { label: "Vida nocturna", icon: Moon },
+    { label: "Compras", icon: ShoppingBag },
+  ],
+};
+
+const LOADING_MESSAGES: Record<ConciergeLanguage, string[]> = {
+  pt: [
+    "Deixa eu verificar as melhores opções para você...",
+    "Consultando o guia do hotel...",
+    "Procurando o que há de melhor em Goiânia...",
+    "Selecionando com carinho para você...",
+    "Quase lá, só mais um instante...",
+  ],
+  en: [
+    "Let me check the best options for you...",
+    "Consulting the hotel guide...",
+    "Finding the best Goiânia has to offer...",
+    "Selecting with care just for you...",
+    "Almost there, just a moment...",
+  ],
+  es: [
+    "Déjame verificar las mejores opciones para ti...",
+    "Consultando la guía del hotel...",
+    "Buscando lo mejor de Goiânia para ti...",
+    "Seleccionando con cariño para ti...",
+    "Ya casi, solo un momento más...",
+  ],
+};
+
+const UI_STRINGS: Record<ConciergeLanguage, { placeholder: string; clearChat: string }> = {
+  pt: { placeholder: "Digite sua pergunta...", clearChat: "Limpar conversa" },
+  en: { placeholder: "Type your question...", clearChat: "Clear conversation" },
+  es: { placeholder: "Escribe tu pregunta...", clearChat: "Limpiar conversación" },
+};
 
 const LANGUAGES: { code: ConciergeLanguage; flag: string; label: string; sub: string }[] = [
   { code: "pt", flag: "🇧🇷", label: "Português", sub: "Brasileiro" },
@@ -86,17 +126,21 @@ export const ConciergeChatPanel = ({
   const [loadingMsgIdx, setLoadingMsgIdx] = useState(0);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // Roda mensagens de loading humanizadas
+  const lang = language ?? "pt";
+  const suggestions = SUGGESTIONS[lang];
+  const loadingMessages = LOADING_MESSAGES[lang];
+  const ui = UI_STRINGS[lang];
+
   useEffect(() => {
     if (!loading) {
       setLoadingMsgIdx(0);
       return;
     }
     const timer = setInterval(() => {
-      setLoadingMsgIdx((i) => (i + 1) % LOADING_MESSAGES.length);
+      setLoadingMsgIdx((i) => (i + 1) % loadingMessages.length);
     }, 2500);
     return () => clearInterval(timer);
-  }, [loading]);
+  }, [loading, loadingMessages.length]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -165,7 +209,7 @@ export const ConciergeChatPanel = ({
               </p>
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
-              {SUGGESTIONS.map(({ label, icon: Icon }) => (
+              {suggestions.map(({ label, icon: Icon }) => (
                 <button
                   key={label}
                   onClick={() => onSend(label)}
@@ -211,7 +255,7 @@ export const ConciergeChatPanel = ({
           <div className="flex justify-start">
             <div className="bg-card border border-border/60 rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
               <p className="text-xs text-muted-foreground italic animate-pulse">
-                {LOADING_MESSAGES[loadingMsgIdx]}
+                {loadingMessages[loadingMsgIdx]}
               </p>
             </div>
           </div>
@@ -234,7 +278,7 @@ export const ConciergeChatPanel = ({
         {/* Chips persistentes — aparecem após primeira mensagem */}
         {hasMessages && (
           <div className="-mx-1 flex gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
-            {SUGGESTIONS.map(({ label, icon: Icon }) => (
+            {suggestions.map(({ label, icon: Icon }) => (
               <button
                 key={label}
                 onClick={() => onSend(label)}
@@ -255,7 +299,7 @@ export const ConciergeChatPanel = ({
             className="flex items-center gap-1 text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors"
           >
             <Trash2 className="h-3 w-3" />
-            Limpar conversa
+            {ui.clearChat}
           </button>
         )}
 
@@ -264,7 +308,7 @@ export const ConciergeChatPanel = ({
           <Input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Digite sua pergunta..."
+            placeholder={ui.placeholder}
             className="rounded-full pl-4 h-10 text-sm border-hotel-gold/30 focus-visible:border-hotel-gold/60 focus-visible:ring-hotel-gold/20"
             disabled={loading}
           />
