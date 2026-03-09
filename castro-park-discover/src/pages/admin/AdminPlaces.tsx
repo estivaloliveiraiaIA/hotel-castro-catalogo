@@ -253,7 +253,7 @@ export default function AdminPlaces() {
       const data = await api.post<Omit<Place, "id">>("/api/admin/scrape-place", { url: importUrl.trim() });
       setImportOpen(false);
       setEditing(null);
-      setForm({ ...emptyPlace, ...data, gallery: [], subcategories: data.subcategories || [], tags: data.tags || [] });
+      setForm({ ...emptyPlace, ...data, gallery: data.gallery || [], subcategories: data.subcategories || [], tags: data.tags || [] });
       setGalleryInput("");
       setDialogOpen(true);
     } catch (err) {
@@ -574,7 +574,7 @@ export default function AdminPlaces() {
             {importing && (
               <div className="flex items-center gap-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
                 <div className="w-4 h-4 border-2 border-amber-400 border-t-transparent rounded-full animate-spin shrink-0" />
-                <span>Importando dados e gerando descrição com IA... pode levar até 15 segundos.</span>
+                <span>Importando dados e gerando descrição com IA... pode levar até 35 segundos.</span>
               </div>
             )}
             {importError && (

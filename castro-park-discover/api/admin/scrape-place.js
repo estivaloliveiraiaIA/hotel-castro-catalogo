@@ -1,5 +1,8 @@
 import { verifyToken, unauthorized } from "../_lib/auth.js";
 
+// Vercel Pro: aumenta timeout da função para 45s (necessário para Apify ~30s)
+export const maxDuration = 45;
+
 const HOTEL_LAT = -16.6794;
 const HOTEL_LNG = -49.2677;
 
@@ -36,10 +39,10 @@ async function resolveUrl(url) {
 async function fetchFromApify(resolvedUrl, apifyToken) {
   try {
     const res = await fetch(
-      `https://api.apify.com/v2/acts/compass~google-maps-scraper/run-sync-get-dataset-items?token=${apifyToken}&timeout=7`,
+      `https://api.apify.com/v2/acts/compass~google-maps-scraper/run-sync-get-dataset-items?token=${apifyToken}&timeout=30`,
       {
         method: "POST",
-        signal: AbortSignal.timeout(7000),
+        signal: AbortSignal.timeout(32000),
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           startUrls: [{ url: resolvedUrl }],
@@ -58,6 +61,11 @@ async function fetchFromApify(resolvedUrl, apifyToken) {
       ? p.openingHours.map((h) => `${h.day}: ${h.hours}`).join("\n")
       : null;
 
+    // gallery: Apify retorna p.images[] (array de URLs) além da imageUrl principal
+    const gallery = Array.isArray(p.images)
+      ? p.images.map((img) => (typeof img === "string" ? img : img?.url)).filter(Boolean)
+      : [];
+
     return {
       name: p.title || null,
       address: p.address || null,
@@ -65,7 +73,8 @@ async function fetchFromApify(resolvedUrl, apifyToken) {
       website: p.website || null,
       rating: p.totalScore || null,
       hours: hoursText,
-      image: p.imageUrl || null,
+      image: p.imageUrl || gallery[0] || null,
+      gallery,
       price_level: p.price ? p.price.length : null,
       lat: p.location?.lat || null,
       lng: p.location?.lng || null,
@@ -334,52 +343,42 @@ export default async function handler(req, res) {
     const resolvedUrl = await resolveUrl(url);
     const { name: urlName, lat, lng } = extractFromUrl(resolvedUrl);
 
-    // 2. Scraping + ORS em paralelo (ORS usa lat/lng da URL — independente do scraping)
+    // 2. Scraping primeiro — coordenadas do scraper são mais precisas que as da URL
+    //    (URL @lat,lng = posição da câmera/view; scraper retorna o pino exato do negócio)
     const isGoogleMaps = resolvedUrl.includes("google.com/maps") ||
                          resolvedUrl.includes("goo.gl/maps") ||
                          resolvedUrl.includes("maps.app.goo.gl");
 
-    const [rawResult, distanceResult] = await Promise.allSettled([
-      // Cadeia: Apify (Google Maps) → Firecrawl (qualquer URL) → JSON-LD → fallback
-      (async () => {
-        let data = null;
-        // Apify: melhor para Google Maps (dados estruturados nativos)
-        if (apifyToken && isGoogleMaps) {
-          data = await fetchFromApify(resolvedUrl, apifyToken);
-        }
-        // Google Places API: fallback para Maps quando Apify falha
-        if (!data && googleKey && urlName && isGoogleMaps) {
-          data = await fetchFromPlacesApi(urlName, lat, lng, googleKey);
-        }
-        // Firecrawl: qualquer URL (restaurante, evento, TripAdvisor, Sympla...)
-        if (!data && firecrawlKey) {
-          data = await fetchFromFirecrawl(resolvedUrl, firecrawlKey);
-        }
-        // JSON-LD: fallback genérico sem API key
-        if (!data) {
-          data = await fetchFromPage(resolvedUrl);
-        }
-        if (!data) {
-          data = { name: urlName || "Lugar importado", address: null, phone: null, website: null, rating: null, hours: null, image: null, price_level: null };
-        }
-        if (!data.name && urlName) data.name = urlName;
-        return data;
-      })(),
-      // ORS: calcula distância se tivermos coordenadas da URL
-      lat && lng && orsKey ? calcDistanceORS(lat, lng, orsKey) : Promise.resolve(null),
-    ]);
+    let raw = null;
+    // Cadeia: Apify (Google Maps) → Google Places API → Firecrawl → JSON-LD → fallback
+    if (apifyToken && isGoogleMaps) {
+      raw = await fetchFromApify(resolvedUrl, apifyToken);
+    }
+    if (!raw && googleKey && urlName && isGoogleMaps) {
+      raw = await fetchFromPlacesApi(urlName, lat, lng, googleKey);
+    }
+    if (!raw && firecrawlKey) {
+      raw = await fetchFromFirecrawl(resolvedUrl, firecrawlKey);
+    }
+    if (!raw) {
+      raw = await fetchFromPage(resolvedUrl);
+    }
+    if (!raw) {
+      raw = { name: urlName || "Lugar importado", address: null, phone: null, website: null, rating: null, hours: null, image: null, gallery: [], price_level: null };
+    }
+    if (!raw.name && urlName) raw.name = urlName;
+    if (!raw.gallery) raw.gallery = [];
 
-    const raw = rawResult.status === "fulfilled"
-      ? rawResult.value
-      : { name: urlName || "Lugar importado", address: null, phone: null, website: null, rating: null, hours: null, image: null, price_level: null };
-
-    // Se Apify retornou coordenadas e URL não tinha, tenta ORS com coords do Apify
-    let distance_km = distanceResult.status === "fulfilled" ? distanceResult.value : null;
-    if (distance_km === null && orsKey && raw.lat && raw.lng) {
-      distance_km = await calcDistanceORS(raw.lat, raw.lng, orsKey);
+    // 3. ORS: usa coordenadas do scraper (pino exato) ou da URL (câmera) como fallback
+    //    Prioridade: raw.lat/lng (Apify/scraper, precisos) > lat/lng da URL (câmera, impreciso)
+    const bestLat = raw.lat || lat;
+    const bestLng = raw.lng || lng;
+    let distance_km = null;
+    if (orsKey && bestLat && bestLng) {
+      distance_km = await calcDistanceORS(bestLat, bestLng, orsKey);
     }
 
-    // 3. Haiku enriquece com categoria, descrição e subcategorias
+    // 4. Haiku enriquece com categoria, descrição e subcategorias
     const enriched = await enrichWithHaiku(raw, llmKey);
 
     return res.status(200).json({
@@ -390,6 +389,7 @@ export default async function handler(req, res) {
       rating: raw.rating || null,
       hours: raw.hours || "",
       image: raw.image || null,
+      gallery: Array.isArray(raw.gallery) ? raw.gallery : [],
       price_level: enriched.price_level ?? raw.price_level ?? null,
       category: enriched.category || "restaurants",
       subcategories: Array.isArray(enriched.subcategories) ? enriched.subcategories : [],
