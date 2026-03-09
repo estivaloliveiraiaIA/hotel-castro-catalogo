@@ -5,10 +5,52 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-const FALLBACK = {
-  message: "Não consegui entender sua busca. Tente: 'restaurante italiano perto do hotel', 'o que fazer com crianças', 'barzinho para noite'.",
-  places: [],
+// ────────────────────────────────────────────────────────
+// Mensagens i18n — fallback, erro, timeout, boas maneiras
+// ────────────────────────────────────────────────────────
+const FALLBACK_MSG = {
+  pt: "Não consegui entender sua busca. Tente: 'restaurante italiano perto do hotel', 'o que fazer com crianças', 'barzinho para noite'.",
+  en: "I couldn't quite understand that. Try: 'Italian restaurant near the hotel', 'things to do with kids', 'bar for the evening'.",
+  es: "No pude entender tu búsqueda. Prueba: 'restaurante italiano cerca del hotel', 'qué hacer con niños', 'bar para la noche'.",
 };
+
+const TIMEOUT_MSG = {
+  pt: "Demorei um pouco mais que o esperado. Pode tentar novamente?",
+  en: "I took a bit longer than expected. Could you try again?",
+  es: "Me tomé un poco más de lo esperado. ¿Puedes intentarlo de nuevo?",
+};
+
+const HOTEL_FALLBACK_MSG = {
+  pt: "Para essa informação, a Dielly — nossa concierge na recepção — vai te ajudar com prazer! Você também pode ligar pelo (62) 3096-2000.",
+  en: "For that, Dielly — our concierge at the front desk — will be happy to help! You can also call (62) 3096-2000.",
+  es: "Para eso, Dielly — nuestra concierge en recepción — te ayudará con gusto. También puedes llamar al (62) 3096-2000.",
+};
+
+const ACKNOWLEDGMENT_MSG = {
+  pt: "Fico feliz em ajudar! 😊 Se precisar de mais alguma coisa durante sua estadia em Goiânia, é só perguntar.",
+  en: "You're welcome! 😊 If you need anything else during your stay in Goiânia, just ask.",
+  es: "¡Con gusto! 😊 Si necesitas algo más durante tu estadía en Goiânia, no dudes en preguntar.",
+};
+
+// Palavras de cortesia/reconhecimento — não precisam de busca
+const ACKNOWLEDGMENT_WORDS = new Set([
+  "thanks", "thank", "thankyou", "thank you", "ty",
+  "obrigado", "obrigada", "valeu", "brigado", "brigada",
+  "gracias", "muchas gracias",
+  "ok", "okay", "ок", "tudo bem", "entendido",
+  "great", "perfect", "awesome", "wonderful", "amazing", "nice", "cool", "wow",
+  "otimo", "otima", "perfeito", "perfeita", "maravilhoso", "maravilhosa",
+  "genial", "excelente", "perfecto", "estupendo",
+]);
+
+function isAcknowledgment(query) {
+  const norm = normalize(query).trim();
+  return ACKNOWLEDGMENT_WORDS.has(norm) || norm.length <= 6 && ACKNOWLEDGMENT_WORDS.has(norm);
+}
+
+function fallback(lang) {
+  return { message: FALLBACK_MSG[lang] || FALLBACK_MSG.pt, places: [] };
+}
 
 // ────────────────────────────────────────────────────────
 // Mapeamento de intenção → categoria do banco
@@ -207,9 +249,16 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "mensagem muito curta" });
   }
 
+  const lang = (language && ["pt", "en", "es"].includes(language)) ? language : "pt";
+
   const apiKey = process.env.LLM_API_KEY;
   if (!apiKey) {
-    return res.status(200).json(FALLBACK);
+    return res.status(200).json(fallback(lang));
+  }
+
+  // Detecta agradecimentos e respostas de cortesia — não precisam de busca
+  if (isAcknowledgment(lastUserMsg)) {
+    return res.status(200).json({ message: ACKNOWLEDGMENT_MSG[lang], places: [] });
   }
 
   try {
@@ -320,22 +369,16 @@ Selecione até 3 lugares que melhor atendem ao pedido atual. Responda SOMENTE co
     console.error("[concierge] error:", err.message);
 
     if (err.name === "AbortError" || err.message?.includes("timeout")) {
-      return res.status(200).json({
-        message: "Demorei um pouco mais que o esperado. Pode tentar novamente?",
-        places: [],
-      });
+      return res.status(200).json({ message: TIMEOUT_MSG[lang], places: [] });
     }
 
-    // Se falhou mas era uma pergunta sobre o hotel, resposta mais útil que o FALLBACK
+    // Se falhou mas era uma pergunta sobre o hotel, resposta mais útil que o fallback
     const safeQuery = sanitizeQuery(lastUserMsg);
     const keywords = extractKeywords(safeQuery);
     if (isHotelQuery(keywords)) {
-      return res.status(200).json({
-        message: "Para essa informação, a Dielly — nossa concierge na recepção — vai te ajudar com prazer! Você também pode ligar pelo (62) 3096-2000.",
-        places: [],
-      });
+      return res.status(200).json({ message: HOTEL_FALLBACK_MSG[lang], places: [] });
     }
 
-    return res.status(200).json(FALLBACK);
+    return res.status(200).json(fallback(lang));
   }
 }
