@@ -45,9 +45,12 @@ export function ConciergeFloat() {
         >
           <SheetHeader className="px-4 py-3 border-b shrink-0">
             <div className="flex items-center justify-between">
-              <SheetTitle className="flex items-center gap-2 font-serif text-base">
-                <Sparkles className="h-4 w-4 text-hotel-gold" />
-                {t("concierge.title")}
+              <SheetTitle className="flex items-center gap-2">
+                <span className="text-lg">👩‍💼</span>
+                <div className="flex flex-col">
+                  <span className="font-serif text-base leading-tight">{t("concierge.title")}</span>
+                  <span className="text-[10px] text-hotel-gold/70 font-normal tracking-wide leading-tight">Concierge Digital · Castro's Park</span>
+                </div>
               </SheetTitle>
               <button
                 onClick={handleClose}

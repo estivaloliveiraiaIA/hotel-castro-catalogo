@@ -15,10 +15,10 @@ const SUGGESTIONS = [
 ];
 
 const LOADING_MESSAGES = [
-  "Estou verificando as melhores opções...",
+  "Deixa eu verificar as melhores opções para você...",
   "Consultando o guia do hotel...",
   "Procurando o que há de melhor em Goiânia...",
-  "Selecionando com cuidado para você...",
+  "Selecionando com carinho para você...",
   "Quase lá, só mais um instante...",
 ];
 
@@ -104,9 +104,14 @@ export const ConciergeChatPanel = ({
         {/* Tela de boas-vindas */}
         {!hasMessages && !loading && (
           <div className="space-y-4">
-            <div className="text-center py-6">
-              <p className="font-serif text-sm italic text-muted-foreground leading-relaxed">
-                Olá! Sou a concierge digital do Castro's Park Hotel.<br />
+            <div className="text-center py-6 space-y-2">
+              <div className="w-12 h-12 rounded-full bg-hotel-gold/10 border border-hotel-gold/30 flex items-center justify-center mx-auto text-xl">
+                👩‍💼
+              </div>
+              <p className="font-serif text-base font-medium text-foreground">Didi</p>
+              <p className="text-xs text-hotel-gold/70 tracking-wide uppercase">Concierge Digital · Castro's Park</p>
+              <p className="font-serif text-sm italic text-muted-foreground leading-relaxed mt-2">
+                Olá! Sou a Didi, concierge digital do Castro's Park Hotel.<br />
                 Como posso ajudar você a aproveitar Goiânia?
               </p>
             </div>
@@ -131,18 +136,23 @@ export const ConciergeChatPanel = ({
             key={idx}
             className={cn("flex", msg.role === "user" ? "justify-end" : "justify-start")}
           >
-            <div
-              className={cn(
-                "max-w-[85%] rounded-2xl px-4 py-3 text-sm",
-                msg.role === "user"
-                  ? "bg-hotel-gold/15 text-foreground rounded-br-sm"
-                  : "bg-card border border-border/60 text-foreground rounded-bl-sm"
+            <div className={cn("flex flex-col gap-1", msg.role === "user" ? "items-end" : "items-start")}>
+              {msg.role === "assistant" && (
+                <span className="text-[10px] text-hotel-gold/60 px-1 font-medium tracking-wide">Didi</span>
               )}
-            >
-              <p className="leading-relaxed">{msg.content}</p>
-              {msg.role === "assistant" && msg.places && (
-                <PlaceSuggestions places={msg.places} onClose={onClose} />
-              )}
+              <div
+                className={cn(
+                  "max-w-[85%] rounded-2xl px-4 py-3 text-sm",
+                  msg.role === "user"
+                    ? "bg-hotel-gold/15 text-foreground rounded-br-sm"
+                    : "bg-card border border-border/60 text-foreground rounded-bl-sm"
+                )}
+              >
+                <p className="leading-relaxed">{msg.content}</p>
+                {msg.role === "assistant" && msg.places && (
+                  <PlaceSuggestions places={msg.places} onClose={onClose} />
+                )}
+              </div>
             </div>
           </div>
         ))}

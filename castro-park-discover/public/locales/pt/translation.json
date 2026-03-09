@@ -140,13 +140,13 @@
     "placesCount": "{{count}} lugares"
   },
   "concierge": {
-    "openAriaLabel": "Abrir Concierge Digital",
-    "title": "Concierge Digital",
+    "openAriaLabel": "Falar com a Didi",
+    "title": "Didi",
     "closeAriaLabel": "Fechar",
-    "badge": "Concierge Digital · IA",
-    "heroTitle": "Seu concierge pessoal em Goiânia",
-    "heroDesc": "Diga o que procura em suas palavras — nossa IA encontra os melhores lugares entre mais de 500 opções curadas para você",
-    "cta": "Falar com a Concierge IA"
+    "badge": "Didi · Concierge IA",
+    "heroTitle": "Conheça a Didi, sua concierge em Goiânia",
+    "heroDesc": "Diga o que procura em suas palavras — a Didi encontra os melhores lugares entre mais de 500 opções curadas para você",
+    "cta": "Falar com a Didi"
   },
   "footer": {
     "hotelName": "Castro's Park Hotel",
