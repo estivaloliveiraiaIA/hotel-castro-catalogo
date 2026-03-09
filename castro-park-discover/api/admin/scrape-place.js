@@ -1,7 +1,5 @@
 import { verifyToken, unauthorized } from "../_lib/auth.js";
-
-// Vercel Pro: aumenta timeout da função para 45s (necessário para Apify ~30s)
-export const maxDuration = 45;
+// maxDuration configurado em vercel.json → "api/admin/scrape-place.js": { "maxDuration": 60 }
 
 const HOTEL_LAT = -16.6794;
 const HOTEL_LNG = -49.2677;
@@ -35,36 +33,42 @@ async function resolveUrl(url) {
   }
 }
 
-// ── Busca dados via Apify Google Maps Scraper ─────────────────────────────
-async function fetchFromApify(resolvedUrl, apifyToken) {
+// ── Busca dados via Apify Google Maps Extractor ───────────────────────────
+// Usa searchStringsArray (busca por nome) — compass~google-maps-extractor
+// aceita esse input e retorna dados completos em ~14s
+async function fetchFromApify(placeName, apifyToken) {
+  if (!placeName) return null;
   try {
+    console.log("[apify] buscando por nome:", placeName);
     const res = await fetch(
-      `https://api.apify.com/v2/acts/compass~google-maps-scraper/run-sync-get-dataset-items?token=${apifyToken}&timeout=30`,
+      `https://api.apify.com/v2/acts/compass~google-maps-extractor/run-sync-get-dataset-items?token=${apifyToken}&timeout=55`,
       {
         method: "POST",
-        signal: AbortSignal.timeout(32000),
+        signal: AbortSignal.timeout(57000),
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          startUrls: [{ url: resolvedUrl }],
+          searchStringsArray: [`${placeName} Goiânia`],
+          locationQuery: "Goiânia, GO, Brasil",
           maxCrawledPlacesPerSearch: 1,
-          language: "pt",
-          countryCode: "br",
+          deeperCityScrape: false,
+          skipClosedPlaces: false,
         }),
       }
     );
-    if (!res.ok) return null;
+    if (!res.ok) {
+      const body = await res.text();
+      console.error("[apify] HTTP", res.status, body.slice(0, 200));
+      return null;
+    }
     const items = await res.json();
+    console.log("[apify] items recebidos:", items?.length ?? 0);
     const p = Array.isArray(items) ? items[0] : null;
     if (!p) return null;
 
+    const DAY_PT = { Monday:"Segunda",Tuesday:"Terça",Wednesday:"Quarta",Thursday:"Quinta",Friday:"Sexta",Saturday:"Sábado",Sunday:"Domingo" };
     const hoursText = Array.isArray(p.openingHours)
-      ? p.openingHours.map((h) => `${h.day}: ${h.hours}`).join("\n")
+      ? p.openingHours.map((h) => `${DAY_PT[h.day] || h.day}: ${h.hours}`).join("\n")
       : null;
-
-    // gallery: Apify retorna p.images[] (array de URLs) além da imageUrl principal
-    const gallery = Array.isArray(p.images)
-      ? p.images.map((img) => (typeof img === "string" ? img : img?.url)).filter(Boolean)
-      : [];
 
     return {
       name: p.title || null,
@@ -73,13 +77,15 @@ async function fetchFromApify(resolvedUrl, apifyToken) {
       website: p.website || null,
       rating: p.totalScore || null,
       hours: hoursText,
-      image: p.imageUrl || gallery[0] || null,
-      gallery,
-      price_level: p.price ? p.price.length : null,
+      image: p.imageUrl || null,
+      gallery: [], // compass~google-maps-extractor não retorna array de imagens
+      price: p.price || null, // ex: "R$40–60" — enviado ao Haiku para interpretar
+      price_level: null, // Haiku define
       lat: p.location?.lat || null,
       lng: p.location?.lng || null,
     };
-  } catch {
+  } catch (e) {
+    console.error("[apify] exceção:", e.message);
     return null;
   }
 }
@@ -153,9 +159,15 @@ async function fetchFromFirecrawl(url, apiKey) {
         },
       }),
     });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.error("[firecrawl] HTTP", res.status);
+      return null;
+    }
     const data = await res.json();
-    if (!data.success || !data.extract) return null;
+    if (!data.success || !data.extract) {
+      console.warn("[firecrawl] sem extract:", JSON.stringify(data).slice(0, 200));
+      return null;
+    }
     const e = data.extract;
     return {
       name:        e.name        || null,
@@ -342,26 +354,35 @@ export default async function handler(req, res) {
     // 1. Resolve URL (short links)
     const resolvedUrl = await resolveUrl(url);
     const { name: urlName, lat, lng } = extractFromUrl(resolvedUrl);
+    console.log("[scrape-place] url resolvida:", resolvedUrl, "| name:", urlName, "| lat:", lat, "lng:", lng);
 
-    // 2. Scraping primeiro — coordenadas do scraper são mais precisas que as da URL
-    //    (URL @lat,lng = posição da câmera/view; scraper retorna o pino exato do negócio)
+    // 2. Scraping — cadeia sequencial com logging de cada etapa
     const isGoogleMaps = resolvedUrl.includes("google.com/maps") ||
                          resolvedUrl.includes("goo.gl/maps") ||
                          resolvedUrl.includes("maps.app.goo.gl");
 
     let raw = null;
-    // Cadeia: Apify (Google Maps) → Google Places API → Firecrawl → JSON-LD → fallback
-    if (apifyToken && isGoogleMaps) {
-      raw = await fetchFromApify(resolvedUrl, apifyToken);
+    let _source = "fallback";
+
+    if (apifyToken && isGoogleMaps && urlName) {
+      raw = await fetchFromApify(urlName, apifyToken);
+      if (raw) { _source = "apify"; console.log("[scrape-place] fonte: apify ✓"); }
+      else console.warn("[scrape-place] apify falhou, tentando próxima fonte");
     }
     if (!raw && googleKey && urlName && isGoogleMaps) {
       raw = await fetchFromPlacesApi(urlName, lat, lng, googleKey);
+      if (raw) { _source = "google-places"; console.log("[scrape-place] fonte: google-places ✓"); }
+      else console.warn("[scrape-place] google-places falhou");
     }
     if (!raw && firecrawlKey) {
       raw = await fetchFromFirecrawl(resolvedUrl, firecrawlKey);
+      if (raw) { _source = "firecrawl"; console.log("[scrape-place] fonte: firecrawl ✓"); }
+      else console.warn("[scrape-place] firecrawl falhou");
     }
     if (!raw) {
       raw = await fetchFromPage(resolvedUrl);
+      if (raw) { _source = "jsonld"; console.log("[scrape-place] fonte: jsonld ✓"); }
+      else console.warn("[scrape-place] jsonld falhou — usando apenas nome da URL");
     }
     if (!raw) {
       raw = { name: urlName || "Lugar importado", address: null, phone: null, website: null, rating: null, hours: null, image: null, gallery: [], price_level: null };
@@ -369,13 +390,15 @@ export default async function handler(req, res) {
     if (!raw.name && urlName) raw.name = urlName;
     if (!raw.gallery) raw.gallery = [];
 
+    console.log("[scrape-place] dados brutos obtidos via", _source, "— address:", raw.address, "| phone:", raw.phone);
+
     // 3. ORS: usa coordenadas do scraper (pino exato) ou da URL (câmera) como fallback
-    //    Prioridade: raw.lat/lng (Apify/scraper, precisos) > lat/lng da URL (câmera, impreciso)
     const bestLat = raw.lat || lat;
     const bestLng = raw.lng || lng;
     let distance_km = null;
     if (orsKey && bestLat && bestLng) {
       distance_km = await calcDistanceORS(bestLat, bestLng, orsKey);
+      console.log("[scrape-place] distância ORS:", distance_km, "km (coords:", bestLat, bestLng, ")");
     }
 
     // 4. Haiku enriquece com categoria, descrição e subcategorias
@@ -396,9 +419,10 @@ export default async function handler(req, res) {
       description: enriched.description || "",
       tags: Array.isArray(enriched.tags) ? enriched.tags : [],
       distance_km,
+      _debug: { source: _source, hasCoords: !!(bestLat && bestLng) },
     });
   } catch (err) {
-    console.error("[scrape-place]", err.message);
+    console.error("[scrape-place] erro:", err.message);
     return res.status(500).json({ error: `Falha ao importar: ${err.message}` });
   }
 }
