@@ -42,6 +42,9 @@ export function useConciergeChat() {
   const messagesRef = useRef<ChatMessage[]>([]);
   messagesRef.current = messages;
 
+  const languageRef = useRef<ConciergeLanguage | null>(null);
+  languageRef.current = language;
+
   const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
   const clearConversation = useCallback(() => {
@@ -71,7 +74,7 @@ export function useConciergeChat() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: nextMessages.map(({ role, content }) => ({ role, content })),
-          language,
+          language: languageRef.current,
         }),
       });
 
