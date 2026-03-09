@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Plus, Pencil, Trash2, Upload, MapPin, ChevronUp, ChevronDown, X } from "lucide-react";
+import { Plus, Pencil, Trash2, Upload, MapPin, ChevronUp, ChevronDown, X, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -69,6 +69,7 @@ export default function AdminItineraries() {
   const [saving, setSaving] = useState(false);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [error, setError] = useState("");
+  const [togglingIds, setTogglingIds] = useState<Set<string>>(new Set());
 
   const load = () => {
     setLoading(true);
@@ -173,6 +174,27 @@ export default function AdminItineraries() {
     }
   };
 
+  const handleToggle = async (it: Itinerary) => {
+    setTogglingIds((prev) => new Set(prev).add(it.id));
+    try {
+      await api.put<Itinerary>("/api/admin/itineraries", {
+        id: it.id,
+        is_active: !it.is_active,
+      });
+      setItineraries((prev) =>
+        prev.map((x) => (x.id === it.id ? { ...x, is_active: !it.is_active } : x))
+      );
+    } catch {
+      setError("Falha ao alterar status do roteiro");
+    } finally {
+      setTogglingIds((prev) => {
+        const next = new Set(prev);
+        next.delete(it.id);
+        return next;
+      });
+    }
+  };
+
   const handleDelete = async (id: string, title: string) => {
     if (!confirm(`Remover roteiro "${title}"?`)) return;
     try {
@@ -239,6 +261,16 @@ export default function AdminItineraries() {
                 </div>
               </div>
               <div className="flex items-center gap-1 shrink-0">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={`h-8 w-8 p-0 ${it.is_active ? "text-green-500 hover:text-green-700" : "text-muted-foreground/40 hover:text-muted-foreground"}`}
+                  onClick={() => handleToggle(it)}
+                  disabled={togglingIds.has(it.id)}
+                  title={it.is_active ? "Desativar roteiro" : "Ativar roteiro"}
+                >
+                  {it.is_active ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                </Button>
                 <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openEdit(it)}>
                   <Pencil className="w-4 h-4" />
                 </Button>
