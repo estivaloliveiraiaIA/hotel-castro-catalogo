@@ -1,4 +1,5 @@
 import { verifyToken, unauthorized } from "../_lib/auth.js";
+import { fetchPhotoReferences, storeGooglePhotos, downloadAndStore } from "../_lib/image-storage.js";
 // maxDuration configurado em vercel.json → "api/admin/scrape-place.js": { "maxDuration": 60 }
 
 const HOTEL_LAT = -16.6794;
@@ -110,9 +111,7 @@ async function fetchFromPlacesApi(name, lat, lng, apiKey) {
   const details = (await detailsRes.json()).result;
   if (!details) return null;
 
-  const imageUrl = details.photos?.[0]
-    ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=${details.photos[0].photo_reference}&key=${apiKey}`
-    : null;
+  const photoRefs = (details.photos || []).slice(0, 5).map((p) => p.photo_reference);
 
   return {
     name: details.name,
@@ -121,8 +120,11 @@ async function fetchFromPlacesApi(name, lat, lng, apiKey) {
     website: details.website || null,
     rating: details.rating || null,
     hours: details.opening_hours?.weekday_text?.join("\n") || null,
-    image: imageUrl,
+    image: null, // será preenchido após upload
+    gallery: [],
     price_level: details.price_level || null,
+    _placeId: placeId,
+    _photoRefs: photoRefs,
   };
 }
 
@@ -392,7 +394,29 @@ export default async function handler(req, res) {
 
     console.log("[scrape-place] dados brutos obtidos via", _source, "— address:", raw.address, "| phone:", raw.phone);
 
-    // 3. ORS: usa coordenadas do scraper (pino exato) ou da URL (câmera) como fallback
+    // 3. Imagens permanentes: baixa e armazena no Supabase Storage
+    if (googleKey && raw._photoRefs?.length) {
+      console.log("[scrape-place] enviando", raw._photoRefs.length, "fotos para Supabase Storage");
+      const storedUrls = await storeGooglePhotos(raw._photoRefs, googleKey);
+      if (storedUrls.length > 0) {
+        raw.image = storedUrls[0];
+        raw.gallery = storedUrls;
+        console.log("[scrape-place] imagens armazenadas:", storedUrls.length);
+      }
+    } else if (raw.image && raw.image.includes("googleusercontent.com")) {
+      // imagem temporária do Apify/Firecrawl — tenta fazer upload permanente
+      console.log("[scrape-place] imagem temporária detectada, enviando para Storage");
+      const stored = await downloadAndStore(raw.image);
+      if (stored) {
+        raw.image = stored;
+        raw.gallery = [stored];
+      }
+    }
+    // limpa campos internos antes de continuar
+    delete raw._placeId;
+    delete raw._photoRefs;
+
+    // 4. ORS: usa coordenadas do scraper (pino exato) ou da URL (câmera) como fallback
     const bestLat = raw.lat || lat;
     const bestLng = raw.lng || lng;
     let distance_km = null;
@@ -401,7 +425,7 @@ export default async function handler(req, res) {
       console.log("[scrape-place] distância ORS:", distance_km, "km (coords:", bestLat, bestLng, ")");
     }
 
-    // 4. Haiku enriquece com categoria, descrição e subcategorias
+    // 5. Haiku enriquece com categoria, descrição e subcategorias
     const enriched = await enrichWithHaiku(raw, llmKey);
 
     return res.status(200).json({
