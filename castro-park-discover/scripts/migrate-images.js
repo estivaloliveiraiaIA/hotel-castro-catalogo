@@ -165,9 +165,10 @@ async function migrate() {
   console.log("");
 
   // 1. Busca todos os lugares
+  // NOTA: o campo `id` JÁ É o Google Place ID (ex: ChIJxxx) — não precisa de source_id
   const { data: places, error: fetchError } = await supabase
     .from("places")
-    .select("id, name, image, gallery, source_id")
+    .select("id, name, image, gallery")
     .order("hotel_score", { ascending: false, nullsFirst: false });
 
   if (fetchError) {
@@ -196,15 +197,24 @@ async function migrate() {
   for (let i = 0; i < limited.length; i++) {
     const place = limited[i];
     const prefix = `[${i + 1}/${limited.length}]`;
-    process.stdout.write(`${prefix} ${place.name} ... `);
+    // name pode ser JSONB
+    const displayName = typeof place.name === "string"
+      ? (place.name.startsWith("{") ? (JSON.parse(place.name).pt || place.name) : place.name)
+      : place.name;
+    process.stdout.write(`${prefix} ${displayName} ... `);
 
-    // Determina o place_id
-    let placeId = place.source_id || null;
-    let photoSource = "source_id";
+    // O campo `id` já é o Google Place ID (ex: ChIJxxx)
+    // Se o id começa com "ChIJ" é place_id direto; senão busca por nome
+    let placeId = place.id.startsWith("ChIJ") ? place.id : null;
+    let photoSource = "place-id";
+
+    // O campo name pode ser JSONB ou string simples
+    const placeName = typeof place.name === "string"
+      ? (place.name.startsWith("{") ? (JSON.parse(place.name).pt || place.name) : place.name)
+      : place.name;
 
     if (!placeId) {
-      // Busca por nome
-      placeId = await findPlaceId(place.name);
+      placeId = await findPlaceId(placeName);
       photoSource = "name-search";
       if (!placeId) {
         console.log("⚠️  place_id não encontrado, pulando");
